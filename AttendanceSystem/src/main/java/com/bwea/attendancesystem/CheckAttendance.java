@@ -5,6 +5,8 @@
  */
 package com.bwea.attendancesystem;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Sunali
@@ -389,6 +391,7 @@ public class CheckAttendance extends javax.swing.JFrame {
 
         // TODO add your handling code here:
         this.setState(JFrame.ICONIFIED);
+  
     }//GEN-LAST:event_jLabelMinMouseClicked
 
     private void btn_scanbarcodesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_scanbarcodesMouseClicked
