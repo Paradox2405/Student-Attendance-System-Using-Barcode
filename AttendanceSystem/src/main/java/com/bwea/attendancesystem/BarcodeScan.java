@@ -37,6 +37,7 @@ public class BarcodeScan extends javax.swing.JFrame {
         btn_home = new javax.swing.JLabel();
         MainPanel = new javax.swing.JPanel();
         txt_barcode = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,6 +115,8 @@ public class BarcodeScan extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("jButton1");
+
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
@@ -121,13 +124,17 @@ public class BarcodeScan extends javax.swing.JFrame {
             .addGroup(MainPanelLayout.createSequentialGroup()
                 .addGap(202, 202, 202)
                 .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jButton1)
+                .addContainerGap(155, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addContainerGap(434, Short.MAX_VALUE))
         );
 
@@ -211,6 +218,7 @@ public class BarcodeScan extends javax.swing.JFrame {
     private javax.swing.JPanel TopPanel;
     private javax.swing.JLabel btn_home;
     private javax.swing.JPanel btn_scanbarcodes;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField txt_barcode;
