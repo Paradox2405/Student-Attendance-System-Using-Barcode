@@ -55,7 +55,7 @@ public class CheckAttendance extends javax.swing.JFrame {
         choice1 = new java.awt.Choice();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         label1 = new java.awt.Label();
-        label2 = new java.awt.Label();
+        display_stu_name = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,7 +94,7 @@ public class CheckAttendance extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_home)
-                .addGap(31, 31, 31)
+                .addGap(30, 30, 30)
                 .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelClose, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -332,9 +332,9 @@ public class CheckAttendance extends javax.swing.JFrame {
         label1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         label1.setText("Name:");
 
-        label2.setBackground(new java.awt.Color(204, 204, 204));
-        label2.setName("searchNameDisplay"); // NOI18N
-        label2.setText("display name");
+        display_stu_name.setBackground(new java.awt.Color(204, 204, 204));
+        display_stu_name.setName("searchNameDisplay"); // NOI18N
+        display_stu_name.setText("display name");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -351,7 +351,7 @@ public class CheckAttendance extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(2, 2, 2)
-                                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(display_stu_name, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -372,7 +372,7 @@ public class CheckAttendance extends javax.swing.JFrame {
                                 .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20)
                                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(display_stu_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47))))
@@ -454,6 +454,7 @@ public class CheckAttendance extends javax.swing.JFrame {
     private javax.swing.JPanel btn_reports;
     private javax.swing.JPanel btn_scanbarcodes;
     private java.awt.Choice choice1;
+    private java.awt.Label display_stu_name;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -470,6 +471,5 @@ public class CheckAttendance extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
     private java.awt.Label label1;
-    private java.awt.Label label2;
     // End of variables declaration//GEN-END:variables
 }

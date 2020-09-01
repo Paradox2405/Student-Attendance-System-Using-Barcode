@@ -37,7 +37,7 @@
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="label2" min="-2" max="-2" attributes="0"/>
+                      <Component id="display_batch_name" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
                       <Component id="choice1" min="-2" pref="174" max="-2" attributes="0"/>
                       <EmptySpace pref="135" max="32767" attributes="0"/>
@@ -62,7 +62,7 @@
                   <Component id="jScrollBar2" min="-2" pref="331" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="label2" min="-2" max="-2" attributes="0"/>
+                          <Component id="display_batch_name" min="-2" max="-2" attributes="0"/>
                           <Component id="choice1" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="monthly_attendance" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -203,7 +203,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="java.awt.Label" name="label2">
+    <Component class="java.awt.Label" name="display_batch_name">
       <Properties>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>

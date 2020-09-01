@@ -34,7 +34,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         jLabelMin = new javax.swing.JLabel();
         btn_home = new javax.swing.JLabel();
         choice1 = new java.awt.Choice();
-        label1 = new java.awt.Label();
+        display_batch_name = new java.awt.Label();
         daily_attendance = new javax.swing.JButton();
         monthly_attendance = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -98,8 +98,8 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        label1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        label1.setText("display batch name");
+        display_batch_name.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        display_batch_name.setText("display batch name");
 
         daily_attendance.setText("Daily");
         daily_attendance.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +158,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jScrollPane1)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(227, 227, 227)
                             .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(135, 135, 135)
@@ -178,7 +178,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(daily_attendance)
                                 .addComponent(monthly_attendance)))
@@ -271,12 +271,12 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     private javax.swing.JLabel btn_home;
     private java.awt.Choice choice1;
     private javax.swing.JButton daily_attendance;
+    private java.awt.Label display_batch_name;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private java.awt.Label label1;
     private javax.swing.JButton monthly_attendance;
     // End of variables declaration//GEN-END:variables
 }

@@ -39,7 +39,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         jScrollBar2 = new javax.swing.JScrollBar();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        label2 = new java.awt.Label();
+        display_batch_name = new java.awt.Label();
         choice1 = new java.awt.Choice();
         monthly_attendance = new javax.swing.JButton();
         daily_attendance = new javax.swing.JButton();
@@ -122,9 +122,9 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        label2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        label2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        label2.setText("display batch name");
+        display_batch_name.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        display_batch_name.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        display_batch_name.setText("display batch name");
 
         monthly_attendance.setText("Monthly");
         monthly_attendance.addActionListener(new java.awt.event.ActionListener() {
@@ -152,7 +152,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(227, 227, 227)
                         .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
@@ -173,7 +173,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                     .addComponent(jScrollBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(monthly_attendance)
@@ -259,12 +259,12 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
     private javax.swing.JLabel btn_home;
     private java.awt.Choice choice1;
     private javax.swing.JButton daily_attendance;
+    private java.awt.Label display_batch_name;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JScrollBar jScrollBar2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private java.awt.Label label2;
     private javax.swing.JButton monthly_attendance;
     // End of variables declaration//GEN-END:variables
 }

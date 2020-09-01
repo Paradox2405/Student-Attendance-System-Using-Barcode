@@ -34,7 +34,7 @@
                           <Group type="102" attributes="0">
                               <Component id="label1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                              <Component id="label2" min="-2" pref="176" max="-2" attributes="0"/>
+                              <Component id="display_stu_name" min="-2" pref="176" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -64,7 +64,7 @@
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Component id="label1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="label2" min="-2" max="-2" attributes="0"/>
+                          <Component id="display_stu_name" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jInternalFrame1" min="-2" max="-2" attributes="0"/>
@@ -89,7 +89,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="btn_home" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabelMin" min="-2" pref="22" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabelClose" min="-2" pref="22" max="-2" attributes="0"/>
@@ -528,7 +528,7 @@
         <Property name="text" type="java.lang.String" value="Name:"/>
       </Properties>
     </Component>
-    <Component class="java.awt.Label" name="label2">
+    <Component class="java.awt.Label" name="display_stu_name">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
