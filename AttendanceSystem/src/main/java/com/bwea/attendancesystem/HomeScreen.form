@@ -167,6 +167,9 @@
               <Color blue="e" green="9c" red="e2" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_scanbarcodesMouseClicked"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">

@@ -102,6 +102,11 @@ public class HomeScreen extends javax.swing.JFrame {
         SidePanel.setBackground(new java.awt.Color(181, 139, 12));
 
         btn_scanbarcodes.setBackground(new java.awt.Color(226, 156, 14));
+        btn_scanbarcodes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_scanbarcodesMouseClicked(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -355,6 +360,15 @@ public class HomeScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jLabelMinMouseClicked
+
+    private void btn_scanbarcodesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_scanbarcodesMouseClicked
+        // TODO add your handling code here:
+        BarcodeScan bars = new BarcodeScan();
+        bars.setVisible(true);
+        bars.pack();
+        bars.setLocationRelativeTo(null);
+        bars.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }//GEN-LAST:event_btn_scanbarcodesMouseClicked
 
     /**
      * @param args the command line arguments
