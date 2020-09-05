@@ -44,7 +44,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
         txt_fullNameNewAdmin = new javax.swing.JTextField();
         txt_emailNewAdmin = new javax.swing.JTextField();
         txt_unameNewAdmin = new javax.swing.JTextField();
-        txt_passwordNewAdmin = new javax.swing.JTextField();
+        txt_passwordNewAdmin = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,7 +82,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
         TopPanelLayout.setHorizontalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
-                .addContainerGap(798, Short.MAX_VALUE)
+                .addContainerGap(766, Short.MAX_VALUE)
                 .addComponent(btn_home)
                 .addGap(30, 30, 30)
                 .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -128,17 +128,29 @@ public class AddNewAdmin extends javax.swing.JFrame {
             }
         });
 
+        txt_passwordNewAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_passwordNewAdminActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(225, 225, 225)
+                .addComponent(jLabel1)
+                .addContainerGap(225, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_cancelNewAdminForm)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_saveNewAdminForm))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_emailNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_unameNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -146,29 +158,20 @@ public class AddNewAdmin extends javax.swing.JFrame {
                             .addComponent(lbl_passwordNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(66, 66, 66)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txt_fullNameNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(txt_unameNewAdmin)
                             .addComponent(txt_emailNewAdmin)
+                            .addComponent(txt_fullNameNewAdmin)
                             .addComponent(txt_passwordNewAdmin))))
                 .addGap(28, 28, 28))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(182, 182, 182)
-                .addComponent(btn_cancelNewAdminForm)
-                .addGap(97, 97, 97)
-                .addComponent(btn_saveNewAdminForm)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1)
+                .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(40, 40, 40)
-                        .addComponent(lbl_fullnameNewAdmin))
+                    .addComponent(lbl_fullnameNewAdmin)
                     .addComponent(txt_fullNameNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -182,11 +185,11 @@ public class AddNewAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_passwordNewAdmin)
                     .addComponent(txt_passwordNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cancelNewAdminForm)
                     .addComponent(btn_saveNewAdminForm))
-                .addGap(40, 40, 40))
+                .addGap(50, 50, 50))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -195,17 +198,17 @@ public class AddNewAdmin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(180, 180, 180)
+                .addGap(120, 120, 120)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 149, Short.MAX_VALUE))
+                .addGap(0, 50, Short.MAX_VALUE))
         );
 
         pack();
@@ -231,6 +234,10 @@ public class AddNewAdmin extends javax.swing.JFrame {
     private void txt_fullNameNewAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fullNameNewAdminActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_fullNameNewAdminActionPerformed
+
+    private void txt_passwordNewAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordNewAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_passwordNewAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,7 +289,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_unameNewAdmin;
     private javax.swing.JTextField txt_emailNewAdmin;
     private javax.swing.JTextField txt_fullNameNewAdmin;
-    private javax.swing.JTextField txt_passwordNewAdmin;
+    private javax.swing.JPasswordField txt_passwordNewAdmin;
     private javax.swing.JTextField txt_unameNewAdmin;
     // End of variables declaration//GEN-END:variables
 }
