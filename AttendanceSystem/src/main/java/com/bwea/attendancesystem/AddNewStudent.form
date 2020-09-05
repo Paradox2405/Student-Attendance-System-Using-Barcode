@@ -148,11 +148,9 @@
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="txt_fullNameNewStudent" pref="469" max="32767" attributes="0"/>
                       <Component id="txt_addressNewStudent" max="32767" attributes="0"/>
-                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txt_payableNewStudent" alignment="1" pref="468" max="32767" attributes="0"/>
-                          <Component id="txt_coursenameNewStudent" alignment="1" max="32767" attributes="0"/>
-                          <Component id="txt_emailNewStudent" alignment="1" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="txt_payableNewStudent" alignment="1" pref="469" max="32767" attributes="0"/>
+                      <Component id="txt_coursenameNewStudent" alignment="1" max="32767" attributes="0"/>
+                      <Component id="txt_emailNewStudent" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
