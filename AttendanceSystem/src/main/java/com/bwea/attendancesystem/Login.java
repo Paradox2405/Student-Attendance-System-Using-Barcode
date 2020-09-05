@@ -7,7 +7,7 @@ package com.bwea.attendancesystem;
 
 import javax.swing.JFrame;
 import java.sql.*;
-
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,12 +24,14 @@ public class Login extends javax.swing.JFrame {
     }
     
     private void LoginAction(){
-          HomeScreen hs = new HomeScreen();
+        HomeScreen hs = new HomeScreen();
         hs.setVisible(true);
+        /*
         hs.pack();
         hs.setLocationRelativeTo(null);
         hs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
+        */
         
     
     }
@@ -54,7 +56,6 @@ public class Login extends javax.swing.JFrame {
         txt_password = new javax.swing.JPasswordField();
         btn_cancel = new javax.swing.JButton();
         btn_login = new javax.swing.JButton();
-        lbl_error = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -130,6 +131,11 @@ public class Login extends javax.swing.JFrame {
         btn_cancel.setFont(new java.awt.Font("Product Sans", 1, 12)); // NOI18N
         btn_cancel.setForeground(new java.awt.Color(255, 255, 255));
         btn_cancel.setText("Cancel");
+        btn_cancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_cancelMouseClicked(evt);
+            }
+        });
 
         btn_login.setBackground(new java.awt.Color(51, 204, 0));
         btn_login.setFont(new java.awt.Font("Product Sans", 1, 12)); // NOI18N
@@ -140,8 +146,6 @@ public class Login extends javax.swing.JFrame {
                 btn_loginMouseClicked(evt);
             }
         });
-
-        lbl_error.setForeground(new java.awt.Color(193, 0, 0));
 
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
@@ -162,9 +166,7 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(txt_password)))
                     .addGroup(MainPanelLayout.createSequentialGroup()
                         .addGap(142, 142, 142)
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_uname)
-                            .addComponent(lbl_error, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(txt_uname)))
                 .addContainerGap())
             .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MainPanelLayout.createSequentialGroup()
@@ -175,9 +177,7 @@ public class Login extends javax.swing.JFrame {
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(lbl_error)
-                .addGap(34, 34, 34)
+                .addGap(72, 72, 72)
                 .addComponent(txt_uname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -231,7 +231,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btn_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_loginMouseClicked
         // TODO add your handling code here:
-         String uname=txt_uname.getText();
+         String uname = txt_uname.getText();
          String pass = String.valueOf(txt_password.getPassword());
         
         try{       
@@ -241,28 +241,23 @@ public class Login extends javax.swing.JFrame {
             ps.setString(1, uname);
             ps.setString(2,pass);
             ResultSet rs=ps.executeQuery();
-            
-            
-        
+
             if(rs.next()){
                 LoginAction();
-                
-             
             }
             else{
-                   lbl_error.setText("Incorrect Username Or Password");
+                   JOptionPane.showMessageDialog(null,"Incorrect username or password");
                 }
             }           
             catch(SQLException e)
             {
             System.out.println(e);
             }
-        
-      
-        
-        
-        
     }//GEN-LAST:event_btn_loginMouseClicked
+
+    private void btn_cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_btn_cancelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -307,7 +302,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
-    private javax.swing.JLabel lbl_error;
     private javax.swing.JLabel lbl_pass;
     private javax.swing.JLabel lbl_uname;
     private javax.swing.JPasswordField txt_password;
