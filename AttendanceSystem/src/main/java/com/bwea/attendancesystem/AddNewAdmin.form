@@ -37,7 +37,7 @@
               <Component id="TopPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="97" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -144,7 +144,6 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lbl_emailNewAdmin" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="lbl_unameNewAdmin" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
                               <Component id="lbl_fullnameNewAdmin" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
                               <Component id="lbl_passwordNewAdmin" min="-2" pref="85" max="-2" attributes="0"/>
@@ -152,7 +151,6 @@
                           <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txt_unameNewAdmin" max="32767" attributes="0"/>
-                              <Component id="txt_emailNewAdmin" max="32767" attributes="0"/>
                               <Component id="txt_fullNameNewAdmin" alignment="0" max="32767" attributes="0"/>
                               <Component id="txt_passwordNewAdmin" alignment="0" max="32767" attributes="0"/>
                           </Group>
@@ -171,11 +169,6 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="lbl_fullnameNewAdmin" min="-2" max="-2" attributes="0"/>
                       <Component id="txt_fullNameNewAdmin" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lbl_emailNewAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_emailNewAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -211,11 +204,6 @@
             <Property name="text" type="java.lang.String" value="Full Name:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbl_emailNewAdmin">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Email: "/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="lbl_unameNewAdmin">
           <Properties>
             <Property name="text" type="java.lang.String" value="Username:"/>
@@ -239,6 +227,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cancel"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_cancelNewAdminFormMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_saveNewAdminForm">
           <Properties>
@@ -253,13 +244,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Save"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_saveNewAdminFormMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_saveNewAdminFormActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_fullNameNewAdmin">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_fullNameNewAdminActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txt_emailNewAdmin">
         </Component>
         <Component class="javax.swing.JTextField" name="txt_unameNewAdmin">
         </Component>

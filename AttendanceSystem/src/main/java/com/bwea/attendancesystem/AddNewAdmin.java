@@ -6,6 +6,9 @@
 package com.bwea.attendancesystem;
 
 import javax.swing.JFrame;
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -18,8 +21,21 @@ public class AddNewAdmin extends javax.swing.JFrame {
      */
     public AddNewAdmin() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
+    private void NewAdminSave(){
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);
+        hs.pack();
+        hs.setLocationRelativeTo(null);
+        hs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+        
+        
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,13 +52,11 @@ public class AddNewAdmin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lbl_fullnameNewAdmin = new javax.swing.JLabel();
-        lbl_emailNewAdmin = new javax.swing.JLabel();
         lbl_unameNewAdmin = new javax.swing.JLabel();
         lbl_passwordNewAdmin = new javax.swing.JLabel();
         btn_cancelNewAdminForm = new javax.swing.JButton();
         btn_saveNewAdminForm = new javax.swing.JButton();
         txt_fullNameNewAdmin = new javax.swing.JTextField();
-        txt_emailNewAdmin = new javax.swing.JTextField();
         txt_unameNewAdmin = new javax.swing.JTextField();
         txt_passwordNewAdmin = new javax.swing.JPasswordField();
 
@@ -106,8 +120,6 @@ public class AddNewAdmin extends javax.swing.JFrame {
 
         lbl_fullnameNewAdmin.setText("Full Name:");
 
-        lbl_emailNewAdmin.setText("Email: ");
-
         lbl_unameNewAdmin.setText("Username:");
 
         lbl_passwordNewAdmin.setText("Password:");
@@ -116,11 +128,26 @@ public class AddNewAdmin extends javax.swing.JFrame {
         btn_cancelNewAdminForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_cancelNewAdminForm.setForeground(new java.awt.Color(255, 255, 255));
         btn_cancelNewAdminForm.setText("Cancel");
+        btn_cancelNewAdminForm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_cancelNewAdminFormMouseClicked(evt);
+            }
+        });
 
         btn_saveNewAdminForm.setBackground(new java.awt.Color(0, 204, 0));
         btn_saveNewAdminForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_saveNewAdminForm.setForeground(new java.awt.Color(255, 255, 255));
         btn_saveNewAdminForm.setText("Save");
+        btn_saveNewAdminForm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_saveNewAdminFormMouseClicked(evt);
+            }
+        });
+        btn_saveNewAdminForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_saveNewAdminFormActionPerformed(evt);
+            }
+        });
 
         txt_fullNameNewAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,14 +179,12 @@ public class AddNewAdmin extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_emailNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_unameNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_fullnameNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_passwordNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(66, 66, 66)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_unameNewAdmin)
-                            .addComponent(txt_emailNewAdmin)
                             .addComponent(txt_fullNameNewAdmin)
                             .addComponent(txt_passwordNewAdmin))))
                 .addGap(28, 28, 28))
@@ -173,10 +198,6 @@ public class AddNewAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbl_fullnameNewAdmin)
                     .addComponent(txt_fullNameNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_emailNewAdmin)
-                    .addComponent(txt_emailNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbl_unameNewAdmin)
@@ -208,26 +229,23 @@ public class AddNewAdmin extends javax.swing.JFrame {
                 .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 50, Short.MAX_VALUE))
+                .addGap(0, 97, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseMouseClicked
-        // TODO add your handling code here:
-
         System.exit(0);
     }//GEN-LAST:event_jLabelCloseMouseClicked
 
     private void jLabelMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinMouseClicked
-
-        // TODO add your handling code here:
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jLabelMinMouseClicked
 
     private void btn_homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMouseClicked
-        // TODO add your handling code here:
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_homeMouseClicked
 
@@ -238,6 +256,74 @@ public class AddNewAdmin extends javax.swing.JFrame {
     private void txt_passwordNewAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordNewAdminActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_passwordNewAdminActionPerformed
+
+    private void btn_saveNewAdminFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_saveNewAdminFormMouseClicked
+        String fullname = txt_fullNameNewAdmin.getText();
+        String uname = txt_unameNewAdmin.getText();
+        String pass = String.valueOf(txt_passwordNewAdmin.getPassword());
+        
+        if(fullname.equals("") || uname.equals("") || pass.equals("")){
+            JOptionPane.showMessageDialog(null,"Insert data");
+        }
+        if(checkUsername(uname)){
+            JOptionPane.showMessageDialog(null,"Username already exist");
+        }
+        
+        try{       
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO `admin`(`fullname`, `username`, `password`) VALUES (?,?,?)");   
+            ps.setString(1, fullname);
+            ps.setString(2, uname);
+            ps.setString(3, pass);
+            ps.executeUpdate();
+            
+            /*if(ps.executeUpdate() > 0){
+               NewAdminSave();*/
+                JOptionPane.showMessageDialog(null,"running if");
+            //  }
+            if(ps == null){
+                JOptionPane.showMessageDialog(null,"Connection failed");
+            }
+            }           
+            catch(SQLException e)
+            {
+            JOptionPane.showMessageDialog(null,e);
+            }
+    }//GEN-LAST:event_btn_saveNewAdminFormMouseClicked
+
+    private void btn_cancelNewAdminFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelNewAdminFormMouseClicked
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_cancelNewAdminFormMouseClicked
+
+    public boolean checkUsername(String uname){
+        
+        boolean checkUser = false;
+        
+        try{       
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM `admin` WHERE `username` =?");   
+            ps.setString(1, uname);
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                checkUser = true;
+              }
+            else{
+                JOptionPane.showMessageDialog(null,"Connection failed");
+            }
+            }           
+            catch(SQLException e)
+            {
+            JOptionPane.showMessageDialog(null,e);
+            }
+        return checkUser;
+    }
+    
+    private void btn_saveNewAdminFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveNewAdminFormActionPerformed
+        
+    }//GEN-LAST:event_btn_saveNewAdminFormActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,11 +369,9 @@ public class AddNewAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lbl_emailNewAdmin;
     private javax.swing.JLabel lbl_fullnameNewAdmin;
     private javax.swing.JLabel lbl_passwordNewAdmin;
     private javax.swing.JLabel lbl_unameNewAdmin;
-    private javax.swing.JTextField txt_emailNewAdmin;
     private javax.swing.JTextField txt_fullNameNewAdmin;
     private javax.swing.JPasswordField txt_passwordNewAdmin;
     private javax.swing.JTextField txt_unameNewAdmin;
