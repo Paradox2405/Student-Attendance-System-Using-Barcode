@@ -44,7 +44,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
         txt_fullNameNewAdmin = new javax.swing.JTextField();
         txt_emailNewAdmin = new javax.swing.JTextField();
         txt_unameNewAdmin = new javax.swing.JTextField();
-        txt_passwordNewAdmin = new javax.swing.JTextField();
+        txt_passwordNewAdmin = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,6 +128,12 @@ public class AddNewAdmin extends javax.swing.JFrame {
             }
         });
 
+        txt_passwordNewAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_passwordNewAdminActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -154,8 +160,8 @@ public class AddNewAdmin extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_unameNewAdmin)
                             .addComponent(txt_emailNewAdmin)
-                            .addComponent(txt_passwordNewAdmin)
-                            .addComponent(txt_fullNameNewAdmin))))
+                            .addComponent(txt_fullNameNewAdmin)
+                            .addComponent(txt_passwordNewAdmin))))
                 .addGap(28, 28, 28))
         );
         jPanel1Layout.setVerticalGroup(
@@ -229,6 +235,10 @@ public class AddNewAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_fullNameNewAdminActionPerformed
 
+    private void txt_passwordNewAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordNewAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_passwordNewAdminActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -279,7 +289,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_unameNewAdmin;
     private javax.swing.JTextField txt_emailNewAdmin;
     private javax.swing.JTextField txt_fullNameNewAdmin;
-    private javax.swing.JTextField txt_passwordNewAdmin;
+    private javax.swing.JPasswordField txt_passwordNewAdmin;
     private javax.swing.JTextField txt_unameNewAdmin;
     // End of variables declaration//GEN-END:variables
 }
