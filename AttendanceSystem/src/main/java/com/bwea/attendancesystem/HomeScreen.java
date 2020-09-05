@@ -163,6 +163,17 @@ public class HomeScreen extends javax.swing.JFrame {
         );
 
         btn_courseov.setBackground(new java.awt.Color(226, 156, 14));
+        btn_courseov.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_courseovMouseClicked(evt);
+            }
+        });
+
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -378,6 +389,19 @@ public class HomeScreen extends javax.swing.JFrame {
         adm.setLocationRelativeTo(null);
         adm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }//GEN-LAST:event_btn_addadminMouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void btn_courseovMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_courseovMouseClicked
+        // TODO add your handling code here:
+        CourseAttendanceDaily coa = new CourseAttendanceDaily();
+        coa.setVisible(true);
+        coa.pack();
+        coa.setLocationRelativeTo(null);
+        coa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }//GEN-LAST:event_btn_courseovMouseClicked
 
     /**
      * @param args the command line arguments

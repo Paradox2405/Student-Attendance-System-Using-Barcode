@@ -44,7 +44,7 @@
                           <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                           <Component id="daily_attendance" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="monthly_attendance" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_monthly_attendance" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -66,7 +66,7 @@
                           <Component id="display_batch_name" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="daily_attendance" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="monthly_attendance" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_monthly_attendance" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -180,12 +180,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="daily_attendanceActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="monthly_attendance">
+    <Component class="javax.swing.JButton" name="btn_monthly_attendance">
       <Properties>
         <Property name="text" type="java.lang.String" value="Monthly"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="monthly_attendanceActionPerformed"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_monthly_attendanceMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_monthly_attendanceActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

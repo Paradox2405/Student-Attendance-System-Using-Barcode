@@ -36,7 +36,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         choice1 = new java.awt.Choice();
         display_batch_name = new java.awt.Label();
         daily_attendance = new javax.swing.JButton();
-        monthly_attendance = new javax.swing.JButton();
+        btn_monthly_attendance = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jScrollBar1 = new javax.swing.JScrollBar();
@@ -107,10 +107,15 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
             }
         });
 
-        monthly_attendance.setText("Monthly");
-        monthly_attendance.addActionListener(new java.awt.event.ActionListener() {
+        btn_monthly_attendance.setText("Monthly");
+        btn_monthly_attendance.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_monthly_attendanceMouseClicked(evt);
+            }
+        });
+        btn_monthly_attendance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                monthly_attendanceActionPerformed(evt);
+                btn_monthly_attendanceActionPerformed(evt);
             }
         });
 
@@ -159,7 +164,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                             .addGap(135, 135, 135)
                             .addComponent(daily_attendance)
                             .addGap(25, 25, 25)
-                            .addComponent(monthly_attendance))))
+                            .addComponent(btn_monthly_attendance))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(34, Short.MAX_VALUE))
@@ -176,7 +181,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                             .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(daily_attendance)
-                                .addComponent(monthly_attendance)))
+                                .addComponent(btn_monthly_attendance)))
                         .addGap(25, 25, 25)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -207,9 +212,9 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_homeMouseClicked
 
-    private void monthly_attendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthly_attendanceActionPerformed
+    private void btn_monthly_attendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_monthly_attendanceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_monthly_attendanceActionPerformed
+    }//GEN-LAST:event_btn_monthly_attendanceActionPerformed
 
     private void daily_attendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daily_attendanceActionPerformed
         // TODO add your handling code here:
@@ -218,6 +223,16 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     private void btn_dailyReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dailyReportActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_dailyReportActionPerformed
+
+    private void btn_monthly_attendanceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_monthly_attendanceMouseClicked
+        // TODO add your handling code here:
+        CourseAttendanceMonthly cam = new CourseAttendanceMonthly();
+        cam.setVisible(true);
+        cam.pack();
+        cam.setLocationRelativeTo(null);
+        cam.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_btn_monthly_attendanceMouseClicked
 
     /**
      * @param args the command line arguments
@@ -260,6 +275,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     private javax.swing.JButton btn_dailyReport;
     private javax.swing.JButton btn_generateGraphDaily;
     private javax.swing.JLabel btn_home;
+    private javax.swing.JButton btn_monthly_attendance;
     private java.awt.Choice choice1;
     private javax.swing.JButton daily_attendance;
     private java.awt.Label display_batch_name;
@@ -268,6 +284,5 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JButton monthly_attendance;
     // End of variables declaration//GEN-END:variables
 }
