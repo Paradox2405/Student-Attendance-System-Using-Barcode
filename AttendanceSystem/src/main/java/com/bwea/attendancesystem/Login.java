@@ -251,7 +251,7 @@ public class Login extends javax.swing.JFrame {
             }           
             catch(SQLException e)
             {
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null,e);
             }
     }//GEN-LAST:event_btn_loginMouseClicked
 
