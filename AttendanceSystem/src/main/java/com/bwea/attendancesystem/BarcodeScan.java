@@ -44,7 +44,7 @@ public class BarcodeScan extends javax.swing.JFrame {
         txt_barcode = new javax.swing.JTextField();
         btn_enter = new javax.swing.JButton();
         txt_name = new javax.swing.JTextField();
-        txt_author = new javax.swing.JTextField();
+        txt_course = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
@@ -110,7 +110,7 @@ public class BarcodeScan extends javax.swing.JFrame {
 
         txt_name.setText("jTextField1");
 
-        txt_author.setText("jTextField1");
+        txt_course.setText("jTextField1");
 
         jTextField3.setText("jTextField1");
 
@@ -129,7 +129,7 @@ public class BarcodeScan extends javax.swing.JFrame {
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txt_name)
                     .addComponent(txt_barcode, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
-                    .addComponent(txt_author)
+                    .addComponent(txt_course)
                     .addComponent(jTextField3)
                     .addComponent(jTextField4)
                     .addComponent(jTextField5)
@@ -148,7 +148,7 @@ public class BarcodeScan extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(txt_author, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_course, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -190,23 +190,25 @@ public class BarcodeScan extends javax.swing.JFrame {
 
     private void btn_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enterActionPerformed
         // TODO add your handling code here:
-        String name=txt_name.getText();
-        String author=txt_author.getText();
+        String name =txt_name.getText();
+        String course=txt_course.getText();
+        String barcode =txt_barcode.getText();
+       
         
 
  try{       
-          
+          int bar = Integer.parseInt(barcode);
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("select name,author from books");                          
+            PreparedStatement ps = con.prepareStatement("select name,program from student_info where admission="+bar);                          
             ResultSet rs=ps.executeQuery();
             if(rs.next()){
                 txt_name.setText(rs.getString("name"));
-                txt_author.setText(rs.getString("author"));
+                txt_course.setText(rs.getString("program"));
                 
              
             }
             }           
-            catch(SQLException e)
+ catch(SQLException e)
             {
             System.out.println(e);
             }
@@ -265,8 +267,8 @@ public class BarcodeScan extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField txt_author;
     private javax.swing.JTextField txt_barcode;
+    private javax.swing.JTextField txt_course;
     private javax.swing.JTextField txt_name;
     // End of variables declaration//GEN-END:variables
 }
