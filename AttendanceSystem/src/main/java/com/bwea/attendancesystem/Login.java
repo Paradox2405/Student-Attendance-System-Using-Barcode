@@ -218,6 +218,7 @@ public class Login extends javax.swing.JFrame {
         hs.pack();
         hs.setLocationRelativeTo(null);
         hs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
         
         
     }//GEN-LAST:event_btn_loginMouseClicked

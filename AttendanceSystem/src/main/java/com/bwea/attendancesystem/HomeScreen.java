@@ -134,6 +134,11 @@ public class HomeScreen extends javax.swing.JFrame {
         );
 
         btn_checkattendance.setBackground(new java.awt.Color(226, 156, 14));
+        btn_checkattendance.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_checkattendanceMouseClicked(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -215,6 +220,11 @@ public class HomeScreen extends javax.swing.JFrame {
         );
 
         btn_addnewst.setBackground(new java.awt.Color(226, 156, 14));
+        btn_addnewst.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_addnewstMouseClicked(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -242,6 +252,11 @@ public class HomeScreen extends javax.swing.JFrame {
         );
 
         btn_addadmin.setBackground(new java.awt.Color(226, 156, 14));
+        btn_addadmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_addadminMouseClicked(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -369,6 +384,33 @@ public class HomeScreen extends javax.swing.JFrame {
         bars.setLocationRelativeTo(null);
         bars.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }//GEN-LAST:event_btn_scanbarcodesMouseClicked
+
+    private void btn_checkattendanceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_checkattendanceMouseClicked
+        // TODO add your handling code here:
+        CheckAttendance cha = new  CheckAttendance();
+        cha.setVisible(true);
+        cha.pack();
+        cha.setLocationRelativeTo(null);
+        cha.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }//GEN-LAST:event_btn_checkattendanceMouseClicked
+
+    private void btn_addnewstMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_addnewstMouseClicked
+        // TODO add your handling code here:
+        AddNewStudent ads = new AddNewStudent ();
+        ads.setVisible(true);
+        ads.pack();
+        ads.setLocationRelativeTo(null);
+        ads.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }//GEN-LAST:event_btn_addnewstMouseClicked
+
+    private void btn_addadminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_addadminMouseClicked
+        // TODO add your handling code here:
+        AddNewAdmin adm = new  AddNewAdmin ();
+        adm.setVisible(true);
+        adm.pack();
+        adm.setLocationRelativeTo(null);
+        adm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }//GEN-LAST:event_btn_addadminMouseClicked
 
     /**
      * @param args the command line arguments
