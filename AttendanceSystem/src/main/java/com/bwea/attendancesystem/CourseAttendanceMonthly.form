@@ -37,10 +37,10 @@
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="display_batch_name" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
+                      <Component id="display_batch_name" min="-2" pref="191" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
                       <Component id="choice1" min="-2" pref="174" max="-2" attributes="0"/>
-                      <EmptySpace pref="135" max="32767" attributes="0"/>
+                      <EmptySpace pref="92" max="32767" attributes="0"/>
                       <Component id="daily_attendance" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="monthly_attendance" min="-2" max="-2" attributes="0"/>
@@ -73,7 +73,7 @@
                       <Component id="jScrollPane2" min="-2" pref="357" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <EmptySpace pref="21" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btn_MonthlyReport" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_generateGraphMonthly" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -209,9 +209,9 @@
           <Color id="Default Cursor"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="1"/>
+          <Font name="Arial" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="display batch name"/>
+        <Property name="text" type="java.lang.String" value="Monthly Attendance"/>
       </Properties>
     </Component>
     <Component class="java.awt.Choice" name="choice1">

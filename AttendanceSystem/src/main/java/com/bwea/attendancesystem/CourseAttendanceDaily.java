@@ -42,7 +42,6 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         jScrollBar1 = new javax.swing.JScrollBar();
         btn_dailyReport = new javax.swing.JButton();
         btn_generateGraphDaily = new javax.swing.JButton();
-        btn_endBatch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,8 +97,8 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        display_batch_name.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        display_batch_name.setText("display batch name");
+        display_batch_name.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        display_batch_name.setText("Daily Attendance");
 
         daily_attendance.setText("Daily");
         daily_attendance.addActionListener(new java.awt.event.ActionListener() {
@@ -137,8 +136,6 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
 
         btn_generateGraphDaily.setText("Generate Graph");
 
-        btn_endBatch.setText("End Batch");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -150,8 +147,6 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_endBatch)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_generateGraphDaily)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_dailyReport))
@@ -167,7 +162,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                             .addComponent(monthly_attendance))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,15 +179,12 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                                 .addComponent(monthly_attendance)))
                         .addGap(25, 25, 25)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_dailyReport)
-                    .addComponent(btn_generateGraphDaily)
-                    .addComponent(btn_endBatch))
-                .addGap(0, 39, Short.MAX_VALUE))
+                    .addComponent(btn_generateGraphDaily))
+                .addGap(0, 35, Short.MAX_VALUE))
         );
 
         pack();
@@ -266,7 +258,6 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel TopPanel;
     private javax.swing.JButton btn_dailyReport;
-    private javax.swing.JButton btn_endBatch;
     private javax.swing.JButton btn_generateGraphDaily;
     private javax.swing.JLabel btn_home;
     private java.awt.Choice choice1;

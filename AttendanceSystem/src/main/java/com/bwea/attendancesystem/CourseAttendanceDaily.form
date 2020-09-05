@@ -31,8 +31,6 @@
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="btn_endBatch" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btn_generateGraphDaily" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btn_dailyReport" min="-2" max="-2" attributes="0"/>
@@ -52,7 +50,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollBar1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="50" max="32767" attributes="0"/>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -74,18 +72,14 @@
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="355" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="jScrollBar1" min="-2" pref="329" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jScrollBar1" alignment="1" min="-2" pref="329" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btn_dailyReport" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_generateGraphDaily" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_endBatch" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="39" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -173,9 +167,9 @@
     <Component class="java.awt.Label" name="display_batch_name">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="1"/>
+          <Font name="Arial" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="display batch name"/>
+        <Property name="text" type="java.lang.String" value="Daily Attendance"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="daily_attendance">
@@ -228,11 +222,6 @@
     <Component class="javax.swing.JButton" name="btn_generateGraphDaily">
       <Properties>
         <Property name="text" type="java.lang.String" value="Generate Graph"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btn_endBatch">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="End Batch"/>
       </Properties>
     </Component>
   </SubComponents>

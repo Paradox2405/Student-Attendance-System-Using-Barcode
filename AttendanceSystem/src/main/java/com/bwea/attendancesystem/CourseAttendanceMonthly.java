@@ -123,8 +123,8 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         display_batch_name.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        display_batch_name.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        display_batch_name.setText("display batch name");
+        display_batch_name.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        display_batch_name.setText("Monthly Attendance");
 
         monthly_attendance.setText("Monthly");
         monthly_attendance.addActionListener(new java.awt.event.ActionListener() {
@@ -152,10 +152,10 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(227, 227, 227)
+                        .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(219, 219, 219)
                         .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                         .addComponent(daily_attendance)
                         .addGap(25, 25, 25)
                         .addComponent(monthly_attendance))
@@ -180,7 +180,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                                 .addComponent(daily_attendance)))
                         .addGap(25, 25, 25)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_MonthlyReport)
                     .addComponent(btn_generateGraphMonthly)
