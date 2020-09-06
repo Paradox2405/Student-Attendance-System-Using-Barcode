@@ -24,11 +24,11 @@ public class AddNewStudent extends javax.swing.JFrame {
     }
     
         private void NewStudentSave(){
-        HomeScreen hs = new HomeScreen();
-        hs.setVisible(true);
-        hs.pack();
-        hs.setLocationRelativeTo(null);
-        hs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        AddNewStudent ads = new AddNewStudent ();
+        ads.setVisible(true);
+        ads.pack();
+        ads.setLocationRelativeTo(null);
+        ads.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }
 
@@ -289,15 +289,21 @@ public class AddNewStudent extends javax.swing.JFrame {
             ps.setString(3, stu_email);
             ps.setString(4, stu_coursename);
             ps.setInt(5, Integer.parseInt(stu_payment));
-            ps.executeUpdate();
 
-            NewStudentSave();
+            int saveNew = JOptionPane.showConfirmDialog(this, "Save new student?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            
+            if(saveNew == JOptionPane.YES_OPTION)
+            {
+                ps.executeUpdate();
+                NewStudentSave();
+            }
+                    
             }
         
             catch(SQLException e)
             {
-            JOptionPane.showMessageDialog(null,e);
-            JOptionPane.showMessageDialog(null,"Connection failed");
+                JOptionPane.showMessageDialog(null,e);
+                JOptionPane.showMessageDialog(null,"Connection failed");
             
             }
         }
