@@ -31,8 +31,6 @@ public class AddNewAdmin extends javax.swing.JFrame {
         hs.setLocationRelativeTo(null);
         hs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
-        
-        
     }
     
     
@@ -262,12 +260,20 @@ public class AddNewAdmin extends javax.swing.JFrame {
         String uname = txt_unameNewAdmin.getText();
         String pass = String.valueOf(txt_passwordNewAdmin.getPassword());
         
-        if(fullname.equals("") || uname.equals("") || pass.equals("")){
-            JOptionPane.showMessageDialog(null,"Insert data");
+        if(fullname.equals("")){
+            JOptionPane.showMessageDialog(null,"Cannot continue without a name");
         }
-        if(checkUsername(uname)){
+        else if(uname.equals("")){
+            JOptionPane.showMessageDialog(null,"Please enter your username");
+        }
+        else if(pass.equals("")){
+            JOptionPane.showMessageDialog(null,"Cannot continue without a password");
+        }
+        else if(checkUsername(uname)){
             JOptionPane.showMessageDialog(null,"Username already exist");
         }
+        
+        else {
         
         try{       
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
@@ -276,19 +282,17 @@ public class AddNewAdmin extends javax.swing.JFrame {
             ps.setString(2, uname);
             ps.setString(3, pass);
             ps.executeUpdate();
-            
-            /*if(ps.executeUpdate() > 0){
-               NewAdminSave();*/
-                JOptionPane.showMessageDialog(null,"running if");
-            //  }
-            if(ps == null){
-                JOptionPane.showMessageDialog(null,"Connection failed");
+
+            NewAdminSave();
             }
-            }           
+        
             catch(SQLException e)
             {
             JOptionPane.showMessageDialog(null,e);
+            JOptionPane.showMessageDialog(null,"Connection failed");
+            
             }
+        }
     }//GEN-LAST:event_btn_saveNewAdminFormMouseClicked
 
     private void btn_cancelNewAdminFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelNewAdminFormMouseClicked
@@ -309,10 +313,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
             
             if(rs.next()){
                 checkUser = true;
-              }
-            else{
-                JOptionPane.showMessageDialog(null,"Connection failed");
-            }
+              }            
             }           
             catch(SQLException e)
             {
