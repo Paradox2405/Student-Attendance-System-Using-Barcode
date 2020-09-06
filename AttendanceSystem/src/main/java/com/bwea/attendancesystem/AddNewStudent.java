@@ -271,10 +271,13 @@ public class AddNewStudent extends javax.swing.JFrame {
         String stu_payment = txt_payableNewStudent.getText();
         
         if(stu_fname.equals("")){
-            JOptionPane.showMessageDialog(null,"Please enter the name of the student");
+            JOptionPane.showMessageDialog(null,"Please enter a name of the student");
         }
         else if(stu_coursename.equals("")){
             JOptionPane.showMessageDialog(null,"Please enter the coursename");
+        }
+        else if(stu_payment.equals("")){
+            JOptionPane.showMessageDialog(null,"Please enter the amount to be paid");
         }
         else {
         
