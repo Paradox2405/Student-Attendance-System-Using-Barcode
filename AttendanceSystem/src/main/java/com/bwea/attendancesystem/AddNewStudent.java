@@ -61,6 +61,7 @@ public class AddNewStudent extends javax.swing.JFrame {
         lbl_payableNewStudent = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
 

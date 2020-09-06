@@ -51,6 +51,7 @@ public class BarcodeScan extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
 
