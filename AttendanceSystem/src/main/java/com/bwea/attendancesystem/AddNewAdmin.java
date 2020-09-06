@@ -281,9 +281,14 @@ public class AddNewAdmin extends javax.swing.JFrame {
             ps.setString(1, fullname);
             ps.setString(2, uname);
             ps.setString(3, pass);
-            ps.executeUpdate();
-
-            NewAdminSave();
+            
+            int saveNew = JOptionPane.showConfirmDialog(this, "New Admin Added. Do you want to continue?", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
+            
+            if(saveNew == JOptionPane.YES_OPTION)
+            {
+                ps.executeUpdate();
+                NewAdminSave();
+            }
             }
         
             catch(SQLException e)
