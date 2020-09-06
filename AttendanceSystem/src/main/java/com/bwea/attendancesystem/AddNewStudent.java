@@ -6,6 +6,8 @@
 package com.bwea.attendancesystem;
 
 import javax.swing.JFrame;
+import java.sql.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +21,15 @@ public class AddNewStudent extends javax.swing.JFrame {
     public AddNewStudent() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    
+        private void NewStudentSave(){
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);
+        hs.pack();
+        hs.setLocationRelativeTo(null);
+        hs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }
 
     /**
@@ -50,7 +61,6 @@ public class AddNewStudent extends javax.swing.JFrame {
         lbl_payableNewStudent = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(300, 80));
 
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
 
@@ -85,7 +95,7 @@ public class AddNewStudent extends javax.swing.JFrame {
         TopPanelLayout.setHorizontalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
-                .addContainerGap(834, Short.MAX_VALUE)
+                .addContainerGap(720, Short.MAX_VALUE)
                 .addComponent(btn_home)
                 .addGap(30, 30, 30)
                 .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -118,6 +128,11 @@ public class AddNewStudent extends javax.swing.JFrame {
         btn_saveNewStuForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_saveNewStuForm.setForeground(new java.awt.Color(255, 255, 255));
         btn_saveNewStuForm.setText("Save");
+        btn_saveNewStuForm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_saveNewStuFormMouseClicked(evt);
+            }
+        });
 
         txt_fullNameNewStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,9 +222,9 @@ public class AddNewStudent extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(120, 120, 120)
+                .addGap(76, 76, 76)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,27 +232,22 @@ public class AddNewStudent extends javax.swing.JFrame {
                 .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 50, Short.MAX_VALUE))
+                .addGap(0, 45, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseMouseClicked
-        // TODO add your handling code here:
-
         System.exit(0);
     }//GEN-LAST:event_jLabelCloseMouseClicked
 
     private void jLabelMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinMouseClicked
-
-        // TODO add your handling code here:
         this.setState(JFrame.ICONIFIED);
 
     }//GEN-LAST:event_jLabelMinMouseClicked
 
     private void btn_homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMouseClicked
-        // TODO add your handling code here:
         HomeScreen hs = new HomeScreen();
         hs.setVisible(true);
         this.dispose();
@@ -252,6 +262,43 @@ public class AddNewStudent extends javax.swing.JFrame {
         hs.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_cancelNewStuFormMouseClicked
+
+    private void btn_saveNewStuFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_saveNewStuFormMouseClicked
+        String stu_fname = txt_fullNameNewStudent.getText();
+        String stu_address = txt_addressNewStudent.getText();
+        String stu_email = txt_emailNewStudent.getText();
+        String stu_coursename = txt_coursenameNewStudent.getText();
+        String stu_payment = txt_payableNewStudent.getText();
+        
+        if(stu_fname.equals("")){
+            JOptionPane.showMessageDialog(null,"Please enter the name of the student");
+        }
+        else if(stu_coursename.equals("")){
+            JOptionPane.showMessageDialog(null,"Please enter the coursename");
+        }
+        else {
+        
+        try{       
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO `student`(`fullname`, `address`, `email`, `coursename`, `payment`) VALUES (?,?,?,?,?)");   
+            ps.setString(1, stu_fname);
+            ps.setString(2, stu_address);
+            ps.setString(3, stu_email);
+            ps.setString(4, stu_coursename);
+            ps.setInt(5, Integer.parseInt(stu_payment));
+            ps.executeUpdate();
+
+            NewStudentSave();
+            }
+        
+            catch(SQLException e)
+            {
+            JOptionPane.showMessageDialog(null,e);
+            JOptionPane.showMessageDialog(null,"Connection failed");
+            
+            }
+        }
+    }//GEN-LAST:event_btn_saveNewStuFormMouseClicked
 
     /**
      * @param args the command line arguments
