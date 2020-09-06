@@ -33,6 +33,7 @@ public class HomeScreen extends javax.swing.JFrame {
         TopPanel = new javax.swing.JPanel();
         jLabelClose = new javax.swing.JLabel();
         jLabelMin = new javax.swing.JLabel();
+        btn_logout = new javax.swing.JLabel();
         SidePanel = new javax.swing.JPanel();
         btn_scanbarcodes = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -75,12 +76,24 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
+        btn_logout.setBackground(new java.awt.Color(153, 153, 153));
+        btn_logout.setFont(new java.awt.Font("Product Sans", 1, 14)); // NOI18N
+        btn_logout.setForeground(new java.awt.Color(255, 255, 255));
+        btn_logout.setText("Logout");
+        btn_logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_logoutMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
         TopPanel.setLayout(TopPanelLayout);
         TopPanelLayout.setHorizontalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_logout)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelClose, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -92,7 +105,8 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelClose, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_logout))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -361,6 +375,7 @@ public class HomeScreen extends javax.swing.JFrame {
         bars.pack();
         bars.setLocationRelativeTo(null);
         bars.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }//GEN-LAST:event_btn_scanbarcodesMouseClicked
 
     private void btn_checkattendanceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_checkattendanceMouseClicked
@@ -370,6 +385,7 @@ public class HomeScreen extends javax.swing.JFrame {
         cha.pack();
         cha.setLocationRelativeTo(null);
         cha.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }//GEN-LAST:event_btn_checkattendanceMouseClicked
 
     private void btn_addnewstMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_addnewstMouseClicked
@@ -379,6 +395,7 @@ public class HomeScreen extends javax.swing.JFrame {
         ads.pack();
         ads.setLocationRelativeTo(null);
         ads.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }//GEN-LAST:event_btn_addnewstMouseClicked
 
     private void btn_addadminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_addadminMouseClicked
@@ -388,6 +405,7 @@ public class HomeScreen extends javax.swing.JFrame {
         adm.pack();
         adm.setLocationRelativeTo(null);
         adm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }//GEN-LAST:event_btn_addadminMouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
@@ -401,7 +419,14 @@ public class HomeScreen extends javax.swing.JFrame {
         coa.pack();
         coa.setLocationRelativeTo(null);
         coa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }//GEN-LAST:event_btn_courseovMouseClicked
+
+    private void btn_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logoutMouseClicked
+        Login log = new Login();
+        log.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_logoutMouseClicked
 
     /**
      * @param args the command line arguments
@@ -446,6 +471,7 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JPanel btn_addnewst;
     private javax.swing.JPanel btn_checkattendance;
     private javax.swing.JPanel btn_courseov;
+    private javax.swing.JLabel btn_logout;
     private javax.swing.JPanel btn_scanbarcodes;
     private java.awt.Choice choice1;
     private javax.swing.JLabel jLabel1;

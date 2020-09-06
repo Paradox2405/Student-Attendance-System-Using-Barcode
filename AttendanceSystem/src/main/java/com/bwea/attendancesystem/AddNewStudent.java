@@ -18,6 +18,7 @@ public class AddNewStudent extends javax.swing.JFrame {
      */
     public AddNewStudent() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -107,6 +108,11 @@ public class AddNewStudent extends javax.swing.JFrame {
         btn_cancelNewStuForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_cancelNewStuForm.setForeground(new java.awt.Color(255, 255, 255));
         btn_cancelNewStuForm.setText("Cancel");
+        btn_cancelNewStuForm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_cancelNewStuFormMouseClicked(evt);
+            }
+        });
 
         btn_saveNewStuForm.setBackground(new java.awt.Color(0, 204, 0));
         btn_saveNewStuForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -232,12 +238,20 @@ public class AddNewStudent extends javax.swing.JFrame {
 
     private void btn_homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMouseClicked
         // TODO add your handling code here:
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_homeMouseClicked
 
     private void txt_fullNameNewStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fullNameNewStudentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_fullNameNewStudentActionPerformed
+
+    private void btn_cancelNewStuFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelNewStuFormMouseClicked
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_cancelNewStuFormMouseClicked
 
     /**
      * @param args the command line arguments

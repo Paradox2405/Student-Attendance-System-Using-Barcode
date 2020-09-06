@@ -179,7 +179,8 @@ public class BarcodeScan extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMouseClicked
-        // TODO add your handling code here:
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_homeMouseClicked
 

@@ -18,6 +18,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
      */
     public CourseAttendanceMonthly() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -41,7 +42,6 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         display_batch_name = new java.awt.Label();
         choice1 = new java.awt.Choice();
-        monthly_attendance = new javax.swing.JButton();
         daily_attendance = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -126,14 +126,12 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         display_batch_name.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         display_batch_name.setText("Monthly Attendance");
 
-        monthly_attendance.setText("Monthly");
-        monthly_attendance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                monthly_attendanceActionPerformed(evt);
+        daily_attendance.setText("Daily");
+        daily_attendance.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                daily_attendanceMouseClicked(evt);
             }
         });
-
-        daily_attendance.setText("Daily");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,10 +153,8 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                         .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(219, 219, 219)
                         .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                        .addComponent(daily_attendance)
-                        .addGap(25, 25, 25)
-                        .addComponent(monthly_attendance))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(daily_attendance))
                     .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,9 +171,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(monthly_attendance)
-                                .addComponent(daily_attendance)))
+                            .addComponent(daily_attendance))
                         .addGap(25, 25, 25)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
@@ -204,17 +198,23 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelMinMouseClicked
 
     private void btn_homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMouseClicked
-        // TODO add your handling code here:
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_homeMouseClicked
-
-    private void monthly_attendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthly_attendanceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_monthly_attendanceActionPerformed
 
     private void btn_endBatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_endBatchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_endBatchActionPerformed
+
+    private void daily_attendanceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_daily_attendanceMouseClicked
+        CourseAttendanceDaily coa = new CourseAttendanceDaily();
+        coa.setVisible(true);
+        coa.pack();
+        coa.setLocationRelativeTo(null);
+        coa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_daily_attendanceMouseClicked
 
     /**
      * @param args the command line arguments
@@ -265,6 +265,5 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
     private javax.swing.JScrollBar jScrollBar2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JButton monthly_attendance;
     // End of variables declaration//GEN-END:variables
 }
