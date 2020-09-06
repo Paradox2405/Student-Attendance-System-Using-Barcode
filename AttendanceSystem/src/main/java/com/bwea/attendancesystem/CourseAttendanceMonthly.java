@@ -45,6 +45,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         daily_attendance = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
 
