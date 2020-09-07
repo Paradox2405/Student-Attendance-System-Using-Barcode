@@ -329,13 +329,14 @@ public class AddNewStudent extends javax.swing.JFrame {
         int result = fileChooser.showOpenDialog(this);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
-             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
            }
          try{       
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-             PreparedStatement ps = con.prepareStatement("");
+            PreparedStatement ps = con.prepareStatement("");
          }
-         catch{
+         catch(SQLException e){
+             JOptionPane.showMessageDialog(null,e);
          }
         
         
