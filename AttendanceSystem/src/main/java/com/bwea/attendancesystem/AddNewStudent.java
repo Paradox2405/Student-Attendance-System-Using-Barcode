@@ -8,6 +8,8 @@ package com.bwea.attendancesystem;
 import javax.swing.JFrame;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.JFileChooser;
+import java.io.File;  
 
 /**
  *
@@ -59,6 +61,7 @@ public class AddNewStudent extends javax.swing.JFrame {
         lbl_emailNewStudent = new javax.swing.JLabel();
         lbl_coursenameNewStudent = new javax.swing.JLabel();
         lbl_payableNewStudent = new javax.swing.JLabel();
+        btn_uploadexcel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -154,17 +157,22 @@ public class AddNewStudent extends javax.swing.JFrame {
 
         lbl_payableNewStudent.setText("Payable:");
 
+        btn_uploadexcel.setText("Upload Excel File");
+        btn_uploadexcel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_uploadexcelMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_cancelNewStuForm)
-                .addGap(18, 18, 18)
-                .addComponent(btn_saveNewStuForm)
-                .addGap(37, 37, 37))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(255, 255, 255)
+                .addComponent(jLabel1)
+                .addContainerGap(225, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_fullnameNewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,17 +181,20 @@ public class AddNewStudent extends javax.swing.JFrame {
                     .addComponent(lbl_coursenameNewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_payableNewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txt_fullNameNewStudent, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
-                    .addComponent(txt_addressNewStudent)
-                    .addComponent(txt_payableNewStudent, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
-                    .addComponent(txt_coursenameNewStudent)
-                    .addComponent(txt_emailNewStudent))
-                .addGap(38, 38, 38))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(255, 255, 255)
-                .addComponent(jLabel1)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btn_uploadexcel, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(119, 119, 119)
+                        .addComponent(btn_cancelNewStuForm)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_saveNewStuForm))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txt_fullNameNewStudent, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                        .addComponent(txt_addressNewStudent)
+                        .addComponent(txt_payableNewStudent, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                        .addComponent(txt_coursenameNewStudent)
+                        .addComponent(txt_emailNewStudent)))
+                .addGap(37, 37, 37))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,7 +224,8 @@ public class AddNewStudent extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cancelNewStuForm)
-                    .addComponent(btn_saveNewStuForm))
+                    .addComponent(btn_saveNewStuForm)
+                    .addComponent(btn_uploadexcel))
                 .addGap(50, 50, 50))
         );
 
@@ -310,6 +322,26 @@ public class AddNewStudent extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_saveNewStuFormMouseClicked
 
+    private void btn_uploadexcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_uploadexcelMouseClicked
+        // TODO add your handling code here:
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        int result = fileChooser.showOpenDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+           }
+         try{       
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+             PreparedStatement ps = con.prepareStatement("");
+         }
+         catch{
+         }
+        
+        
+        
+    }//GEN-LAST:event_btn_uploadexcelMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -350,6 +382,7 @@ public class AddNewStudent extends javax.swing.JFrame {
     private javax.swing.JButton btn_cancelNewStuForm;
     private javax.swing.JLabel btn_home;
     private javax.swing.JButton btn_saveNewStuForm;
+    private javax.swing.JButton btn_uploadexcel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;

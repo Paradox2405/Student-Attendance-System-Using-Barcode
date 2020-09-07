@@ -109,18 +109,6 @@ public class BarcodeScan extends javax.swing.JFrame {
             }
         });
 
-        txt_name.setText("jTextField1");
-
-        txt_course.setText("jTextField1");
-
-        jTextField3.setText("jTextField1");
-
-        jTextField4.setText("jTextField1");
-
-        jTextField5.setText("jTextField1");
-
-        jTextField6.setText("jTextField1");
-
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
