@@ -33,7 +33,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         
         try{       
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM stu_barcode_reader");   
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM student");   
             ResultSet rs = ps.executeQuery();
             
             table_DailyAtt.setModel(DbUnitls.resultSetToTableModel(rs));
