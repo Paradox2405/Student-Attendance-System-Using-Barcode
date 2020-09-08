@@ -29,10 +29,6 @@ public class Login extends javax.swing.JFrame {
         hs.pack();
         hs.setLocationRelativeTo(null);
         hs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       
-     
-        
-    
     }
 
     /**
@@ -227,12 +223,11 @@ public class Login extends javax.swing.JFrame {
          String pass = String.valueOf(txt_password.getPassword());
         
         try{       
-          
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM `admin` WHERE `username` =? AND `password` =?");   
             ps.setString(1, uname);
             ps.setString(2,pass);
-            ResultSet rs=ps.executeQuery();
+            ResultSet rs = ps.executeQuery();
 
             if(rs.next()){
                 LoginAction();
@@ -242,7 +237,7 @@ public class Login extends javax.swing.JFrame {
                    JOptionPane.showMessageDialog(null,"Incorrect username or password");
                 }
             }           
-            catch(SQLException e)
+        catch(SQLException e)
             {
             JOptionPane.showMessageDialog(null,e);
             }

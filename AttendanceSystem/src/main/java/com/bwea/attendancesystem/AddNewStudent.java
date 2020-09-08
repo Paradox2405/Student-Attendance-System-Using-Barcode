@@ -25,7 +25,7 @@ public class AddNewStudent extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
-        private void NewStudentSave(){
+    private void NewStudentSave(){
         AddNewStudent ads = new AddNewStudent ();
         ads.setVisible(true);
         ads.pack();
@@ -295,7 +295,7 @@ public class AddNewStudent extends javax.swing.JFrame {
         else {
         
         try{       
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
             PreparedStatement ps = con.prepareStatement("INSERT INTO `student`(`fullname`, `address`, `email`, `coursename`, `payment`) VALUES (?,?,?,?,?)");   
             ps.setString(1, stu_fname);
             ps.setString(2, stu_address);
@@ -313,7 +313,7 @@ public class AddNewStudent extends javax.swing.JFrame {
                     
             }
         
-            catch(SQLException e)
+        catch(SQLException e)
             {
                 JOptionPane.showMessageDialog(null,e);
                 JOptionPane.showMessageDialog(null,"Connection failed");

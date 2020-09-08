@@ -274,7 +274,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
         else {
         
         try{       
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
             PreparedStatement ps = con.prepareStatement("INSERT INTO `admin`(`fullname`, `username`, `password`) VALUES (?,?,?)");   
             ps.setString(1, fullname);
             ps.setString(2, uname);
@@ -289,7 +289,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
             }
             }
         
-            catch(SQLException e)
+        catch(SQLException e)
             {
             JOptionPane.showMessageDialog(null,e);
             JOptionPane.showMessageDialog(null,"Connection failed");
@@ -309,7 +309,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
         boolean checkUser = false;
         
         try{       
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM `admin` WHERE `username` =?");   
             ps.setString(1, uname);
             ResultSet rs = ps.executeQuery();
@@ -318,7 +318,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
                 checkUser = true;
               }            
             }           
-            catch(SQLException e)
+        catch(SQLException e)
             {
             JOptionPane.showMessageDialog(null,e);
             }

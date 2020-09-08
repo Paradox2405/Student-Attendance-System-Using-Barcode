@@ -186,7 +186,7 @@ public class BarcodeScan extends javax.swing.JFrame {
        
         
 
- try{       
+        try{       
           int bar = Integer.parseInt(barcode);
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
             PreparedStatement ps = con.prepareStatement("select name,program from student_info where admission="+bar);                          
@@ -198,7 +198,7 @@ public class BarcodeScan extends javax.swing.JFrame {
              
             }
             }           
- catch(SQLException e)
+        catch(SQLException e)
             {
             System.out.println(e);
             }
