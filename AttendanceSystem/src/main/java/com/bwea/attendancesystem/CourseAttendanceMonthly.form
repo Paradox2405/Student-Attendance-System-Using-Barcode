@@ -40,7 +40,7 @@
                   <Group type="102" attributes="0">
                       <Component id="display_batch_name" min="-2" pref="191" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
-                      <Component id="choice1" min="-2" pref="174" max="-2" attributes="0"/>
+                      <Component id="selectMonthlyAtt" min="-2" pref="174" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="daily_attendance" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -62,7 +62,7 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="display_batch_name" min="-2" max="-2" attributes="0"/>
-                          <Component id="choice1" min="-2" max="-2" attributes="0"/>
+                          <Component id="selectMonthlyAtt" min="-2" max="-2" attributes="0"/>
                           <Component id="daily_attendance" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -210,7 +210,7 @@
         <Property name="text" type="java.lang.String" value="Monthly Attendance"/>
       </Properties>
     </Component>
-    <Component class="java.awt.Choice" name="choice1">
+    <Component class="java.awt.Choice" name="selectMonthlyAtt">
     </Component>
     <Component class="javax.swing.JButton" name="daily_attendance">
       <Properties>
@@ -218,6 +218,7 @@
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="daily_attendanceMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="daily_attendanceActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

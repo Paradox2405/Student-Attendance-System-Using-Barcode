@@ -42,7 +42,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         display_batch_name = new java.awt.Label();
-        choice1 = new java.awt.Choice();
+        selectMonthlyAtt = new java.awt.Choice();
         daily_attendance = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -134,6 +134,11 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                 daily_attendanceMouseClicked(evt);
             }
         });
+        daily_attendance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                daily_attendanceActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,7 +159,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(219, 219, 219)
-                        .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(selectMonthlyAtt, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(daily_attendance))
                     .addComponent(jScrollPane2))
@@ -172,7 +177,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(selectMonthlyAtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(daily_attendance))
                         .addGap(25, 25, 25)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -218,6 +223,10 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_daily_attendanceMouseClicked
 
+    private void daily_attendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daily_attendanceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_daily_attendanceActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -259,7 +268,6 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
     private javax.swing.JButton btn_endBatch;
     private javax.swing.JButton btn_generateGraphMonthly;
     private javax.swing.JLabel btn_home;
-    private java.awt.Choice choice1;
     private javax.swing.JButton daily_attendance;
     private java.awt.Label display_batch_name;
     private javax.swing.JLabel jLabelClose;
@@ -267,5 +275,6 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
     private javax.swing.JScrollBar jScrollBar2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private java.awt.Choice selectMonthlyAtt;
     // End of variables declaration//GEN-END:variables
 }
