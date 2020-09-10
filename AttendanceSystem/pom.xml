@@ -11,8 +11,17 @@
             <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
             <url>file:${project.basedir}/lib</url>
         </repository>
+         
     </repositories>
     <dependencies>
+        <dependency>
+    <groupId>net.proteanit.sql.DbUtils</groupId>
+    <artifactId>rs2xml</artifactId>
+    <version>1.0</version>
+    <scope>system</scope>
+    <systemPath>${project.basedir}/rs2xml.jar</systemPath>
+</dependency>
+        
         <dependency>
             <groupId>unknown.binary</groupId>
             <artifactId>AbsoluteLayout</artifactId>

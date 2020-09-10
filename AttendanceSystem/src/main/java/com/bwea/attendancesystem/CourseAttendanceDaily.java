@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import net.proteanit.sql.DbUtils; //download r2xml.jar and connect
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -36,13 +36,14 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM student");   
             ResultSet rs = ps.executeQuery();
             
-            table_DailyAtt.setModel(DbUnitls.resultSetToTableModel(rs));
+            table_DailyAtt.setModel(DbUtils.resultSetToTableModel(rs));
+        }
 
         catch(SQLException e)
             {
                 JOptionPane.showMessageDialog(null,e);
             }
-        }
+        
     }
 
     /**
