@@ -12,7 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import net.proteanit.sql.DbUtils;
+import javax.swing.table.DefaultTableModel;
+//import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -26,7 +27,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     public CourseAttendanceDaily() {
         initComponents();
         this.setLocationRelativeTo(null);
-        DisplayTableDailyAtt();
+        
     }
     
     private void DisplayTableDailyAtt(){
@@ -150,7 +151,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+                "fullname", "address", "email", "coursename", "payment"
             }
         ));
         jScrollPane2.setViewportView(table_DailyAtt);
@@ -260,14 +261,31 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM student");   
             ResultSet rs = ps.executeQuery();
-            
-            table_DailyAtt.setModel(DbUtils.resultSetToTableModel(rs));
+            //DefaultTableModel tm = (DefaultTableModel)table_DailyAtt.getModel();
+            //tm.setRowCount(0);
+           // table_DailyAtt.setModel(DbUtils.resultSetToTableModel(rs));
+           
+           while(rs.next()){
+               String fullname = rs.getString(1);
+               String address = rs.getString(2);
+               String email = rs.getString(3);
+               String coursename = rs.getString(4);
+               String payment = rs.getString(5);
+               
+               Object[] content = {fullname, address, email, coursename, payment};
+               DefaultTableModel model = (DefaultTableModel) table_DailyAtt.getModel();
+               model.addRow(content);
+           }
+           
         }
-
+           
         catch(SQLException e)
             {
-                JOptionPane.showMessageDialog(null,e);
-            }
+                JOptionPane.showMessageDialog(null,"error");
+            }   
+        }
+
+        
     }//GEN-LAST:event_btn_dailyRefreshMouseClicked
 
     /**
