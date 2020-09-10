@@ -25,24 +25,13 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
      */
     public CourseAttendanceDaily() {
         initComponents();
-        DisplayTableDailyAtt();
         this.setLocationRelativeTo(null);
+        DisplayTableDailyAtt();
     }
     
     private void DisplayTableDailyAtt(){
         
-        try{       
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM student");   
-            ResultSet rs = ps.executeQuery();
-            
-            table_DailyAtt.setModel(DbUtils.resultSetToTableModel(rs));
-        }
-
-        catch(SQLException e)
-            {
-                JOptionPane.showMessageDialog(null,e);
-            }
+        
         
     }
 
@@ -67,6 +56,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         jScrollBar1 = new javax.swing.JScrollBar();
         jScrollPane2 = new javax.swing.JScrollPane();
         table_DailyAtt = new javax.swing.JTable();
+        btn_dailyRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -149,16 +139,33 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
 
         table_DailyAtt.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
         jScrollPane2.setViewportView(table_DailyAtt);
+
+        btn_dailyRefresh.setText("Refresh ");
+        btn_dailyRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_dailyRefreshMouseClicked(evt);
+            }
+        });
+        btn_dailyRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_dailyRefreshActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,12 +185,14 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                         .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(227, 227, 227)
                         .addComponent(selectDailyAtt, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(210, 210, 210)
+                        .addGap(117, 117, 117)
+                        .addComponent(btn_dailyRefresh)
+                        .addGap(18, 18, 18)
                         .addComponent(btn_monthly_attendance))
                     .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +204,9 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(selectDailyAtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_monthly_attendance))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btn_monthly_attendance)
+                                .addComponent(btn_dailyRefresh)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -240,6 +251,25 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_monthly_attendanceMouseClicked
 
+    private void btn_dailyRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dailyRefreshActionPerformed
+        
+    }//GEN-LAST:event_btn_dailyRefreshActionPerformed
+
+    private void btn_dailyRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dailyRefreshMouseClicked
+        try{       
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM student");   
+            ResultSet rs = ps.executeQuery();
+            
+            table_DailyAtt.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+
+        catch(SQLException e)
+            {
+                JOptionPane.showMessageDialog(null,e);
+            }
+    }//GEN-LAST:event_btn_dailyRefreshMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -278,6 +308,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel TopPanel;
+    private javax.swing.JButton btn_dailyRefresh;
     private javax.swing.JButton btn_dailyReport;
     private javax.swing.JButton btn_generateGraphDaily;
     private javax.swing.JLabel btn_home;
