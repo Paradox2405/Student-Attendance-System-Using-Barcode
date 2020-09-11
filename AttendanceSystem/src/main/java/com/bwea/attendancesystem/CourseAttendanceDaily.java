@@ -95,7 +95,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         TopPanelLayout.setHorizontalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
-                .addContainerGap(813, Short.MAX_VALUE)
+                .addContainerGap(853, Short.MAX_VALUE)
                 .addComponent(btn_home)
                 .addGap(30, 30, 30)
                 .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -184,16 +184,16 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                         .addComponent(btn_dailyReport))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(192, 192, 192)
+                        .addGap(219, 219, 219)
                         .addComponent(selectDailyAtt, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(129, 129, 129)
                         .addComponent(btn_dailyRefresh)
-                        .addGap(125, 125, 125)
+                        .addGap(28, 28, 28)
                         .addComponent(btn_monthly_attendance))
                     .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,21 +201,21 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                 .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
+                        .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(selectDailyAtt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btn_monthly_attendance)
-                                .addComponent(btn_dailyRefresh))
-                            .addComponent(selectDailyAtt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                                .addComponent(btn_dailyRefresh)
+                                .addComponent(btn_monthly_attendance)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_dailyReport)
                     .addComponent(btn_generateGraphDaily))
-                .addGap(0, 47, Short.MAX_VALUE))
+                .addGap(0, 41, Short.MAX_VALUE))
         );
 
         pack();
@@ -262,11 +262,11 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM student");   
             ResultSet rs = ps.executeQuery();
             table_DailyAtt.setModel(DbUtils.resultSetToTableModel(rs));
-            //DefaultTableModel tm = (DefaultTableModel)table_DailyAtt.getModel();
-            //tm.setRowCount(0);
-           // table_DailyAtt.setModel(DbUtils.resultSetToTableModel(rs));
+            DefaultTableModel tm = (DefaultTableModel)table_DailyAtt.getModel();
+            tm.setRowCount(0);
+            //table_DailyAtt.setModel(DbUtils.resultSetToTableModel(rs));
            
-          /* while(rs.next()){
+            while(rs.next()){
                String fullname = rs.getString(1);
                String address = rs.getString(2);
                String email = rs.getString(3);
@@ -275,13 +275,14 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                
                Object[] content = {fullname, address, email, coursename, payment};
                DefaultTableModel model = (DefaultTableModel) table_DailyAtt.getModel();
-               model.addRow(content);*/
+               model.addRow(content);
            }
-           catch(SQLException e)
-            {
-                JOptionPane.showMessageDialog(null,"error");
-            }   
+              
         }
+        catch(SQLException e)
+            {
+                JOptionPane.showMessageDialog(null,e);
+            }
     }//GEN-LAST:event_btn_dailyRefreshMouseClicked
 
     /**
