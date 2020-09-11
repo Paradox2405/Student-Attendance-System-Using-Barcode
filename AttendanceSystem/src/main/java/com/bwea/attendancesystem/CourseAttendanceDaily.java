@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-//import net.proteanit.sql.DbUtils;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -261,11 +261,12 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM student");   
             ResultSet rs = ps.executeQuery();
+            table_DailyAtt.setModel(DbUtils.resultSetToTableModel(rs));
             //DefaultTableModel tm = (DefaultTableModel)table_DailyAtt.getModel();
             //tm.setRowCount(0);
            // table_DailyAtt.setModel(DbUtils.resultSetToTableModel(rs));
            
-           while(rs.next()){
+          /* while(rs.next()){
                String fullname = rs.getString(1);
                String address = rs.getString(2);
                String email = rs.getString(3);
@@ -274,18 +275,13 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                
                Object[] content = {fullname, address, email, coursename, payment};
                DefaultTableModel model = (DefaultTableModel) table_DailyAtt.getModel();
-               model.addRow(content);
+               model.addRow(content);*/
            }
-           
-        }
-           
-        catch(SQLException e)
+           catch(SQLException e)
             {
                 JOptionPane.showMessageDialog(null,"error");
             }   
         }
-
-        
     }//GEN-LAST:event_btn_dailyRefreshMouseClicked
 
     /**
