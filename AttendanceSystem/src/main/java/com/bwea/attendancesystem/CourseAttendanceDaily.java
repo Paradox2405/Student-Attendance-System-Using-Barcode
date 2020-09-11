@@ -30,11 +30,11 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         
     }
     
-    private void DisplayTableDailyAtt(){
+   /* private void DisplayTableDailyAtt(){
         
         
         
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
