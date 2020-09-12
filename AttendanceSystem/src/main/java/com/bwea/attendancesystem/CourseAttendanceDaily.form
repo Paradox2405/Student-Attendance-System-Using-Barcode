@@ -38,9 +38,9 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="display_batch_name" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
-                      <Component id="selectDailyAtt" min="-2" pref="209" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
+                      <Component id="selectDailyAtt" min="-2" pref="211" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
                       <Component id="btn_dailyRefresh" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="btn_monthly_attendance" min="-2" max="-2" attributes="0"/>
@@ -61,11 +61,11 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="selectDailyAtt" min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="display_batch_name" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="btn_dailyRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btn_monthly_attendance" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="selectDailyAtt" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="21" max="32767" attributes="0"/>
@@ -161,8 +161,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="java.awt.Choice" name="selectDailyAtt">
-    </Component>
     <Component class="java.awt.Label" name="display_batch_name">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -257,6 +255,19 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_dailyRefreshMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_dailyRefreshActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="selectDailyAtt">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Two Month Diploma - English"/>
+            <StringItem index="1" value="student"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

@@ -28,12 +28,33 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
      * Creates new form CourseAttendance
      */
     public CourseAttendanceDaily() {
-        initComponents();
-        this.setLocationRelativeTo(null);
+            initComponents();
+             selectDailyAtt.addItem("Two Month Advance Certificate - English");
+             selectDailyAtt.addItem("Two Month Certificate - English");
+             selectDailyAtt.addItem("Three Month Diploma - English");
+             selectDailyAtt.addItem("English +IT");
+             selectDailyAtt.addItem("TOIC");
+             selectDailyAtt.addItem("IELTS");
+             selectDailyAtt.addItem("Weekend English");
+             selectDailyAtt.addItem("Night - English");
+             selectDailyAtt.addItem("KIDS");
+             selectDailyAtt.addItem("Foundation in ICT");
+             selectDailyAtt.addItem("Diploma in information technology");
+             selectDailyAtt.addItem("Diploma in Software engineering");
+             selectDailyAtt.addItem("Diploma in Web designing");
+             selectDailyAtt.addItem("Diploma in Graphic Designing");
+             selectDailyAtt.addItem("Foundation in Arduino programming");
+             selectDailyAtt.addItem("Diploma in Android application development");
+            
+            this.setLocationRelativeTo(null);
             DisplayTableDailyAtt();
     }
     
+    
     private void DisplayTableDailyAtt(){
+        
+
+        
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM student");   
@@ -78,7 +99,6 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         jLabelClose = new javax.swing.JLabel();
         jLabelMin = new javax.swing.JLabel();
         btn_home = new javax.swing.JLabel();
-        selectDailyAtt = new java.awt.Choice();
         display_batch_name = new java.awt.Label();
         btn_monthly_attendance = new javax.swing.JButton();
         btn_dailyReport = new javax.swing.JButton();
@@ -87,6 +107,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         table_DailyAtt = new javax.swing.JTable();
         btn_dailyRefresh = new javax.swing.JButton();
+        selectDailyAtt = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -189,6 +210,8 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
             }
         });
 
+        selectDailyAtt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Two Month Diploma - English", "student" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -205,9 +228,9 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                         .addComponent(btn_dailyReport))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(219, 219, 219)
-                        .addComponent(selectDailyAtt, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(129, 129, 129)
+                        .addGap(207, 207, 207)
+                        .addComponent(selectDailyAtt, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(139, 139, 139)
                         .addComponent(btn_dailyRefresh)
                         .addGap(28, 28, 28)
                         .addComponent(btn_monthly_attendance))
@@ -224,11 +247,11 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(selectDailyAtt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(btn_dailyRefresh)
-                                .addComponent(btn_monthly_attendance)))
+                                .addComponent(btn_monthly_attendance)
+                                .addComponent(selectDailyAtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -367,7 +390,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane2;
-    private java.awt.Choice selectDailyAtt;
+    private javax.swing.JComboBox<String> selectDailyAtt;
     private javax.swing.JTable table_DailyAtt;
     // End of variables declaration//GEN-END:variables
 }
