@@ -30,7 +30,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     public CourseAttendanceDaily() {
         initComponents();
         this.setLocationRelativeTo(null);
-        DisplayTableDailyAtt();
+            DisplayTableDailyAtt();
     }
     
     private void DisplayTableDailyAtt(){
@@ -50,11 +50,13 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                DefaultTableModel model = (DefaultTableModel) table_DailyAtt.getModel();
                model.addRow(content);
                
+               
               /* DefaultTableModel model = new DefaultTableModel(new String[]{"fullname", "address", "email", "coursename", "payment"}, 0);
                
                model.addRow(new Object[]{fullname, address, email, coursename, payment});
                table_DailyAtt.setModel(model);*/
             }
+            con.close();
         } 
         catch(SQLException e)
             {
@@ -273,7 +275,15 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
 
     private void btn_dailyRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dailyRefreshActionPerformed
         //Refresh button will show the current data & time attendance. Need to write the code
-        try{ 
+        DefaultTableModel model=(DefaultTableModel) table_DailyAtt.getModel();
+        while(model.getRowCount()>0){
+            model.setRowCount(0);
+            }
+
+         DisplayTableDailyAtt();
+        
+        
+        /*try{ 
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM student");   
             ResultSet rs = ps.executeQuery();
@@ -288,17 +298,18 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                Object [] content = {fullname, address, email, coursename, payment};
                DefaultTableModel model = (DefaultTableModel) table_DailyAtt.getModel();
                model.addRow(content);
+        
                
-              /* DefaultTableModel model = new DefaultTableModel(new String[]{"fullname", "address", "email", "coursename", "payment"}, 0);
+              DefaultTableModel model = new DefaultTableModel(new String[]{"fullname", "address", "email", "coursename", "payment"}, 0);
                
                model.addRow(new Object[]{fullname, address, email, coursename, payment});
-               table_DailyAtt.setModel(model);*/
+               table_DailyAtt.setModel(model);
             }
         } 
         catch(SQLException e)
             {
                 JOptionPane.showMessageDialog(null,e);
-            }
+            } */
     }//GEN-LAST:event_btn_dailyRefreshActionPerformed
 
     private void btn_dailyRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dailyRefreshMouseClicked
@@ -338,6 +349,9 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
             public void run() {
                 new CourseAttendanceDaily().setVisible(true);
             }
+            
+            
+            
         });
     }
 
