@@ -5,6 +5,7 @@
  */
 package com.bwea.attendancesystem;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,7 +14,9 @@ import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
+
+
+
 
 /**
  *
@@ -27,15 +30,39 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     public CourseAttendanceDaily() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+        DisplayTableDailyAtt();
     }
     
-   /* private void DisplayTableDailyAtt(){
+    private void DisplayTableDailyAtt(){
+        try{
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM student");   
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+               String fullname = rs.getString(1);
+               String address = rs.getString(2);
+               String email = rs.getString(3);
+               String coursename = rs.getString(4);
+               String payment = rs.getString(5);
+            
+               Object [] content = {fullname, address, email, coursename, payment};
+               DefaultTableModel model = (DefaultTableModel) table_DailyAtt.getModel();
+               model.addRow(content);
+               
+              /* DefaultTableModel model = new DefaultTableModel(new String[]{"fullname", "address", "email", "coursename", "payment"}, 0);
+               
+               model.addRow(new Object[]{fullname, address, email, coursename, payment});
+               table_DailyAtt.setModel(model);*/
+            }
+        } 
+        catch(SQLException e)
+            {
+                JOptionPane.showMessageDialog(null,e);
+            }
         
         
-        
-    }*/
-
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -140,15 +167,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
 
         table_DailyAtt.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "fullname", "address", "email", "coursename", "payment"
@@ -253,36 +272,37 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_monthly_attendanceMouseClicked
 
     private void btn_dailyRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dailyRefreshActionPerformed
-        
-    }//GEN-LAST:event_btn_dailyRefreshActionPerformed
-
-    private void btn_dailyRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dailyRefreshMouseClicked
-        try{       
+        //Refresh button will show the current data & time attendance. Need to write the code
+        try{ 
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM student");   
             ResultSet rs = ps.executeQuery();
-            table_DailyAtt.setModel(DbUtils.resultSetToTableModel(rs));
-            DefaultTableModel tm = (DefaultTableModel)table_DailyAtt.getModel();
-            tm.setRowCount(0);
-            //table_DailyAtt.setModel(DbUtils.resultSetToTableModel(rs));
-           
+            
             while(rs.next()){
                String fullname = rs.getString(1);
                String address = rs.getString(2);
                String email = rs.getString(3);
                String coursename = rs.getString(4);
                String payment = rs.getString(5);
-               
-               Object[] content = {fullname, address, email, coursename, payment};
+            
+               Object [] content = {fullname, address, email, coursename, payment};
                DefaultTableModel model = (DefaultTableModel) table_DailyAtt.getModel();
                model.addRow(content);
-           }
-              
-        }
+               
+              /* DefaultTableModel model = new DefaultTableModel(new String[]{"fullname", "address", "email", "coursename", "payment"}, 0);
+               
+               model.addRow(new Object[]{fullname, address, email, coursename, payment});
+               table_DailyAtt.setModel(model);*/
+            }
+        } 
         catch(SQLException e)
             {
                 JOptionPane.showMessageDialog(null,e);
             }
+    }//GEN-LAST:event_btn_dailyRefreshActionPerformed
+
+    private void btn_dailyRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dailyRefreshMouseClicked
+        
     }//GEN-LAST:event_btn_dailyRefreshMouseClicked
 
     /**
