@@ -26,6 +26,8 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -278,20 +280,20 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
 
     private void btn_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enterActionPerformed
         // TODO add your handling code here:
-        String barcode =txt_barcode.getText();
+        String barcode = txt_barcode.getText();
 
         try{
             int bar = Integer.parseInt(barcode);
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("select fullname,admission,coursename,dues from student where admission="+bar);
-            ResultSet rs=ps.executeQuery();
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+           // PreparedStatement ps = con.prepareStatement("SELECT fullname,admission,coursename,dues FROM student WHERE admission="+bar);
+            PreparedStatement ps = con.prepareStatement("SELECT fullname,,coursename FROM student WHERE `coursename` = 'SE'");
+            ResultSet rs = ps.executeQuery();
+            
             if(rs.next()){
                 txt_name.setText(rs.getString("fullname"));
                 txt_course.setText(rs.getString("coursename"));
                 txt_admission.setText(rs.getString("admission"));
-               
                 txt_dues.setText(rs.getString("dues"));
-
             }
 
         }
@@ -304,7 +306,8 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_enterActionPerformed
 
     private void btn_cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelMouseClicked
-        // TODO add your handling code here:
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);    
         this.dispose();
     }//GEN-LAST:event_btn_cancelMouseClicked
 
@@ -313,7 +316,30 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cancelActionPerformed
 
     private void btn_editstu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editstu1MouseClicked
-        // TODO add your handling code here:
+        String fullname = txt_name.getText();
+        String coursename = txt_course.getText();
+        String admission = txt_admission.getText();
+        String dues = txt_dues.getText();
+        
+        String barcode = txt_barcode.getText();
+        int bar = Integer.parseInt(barcode);
+        
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            //PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `fullname`=?,`coursename`=?,`admission`=?, `payment`=? WHERE admission="+bar);
+            PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `fullname`=?,`coursename`=?,`admission`=?, `payment`=? WHERE `coursename` = 'SE'");
+            
+            ps.setString(1, fullname);
+            ps.setString(2, coursename);
+            ps.setString(3, admission);
+            ps.setInt(4, Integer.parseInt(dues));
+            
+            ps.executeUpdate();
+            
+        } 
+        catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_btn_editstu1MouseClicked
 
     private void btn_editstu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editstu1ActionPerformed
