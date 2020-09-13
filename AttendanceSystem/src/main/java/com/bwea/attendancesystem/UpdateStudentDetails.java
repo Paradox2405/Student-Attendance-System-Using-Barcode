@@ -10,26 +10,21 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
 
 /**
  *
  * @author Acer
  */
-public class BarcodeScan extends javax.swing.JFrame {
+public class UpdateStudentDetails extends javax.swing.JFrame {
 
     /**
-     * Creates new form BarcodeScan
+     * Creates new form UpdateStudentDetails
      */
-    public BarcodeScan() {
+    public UpdateStudentDetails() {
         initComponents();
     }
-    
 
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,31 +42,28 @@ public class BarcodeScan extends javax.swing.JFrame {
         btn_enter = new javax.swing.JButton();
         txt_admission = new javax.swing.JTextField();
         txt_course = new javax.swing.JTextField();
-        txt_intime = new javax.swing.JTextField();
-        txt_outtime = new javax.swing.JTextField();
         txt_dues = new javax.swing.JTextField();
         txt_name = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        btn_editstu = new javax.swing.JButton();
+        btn_cancel = new javax.swing.JButton();
+        btn_editstu1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(983, 674));
 
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
 
         jLabel2.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Scan Barcodes");
+        jLabel2.setText("Update Student Details");
 
         btn_home.setBackground(new java.awt.Color(153, 153, 153));
         btn_home.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         btn_home.setForeground(new java.awt.Color(255, 255, 255));
-        btn_home.setText("Home");
+        btn_home.setText("Back");
         btn_home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_homeMouseClicked(evt);
@@ -84,25 +76,24 @@ public class BarcodeScan extends javax.swing.JFrame {
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(346, 346, 346)
+                .addComponent(jLabel2)
+                .addGap(336, 336, 336)
                 .addComponent(btn_home)
                 .addGap(26, 26, 26))
         );
         TopPanelLayout.setVerticalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TopPanelLayout.createSequentialGroup()
-                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TopPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_home))
-                    .addGroup(TopPanelLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel2)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(btn_home)
+                .addContainerGap(27, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(15, 15, 15))
         );
 
-        MainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        MainPanel.setBackground(new java.awt.Color(226, 156, 14));
 
         txt_barcode.setBackground(new java.awt.Color(204, 204, 204));
         txt_barcode.addActionListener(new java.awt.event.ActionListener() {
@@ -111,25 +102,14 @@ public class BarcodeScan extends javax.swing.JFrame {
             }
         });
 
-        btn_enter.setText("Enter");
+        btn_enter.setText("Search");
         btn_enter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_enterActionPerformed(evt);
             }
         });
 
-        txt_admission.setEditable(false);
-
-        txt_course.setEditable(false);
-
-        txt_intime.setEditable(false);
-
-        txt_outtime.setEditable(false);
-
-        txt_dues.setEditable(false);
         txt_dues.setSelectedTextColor(new java.awt.Color(204, 0, 0));
-
-        txt_name.setEditable(false);
 
         jLabel1.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
@@ -139,14 +119,6 @@ public class BarcodeScan extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Admission #");
 
-        jLabel4.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("In Time Today");
-
-        jLabel5.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("Out Time Today");
-
         jLabel6.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("Payment Due");
@@ -155,19 +127,34 @@ public class BarcodeScan extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Program");
 
-        btn_editstu.setBackground(new java.awt.Color(0, 204, 0));
-        btn_editstu.setFont(new java.awt.Font("Product Sans", 1, 12)); // NOI18N
-        btn_editstu.setForeground(new java.awt.Color(255, 255, 255));
-        btn_editstu.setText("Edit");
-        btn_editstu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 153, 0), java.awt.Color.green, null, null));
-        btn_editstu.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_cancel.setBackground(new java.awt.Color(204, 0, 0));
+        btn_cancel.setFont(new java.awt.Font("Product Sans", 1, 12)); // NOI18N
+        btn_cancel.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cancel.setText("Cancel");
+        btn_cancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_editstuMouseClicked(evt);
+                btn_cancelMouseClicked(evt);
             }
         });
-        btn_editstu.addActionListener(new java.awt.event.ActionListener() {
+        btn_cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_editstuActionPerformed(evt);
+                btn_cancelActionPerformed(evt);
+            }
+        });
+
+        btn_editstu1.setBackground(new java.awt.Color(0, 204, 0));
+        btn_editstu1.setFont(new java.awt.Font("Product Sans", 1, 12)); // NOI18N
+        btn_editstu1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_editstu1.setText("Update");
+        btn_editstu1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 153, 0), java.awt.Color.green, null, null));
+        btn_editstu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_editstu1MouseClicked(evt);
+            }
+        });
+        btn_editstu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editstu1ActionPerformed(evt);
             }
         });
 
@@ -176,29 +163,27 @@ public class BarcodeScan extends javax.swing.JFrame {
         MainPanelLayout.setHorizontalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(82, 82, 82)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_name)
-                            .addComponent(txt_admission)
-                            .addComponent(txt_barcode, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
-                            .addComponent(txt_course)
-                            .addComponent(txt_intime)
-                            .addComponent(txt_outtime)
-                            .addComponent(txt_dues)))
-                    .addComponent(btn_editstu, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_editstu1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txt_name)
+                        .addComponent(txt_admission)
+                        .addComponent(txt_barcode, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+                        .addComponent(txt_course)
+                        .addComponent(txt_dues)))
                 .addGap(26, 26, 26)
-                .addComponent(btn_enter)
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addComponent(btn_enter, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,21 +204,15 @@ public class BarcodeScan extends javax.swing.JFrame {
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_course, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_intime, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_outtime, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_dues, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
-                .addComponent(btn_editstu, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_editstu1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(196, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -255,12 +234,10 @@ public class BarcodeScan extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMouseClicked
-        HomeScreen hs = new HomeScreen();
-        hs.setVisible(true);
+
         this.dispose();
     }//GEN-LAST:event_btn_homeMouseClicked
 
-    
     private void txt_barcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_barcodeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_barcodeActionPerformed
@@ -268,54 +245,46 @@ public class BarcodeScan extends javax.swing.JFrame {
     private void btn_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enterActionPerformed
         // TODO add your handling code here:
         String barcode =txt_barcode.getText();
-       
-        
 
-        try{       
-          int bar = Integer.parseInt(barcode);
+        try{
+            int bar = Integer.parseInt(barcode);
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("select fullname,admission,coursename,intime,outtime,dues from student where admission="+bar);                          
+            PreparedStatement ps = con.prepareStatement("select fullname,admission,coursename,dues from student where admission="+bar);
             ResultSet rs=ps.executeQuery();
-            
-            if (rs.next() == false) {
-                JOptionPane.showMessageDialog(null,"Admission Number Doesnt Exist");
-               }
-            else{
-            
-            
-            
-            do{
+            if(rs.next()){
                 txt_name.setText(rs.getString("fullname"));
                 txt_course.setText(rs.getString("coursename"));
-                 txt_admission.setText(rs.getString("admission"));
-                  txt_intime.setText(rs.getString("intime"));
-                  txt_outtime.setText(rs.getString("outtime"));
-                  txt_dues.setText(rs.getString("dues"));
-                
-                        }while(rs.next());
-                }
-           }           
-        catch(SQLException e)
-            {
-                
-            System.out.println(e);
+                txt_admission.setText(rs.getString("admission"));
+               
+                txt_dues.setText(rs.getString("dues"));
+
             }
-        
+
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,"Admission Number Doesnt Exist");
+            System.out.println(e);
+        }
+
     }//GEN-LAST:event_btn_enterActionPerformed
 
-    private void btn_editstuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editstuMouseClicked
+    private void btn_cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelMouseClicked
         // TODO add your handling code here:
-        UpdateStudentDetails upstu = new UpdateStudentDetails();
-        upstu.setVisible(true);
-        upstu.pack();
-        upstu.setLocationRelativeTo(null);
-        upstu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-    }//GEN-LAST:event_btn_editstuMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btn_cancelMouseClicked
 
-    private void btn_editstuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editstuActionPerformed
+    private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_editstuActionPerformed
+    }//GEN-LAST:event_btn_cancelActionPerformed
+
+    private void btn_editstu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editstu1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_editstu1MouseClicked
+
+    private void btn_editstu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editstu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_editstu1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -334,50 +303,40 @@ public class BarcodeScan extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BarcodeScan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateStudentDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BarcodeScan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateStudentDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BarcodeScan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateStudentDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BarcodeScan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateStudentDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BarcodeScan().setVisible(true);
-                
-            
-            
+                new UpdateStudentDetails().setVisible(true);
             }
         });
-        
-        
-        
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel TopPanel;
-    private javax.swing.JButton btn_editstu;
+    private javax.swing.JButton btn_cancel;
+    private javax.swing.JButton btn_editstu1;
     private javax.swing.JButton btn_enter;
     private javax.swing.JLabel btn_home;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField txt_admission;
     private javax.swing.JTextField txt_barcode;
     private javax.swing.JTextField txt_course;
     private javax.swing.JTextField txt_dues;
-    private javax.swing.JTextField txt_intime;
     private javax.swing.JTextField txt_name;
-    private javax.swing.JTextField txt_outtime;
     // End of variables declaration//GEN-END:variables
 }
