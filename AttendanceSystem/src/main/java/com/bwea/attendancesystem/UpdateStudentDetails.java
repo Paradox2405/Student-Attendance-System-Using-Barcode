@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +24,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
      */
     public UpdateStudentDetails() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -35,8 +37,10 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
     private void initComponents() {
 
         TopPanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         btn_home = new javax.swing.JLabel();
+        jLabelClose = new javax.swing.JLabel();
+        jLabelMin = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         MainPanel = new javax.swing.JPanel();
         txt_barcode = new javax.swing.JTextField();
         btn_enter = new javax.swing.JButton();
@@ -56,10 +60,6 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
 
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
 
-        jLabel2.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Update Student Details");
-
         btn_home.setBackground(new java.awt.Color(153, 153, 153));
         btn_home.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         btn_home.setForeground(new java.awt.Color(255, 255, 255));
@@ -70,6 +70,26 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
             }
         });
 
+        jLabelClose.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabelClose.setText("X");
+        jLabelClose.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelCloseMouseClicked(evt);
+            }
+        });
+
+        jLabelMin.setFont(new java.awt.Font("Product Sans", 1, 24)); // NOI18N
+        jLabelMin.setText("-");
+        jLabelMin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelMinMouseClicked(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Update Student Details");
+
         javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
         TopPanel.setLayout(TopPanelLayout);
         TopPanelLayout.setHorizontalGroup(
@@ -77,20 +97,28 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(336, 336, 336)
+                .addGap(266, 266, 266)
                 .addComponent(btn_home)
-                .addGap(26, 26, 26))
+                .addGap(18, 18, 18)
+                .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelClose, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         TopPanelLayout.setVerticalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TopPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_home)
-                .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(15, 15, 15))
+                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TopPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelClose, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_home)
+                            .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(TopPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         MainPanel.setBackground(new java.awt.Color(226, 156, 14));
@@ -169,18 +197,23 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_editstu1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txt_name)
-                        .addComponent(txt_admission)
-                        .addComponent(txt_barcode, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
-                        .addComponent(txt_course)
-                        .addComponent(txt_dues)))
+                        .addComponent(btn_editstu1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(MainPanelLayout.createSequentialGroup()
+                            .addGap(17, 17, 17)
+                            .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txt_course, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
+                                .addComponent(txt_admission, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txt_barcode, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txt_name, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addGroup(MainPanelLayout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addComponent(txt_dues, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(26, 26, 26)
                 .addComponent(btn_enter, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(102, Short.MAX_VALUE))
@@ -191,28 +224,28 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_enter))
+                    .addComponent(btn_enter, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_admission, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_course, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_dues, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(18, 18, 18)
+                .addGap(38, 38, 38)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_editstu1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(196, Short.MAX_VALUE))
+                    .addComponent(btn_editstu1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -234,7 +267,8 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMouseClicked
-
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);    
         this.dispose();
     }//GEN-LAST:event_btn_homeMouseClicked
 
@@ -286,6 +320,14 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_editstu1ActionPerformed
 
+    private void jLabelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabelCloseMouseClicked
+
+    private void jLabelMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinMouseClicked
+        this.setState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_jLabelMinMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -333,6 +375,8 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabelClose;
+    private javax.swing.JLabel jLabelMin;
     private javax.swing.JTextField txt_admission;
     private javax.swing.JTextField txt_barcode;
     private javax.swing.JTextField txt_course;

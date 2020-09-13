@@ -28,27 +28,34 @@
               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
               <Component id="TopPanel" max="32767" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="btn_generateGraphDaily" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="display_batch_name" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                              <Component id="selectDailyAtt" min="-2" pref="401" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="btn_generateGraphDaily" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <Component id="btn_dailyReport" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="display_batch_name" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                      <Component id="selectDailyAtt" min="-2" pref="401" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                      <Component id="btn_dailyRefresh" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="btn_monthly_attendance" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jScrollPane2" alignment="1" min="-2" pref="900" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="737" max="-2" attributes="0"/>
+                          <Component id="btn_dailyRefresh" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btn_monthly_attendance" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <Component id="jScrollPane2" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollBar1" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="50" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -57,28 +64,23 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="TopPanel" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="display_batch_name" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="btn_dailyRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_monthly_attendance" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="selectDailyAtt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="21" max="32767" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="357" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="display_batch_name" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="btn_monthly_attendance" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="selectDailyAtt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_dailyRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollBar1" min="-2" pref="329" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
+              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="357" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btn_dailyReport" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_generateGraphDaily" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_dailyReport" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="41" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="39" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -95,7 +97,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="853" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="270" max="-2" attributes="0"/>
                   <Component id="btn_home" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabelMin" min="-2" pref="22" max="-2" attributes="0"/>
@@ -107,14 +111,22 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelClose" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="jLabelMin" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="btn_home" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelClose" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                              <Component id="jLabelMin" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                              <Component id="btn_home" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="25" max="32767" attributes="0"/>
+                  <EmptySpace pref="15" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -159,6 +171,17 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_homeMouseClicked"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Course Attendance"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Component class="java.awt.Label" name="display_batch_name">
@@ -190,8 +213,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Generate Graph"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JScrollBar" name="jScrollBar1">
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <AuxValues>
