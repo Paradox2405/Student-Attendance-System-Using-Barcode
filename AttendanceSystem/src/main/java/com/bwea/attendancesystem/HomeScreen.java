@@ -25,14 +25,32 @@ public class HomeScreen extends javax.swing.JFrame {
      */
     public HomeScreen() {
         initComponents();
+             selectStudentsDb.addItem("Two Month Diploma in English");
+             selectStudentsDb.addItem("Two Month Advance Certificate - English");
+             selectStudentsDb.addItem("Two Month Certificate - English");
+             selectStudentsDb.addItem("Three Month Diploma - English");
+             selectStudentsDb.addItem("English +IT");
+             selectStudentsDb.addItem("TOIC");
+             selectStudentsDb.addItem("IELTS");
+             selectStudentsDb.addItem("Weekend English");
+             selectStudentsDb.addItem("Night - English");
+             selectStudentsDb.addItem("KIDS");
+             selectStudentsDb.addItem("Foundation in ICT");
+             selectStudentsDb.addItem("Diploma in information technology");
+             selectStudentsDb.addItem("Diploma in Software engineering");
+             selectStudentsDb.addItem("Diploma in Web designing");
+             selectStudentsDb.addItem("Diploma in Graphic Designing");
+             selectStudentsDb.addItem("Foundation in Arduino programming");
+             selectStudentsDb.addItem("Diploma in Android application development");
         this.setLocationRelativeTo(null);
         DisplayTableAllStu();
     }
     
     private void DisplayTableAllStu(){
+        String dbtbl = (String)selectStudentsDb.getSelectedItem();
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM student");   
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM "+dbtbl);   
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
@@ -56,7 +74,7 @@ public class HomeScreen extends javax.swing.JFrame {
         } 
         catch(SQLException e)
             {
-                JOptionPane.showMessageDialog(null,e);
+                 JOptionPane.showMessageDialog(null,"Table Doesnt Exist In Database");
             }
         
         
@@ -94,8 +112,8 @@ public class HomeScreen extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         table_all = new javax.swing.JTable();
         MidPanel = new javax.swing.JPanel();
-        choice1 = new java.awt.Choice();
         btn_dailyRefresh = new javax.swing.JButton();
+        selectStudentsDb = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -391,14 +409,16 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
+        selectStudentsDb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "student" }));
+
         javax.swing.GroupLayout MidPanelLayout = new javax.swing.GroupLayout(MidPanel);
         MidPanel.setLayout(MidPanelLayout);
         MidPanelLayout.setHorizontalGroup(
             MidPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MidPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 339, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(selectStudentsDb, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
                 .addComponent(btn_dailyRefresh)
                 .addContainerGap())
         );
@@ -406,9 +426,9 @@ public class HomeScreen extends javax.swing.JFrame {
             MidPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MidPanelLayout.createSequentialGroup()
                 .addGap(0, 22, Short.MAX_VALUE)
-                .addGroup(MidPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_dailyRefresh, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(choice1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(MidPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_dailyRefresh)
+                    .addComponent(selectStudentsDb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -606,7 +626,6 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton btn_dailyRefresh;
     private javax.swing.JLabel btn_logout;
     private javax.swing.JPanel btn_scanbarcodes;
-    private java.awt.Choice choice1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -620,6 +639,7 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> selectStudentsDb;
     private javax.swing.JTable table_all;
     // End of variables declaration//GEN-END:variables
 }

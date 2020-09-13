@@ -38,9 +38,9 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="display_batch_name" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
-                      <Component id="selectDailyAtt" min="-2" pref="211" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                      <Component id="selectDailyAtt" min="-2" pref="401" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                       <Component id="btn_dailyRefresh" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="btn_monthly_attendance" min="-2" max="-2" attributes="0"/>
@@ -259,9 +259,8 @@
     <Component class="javax.swing.JComboBox" name="selectDailyAtt">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Two Month Diploma - English"/>
-            <StringItem index="1" value="student"/>
+          <StringArray count="1">
+            <StringItem index="0" value="student"/>
           </StringArray>
         </Property>
       </Properties>

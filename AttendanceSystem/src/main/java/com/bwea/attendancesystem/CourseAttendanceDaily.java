@@ -29,6 +29,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
      */
     public CourseAttendanceDaily() {
             initComponents();
+             selectDailyAtt.addItem("Two Month Diploma in English");
              selectDailyAtt.addItem("Two Month Advance Certificate - English");
              selectDailyAtt.addItem("Two Month Certificate - English");
              selectDailyAtt.addItem("Three Month Diploma - English");
@@ -53,11 +54,15 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     
     private void DisplayTableDailyAtt(){
         
-
+       
         
         try{
+             
+            String dbtbl = (String)selectDailyAtt.getSelectedItem();
+            
+            
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM student");   
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM "+dbtbl);   
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
@@ -81,8 +86,9 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         } 
         catch(SQLException e)
             {
-                JOptionPane.showMessageDialog(null,e);
+                JOptionPane.showMessageDialog(null,"Table Doesnt Exist In Database");
             }
+        
         
         
     }
@@ -210,7 +216,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
             }
         });
 
-        selectDailyAtt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Two Month Diploma - English", "student" }));
+        selectDailyAtt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "student" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -228,9 +234,9 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                         .addComponent(btn_dailyReport))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(207, 207, 207)
-                        .addComponent(selectDailyAtt, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(139, 139, 139)
+                        .addGap(91, 91, 91)
+                        .addComponent(selectDailyAtt, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
                         .addComponent(btn_dailyRefresh)
                         .addGap(28, 28, 28)
                         .addComponent(btn_monthly_attendance))
