@@ -116,6 +116,8 @@ public class BarcodeScan extends javax.swing.JFrame {
             }
         });
 
+        txt_dues.setSelectedTextColor(new java.awt.Color(204, 0, 0));
+
         jLabel1.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Name");
@@ -238,11 +240,15 @@ public class BarcodeScan extends javax.swing.JFrame {
         try{       
           int bar = Integer.parseInt(barcode);
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("select fullname,coursename from student where admission="+bar);                          
+            PreparedStatement ps = con.prepareStatement("select fullname,admission,coursename,intime,outtime,dues from student where admission="+bar);                          
             ResultSet rs=ps.executeQuery();
             if(rs.next()){
                 txt_name.setText(rs.getString("fullname"));
                 txt_course.setText(rs.getString("coursename"));
+                 txt_admission.setText(rs.getString("admission"));
+                  txt_intime.setText(rs.getString("intime"));
+                  txt_outtime.setText(rs.getString("outtime"));
+                  txt_dues.setText(rs.getString("dues"));
                 
             }
             

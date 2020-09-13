@@ -214,6 +214,11 @@
         <Component class="javax.swing.JTextField" name="txt_outtime">
         </Component>
         <Component class="javax.swing.JTextField" name="txt_dues">
+          <Properties>
+            <Property name="selectedTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_name">
         </Component>

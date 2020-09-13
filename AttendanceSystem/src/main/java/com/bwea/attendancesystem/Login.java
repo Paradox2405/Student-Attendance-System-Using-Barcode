@@ -125,10 +125,15 @@ public class Login extends javax.swing.JFrame {
         btn_cancel.setBackground(new java.awt.Color(204, 0, 0));
         btn_cancel.setFont(new java.awt.Font("Product Sans", 1, 12)); // NOI18N
         btn_cancel.setForeground(new java.awt.Color(255, 255, 255));
-        btn_cancel.setText("Cancel");
+        btn_cancel.setText("Clear");
         btn_cancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_cancelMouseClicked(evt);
+            }
+        });
+        btn_cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelActionPerformed(evt);
             }
         });
 
@@ -154,7 +159,7 @@ public class Login extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(MainPanelLayout.createSequentialGroup()
-                                .addGap(0, 80, Short.MAX_VALUE)
+                                .addGap(0, 88, Short.MAX_VALUE)
                                 .addComponent(btn_cancel)
                                 .addGap(28, 28, 28)
                                 .addComponent(btn_login))
@@ -244,8 +249,13 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_loginMouseClicked
 
     private void btn_cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelMouseClicked
-        System.exit(0);
+        txt_uname.setText(null);
+        txt_password.setText(null);
     }//GEN-LAST:event_btn_cancelMouseClicked
+
+    private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelActionPerformed
 
     /**
      * @param args the command line arguments
