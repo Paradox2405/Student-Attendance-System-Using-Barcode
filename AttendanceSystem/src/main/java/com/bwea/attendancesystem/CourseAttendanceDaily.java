@@ -75,10 +75,8 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                Object [] content = {fullname, address, email, coursename, payment};
                DefaultTableModel model = (DefaultTableModel) table_DailyAtt.getModel();
                model.addRow(content);
-               
-               
+                              
               /* DefaultTableModel model = new DefaultTableModel(new String[]{"fullname", "address", "email", "coursename", "payment"}, 0);
-               
                model.addRow(new Object[]{fullname, address, email, coursename, payment});
                table_DailyAtt.setModel(model);*/
             }
@@ -338,12 +336,10 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                Object [] content = {fullname, address, email, coursename, payment};
                DefaultTableModel model = (DefaultTableModel) table_DailyAtt.getModel();
                model.addRow(content);
-        
-               
-              DefaultTableModel model = new DefaultTableModel(new String[]{"fullname", "address", "email", "coursename", "payment"}, 0);
-               
-               model.addRow(new Object[]{fullname, address, email, coursename, payment});
-               table_DailyAtt.setModel(model);
+                       
+               //comment //DefaultTableModel model = new DefaultTableModel(new String[]{"fullname", "address", "email", "coursename", "payment"}, 0);
+               //comment //model.addRow(new Object[]{fullname, address, email, coursename, payment});
+               //comment //table_DailyAtt.setModel(model);
             }
         } 
         catch(SQLException e)

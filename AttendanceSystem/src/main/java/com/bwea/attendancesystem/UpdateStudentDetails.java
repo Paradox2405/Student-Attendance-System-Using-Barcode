@@ -280,14 +280,19 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
 
     private void btn_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enterActionPerformed
         // TODO add your handling code here:
-        String barcode = txt_barcode.getText();
+        Function f = new Function();
+        ResultSet rs;
+        
+        
+      //  String barcode = txt_barcode.getText();
 
         try{
-            int bar = Integer.parseInt(barcode);
+            rs = f.find(txt_course.getText());
+           // int bar = Integer.parseInt(barcode);
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
            // PreparedStatement ps = con.prepareStatement("SELECT fullname,admission,coursename,dues FROM student WHERE admission="+bar);
-            PreparedStatement ps = con.prepareStatement("SELECT fullname,,coursename FROM student WHERE `coursename` = 'SE'");
-            ResultSet rs = ps.executeQuery();
+            PreparedStatement ps = con.prepareStatement("SELECT fullname,coursename FROM student WHERE `coursename` = 'SE'");
+            rs = ps.executeQuery();
             
             if(rs.next()){
                 txt_name.setText(rs.getString("fullname"));
@@ -305,6 +310,24 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_enterActionPerformed
 
+    public class Function{
+        
+        ResultSet rs = null;
+        public ResultSet find(String s) throws SQLException {
+            try{
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE `coursename` = 'SE'");
+            rs = ps.executeQuery();
+            }
+            catch(SQLException e)
+            {
+            JOptionPane.showMessageDialog(null,"Admission Number Doesnt Exist");
+            System.out.println(e);
+            }
+            return rs;
+        }
+    }
+    
     private void btn_cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelMouseClicked
         HomeScreen hs = new HomeScreen();
         hs.setVisible(true);    
