@@ -287,11 +287,11 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
       //  String barcode = txt_barcode.getText();
 
         try{
-            rs = f.find(txt_course.getText());
+            rs = f.find(txt_name.getText());
            // int bar = Integer.parseInt(barcode);
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
            // PreparedStatement ps = con.prepareStatement("SELECT fullname,admission,coursename,dues FROM student WHERE admission="+bar);
-            PreparedStatement ps = con.prepareStatement("SELECT fullname,coursename FROM student WHERE `coursename` = 'SE'");
+            PreparedStatement ps = con.prepareStatement("SELECT fullname, coursename FROM student WHERE `fullname` =  " +txt_barcode.getText());
             rs = ps.executeQuery();
             
             if(rs.next()){
@@ -304,7 +304,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         }
         catch(SQLException e)
         {
-            JOptionPane.showMessageDialog(null,"Admission Number Doesnt Exist");
+            JOptionPane.showMessageDialog(null,"Admission Number Does Not Exist");
             System.out.println(e);
         }
 
@@ -316,7 +316,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         public ResultSet find(String s) throws SQLException {
             try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE `coursename` = 'SE'");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE `fullname` = " +txt_barcode.getText());
             rs = ps.executeQuery();
             }
             catch(SQLException e)
