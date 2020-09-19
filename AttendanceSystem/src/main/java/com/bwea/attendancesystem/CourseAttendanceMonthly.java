@@ -6,6 +6,8 @@
 package com.bwea.attendancesystem;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.sql.*;
 
 /**
  *
@@ -18,7 +20,58 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
      */
     public CourseAttendanceMonthly() {
         initComponents();
+             selectDailyAtt.addItem("Two Month Diploma in English");
+             selectDailyAtt.addItem("Two Month Advance Certificate - English");
+             selectDailyAtt.addItem("Two Month Certificate - English");
+             selectDailyAtt.addItem("Three Month Diploma - English");
+             selectDailyAtt.addItem("English + IT");
+             selectDailyAtt.addItem("TOIC");
+             selectDailyAtt.addItem("IELTS");
+             selectDailyAtt.addItem("Weekend English");
+             selectDailyAtt.addItem("Night - English");
+             selectDailyAtt.addItem("KIDS");
+             selectDailyAtt.addItem("Foundation in ICT");
+             selectDailyAtt.addItem("Diploma in Information Technology");
+             selectDailyAtt.addItem("Diploma in Software Engineering");
+             selectDailyAtt.addItem("Diploma in Web Designing");
+             selectDailyAtt.addItem("Diploma in Graphic Designing");
+             selectDailyAtt.addItem("Foundation in Arduino Programming");
+             selectDailyAtt.addItem("Diploma in Android Application Development");
         this.setLocationRelativeTo(null);
+        DisplayTableMonthlyAtt();
+    }
+    
+    private void DisplayTableMonthlyAtt(){
+        try{
+             
+            String dbtbl = (String)selectDailyAtt.getSelectedItem();
+            
+            
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM "+dbtbl);   
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+               String fullname = rs.getString(1);
+               String address = rs.getString(2);
+               String email = rs.getString(3);
+               String coursename = rs.getString(4);
+               String payment = rs.getString(5);
+            
+               Object [] content = {fullname, address, email, coursename, payment};
+               DefaultTableModel model = (DefaultTableModel) table_MonthlyAtt.getModel();
+               model.addRow(content);
+                              
+              /* DefaultTableModel model = new DefaultTableModel(new String[]{"fullname", "address", "email", "coursename", "payment"}, 0);
+               model.addRow(new Object[]{fullname, address, email, coursename, payment});
+               table_DailyAtt.setModel(model);*/
+            }
+            con.close();
+        } 
+        catch(SQLException e)
+            {
+                JOptionPane.showMessageDialog(null,"Table Doesnt Exist In Database");
+            }
     }
 
     /**
@@ -39,7 +92,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         btn_generateGraphMonthly = new javax.swing.JButton();
         btn_endBatch = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table_MonthlyAtt = new javax.swing.JTable();
         display_batch_name = new java.awt.Label();
         daily_attendance = new javax.swing.JButton();
         selectDailyAtt = new javax.swing.JComboBox<>();
@@ -121,18 +174,15 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table_MonthlyAtt.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "fullname", "address", "email", "coursename", "payment"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(table_MonthlyAtt);
 
         display_batch_name.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         display_batch_name.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -285,7 +335,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JComboBox<String> selectDailyAtt;
+    private javax.swing.JTable table_MonthlyAtt;
     // End of variables declaration//GEN-END:variables
 }
