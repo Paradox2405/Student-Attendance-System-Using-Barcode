@@ -60,9 +60,9 @@
                           <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jDateChooser2" max="32767" attributes="0"/>
-                              <Component id="display_stu_course" max="32767" attributes="0"/>
-                              <Component id="display_stu_addmission" max="32767" attributes="0"/>
-                              <Component id="display_stu_name" max="32767" attributes="0"/>
+                              <Component id="txt_course" max="32767" attributes="0"/>
+                              <Component id="txt_admission" max="32767" attributes="0"/>
+                              <Component id="txt_name" max="32767" attributes="0"/>
                               <Component id="jDateChooser1" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -90,16 +90,16 @@
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="display_stu_name" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txt_name" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                          <Component id="display_stu_addmission" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txt_admission" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="display_stu_course" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txt_course" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -121,7 +121,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="java.awt.Label" name="display_stu_name">
+        <Component class="java.awt.Label" name="txt_name">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -129,7 +129,7 @@
             <Property name="name" type="java.lang.String" value="searchNameDisplay" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="display_stu_course">
+        <Component class="java.awt.Label" name="txt_course">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -137,7 +137,7 @@
             <Property name="name" type="java.lang.String" value="searchNameDisplay" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="display_stu_addmission">
+        <Component class="java.awt.Label" name="txt_admission">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>

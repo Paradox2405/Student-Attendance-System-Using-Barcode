@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -108,9 +109,9 @@ public class CheckAttendance extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        display_stu_name = new java.awt.Label();
-        display_stu_course = new java.awt.Label();
-        display_stu_addmission = new java.awt.Label();
+        txt_name = new java.awt.Label();
+        txt_course = new java.awt.Label();
+        txt_admission = new java.awt.Label();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
@@ -130,14 +131,14 @@ public class CheckAttendance extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        display_stu_name.setBackground(new java.awt.Color(204, 204, 204));
-        display_stu_name.setName("searchNameDisplay"); // NOI18N
+        txt_name.setBackground(new java.awt.Color(204, 204, 204));
+        txt_name.setName("searchNameDisplay"); // NOI18N
 
-        display_stu_course.setBackground(new java.awt.Color(204, 204, 204));
-        display_stu_course.setName("searchNameDisplay"); // NOI18N
+        txt_course.setBackground(new java.awt.Color(204, 204, 204));
+        txt_course.setName("searchNameDisplay"); // NOI18N
 
-        display_stu_addmission.setBackground(new java.awt.Color(204, 204, 204));
-        display_stu_addmission.setName("searchNameDisplay"); // NOI18N
+        txt_admission.setBackground(new java.awt.Color(204, 204, 204));
+        txt_admission.setName("searchNameDisplay"); // NOI18N
 
         jLabel2.setText("Name");
 
@@ -179,9 +180,9 @@ public class CheckAttendance extends javax.swing.JFrame {
                         .addGap(81, 81, 81)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(display_stu_course, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(display_stu_addmission, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(display_stu_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txt_course, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txt_admission, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txt_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
@@ -203,13 +204,13 @@ public class CheckAttendance extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(display_stu_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel2))
                                         .addGap(41, 41, 41)
-                                        .addComponent(display_stu_addmission, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txt_admission, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel3))
                                 .addGap(35, 35, 35)
-                                .addComponent(display_stu_course, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txt_course, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel4))
                         .addGap(30, 30, 30)
                         .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -322,44 +323,53 @@ public class CheckAttendance extends javax.swing.JFrame {
 
     private void btn_generateexcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generateexcelMouseClicked
         // TODO add your handling code here:
-         String jdbcURL = "jdbc:mysql://localhost:3306/bwea";
-        String username = "root";
-        String password = "";
  
         
         String excelFilePath = "Attendance-export.xlsx";
         String admission= txt_barcodeatt.getText();
  
-        try (Connection connection = DriverManager.getConnection(jdbcURL, username, password)) {
+             
+        try  {
+            int adm =Integer.parseInt(admission);
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            PreparedStatement ps = con.prepareStatement("select fullname,address,coursename from student where admission="+adm);                          
+            ResultSet rs=ps.executeQuery();
             
-            int adm=Integer.parseInt(admission);
+             if (rs.next() == false) {
+                JOptionPane.showMessageDialog(null,"Admission Number Doesnt Exist");
+               }
+            else{
+           
             
-            String sql = "SELECT * FROM student where admission ="+adm;
- 
-            Statement statement = connection.createStatement();
- 
-            ResultSet result = statement.executeQuery(sql);
+            txt_name.setText(rs.getString("fullname"));
+            txt_admission.setText(rs.getString("address"));
+            txt_course.setText(rs.getString("coursename"));
  
             XSSFWorkbook workbook = new XSSFWorkbook();
             XSSFSheet sheet = workbook.createSheet("Reviews");
  
             writeHeaderLine(sheet);
  
-            writeDataLines(result, workbook, sheet);
+            writeDataLines(rs, workbook, sheet);
  
             FileOutputStream outputStream = new FileOutputStream(excelFilePath);
             workbook.write(outputStream);
             workbook.close();
  
-            statement.close();
+            con.close();
+            }
  
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) {
             System.out.println("Datababse error:");
             e.printStackTrace();
         } catch (IOException e) {
             System.out.println("File IO error:");
             e.printStackTrace();
         }
+        
+      
+        
     }//GEN-LAST:event_btn_generateexcelMouseClicked
 
     /**
@@ -401,9 +411,6 @@ public class CheckAttendance extends javax.swing.JFrame {
     private javax.swing.JPanel TopPanel;
     private javax.swing.JButton btn_generateexcel;
     private javax.swing.JLabel btn_home;
-    private java.awt.Label display_stu_addmission;
-    private java.awt.Label display_stu_course;
-    private java.awt.Label display_stu_name;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
@@ -416,6 +423,9 @@ public class CheckAttendance extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JPanel jPanel1;
+    private java.awt.Label txt_admission;
     private javax.swing.JTextField txt_barcodeatt;
+    private java.awt.Label txt_course;
+    private java.awt.Label txt_name;
     // End of variables declaration//GEN-END:variables
 }
