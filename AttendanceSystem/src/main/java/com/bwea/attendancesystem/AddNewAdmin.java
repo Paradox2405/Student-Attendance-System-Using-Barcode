@@ -5,9 +5,8 @@
  */
 package com.bwea.attendancesystem;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 import java.sql.*;
-import javax.swing.JOptionPane;
 
 
 /**

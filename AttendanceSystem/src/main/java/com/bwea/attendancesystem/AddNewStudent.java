@@ -5,11 +5,12 @@
  */
 package com.bwea.attendancesystem;
 
-import javax.swing.JFrame;
-import java.sql.*;
-import javax.swing.JOptionPane;
-import javax.swing.JFileChooser;
-import java.io.File;  
+import javax.swing.*;
+import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  *
