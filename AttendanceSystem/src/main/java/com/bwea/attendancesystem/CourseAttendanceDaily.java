@@ -28,19 +28,19 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
              selectDailyAtt.addItem("Two Month Advance Certificate - English");
              selectDailyAtt.addItem("Two Month Certificate - English");
              selectDailyAtt.addItem("Three Month Diploma - English");
-             selectDailyAtt.addItem("English +IT");
+             selectDailyAtt.addItem("English + IT");
              selectDailyAtt.addItem("TOIC");
              selectDailyAtt.addItem("IELTS");
              selectDailyAtt.addItem("Weekend English");
              selectDailyAtt.addItem("Night - English");
              selectDailyAtt.addItem("KIDS");
              selectDailyAtt.addItem("Foundation in ICT");
-             selectDailyAtt.addItem("Diploma in information technology");
-             selectDailyAtt.addItem("Diploma in Software engineering");
-             selectDailyAtt.addItem("Diploma in Web designing");
+             selectDailyAtt.addItem("Diploma in Information Technology");
+             selectDailyAtt.addItem("Diploma in Software Engineering");
+             selectDailyAtt.addItem("Diploma in Web Designing");
              selectDailyAtt.addItem("Diploma in Graphic Designing");
-             selectDailyAtt.addItem("Foundation in Arduino programming");
-             selectDailyAtt.addItem("Diploma in Android application development");
+             selectDailyAtt.addItem("Foundation in Arduino Programming");
+             selectDailyAtt.addItem("Diploma in Android Application Development");
             
             this.setLocationRelativeTo(null);
             DisplayTableDailyAtt();
@@ -48,13 +48,9 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     
     
     private void DisplayTableDailyAtt(){
-        
-       
-        
         try{
              
             String dbtbl = (String)selectDailyAtt.getSelectedItem();
-            
             
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM "+dbtbl);   
@@ -81,9 +77,6 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null,"Table Doesnt Exist In Database");
             }
-        
-        
-        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -207,6 +200,13 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(table_DailyAtt);
+        if (table_DailyAtt.getColumnModel().getColumnCount() > 0) {
+            table_DailyAtt.getColumnModel().getColumn(0).setHeaderValue("fullname");
+            table_DailyAtt.getColumnModel().getColumn(1).setHeaderValue("address");
+            table_DailyAtt.getColumnModel().getColumn(2).setHeaderValue("email");
+            table_DailyAtt.getColumnModel().getColumn(3).setHeaderValue("coursename");
+            table_DailyAtt.getColumnModel().getColumn(4).setHeaderValue("payment");
+        }
 
         btn_dailyRefresh.setText("Refresh ");
         btn_dailyRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
