@@ -89,6 +89,9 @@ public class HomeScreen extends javax.swing.JFrame {
         jLabelMin = new javax.swing.JLabel();
         btn_logout = new javax.swing.JLabel();
         SidePanel = new javax.swing.JPanel();
+        btn_updatepayment = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         btn_scanbarcodes = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -107,6 +110,9 @@ public class HomeScreen extends javax.swing.JFrame {
         btn_updateStudent = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        btn_registerbarcodes = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_all = new javax.swing.JTable();
         MidPanel = new javax.swing.JPanel();
@@ -170,6 +176,38 @@ public class HomeScreen extends javax.swing.JFrame {
         );
 
         SidePanel.setBackground(new java.awt.Color(181, 139, 12));
+
+        btn_updatepayment.setBackground(new java.awt.Color(226, 156, 14));
+        btn_updatepayment.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_updatepaymentMouseClicked(evt);
+            }
+        });
+
+        jLabel20.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Update Payments");
+
+        javax.swing.GroupLayout btn_updatepaymentLayout = new javax.swing.GroupLayout(btn_updatepayment);
+        btn_updatepayment.setLayout(btn_updatepaymentLayout);
+        btn_updatepaymentLayout.setHorizontalGroup(
+            btn_updatepaymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_updatepaymentLayout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        btn_updatepaymentLayout.setVerticalGroup(
+            btn_updatepaymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_updatepaymentLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(btn_updatepaymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(btn_updatepaymentLayout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addGap(0, 8, Short.MAX_VALUE))
+                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
 
         btn_scanbarcodes.setBackground(new java.awt.Color(226, 156, 14));
         btn_scanbarcodes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -291,7 +329,7 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(btn_addnewstLayout.createSequentialGroup()
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
                 .addContainerGap())
         );
         btn_addnewstLayout.setVerticalGroup(
@@ -301,7 +339,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addGroup(btn_addnewstLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(btn_addnewstLayout.createSequentialGroup()
                         .addComponent(jLabel10)
-                        .addGap(0, 8, Short.MAX_VALUE))
+                        .addGap(0, 20, Short.MAX_VALUE))
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -369,6 +407,38 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        btn_registerbarcodes.setBackground(new java.awt.Color(226, 156, 14));
+        btn_registerbarcodes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_registerbarcodesMouseClicked(evt);
+            }
+        });
+
+        jLabel22.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Register Barcodes");
+
+        javax.swing.GroupLayout btn_registerbarcodesLayout = new javax.swing.GroupLayout(btn_registerbarcodes);
+        btn_registerbarcodes.setLayout(btn_registerbarcodesLayout);
+        btn_registerbarcodesLayout.setHorizontalGroup(
+            btn_registerbarcodesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_registerbarcodesLayout.createSequentialGroup()
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        btn_registerbarcodesLayout.setVerticalGroup(
+            btn_registerbarcodesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_registerbarcodesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(btn_registerbarcodesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(btn_registerbarcodesLayout.createSequentialGroup()
+                        .addComponent(jLabel22)
+                        .addGap(0, 8, Short.MAX_VALUE))
+                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
         javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
         SidePanel.setLayout(SidePanelLayout);
         SidePanelLayout.setHorizontalGroup(
@@ -376,12 +446,14 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(SidePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_updatepayment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_addnewst, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_addadmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_scanbarcodes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_checkattendance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_courseov, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_updateStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_updateStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_registerbarcodes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         SidePanelLayout.setVerticalGroup(
@@ -399,6 +471,10 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(btn_updateStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_addadmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_updatepayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_registerbarcodes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -618,6 +694,14 @@ public class HomeScreen extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_updateStudentMouseClicked
 
+    private void btn_updatepaymentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_updatepaymentMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_updatepaymentMouseClicked
+
+    private void btn_registerbarcodesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_registerbarcodesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_registerbarcodesMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -659,20 +743,32 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JPanel SidePanel;
     private javax.swing.JPanel TopPanel;
     private javax.swing.JPanel btn_addadmin;
+    private javax.swing.JPanel btn_addadmin1;
+    private javax.swing.JPanel btn_addadmin2;
     private javax.swing.JPanel btn_addnewst;
     private javax.swing.JPanel btn_checkattendance;
     private javax.swing.JPanel btn_courseov;
     private javax.swing.JButton btn_dailyRefresh;
     private javax.swing.JLabel btn_logout;
+    private javax.swing.JPanel btn_registerbarcodes;
     private javax.swing.JPanel btn_scanbarcodes;
     private javax.swing.JPanel btn_updateStudent;
+    private javax.swing.JPanel btn_updatepayment;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
