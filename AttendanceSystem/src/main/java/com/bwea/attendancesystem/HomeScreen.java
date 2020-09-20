@@ -20,6 +20,7 @@ public class HomeScreen extends javax.swing.JFrame {
      */
     public HomeScreen() {
         initComponents();
+             selectStudentsDb.addItem("student");
              selectStudentsDb.addItem("Two Month Diploma in English");
              selectStudentsDb.addItem("Two Month Advance Certificate - English");
              selectStudentsDb.addItem("Two Month Certificate - English");
@@ -339,7 +340,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addGroup(btn_addnewstLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(btn_addnewstLayout.createSequentialGroup()
                         .addComponent(jLabel10)
-                        .addGap(0, 20, Short.MAX_VALUE))
+                        .addGap(0, 8, Short.MAX_VALUE))
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -518,7 +519,7 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        selectStudentsDb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "student" }));
+        selectStudentsDb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select Course" }));
 
         javax.swing.GroupLayout MidPanelLayout = new javax.swing.GroupLayout(MidPanel);
         MidPanel.setLayout(MidPanelLayout);
@@ -743,8 +744,6 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JPanel SidePanel;
     private javax.swing.JPanel TopPanel;
     private javax.swing.JPanel btn_addadmin;
-    private javax.swing.JPanel btn_addadmin1;
-    private javax.swing.JPanel btn_addadmin2;
     private javax.swing.JPanel btn_addnewst;
     private javax.swing.JPanel btn_checkattendance;
     private javax.swing.JPanel btn_courseov;
@@ -760,10 +759,6 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
