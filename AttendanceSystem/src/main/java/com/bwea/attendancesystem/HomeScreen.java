@@ -701,6 +701,12 @@ public class HomeScreen extends javax.swing.JFrame {
 
     private void btn_registerbarcodesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_registerbarcodesMouseClicked
         // TODO add your handling code here:
+        RegisterBarcodes rb= new RegisterBarcodes();
+        rb.setVisible(true);
+        rb.pack();
+        rb.setLocationRelativeTo(null);
+        rb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }//GEN-LAST:event_btn_registerbarcodesMouseClicked
 
     /**
