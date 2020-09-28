@@ -5,6 +5,7 @@
  */
 package com.bwea.attendancesystem;
 
+import java.io.File;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
@@ -39,7 +40,7 @@ public class HomeScreen extends javax.swing.JFrame {
              selectStudentsDb.addItem("Foundation in Arduino programming");
              selectStudentsDb.addItem("Diploma in Android application development");
         this.setLocationRelativeTo(null);
-        DisplayTableAllStu();
+        
     }
     
     private void DisplayTableAllStu(){
@@ -519,7 +520,9 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        selectStudentsDb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select Course" }));
+        selectStudentsDb.setMaximumRowCount(20);
+        selectStudentsDb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Required Course and Refresh" }));
+        selectStudentsDb.setToolTipText("Please Select Course");
 
         javax.swing.GroupLayout MidPanelLayout = new javax.swing.GroupLayout(MidPanel);
         MidPanel.setLayout(MidPanelLayout);
@@ -697,6 +700,20 @@ public class HomeScreen extends javax.swing.JFrame {
 
     private void btn_updatepaymentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_updatepaymentMouseClicked
         // TODO add your handling code here:
+         JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        int result = fileChooser.showOpenDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+           }
+         try{       
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            PreparedStatement ps = con.prepareStatement("");
+         }
+         catch(SQLException e){
+             JOptionPane.showMessageDialog(null,e);
+         }
     }//GEN-LAST:event_btn_updatepaymentMouseClicked
 
     private void btn_registerbarcodesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_registerbarcodesMouseClicked
