@@ -255,7 +255,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
 
     private void btn_searchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_searchMouseClicked
         String refnumber = txt_refnumber.getText();
-        String regnumber = txt_regnumber.getText();
+        //String regnumber = txt_regnumber.getText();
         
         if(refnumber == null){
             JOptionPane.showMessageDialog(null,"Please enter the reference number.");
@@ -268,14 +268,13 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         
         try{       
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE fullname='sage' " );
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE fullname=?"  );
+            ps.setString(1, refnumber);
             ResultSet rs = ps.executeQuery();
-            
-            
-            
+
           while(rs.next()){
               lbl_name.setText(rs.getString("payment"));
-              lbl_contactNo.setText(rs.getString("payment"));
+              lbl_contactNo.setText(rs.getString("coursename"));
               lbl_regNumber.setText(rs.getString("payment"));
               
                 
