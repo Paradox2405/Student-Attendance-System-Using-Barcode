@@ -332,7 +332,7 @@ public class CheckAttendance extends javax.swing.JFrame {
         try  {
             int adm =Integer.parseInt(admission);
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("select fullname,address,coursename from student where admission="+adm);                          
+            PreparedStatement ps = con.prepareStatement("SELECT fullname,address,coursename FROM student WHERE admission="+adm);                          
             ResultSet rs=ps.executeQuery();
             
              if (rs.next() == false) {
