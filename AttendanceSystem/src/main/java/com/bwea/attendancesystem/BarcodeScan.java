@@ -239,7 +239,7 @@ public class BarcodeScan extends javax.swing.JFrame {
         try{       
             int bar = Integer.parseInt(barcode);
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("select fullname,admission,coursename,intime,outtime,dues from student where admission="+bar);                          
+            PreparedStatement ps = con.prepareStatement("SELECT fullname,admission,coursename,intime,outtime,dues FROM student WHERE admission="+bar);                          
             ResultSet rs=ps.executeQuery();
             
             if (rs.next() == false) {
@@ -252,13 +252,13 @@ public class BarcodeScan extends javax.swing.JFrame {
             do{
                 txt_name.setText(rs.getString("fullname"));
                 txt_course.setText(rs.getString("coursename"));
-                 txt_admission.setText(rs.getString("admission"));
-                  txt_intime.setText(rs.getString("intime"));
+                txt_admission.setText(rs.getString("admission"));
+                txt_intime.setText(rs.getString("intime"));
                  
-                  txt_dues.setText(rs.getString("dues"));
+                txt_dues.setText(rs.getString("dues"));
                 
-                        }while(rs.next());
-                }
+            }while(rs.next());
+            }
            }           
         catch(SQLException e)
             {
