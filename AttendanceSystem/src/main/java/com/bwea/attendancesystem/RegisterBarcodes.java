@@ -268,25 +268,25 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         
         try{       
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE fullname=?"  );
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE fullname=?"  ); //SELECT * FROM LMS WHERE Refference No=?
             ps.setString(1, refnumber);
             ResultSet rs = ps.executeQuery();
-
-          while(rs.next()){
-              lbl_name.setText(rs.getString("payment"));
-              lbl_contactNo.setText(rs.getString("coursename"));
-              lbl_regNumber.setText(rs.getString("payment"));
-              
-                
-               // lbl_contactNo.setText(rs.getString(""));
-               // lbl_regNumber.setText(rs.getString("Registra"));
+            
+            if(rs.next()){
+              lbl_name.setText(rs.getString("payment")); //Name
+              lbl_contactNo.setText(rs.getString("coursename")); //Contact No 
+              lbl_regNumber.setText(rs.getString("payment")); //Registration No
+            }
+            
+            else{
+                JOptionPane.showMessageDialog(null,"Invalid Reference Number. Please try again.");
             }
           
         }
         catch(SQLException e)
             {
-                //JOptionPane.showMessageDialog(null,e);
                 JOptionPane.showMessageDialog(null,e);
+                JOptionPane.showMessageDialog(null,"No Connection.");
         }
         }
     }//GEN-LAST:event_btn_searchMouseClicked
