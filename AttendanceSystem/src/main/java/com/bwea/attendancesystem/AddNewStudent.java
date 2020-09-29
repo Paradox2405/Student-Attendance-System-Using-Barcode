@@ -5,12 +5,25 @@
  */
 package com.bwea.attendancesystem;
 
+
 import javax.swing.*;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+
 
 /**
  *
@@ -297,7 +310,7 @@ public class AddNewStudent extends javax.swing.JFrame {
         else {
         
         try{       
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
             PreparedStatement ps = con.prepareStatement("INSERT INTO `student`(`fullname`, `address`, `email`, `coursename`, `payment`) VALUES (?,?,?,?,?)");   
             ps.setString(1, stu_fname);
             ps.setString(2, stu_address);
@@ -326,22 +339,132 @@ public class AddNewStudent extends javax.swing.JFrame {
 
     private void btn_uploadexcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_uploadexcelMouseClicked
         // TODO add your handling code here:
+       String excelFilePath = "LMS.xlsx";
+        int batchSize = 389;
+        
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
         int result = fileChooser.showOpenDialog(this);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
-           }
-         try{       
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("");
+            
+            
+ 
+            
+            
+           
+         try{ 
+             long start = System.currentTimeMillis();
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO student (No,Refference No,Registration No,Name,Contact No,Branch,Course,Total Fee,Discounts,Payable,Received Payment,Refunds,Due,Action,Barcode) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"); 
+            
+             FileInputStream inputStream = new FileInputStream(excelFilePath);
+             Workbook workbook = new XSSFWorkbook(inputStream);
+              Sheet firstSheet = workbook.getSheetAt(0);
+                Iterator<Row> rowIterator = firstSheet.iterator();
+            
+            int count=0;
+              rowIterator.next(); // skip the header row
+              
+              while (rowIterator.hasNext()) {
+                Row nextRow = rowIterator.next();
+                Iterator<Cell> cellIterator = nextRow.cellIterator();
+ 
+                while (cellIterator.hasNext()) {
+                    Cell nextCell = cellIterator.next();
+ 
+                    int columnIndex = nextCell.getColumnIndex();
+ 
+                    switch (columnIndex) {
+                    case 0:
+                        int No = (int)nextCell.getNumericCellValue();
+                        ps.setInt(1, No);
+                        break;
+                    case 1:
+                        int Refference_No = (int)nextCell.getNumericCellValue();
+                        ps.setInt(2, Refference_No);
+                        break;
+                    case 2:
+                        int Registration_No = (int)nextCell.getNumericCellValue();
+                        ps.setInt(3, Registration_No);
+                        break; 
+                    case 3:
+                        String Name = nextCell.getStringCellValue();
+                        ps.setString(4, Name);
+                        break;    
+                    case 4:
+                        int Contact_No = (int)nextCell.getNumericCellValue();
+                        ps.setInt(5, Contact_No);
+                        break;
+                    case 5:
+                        String Branch = nextCell.getStringCellValue();
+                        ps.setString(6, Branch);
+                        break;
+                    case 6:
+                        String Course = nextCell.getStringCellValue();
+                        ps.setString(7, Course);
+                        break;      
+                    case 7:
+                        int Total_Fee = (int)nextCell.getNumericCellValue();
+                        ps.setInt(8, Total_Fee);
+                        break;     
+                     case 8:
+                        int Discounts = (int)nextCell.getNumericCellValue();
+                        ps.setInt(9, Discounts);
+                        break;    
+                    case 9:
+                        int Payable = (int)nextCell.getNumericCellValue();
+                        ps.setInt(10, Payable);
+                        break;     
+                    case 10:
+                        int Received_Payment = (int)nextCell.getNumericCellValue();
+                        ps.setInt(11, Received_Payment);
+                        break; 
+                    case 11:
+                        int Refunds = (int)nextCell.getNumericCellValue();
+                        ps.setInt(12, Refunds);
+                        break;
+                    case 12:
+                        int Due = (int)nextCell.getNumericCellValue();
+                        ps.setInt(13, Due);
+                        break;     
+                    case 13:
+                        String Action = nextCell.getStringCellValue();
+                        ps.setString(14, Action);
+                        break;    
+                    case 14:
+                        String Barcode = nextCell.getStringCellValue();
+                        ps.setString(15, Barcode);
+                    
+                    }
+ 
+                }
+                 
+                ps.addBatch();
+                 
+                if (count % batchSize == 0) {
+                    ps.executeBatch();
+                }              
+ 
+            }
+              workbook.close();
+              ps.executeBatch();
+              con.commit();
+              con.close();
+              
+               long end = System.currentTimeMillis();
+                System.out.printf("Import done in %d ms\n", (end - start));
+              
+            
          }
          catch(SQLException e){
              JOptionPane.showMessageDialog(null,e);
-         }
+         } catch (IOException ex) {
+            Logger.getLogger(AddNewStudent.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        
+    }
         
     }//GEN-LAST:event_btn_uploadexcelMouseClicked
 
