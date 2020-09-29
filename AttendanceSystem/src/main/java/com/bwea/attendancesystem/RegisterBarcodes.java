@@ -268,16 +268,13 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         else if(regnumber.equals("")){
             JOptionPane.showMessageDialog(null,"Please enter the registration number.");
         }
-      /*  else if(refnumber.equals("txt_regnumber.getText()")){
-            JOptionPane.showMessageDialog(null,"not matched.");
-        }*/
         
         else {
         
         try{       
 
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE fullname=?"  ); //SELECT * FROM LMS WHERE Refference No=?
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE fullname=? && address=?"); //SELECT * FROM LMS WHERE Refference No=?
 
             ps.setString(1, refnumber);
             ps.setString(2, regnumber);
@@ -292,8 +289,8 @@ public class RegisterBarcodes extends javax.swing.JFrame {
             else{
                 JOptionPane.showMessageDialog(null,"Invalid Reference or Registration Number. Please try again.");
             }
-          
         }
+        
         catch(SQLException e)
             {
                 JOptionPane.showMessageDialog(null,e);
@@ -305,10 +302,10 @@ public class RegisterBarcodes extends javax.swing.JFrame {
     private void btn_saveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_saveMouseClicked
         String barcodereg = txt_barcodereg.getText();
         
-      //  int bar = Integer.parseInt(barcodereg);
+      //int bar = Integer.parseInt(barcodereg);
         
         try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
             PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `fullname`=?,`coursename`=?,`admission`=?, `payment`=? WHERE admission="+barcodereg);          
             ps.setString(1, barcodereg);
             ps.executeUpdate();
@@ -317,7 +314,6 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        
     }//GEN-LAST:event_btn_saveMouseClicked
 
     /**
