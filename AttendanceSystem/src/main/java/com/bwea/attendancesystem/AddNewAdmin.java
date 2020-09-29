@@ -297,7 +297,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
         catch(SQLException e)
             {
             JOptionPane.showMessageDialog(null,e);
-            JOptionPane.showMessageDialog(null,"Connection failed");
+            JOptionPane.showMessageDialog(null,"Connection Failed.");
             
             }
         }

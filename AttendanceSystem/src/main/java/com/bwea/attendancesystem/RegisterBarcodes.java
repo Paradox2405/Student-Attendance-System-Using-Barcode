@@ -25,6 +25,14 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    
+    public void RegisterBarcodeSave(){
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);
+        hs.pack();
+        hs.setLocationRelativeTo(null);
+        hs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -272,7 +280,6 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         else {
         
         try{       
-
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE fullname=? && address=?"); //SELECT * FROM LMS WHERE Refference No=?
 
@@ -309,6 +316,15 @@ public class RegisterBarcodes extends javax.swing.JFrame {
             PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `fullname`=?,`coursename`=?,`admission`=?, `payment`=? WHERE admission="+barcodereg);          
             ps.setString(1, barcodereg);
             ps.executeUpdate();
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                RegisterBarcodeSave();
+                this.dispose();
+            }
+            else{
+                   JOptionPane.showMessageDialog(null,"Saving failed.");
+                }
         } 
         
         catch (SQLException e) {

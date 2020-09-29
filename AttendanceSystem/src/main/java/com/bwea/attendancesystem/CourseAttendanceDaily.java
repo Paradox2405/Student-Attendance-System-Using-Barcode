@@ -75,7 +75,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         } 
         catch(SQLException e)
             {
-                JOptionPane.showMessageDialog(null,"Table Doesnt Exist In Database");
+                JOptionPane.showMessageDialog(null,"Table Does Not Exist In Database");
             }
     }
     /**

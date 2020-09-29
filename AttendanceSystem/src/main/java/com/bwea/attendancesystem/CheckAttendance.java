@@ -322,12 +322,8 @@ public class CheckAttendance extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_homeMouseClicked
 
     private void btn_generateexcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generateexcelMouseClicked
-        // TODO add your handling code here:
- 
-        
         String excelFilePath = "Attendance-export.xlsx";
         String admission= txt_barcodeatt.getText();
- 
              
         try  {
             int adm =Integer.parseInt(admission);
@@ -336,11 +332,9 @@ public class CheckAttendance extends javax.swing.JFrame {
             ResultSet rs=ps.executeQuery();
             
              if (rs.next() == false) {
-                JOptionPane.showMessageDialog(null,"Admission Number Doesnt Exist");
+                JOptionPane.showMessageDialog(null,"Admission Number Does Not Exist");
                }
-            else{
-           
-            
+            else{        
             txt_name.setText(rs.getString("fullname"));
             txt_admission.setText(rs.getString("address"));
             txt_course.setText(rs.getString("coursename"));

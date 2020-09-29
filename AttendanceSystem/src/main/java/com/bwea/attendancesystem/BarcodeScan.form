@@ -128,13 +128,13 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jButton1" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
                       <Component id="txt_name" alignment="0" max="32767" attributes="0"/>
                       <Component id="txt_admission" alignment="0" max="32767" attributes="0"/>
                       <Component id="txt_barcode" alignment="0" pref="522" max="32767" attributes="0"/>
                       <Component id="txt_course" alignment="0" max="32767" attributes="0"/>
                       <Component id="txt_intime" alignment="0" max="32767" attributes="0"/>
                       <Component id="txt_dues" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jButton1" alignment="1" min="-2" pref="142" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="btn_enter" min="-2" max="-2" attributes="0"/>
@@ -176,8 +176,8 @@
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="184" max="32767" attributes="0"/>
+                  <Component id="jButton1" min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace pref="175" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
