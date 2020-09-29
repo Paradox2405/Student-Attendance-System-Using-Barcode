@@ -313,7 +313,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `fullname`=?,`coursename`=?,`admission`=?, `payment`=? WHERE admission="+barcodereg);          
+            PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `fullname`=? WHERE admission="+barcodereg);          
             ps.setString(1, barcodereg);
             ps.executeUpdate();
             ResultSet rs = ps.executeQuery();
