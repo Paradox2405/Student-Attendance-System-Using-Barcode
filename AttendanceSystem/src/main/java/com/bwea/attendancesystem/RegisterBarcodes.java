@@ -137,6 +137,11 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         jLabel5.setText("Scan and Enter Barcode");
 
         btn_save.setText("Save");
+        btn_save.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_saveMouseClicked(evt);
+            }
+        });
         btn_save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_saveActionPerformed(evt);
@@ -255,23 +260,27 @@ public class RegisterBarcodes extends javax.swing.JFrame {
 
     private void btn_searchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_searchMouseClicked
         String refnumber = txt_refnumber.getText();
-        //String regnumber = txt_regnumber.getText();
+        String regnumber = txt_regnumber.getText();
         
-        if(refnumber == null){
+        if(refnumber.equals("")){
             JOptionPane.showMessageDialog(null,"Please enter the reference number.");
         }
-      /*  else if(regnumber.equals("")){
+        else if(regnumber.equals("")){
             JOptionPane.showMessageDialog(null,"Please enter the registration number.");
+        }
+      /*  else if(refnumber.equals("txt_regnumber.getText()")){
+            JOptionPane.showMessageDialog(null,"not matched.");
         }*/
         
         else {
         
         try{       
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE fullname=?"  ); //SELECT * FROM LMS WHERE Refference No=?
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE fullname=? && address=?"); //SELECT * FROM LMS WHERE Refference No=? && Registration No=?
             ps.setString(1, refnumber);
+            ps.setString(2, regnumber);
             ResultSet rs = ps.executeQuery();
-            
+                              
             if(rs.next()){
               lbl_name.setText(rs.getString("payment")); //Name
               lbl_contactNo.setText(rs.getString("coursename")); //Contact No 
@@ -279,7 +288,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
             }
             
             else{
-                JOptionPane.showMessageDialog(null,"Invalid Reference Number. Please try again.");
+                JOptionPane.showMessageDialog(null,"Invalid Reference or Registration Number. Please try again.");
             }
           
         }
@@ -290,6 +299,24 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         }
         }
     }//GEN-LAST:event_btn_searchMouseClicked
+
+    private void btn_saveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_saveMouseClicked
+        String barcodereg = txt_barcodereg.getText();
+        
+      //  int bar = Integer.parseInt(barcodereg);
+        
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `fullname`=?,`coursename`=?,`admission`=?, `payment`=? WHERE admission="+barcodereg);          
+            ps.setString(1, barcodereg);
+            ps.executeUpdate();
+        } 
+        
+        catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }//GEN-LAST:event_btn_saveMouseClicked
 
     /**
      * @param args the command line arguments
