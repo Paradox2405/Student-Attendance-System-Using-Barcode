@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 06, 2020 at 03:55 PM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Host: localhost:8111
+-- Generation Time: Sep 29, 2020 at 04:47 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -29,18 +28,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `fullname` text NOT NULL,
-  `username` varchar(10) NOT NULL,
-  `password` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `username` varchar(15) NOT NULL,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`fullname`, `username`, `password`) VALUES
-('Denver', 'denver1', 'denver123'),
-('Denver2', 'denver2', 'denver1234');
+INSERT INTO `admin` (`username`, `password`) VALUES
+('denver', '1234'),
+('denver', '1234'),
+('akila', '1234');
 
 -- --------------------------------------------------------
 
@@ -49,19 +48,32 @@ INSERT INTO `admin` (`fullname`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `student` (
-  `fullname` text NOT NULL,
-  `address` text NOT NULL,
-  `email` text NOT NULL,
-  `coursename` text NOT NULL,
-  `payment` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `No` int(8) NOT NULL,
+  `Refference No` int(15) NOT NULL,
+  `Registration No` varchar(20) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `Contact No` int(10) NOT NULL,
+  `Branch` text NOT NULL,
+  `Course` varchar(80) NOT NULL,
+  `Total Fee` int(12) NOT NULL,
+  `Discounts` int(12) NOT NULL,
+  `Payable` int(12) NOT NULL,
+  `Received Payment` int(12) NOT NULL,
+  `Refunds` int(12) NOT NULL,
+  `Due` int(12) NOT NULL,
+  `Action` varchar(20) NOT NULL,
+  `Barcode` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `student`
+-- Indexes for dumped tables
 --
 
-INSERT INTO `student` (`fullname`, `address`, `email`, `coursename`, `payment`) VALUES
-('sage', 'kandy', 'xxx', 'SE', 100);
+--
+-- Indexes for table `student`
+--
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`Registration No`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

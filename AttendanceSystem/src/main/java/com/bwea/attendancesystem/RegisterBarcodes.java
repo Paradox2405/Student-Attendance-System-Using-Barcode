@@ -267,7 +267,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         else {
         
         try{       
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE fullname=?"  ); //SELECT * FROM LMS WHERE Refference No=?
             ps.setString(1, refnumber);
             ResultSet rs = ps.executeQuery();

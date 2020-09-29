@@ -238,7 +238,7 @@ public class BarcodeScan extends javax.swing.JFrame {
 
         try{       
             int bar = Integer.parseInt(barcode);
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
             PreparedStatement ps = con.prepareStatement("SELECT fullname,admission,coursename,intime,outtime,dues FROM student WHERE admission="+bar);                          
             ResultSet rs=ps.executeQuery();
             
