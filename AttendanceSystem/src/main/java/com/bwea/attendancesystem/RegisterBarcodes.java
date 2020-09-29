@@ -273,15 +273,13 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         if(refnumber.equals("")){
             JOptionPane.showMessageDialog(null,"Please enter the reference number.");
         }
-        else if(regnumber.equals("")){
-            JOptionPane.showMessageDialog(null,"Please enter the registration number.");
-        }
+        
         
         else {
         
         try{       
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE fullname=? && address=?"); //SELECT * FROM LMS WHERE Refference No=?
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE fullname=? OR address=?"); //SELECT * FROM LMS WHERE Refference No=? or Registration No=?
 
             ps.setString(1, refnumber);
             ps.setString(2, regnumber);
