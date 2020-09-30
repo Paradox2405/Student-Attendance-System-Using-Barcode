@@ -158,13 +158,13 @@ public class BarcodeScan extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_name, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_admission, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_barcode, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
                     .addComponent(txt_course, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_intime, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_dues, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(txt_dues, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(btn_enter)
                 .addContainerGap(172, Short.MAX_VALUE))
@@ -197,8 +197,8 @@ public class BarcodeScan extends javax.swing.JFrame {
                     .addComponent(txt_dues, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(175, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -233,8 +233,6 @@ public class BarcodeScan extends javax.swing.JFrame {
     private void btn_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enterActionPerformed
         // TODO add your handling code here:
         String barcode =txt_barcode.getText();
-       
-        
 
         try{       
             int bar = Integer.parseInt(barcode);
@@ -243,12 +241,10 @@ public class BarcodeScan extends javax.swing.JFrame {
             ResultSet rs=ps.executeQuery();
             
             if (rs.next() == false) {
-                JOptionPane.showMessageDialog(null,"Admission Number Doesnt Exist");
+                JOptionPane.showMessageDialog(null,"Admission Number Does Not Exist");
                }
             else{
-            
-            
-            
+
             do{
                 txt_name.setText(rs.getString("fullname"));
                 txt_course.setText(rs.getString("coursename"));
@@ -262,10 +258,8 @@ public class BarcodeScan extends javax.swing.JFrame {
            }           
         catch(SQLException e)
             {
-                
             System.out.println(e);
-            }
-        
+            }       
     }//GEN-LAST:event_btn_enterActionPerformed
 
     /**

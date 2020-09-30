@@ -6,6 +6,7 @@
 package com.bwea.attendancesystem;
 
 import com.mysql.cj.result.Row;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -14,6 +15,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import org.apache.poi.*;
 import org.apache.poi.ss.usermodel.Cell;
@@ -322,12 +325,8 @@ public class CheckAttendance extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_homeMouseClicked
 
     private void btn_generateexcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generateexcelMouseClicked
-        // TODO add your handling code here:
- 
-        
         String excelFilePath = "Attendance-export.xlsx";
         String admission= txt_barcodeatt.getText();
- 
              
         try  {
             int adm =Integer.parseInt(admission);
@@ -336,25 +335,23 @@ public class CheckAttendance extends javax.swing.JFrame {
             ResultSet rs=ps.executeQuery();
             
              if (rs.next() == false) {
-                JOptionPane.showMessageDialog(null,"Admission Number Doesnt Exist");
+                JOptionPane.showMessageDialog(null,"Admission Number Does Not Exist");
                }
-            else{
-           
-            
-//            txt_name.setText(rs.getString("fullname"));
-//            txt_admission.setText(rs.getString("address"));
-//            txt_course.setText(rs.getString("coursename"));
-// 
-//            XSSFWorkbook workbook = new XSSFWorkbook();
-//            XSSFSheet sheet = workbook.createSheet("Reviews");
-// 
-//            writeHeaderLine(sheet);
-// 
-//            writeDataLines(rs, workbook, sheet);
-// 
-//            FileOutputStream outputStream = new FileOutputStream(excelFilePath);
-//            workbook.write(outputStream);
-//            workbook.close();
+            else{        
+            txt_name.setText(rs.getString("fullname"));
+            txt_admission.setText(rs.getString("address"));
+            txt_course.setText(rs.getString("coursename"));
+ 
+            XSSFWorkbook workbook = new XSSFWorkbook();
+            XSSFSheet sheet = workbook.createSheet("Reviews");
+ 
+            writeHeaderLine(sheet);
+ 
+            writeDataLines(rs, workbook, sheet);
+ 
+            FileOutputStream outputStream = new FileOutputStream(excelFilePath);
+            workbook.write(outputStream);
+            workbook.close();
  
             con.close();
             }
@@ -363,6 +360,10 @@ public class CheckAttendance extends javax.swing.JFrame {
         catch (SQLException e) {
             System.out.println("Datababse error:");
             e.printStackTrace();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CheckAttendance.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(CheckAttendance.class.getName()).log(Level.SEVERE, null, ex);
         }
         
       

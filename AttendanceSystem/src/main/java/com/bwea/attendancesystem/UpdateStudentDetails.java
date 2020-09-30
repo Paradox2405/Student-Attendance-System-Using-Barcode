@@ -295,7 +295,6 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
                 txt_admission.setText(rs.getString("admission"));
                 txt_dues.setText(rs.getString("dues"));
             }
-
         }
         catch(SQLException e)
         {
@@ -316,7 +315,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
             }
             catch(SQLException e)
             {
-            JOptionPane.showMessageDialog(null,"Admission Number Doesnt Exist");
+            JOptionPane.showMessageDialog(null,"Admission Number Does Not Exist");
             System.out.println(e);
             }
             return rs;
@@ -338,7 +337,6 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         String coursename = txt_course.getText();
         String admission = txt_admission.getText();
         String dues = txt_dues.getText();
-        
         String barcode = txt_barcode.getText();
         int bar = Integer.parseInt(barcode);
         
@@ -353,7 +351,6 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
             ps.setInt(4, Integer.parseInt(dues));
             
             ps.executeUpdate();
-            
         } 
         catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
