@@ -25,20 +25,15 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="TopPanel" alignment="0" max="32767" attributes="0"/>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="137" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="TopPanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="95" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,7 +50,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="388" max="32767" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
                   <Component id="btn_home" min="-2" max="-2" attributes="0"/>
@@ -140,69 +135,74 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="e" green="9c" red="e2" type="rgb"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lbl_fullnameNewStudent" min="-2" pref="67" max="-2" attributes="0"/>
-                      <Component id="lbl_addressNewStudent" min="-2" pref="85" max="-2" attributes="0"/>
-                      <Component id="lbl_emailNewStudent" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="lbl_coursenameNewStudent" min="-2" pref="85" max="-2" attributes="0"/>
-                      <Component id="lbl_payableNewStudent" min="-2" pref="85" max="-2" attributes="0"/>
+                      <Component id="lbl_coursenameNewStudent" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_addressNewStudent" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
+                      <Component id="lbl_fullnameNewStudent" min="-2" pref="92" max="-2" attributes="0"/>
+                      <Component id="lbl_emailNewStudent" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_payableNewStudent" min="-2" pref="83" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="94" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="btn_uploadexcel" min="-2" pref="210" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="btn_cancelNewStuForm" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btn_saveNewStuForm" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="txt_fullNameNewStudent" pref="469" max="32767" attributes="0"/>
-                          <Component id="txt_addressNewStudent" max="32767" attributes="0"/>
-                          <Component id="txt_payableNewStudent" alignment="1" pref="469" max="32767" attributes="0"/>
-                          <Component id="txt_coursenameNewStudent" alignment="1" max="32767" attributes="0"/>
-                          <Component id="txt_emailNewStudent" alignment="1" max="32767" attributes="0"/>
+                      <Component id="txt_fullNameNewStudent" min="-2" pref="469" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                          <Component id="txt_emailNewStudent" min="-2" pref="469" max="-2" attributes="0"/>
+                          <Component id="txt_addressNewStudent" min="-2" pref="469" max="-2" attributes="0"/>
+                          <Component id="txt_coursenameNewStudent" alignment="1" min="-2" pref="469" max="-2" attributes="0"/>
+                          <Component id="txt_payableNewStudent" alignment="1" min="-2" pref="469" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="48" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txt_fullNameNewStudent" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lbl_fullnameNewStudent" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_fullNameNewStudent" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txt_addressNewStudent" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lbl_addressNewStudent" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_addressNewStudent" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txt_emailNewStudent" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lbl_emailNewStudent" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_emailNewStudent" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txt_coursenameNewStudent" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lbl_coursenameNewStudent" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txt_payableNewStudent" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lbl_payableNewStudent" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btn_cancelNewStuForm" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btn_saveNewStuForm" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -263,26 +263,56 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_fullnameNewStudent">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Full Name:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_addressNewStudent">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Address:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_emailNewStudent">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Email: "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_coursenameNewStudent">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Course Name:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_payableNewStudent">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Payable:"/>
           </Properties>
         </Component>
