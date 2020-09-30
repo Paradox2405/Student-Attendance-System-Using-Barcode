@@ -9,7 +9,9 @@ package com.bwea.attendancesystem;
 import javax.swing.*;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.FileSystem;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,7 +23,8 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.*;
+
 
 
 
@@ -339,25 +342,22 @@ public class AddNewStudent extends javax.swing.JFrame {
 
     private void btn_uploadexcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_uploadexcelMouseClicked
         // TODO add your handling code here:
-       String excelFilePath = "LMS.xlsx";
-        int batchSize = 389;
-        
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
         int result = fileChooser.showOpenDialog(this);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
-            
+          
             
  
-            
-            
-           
          try{ 
-             long start = System.currentTimeMillis();
+              int batchSize = 9;
+             String excelFilePath = "C:/Users/Acer/LMS.xlsx";
+             
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("INSERT INTO student (No,Refference No,Registration No,Name,Contact No,Branch,Course,Total Fee,Discounts,Payable,Received Payment,Refunds,Due,Action,Barcode) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"); 
+             con.setAutoCommit(false);
+            PreparedStatement ps = con.prepareStatement("INSERT INTO student (`No`,`Refference No`,`Registration No`,`Name`,`Contact No`,`Branch`,`Course`,`Total Fee`,`Discounts`,`Payable`,`Received Payment`,`Refunds`,`Due`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)"); 
             
              FileInputStream inputStream = new FileInputStream(excelFilePath);
              Workbook workbook = new XSSFWorkbook(inputStream);
@@ -365,6 +365,8 @@ public class AddNewStudent extends javax.swing.JFrame {
                 Iterator<Row> rowIterator = firstSheet.iterator();
             
             int count=0;
+            
+             
               rowIterator.next(); // skip the header row
               
               while (rowIterator.hasNext()) {
@@ -388,7 +390,7 @@ public class AddNewStudent extends javax.swing.JFrame {
                     case 2:
                         int Registration_No = (int)nextCell.getNumericCellValue();
                         ps.setInt(3, Registration_No);
-                        break; 
+                        break;
                     case 3:
                         String Name = nextCell.getStringCellValue();
                         ps.setString(4, Name);
@@ -429,14 +431,15 @@ public class AddNewStudent extends javax.swing.JFrame {
                         int Due = (int)nextCell.getNumericCellValue();
                         ps.setInt(13, Due);
                         break;     
-                    case 13:
-                        String Action = nextCell.getStringCellValue();
-                        ps.setString(14, Action);
-                        break;    
-                    case 14:
-                        String Barcode = nextCell.getStringCellValue();
-                        ps.setString(15, Barcode);
-                    
+//                    case 13:
+//                        String Action = nextCell.getStringCellValue();
+//                        ps.setString(14, Action);
+//                        break;    
+//                    case 14:
+//                        String Barcode = nextCell.getStringCellValue();
+//                        ps.setString(15, Barcode);
+//                         break; 
+//                    
                     }
  
                 }
@@ -453,8 +456,7 @@ public class AddNewStudent extends javax.swing.JFrame {
               con.commit();
               con.close();
               
-               long end = System.currentTimeMillis();
-                System.out.printf("Import done in %d ms\n", (end - start));
+              
               
             
          }
@@ -464,8 +466,7 @@ public class AddNewStudent extends javax.swing.JFrame {
             Logger.getLogger(AddNewStudent.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }
-        
+    }      
     }//GEN-LAST:event_btn_uploadexcelMouseClicked
 
     /**

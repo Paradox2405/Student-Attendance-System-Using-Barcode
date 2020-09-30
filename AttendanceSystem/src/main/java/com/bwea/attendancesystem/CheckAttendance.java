@@ -40,22 +40,22 @@ public class CheckAttendance extends javax.swing.JFrame {
     
      private void writeHeaderLine(XSSFSheet sheet) {
  
-        XSSFRow headerRow = sheet.createRow(0);
- 
-        Cell headerCell = headerRow.createCell(0);
-        headerCell.setCellValue("Full Name");
- 
-        headerCell = headerRow.createCell(1);
-        headerCell.setCellValue("Address");
- 
-        headerCell = headerRow.createCell(2);
-        headerCell.setCellValue("Email");
- 
-        headerCell = headerRow.createCell(3);
-        headerCell.setCellValue("Course Name");
- 
-        headerCell = headerRow.createCell(4);
-        headerCell.setCellValue("Payment");
+//        XSSFRow headerRow = sheet.createRow(0);
+// 
+//        Cell headerCell = headerRow.createCell(0);
+//        headerCell.setCellValue("Full Name");
+// 
+//        headerCell = headerRow.createCell(1);
+//        headerCell.setCellValue("Address");
+// 
+//        headerCell = headerRow.createCell(2);
+//        headerCell.setCellValue("Email");
+// 
+//        headerCell = headerRow.createCell(3);
+//        headerCell.setCellValue("Course Name");
+// 
+//        headerCell = headerRow.createCell(4);
+//        headerCell.setCellValue("Payment");
      }
      
       private void writeDataLines(ResultSet result, XSSFWorkbook workbook,
@@ -71,16 +71,16 @@ public class CheckAttendance extends javax.swing.JFrame {
  
             XSSFRow row = sheet.createRow(rowCount++);
  
-            int columnCount = 0;
-            Cell cell = row.createCell(columnCount++);
-            cell.setCellValue(fullname);
- 
-            cell = row.createCell(columnCount++);
-            cell.setCellValue(address);
-            
-            cell = row.createCell(columnCount++);
-            cell.setCellValue(email);
- 
+//            int columnCount = 0;
+//            Cell cell = row.createCell(columnCount++);
+//            cell.setCellValue(fullname);
+// 
+//            cell = row.createCell(columnCount++);
+//            cell.setCellValue(address);
+//            
+//            cell = row.createCell(columnCount++);
+//            cell.setCellValue(email);
+// 
 //            cell = row.createCell(columnCount++);
 // 
 //            CellStyle cellStyle = workbook.createCellStyle();
@@ -90,12 +90,12 @@ public class CheckAttendance extends javax.swing.JFrame {
 // 
 //            cell.setCellValue(timestamp);
  
-            cell = row.createCell(columnCount++);
-            cell.setCellValue(coursename);
- 
-            cell = row.createCell(columnCount);
-            cell.setCellValue(admission);
- 
+//            cell = row.createCell(columnCount++);
+//            cell.setCellValue(coursename);
+// 
+//            cell = row.createCell(columnCount);
+//            cell.setCellValue(admission);
+// 
         }
     }
 
@@ -341,20 +341,20 @@ public class CheckAttendance extends javax.swing.JFrame {
             else{
            
             
-            txt_name.setText(rs.getString("fullname"));
-            txt_admission.setText(rs.getString("address"));
-            txt_course.setText(rs.getString("coursename"));
- 
-            XSSFWorkbook workbook = new XSSFWorkbook();
-            XSSFSheet sheet = workbook.createSheet("Reviews");
- 
-            writeHeaderLine(sheet);
- 
-            writeDataLines(rs, workbook, sheet);
- 
-            FileOutputStream outputStream = new FileOutputStream(excelFilePath);
-            workbook.write(outputStream);
-            workbook.close();
+//            txt_name.setText(rs.getString("fullname"));
+//            txt_admission.setText(rs.getString("address"));
+//            txt_course.setText(rs.getString("coursename"));
+// 
+//            XSSFWorkbook workbook = new XSSFWorkbook();
+//            XSSFSheet sheet = workbook.createSheet("Reviews");
+// 
+//            writeHeaderLine(sheet);
+// 
+//            writeDataLines(rs, workbook, sheet);
+// 
+//            FileOutputStream outputStream = new FileOutputStream(excelFilePath);
+//            workbook.write(outputStream);
+//            workbook.close();
  
             con.close();
             }
@@ -362,9 +362,6 @@ public class CheckAttendance extends javax.swing.JFrame {
         } 
         catch (SQLException e) {
             System.out.println("Datababse error:");
-            e.printStackTrace();
-        } catch (IOException e) {
-            System.out.println("File IO error:");
             e.printStackTrace();
         }
         
