@@ -20,11 +20,9 @@ public class BarcodeScan extends javax.swing.JFrame {
      */
     public BarcodeScan() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
-    
 
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -105,6 +103,11 @@ public class BarcodeScan extends javax.swing.JFrame {
         });
 
         btn_enter.setText("Enter");
+        btn_enter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_enterMouseClicked(evt);
+            }
+        });
         btn_enter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_enterActionPerformed(evt);
@@ -232,7 +235,18 @@ public class BarcodeScan extends javax.swing.JFrame {
 
     private void btn_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enterActionPerformed
         // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btn_enterActionPerformed
+
+    private void btn_enterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_enterMouseClicked
+        // TODO add your handling code here:
         String barcode =txt_barcode.getText();
+        
+        if(barcode.equals("")){
+            JOptionPane.showMessageDialog(null, "Nothing has entered to search.");
+        }
+        
+        else{
 
         try{       
             int bar = Integer.parseInt(barcode);
@@ -245,22 +259,23 @@ public class BarcodeScan extends javax.swing.JFrame {
                }
             else{
 
-            do{
-                txt_name.setText(rs.getString("fullname"));
-                txt_course.setText(rs.getString("coursename"));
-                txt_admission.setText(rs.getString("admission"));
-                txt_intime.setText(rs.getString("intime"));
+                do{
+                    txt_name.setText(rs.getString("fullname"));
+                    txt_course.setText(rs.getString("coursename"));
+                    txt_admission.setText(rs.getString("admission"));
+                    txt_intime.setText(rs.getString("intime"));
                  
-                txt_dues.setText(rs.getString("dues"));
+                    txt_dues.setText(rs.getString("dues"));
                 
-            }while(rs.next());
+                }while(rs.next());
             }
            }           
         catch(SQLException e)
             {
             System.out.println(e);
-            }       
-    }//GEN-LAST:event_btn_enterActionPerformed
+            } 
+        }
+    }//GEN-LAST:event_btn_enterMouseClicked
 
     /**
      * @param args the command line arguments
