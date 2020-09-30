@@ -46,7 +46,7 @@ public class HomeScreen extends javax.swing.JFrame {
     private void DisplayTableAllStu(){
         String dbtbl = (String)selectStudentsDb.getSelectedItem();
         try{
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM "+dbtbl);   
             ResultSet rs = ps.executeQuery();
             
@@ -520,7 +520,7 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        selectStudentsDb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select Course" }));
+        selectStudentsDb.setSelectedIndex(-1);
 
         javax.swing.GroupLayout MidPanelLayout = new javax.swing.GroupLayout(MidPanel);
         MidPanel.setLayout(MidPanelLayout);
@@ -707,7 +707,7 @@ public class HomeScreen extends javax.swing.JFrame {
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
            }
          try{       
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             PreparedStatement ps = con.prepareStatement("");
          }
          catch(SQLException e){

@@ -250,7 +250,7 @@ public class Login extends javax.swing.JFrame {
          String pass = String.valueOf(txt_password.getPassword());
         
         try{       
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM `admin` WHERE `username` =? AND `password` =?");   
             ps.setString(1, uname);
             ps.setString(2,pass);

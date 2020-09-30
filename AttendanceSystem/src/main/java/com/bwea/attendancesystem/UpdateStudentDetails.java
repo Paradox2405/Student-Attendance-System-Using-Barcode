@@ -284,7 +284,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         try{
             rs = f.find(txt_name.getText());
            // int bar = Integer.parseInt(barcode);
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
            // PreparedStatement ps = con.prepareStatement("SELECT fullname,admission,coursename,dues FROM student WHERE admission="+bar);
             PreparedStatement ps = con.prepareStatement("SELECT fullname, coursename FROM student WHERE `fullname` =  " +txt_barcode.getText());
             rs = ps.executeQuery();
@@ -309,7 +309,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         ResultSet rs = null;
         public ResultSet find(String s) throws SQLException {
             try{
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE `fullname` = " +txt_barcode.getText());
             rs = ps.executeQuery();
             }
@@ -341,7 +341,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         int bar = Integer.parseInt(barcode);
         
         try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             //PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `fullname`=?,`coursename`=?,`admission`=?, `payment`=? WHERE admission="+bar);
             PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `fullname`=?,`coursename`=?,`admission`=?, `payment`=? WHERE `coursename` = 'SE'");
             

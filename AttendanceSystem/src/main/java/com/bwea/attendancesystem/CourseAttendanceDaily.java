@@ -52,7 +52,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
              
             String dbtbl = (String)selectDailyAtt.getSelectedItem();
             
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM "+dbtbl);   
             ResultSet rs = ps.executeQuery();
             
