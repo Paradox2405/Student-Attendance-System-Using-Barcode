@@ -278,7 +278,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         else {
         
         try{       
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE fullname=? OR address=?"); //SELECT * FROM LMS WHERE Refference No=? or Registration No=?
 
             ps.setString(1, refnumber);
@@ -310,7 +310,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
       //int bar = Integer.parseInt(barcodereg);
         
         try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `fullname`=? WHERE admission="+barcodereg);          
             ps.setString(1, barcodereg);
             ps.executeUpdate();

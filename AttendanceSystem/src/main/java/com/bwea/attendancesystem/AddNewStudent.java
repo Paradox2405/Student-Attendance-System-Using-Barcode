@@ -313,7 +313,7 @@ public class AddNewStudent extends javax.swing.JFrame {
         else {
         
         try{       
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             PreparedStatement ps = con.prepareStatement("INSERT INTO `student`(`fullname`, `address`, `email`, `coursename`, `payment`) VALUES (?,?,?,?,?)");   
             ps.setString(1, stu_fname);
             ps.setString(2, stu_address);
@@ -352,8 +352,8 @@ public class AddNewStudent extends javax.swing.JFrame {
             
  
          try{ 
-              int batchSize = 9;
-             String excelFilePath = "C:/Users/Acer/LMS.xlsx";
+              int batchSize = 1000;
+             String excelFilePath = selectedFile.getAbsolutePath();
              
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
              con.setAutoCommit(false);
@@ -388,8 +388,8 @@ public class AddNewStudent extends javax.swing.JFrame {
                         ps.setInt(2, Refference_No);
                         break;
                     case 2:
-                        int Registration_No = (int)nextCell.getNumericCellValue();
-                        ps.setInt(3, Registration_No);
+                        String Registration_No = nextCell.getStringCellValue();
+                        ps.setString(3, Registration_No);
                         break;
                     case 3:
                         String Name = nextCell.getStringCellValue();
@@ -452,7 +452,7 @@ public class AddNewStudent extends javax.swing.JFrame {
  
             }
               workbook.close();
-              ps.executeBatch();
+             
               con.commit();
               con.close();
               
