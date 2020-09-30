@@ -273,8 +273,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         if(refnumber.equals("")){
             JOptionPane.showMessageDialog(null,"Please enter the reference number.");
         }
-        
-        
+ 
         else {
         
         try{       
