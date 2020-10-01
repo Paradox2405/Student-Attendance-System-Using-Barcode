@@ -31,14 +31,15 @@
                   <Group type="102" attributes="0">
                       <Component id="SidePanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="682" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="270" pref="270" max="-2" attributes="0"/>
                       <Component id="MidPanel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="407" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -48,10 +49,14 @@
               <Component id="TopPanel" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="SidePanel" alignment="1" max="32767" attributes="0"/>
-                  <Component id="MidPanel" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="MidPanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="460" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -181,7 +186,7 @@
                   <Component id="btn_updatepayment" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btn_registerbarcodes" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="181" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -624,12 +629,21 @@
           <Properties>
             <Property name="autoCreateRowSorter" type="boolean" value="true"/>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="5" rowCount="0">
-                <Column editable="false" title="fullname" type="java.lang.String"/>
-                <Column editable="false" title="address" type="java.lang.String"/>
-                <Column editable="false" title="email" type="java.lang.String"/>
-                <Column editable="false" title="course" type="java.lang.String"/>
-                <Column editable="false" title="payment" type="java.lang.Integer"/>
+              <Table columnCount="14" rowCount="0">
+                <Column editable="false" title="No" type="java.lang.Integer"/>
+                <Column editable="false" title="Refference No" type="java.lang.Integer"/>
+                <Column editable="false" title="Registration No" type="java.lang.String"/>
+                <Column editable="false" title="Name" type="java.lang.String"/>
+                <Column editable="false" title="Contact No" type="java.lang.Integer"/>
+                <Column editable="false" title="Branch" type="java.lang.String"/>
+                <Column editable="false" title="Course" type="java.lang.String"/>
+                <Column editable="false" title="Total Fee" type="java.lang.Integer"/>
+                <Column editable="false" title="Discounts" type="java.lang.Integer"/>
+                <Column editable="false" title="Payable" type="java.lang.Integer"/>
+                <Column editable="false" title="Recieved Payment" type="java.lang.Integer"/>
+                <Column editable="false" title="Refunds" type="java.lang.Integer"/>
+                <Column editable="false" title="Dues" type="java.lang.Integer"/>
+                <Column editable="false" title="Actions" type="java.lang.Integer"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -676,9 +690,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="selectStudentsDb" min="-2" pref="334" max="-2" attributes="0"/>
-                  <EmptySpace pref="261" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btn_dailyRefresh" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace pref="249" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -708,9 +722,10 @@
         <Component class="javax.swing.JComboBox" name="selectStudentsDb">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
+              <StringArray count="1">
+                <StringItem index="0" value="Select a Course and Refresh"/>
+              </StringArray>
             </Property>
-            <Property name="selectedIndex" type="int" value="-1"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

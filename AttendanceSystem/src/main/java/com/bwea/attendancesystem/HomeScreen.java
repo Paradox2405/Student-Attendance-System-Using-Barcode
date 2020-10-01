@@ -2,6 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+//No	Refference No	Registration No	Name	Contact No	Branch	Course	Total Fee	Discounts	Payable	Received Payment	Refunds	Due	Action
  */
 package com.bwea.attendancesystem;
 
@@ -40,7 +41,8 @@ public class HomeScreen extends javax.swing.JFrame {
              selectStudentsDb.addItem("Foundation in Arduino Programming");
              selectStudentsDb.addItem("Diploma in Android Application Development");
         this.setLocationRelativeTo(null);
-        DisplayTableAllStu();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
     }
     
     private void DisplayTableAllStu(){
@@ -477,7 +479,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(btn_updatepayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_registerbarcodes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
         jScrollPane1.setBorder(null);
@@ -488,14 +490,14 @@ public class HomeScreen extends javax.swing.JFrame {
 
             },
             new String [] {
-                "fullname", "address", "email", "course", "payment"
+                "No", "Refference No", "Registration No", "Name", "Contact No", "Branch", "Course", "Total Fee", "Discounts", "Payable", "Recieved Payment", "Refunds", "Dues", "Actions"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -520,7 +522,7 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        selectStudentsDb.setSelectedIndex(-1);
+        selectStudentsDb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a Course and Refresh" }));
 
         javax.swing.GroupLayout MidPanelLayout = new javax.swing.GroupLayout(MidPanel);
         MidPanel.setLayout(MidPanelLayout);
@@ -529,9 +531,9 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(MidPanelLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(selectStudentsDb, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btn_dailyRefresh)
-                .addContainerGap())
+                .addContainerGap(249, Short.MAX_VALUE))
         );
         MidPanelLayout.setVerticalGroup(
             MidPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -553,11 +555,12 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(SidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(270, 270, 270)
-                        .addComponent(MidPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 27, Short.MAX_VALUE))
+                        .addComponent(MidPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 407, Short.MAX_VALUE)))
+                .addGap(6, 6, 6))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -565,10 +568,13 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(SidePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(MidPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(MidPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())))
         );
 
         pack();

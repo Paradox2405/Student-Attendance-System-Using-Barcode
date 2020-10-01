@@ -68,20 +68,37 @@ public class AddNewStudent extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btn_cancelNewStuForm = new javax.swing.JButton();
         btn_saveNewStuForm = new javax.swing.JButton();
-        txt_payableNewStudent = new javax.swing.JTextField();
-        txt_coursenameNewStudent = new javax.swing.JTextField();
-        txt_emailNewStudent = new javax.swing.JTextField();
-        txt_addressNewStudent = new javax.swing.JTextField();
-        txt_fullNameNewStudent = new javax.swing.JTextField();
-        lbl_fullnameNewStudent = new javax.swing.JLabel();
-        lbl_addressNewStudent = new javax.swing.JLabel();
-        lbl_emailNewStudent = new javax.swing.JLabel();
-        lbl_coursenameNewStudent = new javax.swing.JLabel();
-        lbl_payableNewStudent = new javax.swing.JLabel();
-        btn_uploadexcel = new javax.swing.JButton();
+        txt_regno = new javax.swing.JTextField();
+        txt_name = new javax.swing.JTextField();
+        txt_contactno = new javax.swing.JTextField();
+        txt_refno = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txt_branch = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txt_course = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txt_total = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txt_disc = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txt_pay = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txt_recieved = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        txt_refunds = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        txt_dues = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        txt_actions = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        selectStudentsDb = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(983, 519));
 
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
 
@@ -120,7 +137,7 @@ public class AddNewStudent extends javax.swing.JFrame {
         TopPanelLayout.setHorizontalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
-                .addContainerGap(388, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(230, 230, 230)
                 .addComponent(btn_home)
@@ -167,96 +184,205 @@ public class AddNewStudent extends javax.swing.JFrame {
             }
         });
 
-        txt_fullNameNewStudent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_fullNameNewStudentActionPerformed(evt);
-            }
-        });
+        txt_contactno.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
-        lbl_fullnameNewStudent.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_fullnameNewStudent.setForeground(new java.awt.Color(51, 51, 51));
-        lbl_fullnameNewStudent.setText("Full Name:");
+        jLabel2.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Refference No");
 
-        lbl_addressNewStudent.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_addressNewStudent.setForeground(new java.awt.Color(51, 51, 51));
-        lbl_addressNewStudent.setText("Address:");
+        jLabel3.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("Registration No");
 
-        lbl_emailNewStudent.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_emailNewStudent.setForeground(new java.awt.Color(51, 51, 51));
-        lbl_emailNewStudent.setText("Email: ");
+        jLabel6.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setText("Contact No");
 
-        lbl_coursenameNewStudent.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_coursenameNewStudent.setForeground(new java.awt.Color(51, 51, 51));
-        lbl_coursenameNewStudent.setText("Course Name:");
+        jLabel7.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel7.setText("Name");
 
-        lbl_payableNewStudent.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_payableNewStudent.setForeground(new java.awt.Color(51, 51, 51));
-        lbl_payableNewStudent.setText("Payable:");
+        txt_branch.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
-        btn_uploadexcel.setText("Upload Excel File");
-        btn_uploadexcel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_uploadexcelMouseClicked(evt);
-            }
-        });
+        jLabel8.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel8.setText("Branch");
+
+        txt_course.setSelectedTextColor(new java.awt.Color(204, 0, 0));
+
+        jLabel9.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel9.setText("Course");
+
+        txt_total.setSelectedTextColor(new java.awt.Color(204, 0, 0));
+
+        jLabel10.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel10.setText("Total Fee");
+
+        txt_disc.setSelectedTextColor(new java.awt.Color(204, 0, 0));
+
+        jLabel11.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel11.setText("Discounts");
+
+        txt_pay.setSelectedTextColor(new java.awt.Color(204, 0, 0));
+
+        jLabel12.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel12.setText("Payable");
+
+        txt_recieved.setSelectedTextColor(new java.awt.Color(204, 0, 0));
+
+        jLabel13.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel13.setText("Received Payment");
+
+        txt_refunds.setSelectedTextColor(new java.awt.Color(204, 0, 0));
+
+        jLabel14.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel14.setText("Refunds");
+
+        txt_dues.setSelectedTextColor(new java.awt.Color(204, 0, 0));
+
+        jLabel15.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel15.setText("Due");
+
+        txt_actions.setSelectedTextColor(new java.awt.Color(204, 0, 0));
+
+        jLabel16.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel16.setText("Actions");
+
+        selectStudentsDb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Course" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(196, 196, 196)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_coursenameNewStudent)
-                    .addComponent(lbl_addressNewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_fullnameNewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_emailNewStudent)
-                    .addComponent(lbl_payableNewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(156, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btn_uploadexcel, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_branch, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_contactno, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(selectStudentsDb, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txt_name, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txt_regno, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txt_refno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel15))
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txt_dues, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_actions, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_refunds, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txt_course)
+                                .addComponent(txt_total)
+                                .addComponent(txt_disc)
+                                .addComponent(txt_pay)
+                                .addComponent(txt_recieved, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_cancelNewStuForm)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_saveNewStuForm))
-                    .addComponent(txt_fullNameNewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txt_emailNewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_addressNewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_coursenameNewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_payableNewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_saveNewStuForm)))
+                .addGap(158, 158, 158))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addComponent(selectStudentsDb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_fullnameNewStudent)
-                    .addComponent(txt_fullNameNewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(txt_refno, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_addressNewStudent)
-                    .addComponent(txt_addressNewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                    .addComponent(txt_regno, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_emailNewStudent)
-                    .addComponent(txt_emailNewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(txt_contactno, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_coursenameNewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_coursenameNewStudent))
-                .addGap(30, 30, 30)
+                    .addComponent(txt_branch, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_payableNewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_payableNewStudent))
-                .addGap(45, 45, 45)
+                    .addComponent(txt_course, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_total, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_disc, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_pay, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_recieved, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txt_refunds, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_dues, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_actions, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cancelNewStuForm)
-                    .addComponent(btn_saveNewStuForm)
-                    .addComponent(btn_uploadexcel))
-                .addGap(50, 50, 50))
+                    .addComponent(btn_saveNewStuForm))
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -291,10 +417,6 @@ public class AddNewStudent extends javax.swing.JFrame {
         hs.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_homeMouseClicked
-
-    private void txt_fullNameNewStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fullNameNewStudentActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_fullNameNewStudentActionPerformed
 
     private void btn_cancelNewStuFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelNewStuFormMouseClicked
         HomeScreen hs = new HomeScreen();
@@ -348,135 +470,6 @@ public class AddNewStudent extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_saveNewStuFormMouseClicked
 
-    private void btn_uploadexcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_uploadexcelMouseClicked
-        // TODO add your handling code here:
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-        int result = fileChooser.showOpenDialog(this);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = fileChooser.getSelectedFile();
-            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
-          
-            
- 
-         try{ 
-              int batchSize = 1000;
-             String excelFilePath = selectedFile.getAbsolutePath();
-             
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
-             con.setAutoCommit(false);
-            PreparedStatement ps = con.prepareStatement("INSERT INTO student (`No`,`Refference No`,`Registration No`,`Name`,`Contact No`,`Branch`,`Course`,`Total Fee`,`Discounts`,`Payable`,`Received Payment`,`Refunds`,`Due`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)"); 
-            
-             FileInputStream inputStream = new FileInputStream(excelFilePath);
-             Workbook workbook = new XSSFWorkbook(inputStream);
-              Sheet firstSheet = workbook.getSheetAt(0);
-                Iterator<Row> rowIterator = firstSheet.iterator();
-            
-            int count=0;
-            
-             
-              rowIterator.next(); // skip the header row
-              
-              while (rowIterator.hasNext()) {
-                Row nextRow = rowIterator.next();
-                Iterator<Cell> cellIterator = nextRow.cellIterator();
- 
-                while (cellIterator.hasNext()) {
-                    Cell nextCell = cellIterator.next();
- 
-                    int columnIndex = nextCell.getColumnIndex();
- 
-                    switch (columnIndex) {
-                    case 0:
-                        int No = (int)nextCell.getNumericCellValue();
-                        ps.setInt(1, No);
-                        break;
-                    case 1:
-                        int Refference_No = (int)nextCell.getNumericCellValue();
-                        ps.setInt(2, Refference_No);
-                        break;
-                    case 2:
-                        String Registration_No = nextCell.getStringCellValue();
-                        ps.setString(3, Registration_No);
-                        break;
-                    case 3:
-                        String Name = nextCell.getStringCellValue();
-                        ps.setString(4, Name);
-                        break;    
-                    case 4:
-                        int Contact_No = (int)nextCell.getNumericCellValue();
-                        ps.setInt(5, Contact_No);
-                        break;
-                    case 5:
-                        String Branch = nextCell.getStringCellValue();
-                        ps.setString(6, Branch);
-                        break;
-                    case 6:
-                        String Course = nextCell.getStringCellValue();
-                        ps.setString(7, Course);
-                        break;      
-                    case 7:
-                        int Total_Fee = (int)nextCell.getNumericCellValue();
-                        ps.setInt(8, Total_Fee);
-                        break;     
-                     case 8:
-                        int Discounts = (int)nextCell.getNumericCellValue();
-                        ps.setInt(9, Discounts);
-                        break;    
-                    case 9:
-                        int Payable = (int)nextCell.getNumericCellValue();
-                        ps.setInt(10, Payable);
-                        break;     
-                    case 10:
-                        int Received_Payment = (int)nextCell.getNumericCellValue();
-                        ps.setInt(11, Received_Payment);
-                        break; 
-                    case 11:
-                        int Refunds = (int)nextCell.getNumericCellValue();
-                        ps.setInt(12, Refunds);
-                        break;
-                    case 12:
-                        int Due = (int)nextCell.getNumericCellValue();
-                        ps.setInt(13, Due);
-                        break;     
-//                    case 13:
-//                        String Action = nextCell.getStringCellValue();
-//                        ps.setString(14, Action);
-//                        break;    
-//                    case 14:
-//                        String Barcode = nextCell.getStringCellValue();
-//                        ps.setString(15, Barcode);
-//                         break; 
-//                    
-                    }
- 
-                }
-                 
-                ps.addBatch();
-                 
-                if (count % batchSize == 0) {
-                    ps.executeBatch();
-                }              
- 
-            }
-              workbook.close();
-             
-              con.commit();
-              con.close();
-              
-              
-              
-            
-         }
-         catch(SQLException e){
-             JOptionPane.showMessageDialog(null,e);
-         } catch (IOException ex) {
-            Logger.getLogger(AddNewStudent.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }      
-    }//GEN-LAST:event_btn_uploadexcelMouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -517,20 +510,36 @@ public class AddNewStudent extends javax.swing.JFrame {
     private javax.swing.JButton btn_cancelNewStuForm;
     private javax.swing.JLabel btn_home;
     private javax.swing.JButton btn_saveNewStuForm;
-    private javax.swing.JButton btn_uploadexcel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lbl_addressNewStudent;
-    private javax.swing.JLabel lbl_coursenameNewStudent;
-    private javax.swing.JLabel lbl_emailNewStudent;
-    private javax.swing.JLabel lbl_fullnameNewStudent;
-    private javax.swing.JLabel lbl_payableNewStudent;
-    private javax.swing.JTextField txt_addressNewStudent;
-    private javax.swing.JTextField txt_coursenameNewStudent;
-    private javax.swing.JTextField txt_emailNewStudent;
-    private javax.swing.JTextField txt_fullNameNewStudent;
-    private javax.swing.JTextField txt_payableNewStudent;
+    private javax.swing.JComboBox<String> selectStudentsDb;
+    private javax.swing.JTextField txt_actions;
+    private javax.swing.JTextField txt_branch;
+    private javax.swing.JTextField txt_contactno;
+    private javax.swing.JTextField txt_course;
+    private javax.swing.JTextField txt_disc;
+    private javax.swing.JTextField txt_dues;
+    private javax.swing.JTextField txt_name;
+    private javax.swing.JTextField txt_pay;
+    private javax.swing.JTextField txt_recieved;
+    private javax.swing.JTextField txt_refno;
+    private javax.swing.JTextField txt_refunds;
+    private javax.swing.JTextField txt_regno;
+    private javax.swing.JTextField txt_total;
     // End of variables declaration//GEN-END:variables
 }

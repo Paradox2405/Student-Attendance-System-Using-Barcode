@@ -21,6 +21,7 @@ public class BarcodeScan extends javax.swing.JFrame {
     public BarcodeScan() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
