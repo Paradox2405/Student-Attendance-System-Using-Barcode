@@ -166,7 +166,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btn_save" alignment="1" min="-2" pref="77" max="-2" attributes="0"/>
                               <Component id="lbl_contactNo" alignment="1" min="-2" pref="308" max="-2" attributes="0"/>
-                              <Component id="lbl_regNumber" alignment="1" min="-2" pref="308" max="-2" attributes="0"/>
+                              <Component id="lbl_refNumber" alignment="1" min="-2" pref="308" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -192,7 +192,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lbl_contactNo" pref="22" max="32767" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="lbl_regNumber" pref="22" max="32767" attributes="0"/>
+                  <Component id="lbl_refNumber" pref="22" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -260,7 +260,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbl_regNumber">
+        <Component class="javax.swing.JLabel" name="lbl_refNumber">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">

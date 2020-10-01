@@ -23,13 +23,14 @@ public class RegisterBarcodes extends javax.swing.JFrame {
      */
     public RegisterBarcodes() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
     }
     
     public void RegisterBarcodeSave(){
         HomeScreen hs = new HomeScreen();
         hs.setVisible(true);
-        hs.pack();
+        //hs.pack();
         hs.setLocationRelativeTo(null);
         hs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -58,7 +59,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         btn_save = new javax.swing.JButton();
         lbl_name = new javax.swing.JLabel();
         lbl_contactNo = new javax.swing.JLabel();
-        lbl_regNumber = new javax.swing.JLabel();
+        lbl_refNumber = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -160,7 +161,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
 
         lbl_contactNo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbl_regNumber.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbl_refNumber.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
@@ -186,7 +187,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_save, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_contactNo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_regNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lbl_refNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         MainPanelLayout.setVerticalGroup(
@@ -205,7 +206,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbl_contactNo, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbl_regNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                .addComponent(lbl_refNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                 .addGap(33, 33, 33)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -244,10 +245,10 @@ public class RegisterBarcodes extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_saveActionPerformed
 
     private void btn_searchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_searchMouseClicked
-        String refnumber = txt_refnumber.getText();
+   
         String regnumber = txt_regnumber.getText();
         
-        if(refnumber.equals("")){
+        if(regnumber.equals("")){
             JOptionPane.showMessageDialog(null,"Please enter the reference number.");
         }
  
@@ -255,16 +256,16 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         
         try{       
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE fullname=? OR address=?"); //SELECT * FROM LMS WHERE Refference No=? or Registration No=?
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE `Registration NO`=? "); //SELECT * FROM LMS WHERE Refference No=? or Registration No=?
 
-            ps.setString(1, refnumber);
-            ps.setString(2, regnumber);
+          
+            ps.setString(1, regnumber);
             ResultSet rs = ps.executeQuery();
                               
             if(rs.next()){
-              lbl_name.setText(rs.getString("payment")); //Name
-              lbl_contactNo.setText(rs.getString("coursename")); //Contact No 
-              lbl_regNumber.setText(rs.getString("payment")); //Registration No
+              lbl_name.setText(rs.getString("Name")); //Name
+              lbl_contactNo.setText(rs.getString("`Contact No`")); //Contact No 
+              lbl_refNumber.setText(rs.getString("`Refference No`")); //Registration No
             }
             
             else{
@@ -355,7 +356,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JLabel lbl_contactNo;
     private javax.swing.JLabel lbl_name;
-    private javax.swing.JLabel lbl_regNumber;
+    private javax.swing.JLabel lbl_refNumber;
     private javax.swing.JTextField txt_barcodereg;
     private javax.swing.JTextField txt_regnumber;
     // End of variables declaration//GEN-END:variables

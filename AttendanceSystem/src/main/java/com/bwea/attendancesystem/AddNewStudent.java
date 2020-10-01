@@ -443,11 +443,12 @@ public class AddNewStudent extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cancelNewStuFormMouseClicked
 
     private void btn_saveNewStuFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_saveNewStuFormMouseClicked
+        
+        String stu_address = txt_refno.getText();
+        String stu_email = txt_regno.getText();
         String stu_fname = txt_name.getText();
-        String stu_address = txt_addressNewStudent.getText();
-        String stu_email = txt_emailNewStudent.getText();
-        String stu_coursename = txt_coursenameNewStudent.getText();
-        String stu_payment = txt_payableNewStudent.getText();
+        String stu_coursename = txt_contactno.getText();
+        String stu_payment = txt_branch.getText();
         
         if(stu_fname.equals("")){
             JOptionPane.showMessageDialog(null,"Please enter a name of the student.");

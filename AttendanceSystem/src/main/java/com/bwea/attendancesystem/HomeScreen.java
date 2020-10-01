@@ -22,6 +22,7 @@ public class HomeScreen extends javax.swing.JFrame {
      */
     public HomeScreen() {
         initComponents();
+        
              selectStudentsDb.addItem("Student");
              selectStudentsDb.addItem("Two Month Diploma in English");
              selectStudentsDb.addItem("Two Month Advance Certificate - English");
@@ -40,8 +41,9 @@ public class HomeScreen extends javax.swing.JFrame {
              selectStudentsDb.addItem("Diploma in Graphic Designing");
              selectStudentsDb.addItem("Foundation in Arduino Programming");
              selectStudentsDb.addItem("Diploma in Android Application Development");
-        this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setLocationRelativeTo(null);
+     
         
     }
     
@@ -53,13 +55,23 @@ public class HomeScreen extends javax.swing.JFrame {
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
-               String fullname = rs.getString(1);
-               String address = rs.getString(2);
-               String email = rs.getString(3);
-               String coursename = rs.getString(4);
-               String payment = rs.getString(5);
+               String No = rs.getString(1);
+               String Ref = rs.getString(2);
+               String Reg = rs.getString(3);
+               String Name = rs.getString(4);
+               String Contact = rs.getString(5);
+               String Branch = rs.getString(6);
+               String Course = rs.getString(7);
+               String Tot = rs.getString(8);
+               String Discount = rs.getString(9);
+               String Payable = rs.getString(10);
+               String Recieved = rs.getString(11);
+               String Refunds = rs.getString(12);
+               String Due = rs.getString(13);
+               String Action = rs.getString(14);
+               String Barcode = rs.getString(15);
             
-               Object [] content = {fullname, address, email, coursename, payment};
+               Object [] content = {No,Ref,Reg,Name,Contact,Branch,Course,Tot,Discount,Payable,Recieved,Refunds,Due,Action,Barcode};
                DefaultTableModel model = (DefaultTableModel) table_all.getModel();
                model.addRow(content);
                
@@ -596,7 +608,8 @@ public class HomeScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         BarcodeScan bars = new BarcodeScan();
         bars.setVisible(true);
-        bars.pack();
+        bars.setExtendedState(MAXIMIZED_BOTH);
+        //bars.pack();
         bars.setLocationRelativeTo(null);
         bars.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
@@ -763,6 +776,7 @@ public class HomeScreen extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new HomeScreen().setVisible(true);
+                
             }
         });
     }
