@@ -468,7 +468,7 @@ public class AddNewStudent extends javax.swing.JFrame {
         
         try{       
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("INSERT INTO `student`(`fullname`, `address`, `email`, `coursename`, `payment`) VALUES (?,?,?,?,?)");   
+            PreparedStatement ps = con.prepareStatement("INSERT INTO `student`(`Name`,`Contact No`,``,``,``,``,``,``,``,``,``) VALUES (?,?,?,?,?,?,?,?,?,?,?)");   
             ps.setString(1, stu_fname);
             ps.setString(2, stu_contact);
             ps.setString(3, stu_branch);
