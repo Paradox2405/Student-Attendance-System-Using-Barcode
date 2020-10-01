@@ -444,8 +444,8 @@ public class AddNewStudent extends javax.swing.JFrame {
 
     private void btn_saveNewStuFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_saveNewStuFormMouseClicked
         
-        String stu_address = txt_refno.getText();
-        String stu_email = txt_regno.getText();
+        String stu_refno = txt_refno.getText();
+        String stu_regno = txt_regno.getText();
         String stu_fname = txt_name.getText();
         String stu_contact = txt_contactno.getText();
         String stu_branch = txt_branch.getText();

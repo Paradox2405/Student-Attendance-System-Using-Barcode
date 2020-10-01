@@ -7,6 +7,7 @@ package com.bwea.attendancesystem;
 
 import javax.swing.*;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 
 
 /**
@@ -251,25 +252,45 @@ public class BarcodeScan extends javax.swing.JFrame {
         }
         
         else{
-//No	Refference No		Name	Contact No	Branch	Course	Total Fee	Discounts	Payable	Received Payment	Refunds	Due	Action
+
         try{       
             int bar = Integer.parseInt(barcode);
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT `Name`,`Registration No`,`Course`,`Intime`,`Due` FROM student WHERE Barcode="+bar);                          
+            PreparedStatement ps = con.prepareStatement("SELECT `Name`,`Registration No`,`Course`,`Due` FROM student WHERE Barcode="+bar);                          
             ResultSet rs=ps.executeQuery();
             
             if (rs.next() == false) {
-                JOptionPane.showMessageDialog(null,"Admission Number Does Not Exist");
+                JOptionPane.showMessageDialog(null,"Registration Number Does Not Exist");
                }
             else{
 
                 do{
-                    txt_name.setText(rs.getString("fullname"));
-                    txt_course.setText(rs.getString("coursename"));
-                    txt_regno.setText(rs.getString("admission"));
-                    txt_intime.setText(rs.getString("intime"));
-                 
-                    txt_dues.setText(rs.getString("dues"));
+                    String timeStamp = new SimpleDateFormat("HH.mm").format(new Timestamp(System.currentTimeMillis()));
+                    String dateStamp = new SimpleDateFormat("yyyy.MM.dd").format(new Timestamp(System.currentTimeMillis()));
+                    txt_name.setText(rs.getString("Name"));
+                    txt_course.setText(rs.getString("Course"));
+                    txt_regno.setText(rs.getString("Registration No"));
+                    txt_intime.setText(timeStamp);
+                    txt_dues.setText(rs.getString("Due"));
+                    
+                                try{
+                                    
+                                PreparedStatement ps1 = con.prepareStatement("INSERT INTO attendance (`Registration No`,Name,Date,Intime)"+" VALUES (?,?,?,?)");
+                                String Reg = txt_regno.getText();
+                                String Name = txt_name.getText();
+                                
+                                
+                                ps1.setString(1, Reg);
+                                ps1.setString(2, Name);
+                                ps1.setString(3, dateStamp);
+                                ps1.setString(4, timeStamp);
+                                ps1.execute();
+                                    
+                                }
+                                catch(SQLException e){
+                                JOptionPane.showMessageDialog(null, e);
+                                }
+                                
                 
                 }while(rs.next());
             }
