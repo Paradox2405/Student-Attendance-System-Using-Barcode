@@ -39,12 +39,12 @@ public class AddNewStudent extends javax.swing.JFrame {
      */
     public AddNewStudent() {
         initComponents();
-         selectStudentsDb.addItem("Student");
+         selectStudentsDb.addItem("student");
              selectStudentsDb.addItem("Two Month Diploma in English");
              selectStudentsDb.addItem("Two Month Advance Certificate - English");
              selectStudentsDb.addItem("Two Month Certificate - English");
              selectStudentsDb.addItem("Three Month Diploma - English");
-             selectStudentsDb.addItem("English + IT");
+             selectStudentsDb.addItem("English +IT");
              selectStudentsDb.addItem("TOIC");
              selectStudentsDb.addItem("IELTS");
              selectStudentsDb.addItem("Weekend English");
