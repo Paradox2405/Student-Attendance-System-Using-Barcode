@@ -39,7 +39,7 @@ public class BarcodeScan extends javax.swing.JFrame {
         MainPanel = new javax.swing.JPanel();
         txt_barcode = new javax.swing.JTextField();
         btn_enter = new javax.swing.JButton();
-        txt_admission = new javax.swing.JTextField();
+        txt_regno = new javax.swing.JTextField();
         txt_course = new javax.swing.JTextField();
         txt_intime = new javax.swing.JTextField();
         txt_dues = new javax.swing.JTextField();
@@ -115,7 +115,7 @@ public class BarcodeScan extends javax.swing.JFrame {
             }
         });
 
-        txt_admission.setEditable(false);
+        txt_regno.setEditable(false);
 
         txt_course.setEditable(false);
 
@@ -132,7 +132,7 @@ public class BarcodeScan extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Admission #");
+        jLabel3.setText("Registration No");
 
         jLabel4.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
@@ -144,7 +144,7 @@ public class BarcodeScan extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel7.setText("Program");
+        jLabel7.setText("Course");
 
         jButton1.setText("Register Barcode");
 
@@ -153,22 +153,22 @@ public class BarcodeScan extends javax.swing.JFrame {
         MainPanelLayout.setHorizontalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addGap(65, 65, 65)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel3)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(txt_name, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_admission, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_regno, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_barcode, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
                     .addComponent(txt_course, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_intime, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_dues, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(btn_enter)
                 .addContainerGap(172, Short.MAX_VALUE))
@@ -186,7 +186,7 @@ public class BarcodeScan extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_admission, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_regno, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -248,11 +248,11 @@ public class BarcodeScan extends javax.swing.JFrame {
         }
         
         else{
-
+//No	Refference No		Name	Contact No	Branch	Course	Total Fee	Discounts	Payable	Received Payment	Refunds	Due	Action
         try{       
             int bar = Integer.parseInt(barcode);
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT fullname,admission,coursename,intime,outtime,dues FROM student WHERE admission="+bar);                          
+            PreparedStatement ps = con.prepareStatement("SELECT `Name`,`Registration No`,`Course`,`Intime`,`Due` FROM student WHERE Barcode="+bar);                          
             ResultSet rs=ps.executeQuery();
             
             if (rs.next() == false) {
@@ -263,7 +263,7 @@ public class BarcodeScan extends javax.swing.JFrame {
                 do{
                     txt_name.setText(rs.getString("fullname"));
                     txt_course.setText(rs.getString("coursename"));
-                    txt_admission.setText(rs.getString("admission"));
+                    txt_regno.setText(rs.getString("admission"));
                     txt_intime.setText(rs.getString("intime"));
                  
                     txt_dues.setText(rs.getString("dues"));
@@ -332,11 +332,11 @@ public class BarcodeScan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField txt_admission;
     private javax.swing.JTextField txt_barcode;
     private javax.swing.JTextField txt_course;
     private javax.swing.JTextField txt_dues;
     private javax.swing.JTextField txt_intime;
     private javax.swing.JTextField txt_name;
+    private javax.swing.JTextField txt_regno;
     // End of variables declaration//GEN-END:variables
 }

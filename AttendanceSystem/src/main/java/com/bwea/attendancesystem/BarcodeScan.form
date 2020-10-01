@@ -118,23 +118,23 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" pref="119" max="-2" attributes="0"/>
                       <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="txt_name" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txt_admission" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txt_regno" alignment="0" max="32767" attributes="0"/>
                       <Component id="txt_barcode" alignment="0" pref="522" max="32767" attributes="0"/>
                       <Component id="txt_course" alignment="0" max="32767" attributes="0"/>
                       <Component id="txt_intime" alignment="0" max="32767" attributes="0"/>
                       <Component id="txt_dues" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jButton1" alignment="1" min="-2" pref="142" max="-2" attributes="0"/>
+                      <Component id="jButton1" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="btn_enter" min="-2" max="-2" attributes="0"/>
@@ -157,7 +157,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txt_admission" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                      <Component id="txt_regno" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -202,7 +202,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_enterActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txt_admission">
+        <Component class="javax.swing.JTextField" name="txt_regno">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
@@ -249,7 +249,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Admission #"/>
+            <Property name="text" type="java.lang.String" value="Registration No"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -282,7 +282,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Program"/>
+            <Property name="text" type="java.lang.String" value="Course"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">

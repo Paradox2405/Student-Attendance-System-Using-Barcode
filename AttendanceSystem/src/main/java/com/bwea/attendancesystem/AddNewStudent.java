@@ -39,6 +39,24 @@ public class AddNewStudent extends javax.swing.JFrame {
      */
     public AddNewStudent() {
         initComponents();
+         selectStudentsDb.addItem("Student");
+             selectStudentsDb.addItem("Two Month Diploma in English");
+             selectStudentsDb.addItem("Two Month Advance Certificate - English");
+             selectStudentsDb.addItem("Two Month Certificate - English");
+             selectStudentsDb.addItem("Three Month Diploma - English");
+             selectStudentsDb.addItem("English + IT");
+             selectStudentsDb.addItem("TOIC");
+             selectStudentsDb.addItem("IELTS");
+             selectStudentsDb.addItem("Weekend English");
+             selectStudentsDb.addItem("Night - English");
+             selectStudentsDb.addItem("KIDS");
+             selectStudentsDb.addItem("Foundation in ICT");
+             selectStudentsDb.addItem("Diploma in Information Technology");
+             selectStudentsDb.addItem("Diploma in Software Engineering");
+             selectStudentsDb.addItem("Diploma in Web Designing");
+             selectStudentsDb.addItem("Diploma in Graphic Designing");
+             selectStudentsDb.addItem("Foundation in Arduino Programming");
+             selectStudentsDb.addItem("Diploma in Android Application Development");
         this.setLocationRelativeTo(null);
     }
     
@@ -425,7 +443,7 @@ public class AddNewStudent extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cancelNewStuFormMouseClicked
 
     private void btn_saveNewStuFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_saveNewStuFormMouseClicked
-        String stu_fname = txt_fullNameNewStudent.getText();
+        String stu_fname = txt_name.getText();
         String stu_address = txt_addressNewStudent.getText();
         String stu_email = txt_emailNewStudent.getText();
         String stu_coursename = txt_coursenameNewStudent.getText();
