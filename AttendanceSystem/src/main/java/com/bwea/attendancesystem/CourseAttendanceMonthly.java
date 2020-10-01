@@ -20,46 +20,35 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
      */
     public CourseAttendanceMonthly() {
         initComponents();
-             selectDailyAtt.addItem("Two Month Diploma in English");
-             selectDailyAtt.addItem("Two Month Advance Certificate - English");
-             selectDailyAtt.addItem("Two Month Certificate - English");
-             selectDailyAtt.addItem("Three Month Diploma - English");
-             selectDailyAtt.addItem("English + IT");
-             selectDailyAtt.addItem("TOIC");
-             selectDailyAtt.addItem("IELTS");
-             selectDailyAtt.addItem("Weekend English");
-             selectDailyAtt.addItem("Night - English");
-             selectDailyAtt.addItem("KIDS");
-             selectDailyAtt.addItem("Foundation in ICT");
-             selectDailyAtt.addItem("Diploma in Information Technology");
-             selectDailyAtt.addItem("Diploma in Software Engineering");
-             selectDailyAtt.addItem("Diploma in Web Designing");
-             selectDailyAtt.addItem("Diploma in Graphic Designing");
-             selectDailyAtt.addItem("Foundation in Arduino Programming");
-             selectDailyAtt.addItem("Diploma in Android Application Development");
         this.setLocationRelativeTo(null);
-        DisplayTableMonthlyAtt();
+        
     }
     
     private void DisplayTableMonthlyAtt(){
         try{
-             
-            String dbtbl = (String)selectDailyAtt.getSelectedItem();
-            
-            
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM "+dbtbl);   
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM student");   
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
-               String fullname = rs.getString(1);
-               String address = rs.getString(2);
-               String email = rs.getString(3);
-               String coursename = rs.getString(4);
-               String payment = rs.getString(5);
+               String No = rs.getString(1);
+               String Ref = rs.getString(2);
+               String Reg = rs.getString(3);
+               String Name = rs.getString(4);
+               String Contact = rs.getString(5);
+               String Branch = rs.getString(6);
+               String Course = rs.getString(7);
+               String Tot = rs.getString(8);
+               String Discount = rs.getString(9);
+               String Payable = rs.getString(10);
+               String Recieved = rs.getString(11);
+               String Refunds = rs.getString(12);
+               String Due = rs.getString(13);
+               String Action = rs.getString(14);
+               String Barcode = rs.getString(15);
             
-               Object [] content = {fullname, address, email, coursename, payment};
-               DefaultTableModel model = (DefaultTableModel) table_MonthlyAtt.getModel();
+               Object [] content = {No,Ref,Reg,Name,Contact,Branch,Course,Tot,Discount,Payable,Recieved,Refunds,Due,Action,Barcode};
+               DefaultTableModel model = (DefaultTableModel) table_all.getModel();
                model.addRow(content);
                               
               /* DefaultTableModel model = new DefaultTableModel(new String[]{"fullname", "address", "email", "coursename", "payment"}, 0);
@@ -92,10 +81,10 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         btn_generateGraphMonthly = new javax.swing.JButton();
         btn_endBatch = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        table_MonthlyAtt = new javax.swing.JTable();
+        table_all = new javax.swing.JTable();
         display_batch_name = new java.awt.Label();
         daily_attendance = new javax.swing.JButton();
-        selectDailyAtt = new javax.swing.JComboBox<>();
+        btn_Refresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -174,15 +163,23 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
             }
         });
 
-        table_MonthlyAtt.setModel(new javax.swing.table.DefaultTableModel(
+        table_all.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "fullname", "address", "email", "coursename", "payment"
+                "No", "Refference No", "Registration No", "Name", "Contact No", "Branch", "Course", "Total Fee", "Discount", "Payable", "Received Payment", "Refunds", "Due", "Action"
             }
-        ));
-        jScrollPane2.setViewportView(table_MonthlyAtt);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(table_all);
 
         display_batch_name.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         display_batch_name.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -200,7 +197,17 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
             }
         });
 
-        selectDailyAtt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "student" }));
+        btn_Refresh.setText("Refresh");
+        btn_Refresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_RefreshMouseClicked(evt);
+            }
+        });
+        btn_Refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_RefreshActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,15 +222,17 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(selectDailyAtt, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btn_generateGraphMonthly)
                         .addGap(18, 18, 18)
                         .addComponent(btn_MonthlyReport))
-                    .addComponent(daily_attendance, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btn_Refresh)
+                        .addGap(18, 18, 18)
+                        .addComponent(daily_attendance)))
                 .addGap(50, 50, 50))
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
@@ -239,7 +248,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                     .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(daily_attendance)
-                        .addComponent(selectDailyAtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_Refresh)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
@@ -254,14 +263,10 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseMouseClicked
-        // TODO add your handling code here:
-
         System.exit(0);
     }//GEN-LAST:event_jLabelCloseMouseClicked
 
     private void jLabelMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinMouseClicked
-
-        // TODO add your handling code here:
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jLabelMinMouseClicked
 
@@ -287,6 +292,19 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
     private void daily_attendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daily_attendanceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_daily_attendanceActionPerformed
+
+    private void btn_RefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RefreshActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_RefreshActionPerformed
+
+    private void btn_RefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_RefreshMouseClicked
+        DefaultTableModel model=(DefaultTableModel) table_all.getModel();
+        while(model.getRowCount()>0){
+            model.setRowCount(0);
+            }
+
+         DisplayTableMonthlyAtt();
+    }//GEN-LAST:event_btn_RefreshMouseClicked
 
     /**
      * @param args the command line arguments
@@ -326,6 +344,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel TopPanel;
     private javax.swing.JButton btn_MonthlyReport;
+    private javax.swing.JButton btn_Refresh;
     private javax.swing.JButton btn_endBatch;
     private javax.swing.JButton btn_generateGraphMonthly;
     private javax.swing.JLabel btn_home;
@@ -335,7 +354,10 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JComboBox<String> selectDailyAtt;
-    private javax.swing.JTable table_MonthlyAtt;
+    private javax.swing.JTable table_all;
     // End of variables declaration//GEN-END:variables
+
+    private void DisplayTableDailyAtt() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
