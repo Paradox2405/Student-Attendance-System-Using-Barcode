@@ -223,14 +223,10 @@ public class RegisterBarcodes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseMouseClicked
-        // TODO add your handling code here:
-
         System.exit(0);
     }//GEN-LAST:event_jLabelCloseMouseClicked
 
     private void jLabelMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinMouseClicked
-
-        // TODO add your handling code here:
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jLabelMinMouseClicked
 
@@ -245,20 +241,18 @@ public class RegisterBarcodes extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_saveActionPerformed
 
     private void btn_searchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_searchMouseClicked
-   
         String regnumber = txt_regnumber.getText();
         
         if(regnumber.equals("")){
             JOptionPane.showMessageDialog(null,"Please enter the reference number.");
         }
  
-        else {
+        else{
         
         try{       
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE `Registration NO`=? "); //SELECT * FROM LMS WHERE Refference No=? or Registration No=?
 
-          
             ps.setString(1, regnumber);
             ResultSet rs = ps.executeQuery();
                               

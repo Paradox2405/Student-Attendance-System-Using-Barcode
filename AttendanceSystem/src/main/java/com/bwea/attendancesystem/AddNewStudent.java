@@ -447,13 +447,21 @@ public class AddNewStudent extends javax.swing.JFrame {
         String stu_address = txt_refno.getText();
         String stu_email = txt_regno.getText();
         String stu_fname = txt_name.getText();
-        String stu_coursename = txt_contactno.getText();
-        String stu_payment = txt_branch.getText();
+        String stu_contact = txt_contactno.getText();
+        String stu_branch = txt_branch.getText();
+        String stu_course = txt_course.getText();
+        String stu_fee = txt_total.getText();
+        String stu_disc = txt_disc.getText();
+        String stu_payment = txt_pay.getText();
+        String stu_recieve = txt_recieved.getText();
+        String stu_refunds = txt_refunds.getText();
+        String stu_dues = txt_dues.getText();
+        String stu_actions = txt_actions.getText();
         
         if(stu_fname.equals("")){
             JOptionPane.showMessageDialog(null,"Please enter a name of the student.");
         }
-        else if(stu_coursename.equals("")){
+        else if(stu_course.equals("")){
             JOptionPane.showMessageDialog(null,"Please enter the coursename.");
         }
         else if(stu_payment.equals("")){
@@ -463,12 +471,18 @@ public class AddNewStudent extends javax.swing.JFrame {
         
         try{       
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("INSERT INTO `student`(`fullname`, `address`, `email`, `coursename`, `payment`) VALUES (?,?,?,?,?)");   
+            PreparedStatement ps = con.prepareStatement("INSERT INTO `student`(`Name`,`Contact No`,``,``,``,``,``,``,``,``,``) VALUES (?,?,?,?,?,?,?,?,?,?,?)");   
             ps.setString(1, stu_fname);
-            ps.setString(2, stu_address);
-            ps.setString(3, stu_email);
-            ps.setString(4, stu_coursename);
-            ps.setInt(5, Integer.parseInt(stu_payment));
+            ps.setString(2, stu_contact);
+            ps.setString(3, stu_branch);
+            ps.setString(4, stu_course);
+            ps.setInt(5, Integer.parseInt(stu_fee));
+            ps.setInt(6, Integer.parseInt(stu_disc));
+            ps.setInt(7, Integer.parseInt(stu_payment));
+            ps.setInt(8, Integer.parseInt(stu_recieve));
+            ps.setInt(9, Integer.parseInt(stu_refunds));
+            ps.setInt(10, Integer.parseInt(stu_dues));
+            ps.setString(11, stu_actions);
 
             int saveNew = JOptionPane.showConfirmDialog(this, "Save new student?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             
