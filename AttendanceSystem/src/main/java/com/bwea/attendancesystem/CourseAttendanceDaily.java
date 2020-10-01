@@ -32,11 +32,11 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     private void DisplayTableDailyAtt(){
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("select * from attendance where date(column_name) = CURDATE()");   
+            PreparedStatement ps = con.prepareStatement("select * from attendance where date(column_name) = CURDATE()"); //student table doesn't contain any datetime col so i took the attendance table  
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
-              /* String No = rs.getString(1);
+              /* String No = rs.getString(1);    //original values
                String Ref = rs.getString(2);
                String Reg = rs.getString(3);
                String Name = rs.getString(4);
@@ -52,10 +52,10 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                String Action = rs.getString(14);
                String Barcode = rs.getString(15); */
                
-               String Reg = rs.getString(3);
+               String Reg = rs.getString(3); //test values to run the attendance table
                String Name = rs.getString(4);
             
-               //Object [] content = {No,Ref,Reg,Name,Contact,Branch,Course,Tot,Discount,Payable,Recieved,Refunds,Due,Action,Barcode};
+               //Object [] content = {No,Ref,Reg,Name,Contact,Branch,Course,Tot,Discount,Payable,Recieved,Refunds,Due,Action,Barcode}; //original values
                Object [] content = {Reg,Name};
                DefaultTableModel model = (DefaultTableModel) table_all.getModel();
                model.addRow(content);
