@@ -23,8 +23,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
      */
     public RegisterBarcodes() {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);
-        this.setLocationRelativeTo(null);
+        
     }
     
     public void RegisterBarcodeSave(){
@@ -64,7 +63,6 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
-        getContentPane().setLayout(null);
 
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
 
@@ -129,9 +127,6 @@ public class RegisterBarcodes extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        getContentPane().add(TopPanel);
-        TopPanel.setBounds(0, 0, 510, 55);
-
         jLabel3.setText("Registration Number");
 
         btn_search.setText("Search");
@@ -179,11 +174,11 @@ public class RegisterBarcodes extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txt_regnumber, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
-                            .addComponent(txt_barcodereg, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+                            .addComponent(txt_barcodereg)
                             .addComponent(btn_search, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(196, Short.MAX_VALUE)
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_save, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_contactNo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,8 +211,20 @@ public class RegisterBarcodes extends javax.swing.JFrame {
                 .addGap(135, 135, 135))
         );
 
-        getContentPane().add(MainPanel);
-        MainPanel.setBounds(0, 61, 510, 466);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

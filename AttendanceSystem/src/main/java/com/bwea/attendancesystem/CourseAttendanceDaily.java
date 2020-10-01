@@ -43,7 +43,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
              selectDailyAtt.addItem("Diploma in Android Application Development");
             
             this.setLocationRelativeTo(null);
-            DisplayTableDailyAtt();
+            
     }
     
     
@@ -344,7 +344,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_dailyRefreshActionPerformed
 
     private void btn_dailyRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dailyRefreshMouseClicked
-        
+        DisplayTableDailyAtt();        
     }//GEN-LAST:event_btn_dailyRefreshMouseClicked
 
     /**
