@@ -434,10 +434,19 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
             rs = ps.executeQuery();
             
             if(rs.next()){
-                txt_refno.setText(rs.getString("fullname"));
-                txt_name.setText(rs.getString("coursename"));
+                txt_refno.setText(rs.getString("fullname")); //add names of the field in the real table
                 txt_regno.setText(rs.getString("admission"));
+                txt_name.setText(rs.getString("coursename"));
                 txt_contactno.setText(rs.getString("dues"));
+                txt_branch.setText(rs.getString("fullname"));
+                txt_course.setText(rs.getString("fullname"));
+                txt_total.setText(rs.getString("fullname"));
+                txt_disc.setText(rs.getString("fullname"));
+                txt_pay.setText(rs.getString("fullname"));
+                txt_recieved.setText(rs.getString("fullname"));
+                txt_refunds.setText(rs.getString("fullname"));
+                txt_dues.setText(rs.getString("fullname"));
+                txt_actions.setText(rs.getString("fullname"));
             }
         }
         catch(SQLException e)
