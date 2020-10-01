@@ -85,7 +85,7 @@ public class HomeScreen extends javax.swing.JFrame {
         } 
         catch(SQLException e)
             {
-                 JOptionPane.showMessageDialog(null,"Table Does Not Exist In Database");
+                 JOptionPane.showMessageDialog(null,e);
             }
         
         
