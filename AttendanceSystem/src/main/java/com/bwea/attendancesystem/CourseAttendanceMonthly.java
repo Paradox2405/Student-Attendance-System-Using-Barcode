@@ -27,27 +27,16 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
     private void DisplayTableMonthlyAtt(){
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM student");   
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM attendance");   
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
-               String No = rs.getString(1);
-               String Ref = rs.getString(2);
-               String Reg = rs.getString(3);
-               String Name = rs.getString(4);
-               String Contact = rs.getString(5);
-               String Branch = rs.getString(6);
-               String Course = rs.getString(7);
-               String Tot = rs.getString(8);
-               String Discount = rs.getString(9);
-               String Payable = rs.getString(10);
-               String Recieved = rs.getString(11);
-               String Refunds = rs.getString(12);
-               String Due = rs.getString(13);
-               String Action = rs.getString(14);
-               String Barcode = rs.getString(15);
-            
-               Object [] content = {No,Ref,Reg,Name,Contact,Branch,Course,Tot,Discount,Payable,Recieved,Refunds,Due,Action,Barcode};
+               String Reg = rs.getString(1); //test values to run the attendance table
+               String Name = rs.getString(2);
+               String Date = rs.getString(3);
+               String InTime = rs.getString(4);
+           
+               Object [] content = {Reg,Name,Date,InTime};
                DefaultTableModel model = (DefaultTableModel) table_all.getModel();
                model.addRow(content);
                               
@@ -168,11 +157,11 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
 
             },
             new String [] {
-                "No", "Refference No", "Registration No", "Name", "Contact No", "Branch", "Course", "Total Fee", "Discount", "Payable", "Received Payment", "Refunds", "Due", "Action"
+                "Registration No", "Name", "Date", "InTime"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
