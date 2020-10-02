@@ -31,10 +31,11 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
-               String Reg = rs.getString(1); //test values to run the attendance table
-               String Name = rs.getString(2);
-               String Date = rs.getString(3);
-               String InTime = rs.getString(4);
+                
+               String Reg = rs.getString(2); //test values to run the attendance table
+               String Name = rs.getString(3);
+               String Date = rs.getString(4);
+               String InTime = rs.getString(5);
            
                Object [] content = {Reg,Name,Date,InTime};
                DefaultTableModel model = (DefaultTableModel) table_all.getModel();

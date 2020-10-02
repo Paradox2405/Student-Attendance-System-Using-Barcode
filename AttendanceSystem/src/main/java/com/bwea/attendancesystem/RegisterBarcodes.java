@@ -258,15 +258,15 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         
         try{       
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE `Registration NO`=? "); //SELECT * FROM LMS WHERE Refference No=? or Registration No=?
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE `Registration No`=? "); //SELECT * FROM LMS WHERE Refference No=? or Registration No=?
 
             ps.setString(1, regnumber);
             ResultSet rs = ps.executeQuery();
                               
             if(rs.next()){
               lbl_name.setText(rs.getString("Name")); //Name
-              lbl_contactNo.setText(rs.getString("`Contact No`")); //Contact No 
-              lbl_refNumber.setText(rs.getString("`Refference No`")); //Registration No
+              lbl_contactNo.setText(rs.getString("Contact No")); //Contact No 
+              lbl_refNumber.setText(rs.getString("Refference No")); //Registration No
             }
             
             else{
@@ -283,13 +283,13 @@ public class RegisterBarcodes extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_searchMouseClicked
 
     private void btn_saveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_saveMouseClicked
-        String barcodereg = txt_barcodereg.getText();
+        String barcodereg = txt_regnumber.getText();
         
       //int bar = Integer.parseInt(barcodereg);
         
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `fullname`=? WHERE admission="+barcodereg);          
+            PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `Barcode`=? WHERE `Registration No`="+barcodereg);          
             ps.setString(1, barcodereg);
             ps.executeUpdate();
             ResultSet rs = ps.executeQuery();
