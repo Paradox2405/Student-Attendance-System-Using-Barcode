@@ -259,7 +259,7 @@ public class BarcodeScan extends javax.swing.JFrame {
             ResultSet rs=ps.executeQuery();
             
             if (rs.next() == false) {
-                JOptionPane.showMessageDialog(null,"Registration Number Does Not Exist");
+                JOptionPane.showMessageDialog(null,"Barcode Does Not Exist");
                }
             else{
 
@@ -273,10 +273,19 @@ public class BarcodeScan extends javax.swing.JFrame {
                     txt_dues.setText(rs.getString("Due"));
                     
                                 try{
-                                    
+                                    String Reg = txt_regno.getText().trim();
+                                    String Name = txt_name.getText();
+                                    PreparedStatement ps0 = con.prepareStatement("SELECT `Date` FROM `attendance` WHERE `Registration No` =`"+Reg+"`");
+                                    ResultSet results=ps0.executeQuery();
+                                    String dateall=results.getString("Date");
+                                    if(dateall==dateStamp){
+                                       JOptionPane.showMessageDialog(null,"You have already checked in!");                               
+                                        }
+                                    else if (dateall==null){
+                                        
+                                            
                                 PreparedStatement ps1 = con.prepareStatement("INSERT INTO attendance (`Registration No`,Name,Date,Intime)"+" VALUES (?,?,?,?)");
-                                String Reg = txt_regno.getText();
-                                String Name = txt_name.getText();
+                                
                                 
                                 
                                 ps1.setString(1, Reg);
@@ -285,6 +294,9 @@ public class BarcodeScan extends javax.swing.JFrame {
                                 ps1.setString(4, timeStamp);
                                 ps1.execute();
                                     
+                                    }
+                                        else{
+                                            } 
                                 }
                                 catch(SQLException e){
                                 JOptionPane.showMessageDialog(null, e);
