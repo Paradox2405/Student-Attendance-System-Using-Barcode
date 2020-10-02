@@ -39,10 +39,6 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                Object [] content = {Reg,Name,Date,InTime};
                DefaultTableModel model = (DefaultTableModel) table_all.getModel();
                model.addRow(content);
-                              
-              /* DefaultTableModel model = new DefaultTableModel(new String[]{"fullname", "address", "email", "coursename", "payment"}, 0);
-               model.addRow(new Object[]{fullname, address, email, coursename, payment});
-               table_DailyAtt.setModel(model);*/
             }
             con.close();
         } 
