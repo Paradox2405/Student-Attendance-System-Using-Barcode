@@ -5,6 +5,8 @@
  */
 package com.bwea.attendancesystem;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -25,6 +27,21 @@ public class BarcodeScan extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         
         
+    }
+     private static final int TIME_VISIBLE = 3000;
+    private void timedpane(){
+    
+                JOptionPane pane = new JOptionPane("You have a Over Due of  "+txt_dues.getText(), JOptionPane.INFORMATION_MESSAGE);
+                JDialog dialog = pane.createDialog(null, "Title");
+                dialog.setModal(false);
+                dialog.setVisible(true);
+                new Timer(TIME_VISIBLE, new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        dialog.setVisible(false);
+                    }
+                }).start();
+    
+    
     }
 
     /**
@@ -53,6 +70,8 @@ public class BarcodeScan extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        txt_datein = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -151,39 +170,53 @@ public class BarcodeScan extends javax.swing.JFrame {
 
         jButton1.setText("Register Barcode");
 
+        jLabel5.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setText("Date");
+
+        txt_datein.setEditable(false);
+
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txt_name, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_regno, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_barcode, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_course, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_intime, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_dues, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addContainerGap(113, Short.MAX_VALUE)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_dues, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(1, 1, 1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_course, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_intime, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_regno, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_datein, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
                 .addComponent(btn_enter)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(298, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
+                .addGap(111, 111, 111)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_enter))
-                .addGap(39, 39, 39)
+                .addGap(18, 18, 18)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -195,24 +228,28 @@ public class BarcodeScan extends javax.swing.JFrame {
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_course, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_intime, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_datein, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_dues, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE)
+            .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
             .addComponent(TopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -270,24 +307,43 @@ public class BarcodeScan extends javax.swing.JFrame {
                     txt_course.setText(rs.getString("Course"));
                     txt_regno.setText(rs.getString("Registration No"));
                     txt_intime.setText(timeStamp);
+                    txt_datein.setText(dateStamp);
                     txt_dues.setText(rs.getString("Due"));
+                    if (txt_dues!=null){
+                        timedpane();
+                         //JOptionPane.showMessageDialog(null,"You have a Over Due of"+txt_dues.getText());  
+                    }
                     
                                 try{
-                                    String Reg = txt_regno.getText().trim();
+                                    String Reg = txt_regno.getText();
                                     String Name = txt_name.getText();
-                                    PreparedStatement ps0 = con.prepareStatement("SELECT `Date` FROM `attendance` WHERE `Registration No` =`"+Reg+"`");
+                                    PreparedStatement ps0 = con.prepareStatement("SELECT Datein FROM attendance WHERE `Registration No`='"+Reg+"'");
                                     ResultSet results=ps0.executeQuery();
-                                    String dateall=results.getString("Date");
-                                    if(dateall==dateStamp){
-                                       JOptionPane.showMessageDialog(null,"You have already checked in!");                               
-                                        }
-                                    else if (dateall==null){
-                                        
-                                            
-                                PreparedStatement ps1 = con.prepareStatement("INSERT INTO attendance (`Registration No`,Name,Date,Intime)"+" VALUES (?,?,?,?)");
-                                
-                                
-                                
+                                    while(results.next()){
+//                                    String dateall=results.getString("Datein");
+//                                    System.out.print(dateall);
+//                                    if(dateall==dateStamp){
+//                                       JOptionPane.showMessageDialog(null,"You have already checked in!");                               
+//                                        }
+//                                    else if (dateall==""){
+//                                        
+//                                            
+//                                PreparedStatement ps1 = con.prepareStatement("INSERT INTO attendance (`Registration No`,Name,Datein,Intime)"+" VALUES (?,?,?,?)");
+//                                
+//                                
+//                                
+//                                ps1.setString(1, Reg);
+//                                ps1.setString(2, Name);
+//                                ps1.setString(3, dateStamp);
+//                                ps1.setString(4, timeStamp);
+//                                ps1.execute();
+//                                    
+//                                    }
+//                                        else{
+//                                            } 
+                                }
+                                    if(results.next()==false){
+                                     PreparedStatement ps1 = con.prepareStatement("INSERT INTO attendance (`Registration No`,Name,Datein,Intime)"+" VALUES (?,?,?,?)");
                                 ps1.setString(1, Reg);
                                 ps1.setString(2, Name);
                                 ps1.setString(3, dateStamp);
@@ -295,8 +351,6 @@ public class BarcodeScan extends javax.swing.JFrame {
                                 ps1.execute();
                                     
                                     }
-                                        else{
-                                            } 
                                 }
                                 catch(SQLException e){
                                 JOptionPane.showMessageDialog(null, e);
@@ -366,10 +420,12 @@ public class BarcodeScan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField txt_barcode;
     private javax.swing.JTextField txt_course;
+    private javax.swing.JTextField txt_datein;
     private javax.swing.JTextField txt_dues;
     private javax.swing.JTextField txt_intime;
     private javax.swing.JTextField txt_name;
