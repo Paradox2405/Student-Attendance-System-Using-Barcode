@@ -28,7 +28,7 @@ public class Login extends javax.swing.JFrame {
         HomeScreen hs = new HomeScreen();
         hs.setVisible(true);
         hs.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-        //hs.pack();
+    
         hs.setLocationRelativeTo(null);
         hs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

@@ -287,7 +287,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
         else {
         
         try{       
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             PreparedStatement ps = con.prepareStatement("INSERT INTO `admin`(`fullname`, `username`, `password`) VALUES (?,?,?)");   
             ps.setString(1, fullname);
             ps.setString(2, uname);
@@ -322,7 +322,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
         boolean checkUser = false;
         
         try{       
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM `admin` WHERE `username` =?");   
             ps.setString(1, uname);
             ResultSet rs = ps.executeQuery();

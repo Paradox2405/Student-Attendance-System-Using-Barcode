@@ -23,6 +23,7 @@ public class HomeScreen extends javax.swing.JFrame {
     public HomeScreen() {
         initComponents();
         
+        
              selectStudentsDb.addItem("Student");
              selectStudentsDb.addItem("`Two Month Diploma in English`");
              selectStudentsDb.addItem("`Two Month Advance Certificate - English`");
@@ -41,6 +42,8 @@ public class HomeScreen extends javax.swing.JFrame {
              selectStudentsDb.addItem("`Diploma in Graphic Designing`");
              selectStudentsDb.addItem("`Foundation in Arduino Programming`");
              selectStudentsDb.addItem("`Diploma in Android Application Development`");
+             
+             
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
      
@@ -105,9 +108,6 @@ public class HomeScreen extends javax.swing.JFrame {
         jLabelMin = new javax.swing.JLabel();
         btn_logout = new javax.swing.JLabel();
         SidePanel = new javax.swing.JPanel();
-        btn_updatepayment = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
         btn_scanbarcodes = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -192,38 +192,6 @@ public class HomeScreen extends javax.swing.JFrame {
         );
 
         SidePanel.setBackground(new java.awt.Color(181, 139, 12));
-
-        btn_updatepayment.setBackground(new java.awt.Color(226, 156, 14));
-        btn_updatepayment.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_updatepaymentMouseClicked(evt);
-            }
-        });
-
-        jLabel20.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("Update Payments");
-
-        javax.swing.GroupLayout btn_updatepaymentLayout = new javax.swing.GroupLayout(btn_updatepayment);
-        btn_updatepayment.setLayout(btn_updatepaymentLayout);
-        btn_updatepaymentLayout.setHorizontalGroup(
-            btn_updatepaymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_updatepaymentLayout.createSequentialGroup()
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        btn_updatepaymentLayout.setVerticalGroup(
-            btn_updatepaymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_updatepaymentLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(btn_updatepaymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(btn_updatepaymentLayout.createSequentialGroup()
-                        .addComponent(jLabel20)
-                        .addGap(0, 8, Short.MAX_VALUE))
-                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
 
         btn_scanbarcodes.setBackground(new java.awt.Color(226, 156, 14));
         btn_scanbarcodes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -398,6 +366,12 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
+
         jLabel14.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Update Student");
@@ -462,7 +436,6 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(SidePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_updatepayment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_addnewst, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_addadmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_scanbarcodes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -488,10 +461,8 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_addadmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_updatepayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_registerbarcodes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jScrollPane1.setBorder(null);
@@ -585,7 +556,7 @@ public class HomeScreen extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addComponent(jScrollPane1)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
                         .addContainerGap())))
         );
 
@@ -715,25 +686,6 @@ public class HomeScreen extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_updateStudentMouseClicked
 
-    private void btn_updatepaymentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_updatepaymentMouseClicked
-        // TODO add your handling code here:
-        
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-        int result = fileChooser.showOpenDialog(this);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = fileChooser.getSelectedFile();
-            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
-           }
-         try{       
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("");
-         }
-         catch(SQLException e){
-             JOptionPane.showMessageDialog(null,e);
-         }
-    }//GEN-LAST:event_btn_updatepaymentMouseClicked
-
     private void btn_registerbarcodesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_registerbarcodesMouseClicked
         // TODO add your handling code here:
         RegisterBarcodes rb= new RegisterBarcodes();
@@ -743,6 +695,18 @@ public class HomeScreen extends javax.swing.JFrame {
         rb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_btn_registerbarcodesMouseClicked
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        // TODO add your handling code here:
+        
+        UpdateStudentDetails sd = new UpdateStudentDetails();
+        sd.setVisible(true);
+        sd.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        sd.setLocationRelativeTo(null);
+        sd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+        
+    }//GEN-LAST:event_jLabel13MouseClicked
 
     /**
      * @param args the command line arguments
@@ -794,16 +758,13 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JPanel btn_registerbarcodes;
     private javax.swing.JPanel btn_scanbarcodes;
     private javax.swing.JPanel btn_updateStudent;
-    private javax.swing.JPanel btn_updatepayment;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;

@@ -24,12 +24,14 @@ public class BarcodeScan extends javax.swing.JFrame {
     public BarcodeScan() {
      
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        txt_barcode.requestFocus();
+        
         
         
     }
      private static final int TIME_VISIBLE = 3000;
-    private void timedpane(){
+    private void overdue(){
     
                 JOptionPane pane = new JOptionPane("You have a Over Due of  "+txt_dues.getText(), JOptionPane.INFORMATION_MESSAGE);
                 JDialog dialog = pane.createDialog(null, "Title");
@@ -40,8 +42,68 @@ public class BarcodeScan extends javax.swing.JFrame {
                         dialog.setVisible(false);
                     }
                 }).start();
+        txt_barcode.setText(null);
+        txt_barcode.requestFocus();
     
     
+    }
+    private void nothingentered(){
+    
+                JOptionPane pane = new JOptionPane("Nothing has entered to search.", JOptionPane.INFORMATION_MESSAGE);
+                JDialog dialog = pane.createDialog(null, "Title");
+                dialog.setModal(false);
+                dialog.setVisible(true);
+                new Timer(TIME_VISIBLE, new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        dialog.setVisible(false);
+                    }
+                }).start();
+                txt_barcode.requestFocus();
+    
+    
+    }
+    
+    private void notexist(){
+    
+                JOptionPane pane = new JOptionPane("Barcode Does Not Exist", JOptionPane.INFORMATION_MESSAGE);
+                JDialog dialog = pane.createDialog(null, "Title");
+                dialog.setModal(false);
+                dialog.setVisible(true);
+                new Timer(TIME_VISIBLE, new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        dialog.setVisible(false);
+                    }
+                }).start();
+                txt_barcode.requestFocus();
+    
+    
+    }
+    
+      private void alreadyin(){
+    
+                JOptionPane pane = new JOptionPane("You have already checked in!", JOptionPane.INFORMATION_MESSAGE);
+                JDialog dialog = pane.createDialog(null, "Title");
+                dialog.setModal(false);
+                dialog.setVisible(true);
+                new Timer(TIME_VISIBLE, new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        dialog.setVisible(false);
+                    }
+                }).start();
+                txt_barcode.requestFocus();
+    
+    
+    }
+    
+    private void clearrows(){
+    
+                            txt_barcode.setText(null);
+                            txt_name.setText(null);
+                            txt_course.setText(null);
+                            txt_regno.setText(null);
+                            txt_intime.setText(null);
+                            txt_datein.setText(null);
+                            txt_dues.setText(null);
     }
 
     /**
@@ -75,6 +137,7 @@ public class BarcodeScan extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1393, 650));
 
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
 
@@ -97,22 +160,23 @@ public class BarcodeScan extends javax.swing.JFrame {
         TopPanelLayout.setHorizontalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
-                .addGap(432, 432, 432)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(494, 494, 494)
                 .addComponent(btn_home)
                 .addGap(26, 26, 26))
         );
         TopPanelLayout.setVerticalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TopPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_home)
-                .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(14, 14, 14))
+                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TopPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_home))
+                    .addGroup(TopPanelLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel2)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         MainPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -186,7 +250,7 @@ public class BarcodeScan extends javax.swing.JFrame {
         MainPanelLayout.setHorizontalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
-                .addContainerGap(113, Short.MAX_VALUE)
+                .addGap(319, 319, 319)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -210,14 +274,13 @@ public class BarcodeScan extends javax.swing.JFrame {
                             .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_datein, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
                 .addComponent(btn_enter)
-                .addContainerGap(298, Short.MAX_VALUE))
+                .addContainerGap(351, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
-                .addGap(111, 111, 111)
+                .addGap(21, 21, 21)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_enter))
@@ -245,24 +308,24 @@ public class BarcodeScan extends javax.swing.JFrame {
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_dues, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(btn_registerbarcodes, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(96, 96, 96))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
             .addComponent(TopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1391, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -289,7 +352,7 @@ public class BarcodeScan extends javax.swing.JFrame {
         String barcode =txt_barcode.getText();
         
     if(barcode.equals("")){
-            JOptionPane.showMessageDialog(null, "Nothing has entered to search.");
+            nothingentered();
      }
         
  else{
@@ -301,7 +364,7 @@ public class BarcodeScan extends javax.swing.JFrame {
     ResultSet rs=ps.executeQuery();
 
     if (rs.next() == false) {
-        JOptionPane.showMessageDialog(null,"Barcode Does Not Exist");
+        notexist();
        }
     else{
 
@@ -328,11 +391,12 @@ public class BarcodeScan extends javax.swing.JFrame {
                         String dateall=results.getString("Datein");
                         System.out.print(dateall);
                         if(dateall.equals(dateStamp)){
-                           JOptionPane.showMessageDialog(null,"You have already checked in!");                               
+                           alreadyin();  
+                           clearrows();
                             }
                         else {
 
-                    timedpane();
+                    overdue();
                     PreparedStatement ps1 = con.prepareStatement("INSERT INTO attendance (`Registration No`,Name,Datein,Intime)"+" VALUES (?,?,?,?)");
 
 
@@ -342,12 +406,13 @@ public class BarcodeScan extends javax.swing.JFrame {
                     ps1.setString(3, dateStamp);
                     ps1.setString(4, timeStamp);
                     ps1.execute();
+                    clearrows();
 
                         }
                             
                 }
                     else{
-                        timedpane();
+                        overdue();
                     PreparedStatement ps1 = con.prepareStatement("INSERT INTO attendance (`Registration No`,Name,Datein,Intime)"+" VALUES (?,?,?,?)");
 
 
@@ -357,7 +422,7 @@ public class BarcodeScan extends javax.swing.JFrame {
                     ps1.setString(3, dateStamp);
                     ps1.setString(4, timeStamp);
                     ps1.execute();
-                    
+               
                     }
                 }
                 catch(SQLException e){
