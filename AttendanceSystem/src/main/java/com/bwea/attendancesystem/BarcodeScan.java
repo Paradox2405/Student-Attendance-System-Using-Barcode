@@ -288,81 +288,84 @@ public class BarcodeScan extends javax.swing.JFrame {
         // TODO add your handling code here:
         String barcode =txt_barcode.getText();
         
-        if(barcode.equals("")){
+    if(barcode.equals("")){
             JOptionPane.showMessageDialog(null, "Nothing has entered to search.");
-        }
+     }
         
-        else{
+ else{
 
-        try{       
-            int bar = Integer.parseInt(barcode);
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT `Name`,`Registration No`,`Course`,`Due` FROM student WHERE Barcode="+bar);                          
-            ResultSet rs=ps.executeQuery();
-            
-            if (rs.next() == false) {
-                JOptionPane.showMessageDialog(null,"Barcode Does Not Exist");
-               }
-            else{
+  try{       
+    int bar = Integer.parseInt(barcode);
+    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+    PreparedStatement ps = con.prepareStatement("SELECT `Name`,`Registration No`,`Course`,`Due` FROM student WHERE Barcode="+bar);                          
+    ResultSet rs=ps.executeQuery();
 
-                do{
-                    String timeStamp = new SimpleDateFormat("HH.mm").format(new Timestamp(System.currentTimeMillis()));
-                    String dateStamp = new SimpleDateFormat("yyyy.MM.dd").format(new Timestamp(System.currentTimeMillis()));
-                    txt_name.setText(rs.getString("Name"));
-                    txt_course.setText(rs.getString("Course"));
-                    txt_regno.setText(rs.getString("Registration No"));
-                    txt_intime.setText(timeStamp);
-                    txt_datein.setText(dateStamp);
-                    txt_dues.setText(rs.getString("Due"));
-                    if (txt_dues!=null){
-                        timedpane();
-                         //JOptionPane.showMessageDialog(null,"You have a Over Due of"+txt_dues.getText());  
-                    }
-                    
-                                try{
-                                    String Reg = txt_regno.getText();
-                                    String Name = txt_name.getText();
-                                    PreparedStatement ps0 = con.prepareStatement("SELECT Datein FROM attendance WHERE REPLACE (`Registration No`, ' ', '')= REPLACE("+Reg+", ' ', '')");
-                                    ResultSet results=ps0.executeQuery();
-                                    while(results.next()){
-//                                    String dateall=results.getString("Datein");
-//                                    System.out.print(dateall);
-//                                    if(dateall==dateStamp){
-//                                       JOptionPane.showMessageDialog(null,"You have already checked in!");                               
-//                                        }
-//                                    else if (dateall==""){
-//                                        
-//                                            
-//                                PreparedStatement ps1 = con.prepareStatement("INSERT INTO attendance (`Registration No`,Name,Datein,Intime)"+" VALUES (?,?,?,?)");
-//                                
-//                                
-//                                
-//                                ps1.setString(1, Reg);
-//                                ps1.setString(2, Name);
-//                                ps1.setString(3, dateStamp);
-//                                ps1.setString(4, timeStamp);
-//                                ps1.execute();
-//                                    
-//                                    }
-//                                        else{
-//                                            } 
-                                }
-                                    if(results.next()==false){
-                                     PreparedStatement ps1 = con.prepareStatement("INSERT INTO attendance (`Registration No`,Name,Datein,Intime)"+" VALUES (?,?,?,?)");
-                                ps1.setString(1, Reg);
-                                ps1.setString(2, Name);
-                                ps1.setString(3, dateStamp);
-                                ps1.setString(4, timeStamp);
-                                ps1.execute();
-                                    
-                                    }
-                                }
-                                catch(SQLException e){
-                                JOptionPane.showMessageDialog(null, e);
-                                }
-                                
+    if (rs.next() == false) {
+        JOptionPane.showMessageDialog(null,"Barcode Does Not Exist");
+       }
+    else{
+
+       
+            String timeStamp = new SimpleDateFormat("HH.mm").format(new Timestamp(System.currentTimeMillis()));
+            String dateStamp = new SimpleDateFormat("yyyy.MM.dd").format(new Timestamp(System.currentTimeMillis()));
+            txt_name.setText(rs.getString("Name"));
+            txt_course.setText(rs.getString("Course"));
+            txt_regno.setText(rs.getString("Registration No"));
+            txt_intime.setText(timeStamp);
+            txt_datein.setText(dateStamp);
+            txt_dues.setText(rs.getString("Due"));
                 
-                }while(rs.next());
+                 //JOptionPane.showMessageDialog(null,"You have a Over Due of"+txt_dues.getText());  
+            
+
+                try{
+                    String Reg = txt_regno.getText();
+                    String Name = txt_name.getText();
+                    PreparedStatement ps0 = con.prepareStatement("select *"
+                            + " from attendance where `Registration No` in ('"+Reg+"')");
+                    ResultSet results=ps0.executeQuery();
+                    if(results.next()){
+                        String dateall=results.getString("Datein");
+                        System.out.print(dateall);
+                        if(dateall.equals(dateStamp)){
+                           JOptionPane.showMessageDialog(null,"You have already checked in!");                               
+                            }
+                        else {
+
+                    timedpane();
+                    PreparedStatement ps1 = con.prepareStatement("INSERT INTO attendance (`Registration No`,Name,Datein,Intime)"+" VALUES (?,?,?,?)");
+
+
+
+                    ps1.setString(1, Reg);
+                    ps1.setString(2, Name);
+                    ps1.setString(3, dateStamp);
+                    ps1.setString(4, timeStamp);
+                    ps1.execute();
+
+                        }
+                            
+                }
+                    else{
+                        timedpane();
+                    PreparedStatement ps1 = con.prepareStatement("INSERT INTO attendance (`Registration No`,Name,Datein,Intime)"+" VALUES (?,?,?,?)");
+
+
+
+                    ps1.setString(1, Reg);
+                    ps1.setString(2, Name);
+                    ps1.setString(3, dateStamp);
+                    ps1.setString(4, timeStamp);
+                    ps1.execute();
+                    
+                    }
+                }
+                catch(SQLException e){
+                JOptionPane.showMessageDialog(null, e);
+                }
+
+
+                
             }
            }           
         catch(SQLException e)
