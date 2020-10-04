@@ -142,11 +142,6 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         MainPanel.setBackground(new java.awt.Color(226, 156, 14));
 
         txt_barcode.setBackground(new java.awt.Color(204, 204, 204));
-        txt_barcode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_barcodeActionPerformed(evt);
-            }
-        });
 
         btn_enter.setText("Search");
         btn_enter.addActionListener(new java.awt.event.ActionListener() {
@@ -182,11 +177,6 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
                 btn_cancelMouseClicked(evt);
             }
         });
-        btn_cancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cancelActionPerformed(evt);
-            }
-        });
 
         btn_editstu1.setBackground(new java.awt.Color(0, 204, 0));
         btn_editstu1.setFont(new java.awt.Font("Product Sans", 1, 12)); // NOI18N
@@ -196,11 +186,6 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         btn_editstu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_editstu1MouseClicked(evt);
-            }
-        });
-        btn_editstu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_editstu1ActionPerformed(evt);
             }
         });
 
@@ -413,12 +398,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_homeMouseClicked
 
-    private void txt_barcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_barcodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_barcodeActionPerformed
-
     private void btn_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enterActionPerformed
-        // TODO add your handling code here:
         Function f = new Function();
         ResultSet rs;
         
@@ -481,10 +461,6 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_cancelMouseClicked
 
-    private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cancelActionPerformed
-
     private void btn_editstu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editstu1MouseClicked
         String fullname = txt_refno.getText();
         String coursename = txt_name.getText();
@@ -509,10 +485,6 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btn_editstu1MouseClicked
-
-    private void btn_editstu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editstu1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_editstu1ActionPerformed
 
     private void jLabelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseMouseClicked
         System.exit(0);

@@ -95,12 +95,6 @@ public class CheckAttendance extends javax.swing.JFrame {
  
         }
     }
- 
-
-    
-    
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -278,16 +272,11 @@ public class CheckAttendance extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseMouseClicked
-        // TODO add your handling code here:
-
         System.exit(0);
     }//GEN-LAST:event_jLabelCloseMouseClicked
 
     private void jLabelMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinMouseClicked
-
-        // TODO add your handling code here:
         this.setState(JFrame.ICONIFIED);
-  
     }//GEN-LAST:event_jLabelMinMouseClicked
 
     private void btn_homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMouseClicked
@@ -304,8 +293,7 @@ public class CheckAttendance extends javax.swing.JFrame {
         Date todate = (Date) cal_todate.getDate();
         System.out.println(dateFormat.format(fromdate));
         System.out.println(dateFormat.format(todate));
-
-             
+            
         try  {
             
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
@@ -316,19 +304,19 @@ public class CheckAttendance extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Registration Number Does Not Exist");
                }
             else{        
-            txt_name.setText(rs.getString("Name"));
-            XSSFWorkbook workbook = new XSSFWorkbook();
-            XSSFSheet sheet = workbook.createSheet("Reviews");
+                txt_name.setText(rs.getString("Name"));
+                XSSFWorkbook workbook = new XSSFWorkbook();
+                XSSFSheet sheet = workbook.createSheet("Reviews");
  
-            writeHeaderLine(sheet);
+                writeHeaderLine(sheet);
  
-            writeDataLines(rs, workbook, sheet);
+                writeDataLines(rs, workbook, sheet);
  
-            FileOutputStream outputStream = new FileOutputStream(excelFilePath);
-            workbook.write(outputStream);
-            workbook.close();
+                FileOutputStream outputStream = new FileOutputStream(excelFilePath);
+                workbook.write(outputStream);
+                workbook.close();
  
-            con.close();
+                con.close();
              
             }
         

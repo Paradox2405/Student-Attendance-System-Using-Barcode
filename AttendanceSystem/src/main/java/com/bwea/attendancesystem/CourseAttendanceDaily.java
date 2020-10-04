@@ -27,8 +27,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
             this.setLocationRelativeTo(null);
             
     }
-    
-    
+
     private void DisplayTableDailyAtt(){
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
@@ -152,18 +151,8 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                 btn_monthly_attendanceMouseClicked(evt);
             }
         });
-        btn_monthly_attendance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_monthly_attendanceActionPerformed(evt);
-            }
-        });
 
         btn_dailyReport.setText("Report");
-        btn_dailyReport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_dailyReportActionPerformed(evt);
-            }
-        });
 
         btn_generateGraphDaily.setText("Generate Graph");
 
@@ -260,14 +249,6 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         hs.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_homeMouseClicked
-
-    private void btn_monthly_attendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_monthly_attendanceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_monthly_attendanceActionPerformed
-
-    private void btn_dailyReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dailyReportActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_dailyReportActionPerformed
 
     private void btn_monthly_attendanceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_monthly_attendanceMouseClicked
         CourseAttendanceMonthly cam = new CourseAttendanceMonthly();

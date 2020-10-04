@@ -143,7 +143,6 @@ public class BarcodeScan extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1393, 650));
 
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
 
@@ -189,11 +188,6 @@ public class BarcodeScan extends javax.swing.JFrame {
         MainPanel.setPreferredSize(new java.awt.Dimension(1392, 587));
 
         txt_barcode.setBackground(new java.awt.Color(204, 204, 204));
-        txt_barcode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_barcodeActionPerformed(evt);
-            }
-        });
 
         btn_enter.setText("Enter");
         btn_enter.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -270,8 +264,8 @@ public class BarcodeScan extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_course, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -281,7 +275,7 @@ public class BarcodeScan extends javax.swing.JFrame {
                             .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_datein, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addComponent(btn_enter)
-                .addContainerGap(351, Short.MAX_VALUE))
+                .addContainerGap(331, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,10 +338,6 @@ public class BarcodeScan extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_homeMouseClicked
 
     
-    private void txt_barcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_barcodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_barcodeActionPerformed
-
     private void btn_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enterActionPerformed
         // TODO add your handling code here:
         
