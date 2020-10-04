@@ -27,6 +27,7 @@ public class BarcodeScanner extends javax.swing.JFrame {
     }
     
     private static final int TIME_VISIBLE = 3000;
+    
     private void overdue(){
         if(!txt_dues.getText().equals("0")){
             
@@ -43,12 +44,11 @@ public class BarcodeScanner extends javax.swing.JFrame {
         } else {
             
         }
-        txt_barcode.setText(null);
-        txt_barcode.requestFocus();
         
-    
-    
+        txt_barcode.setText(null);
+        txt_barcode.requestFocus(); 
     }
+    
     private void nothingentered(){
     
                 JOptionPane pane = new JOptionPane("Nothing has entered to search.", JOptionPane.INFORMATION_MESSAGE);
@@ -61,8 +61,6 @@ public class BarcodeScanner extends javax.swing.JFrame {
                     }
                 }).start();
                 txt_barcode.requestFocus();
-    
-    
     }
     
     private void notexist(){
@@ -77,8 +75,6 @@ public class BarcodeScanner extends javax.swing.JFrame {
                     }
                 }).start();
                 txt_barcode.requestFocus();
-    
-    
     }
     
       private void alreadyin(){
@@ -93,8 +89,6 @@ public class BarcodeScanner extends javax.swing.JFrame {
                     }
                 }).start();
                 txt_barcode.requestFocus();
-    
-    
     }
     
     private void clearrows(){
@@ -394,32 +388,30 @@ public class BarcodeScanner extends javax.swing.JFrame {
     private void btn_enterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_enterMouseClicked
         String barcode =txt_barcode.getText();
         
-    if(barcode.equals("")){
+        if(barcode.equals("")){
             nothingentered();
-     }
+        }
         
- else{
+        else{
 
-  try{       
-    int bar = Integer.parseInt(barcode);
-    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-    PreparedStatement ps = con.prepareStatement("SELECT `Name`,`Registration No`,`Course`,`Due` FROM student WHERE Barcode="+bar);                          
-    ResultSet rs=ps.executeQuery();
+        try{       
+            int bar = Integer.parseInt(barcode);
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+            PreparedStatement ps = con.prepareStatement("SELECT `Name`,`Registration No`,`Course`,`Due` FROM student WHERE Barcode="+bar);                          
+            ResultSet rs=ps.executeQuery();
 
-    if (rs.next() == false) {
-        notexist();
-       }
-    else{
-
-       
-            String timeStamp = new SimpleDateFormat("HH.mm").format(new Timestamp(System.currentTimeMillis()));
-            String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(new Timestamp(System.currentTimeMillis()));
-            txt_name.setText(rs.getString("Name"));
-            txt_course.setText(rs.getString("Course"));
-            txt_regno.setText(rs.getString("Registration No"));
-            txt_intime.setText(timeStamp);
-            txt_datein.setText(dateStamp);
-            txt_dues.setText(rs.getString("Due"));
+            if (rs.next() == false) {
+                notexist();
+            }
+            else{
+                String timeStamp = new SimpleDateFormat("HH.mm").format(new Timestamp(System.currentTimeMillis()));
+                String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(new Timestamp(System.currentTimeMillis()));
+                txt_name.setText(rs.getString("Name"));
+                txt_course.setText(rs.getString("Course"));
+                txt_regno.setText(rs.getString("Registration No"));
+                txt_intime.setText(timeStamp);
+                txt_datein.setText(dateStamp);
+                txt_dues.setText(rs.getString("Due"));
                 
                  //JOptionPane.showMessageDialog(null,"You have a Over Due of"+txt_dues.getText());  
             
@@ -443,8 +435,6 @@ public class BarcodeScanner extends javax.swing.JFrame {
                     overdue();
                     PreparedStatement ps1 = con.prepareStatement("INSERT INTO attendance (`Registration No`,Name,Datein,Intime)"+" VALUES (?,?,?,?)");
 
-
-
                     ps1.setString(1, Reg);
                     ps1.setString(2, Name);
                     ps1.setString(3, dateStamp);
@@ -452,33 +442,26 @@ public class BarcodeScanner extends javax.swing.JFrame {
                     ps1.execute();
                     txt_barcode.setText(null);
 
-                        }
-                            
-                }
+                        }          
+                    }
                     else{
                         overdue();
-                    PreparedStatement ps1 = con.prepareStatement("INSERT INTO attendance (`Registration No`,Name,Datein,Intime)"+" VALUES (?,?,?,?)");
+                        PreparedStatement ps1 = con.prepareStatement("INSERT INTO attendance (`Registration No`,Name,Datein,Intime)"+" VALUES (?,?,?,?)");
 
-
-
-                    ps1.setString(1, Reg);
-                    ps1.setString(2, Name);
-                    ps1.setString(3, dateStamp);
-                    ps1.setString(4, timeStamp);
-                    ps1.execute();
-                    txt_barcode.setText(null);
-               
+                        ps1.setString(1, Reg);
+                        ps1.setString(2, Name);
+                        ps1.setString(3, dateStamp);
+                        ps1.setString(4, timeStamp);
+                        ps1.execute();
+                        txt_barcode.setText(null);
                     }
                 }
                 catch(SQLException e){
                 JOptionPane.showMessageDialog(null, e);
                 }
-
-
-                
             }
            }           
-        catch(SQLException e)
+            catch(SQLException e)
             {
             System.out.println(e);
             } 
