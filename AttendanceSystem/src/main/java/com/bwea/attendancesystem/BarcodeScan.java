@@ -32,25 +32,31 @@ public class BarcodeScan extends javax.swing.JFrame {
     }
      private static final int TIME_VISIBLE = 3000;
     private void overdue(){
-    
-                JOptionPane pane = new JOptionPane("You have a Over Due of  "+txt_dues.getText(), JOptionPane.INFORMATION_MESSAGE);
-                JDialog dialog = pane.createDialog(null, "Title");
-                dialog.setModal(false);
-                dialog.setVisible(true);
-                new Timer(TIME_VISIBLE, new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        dialog.setVisible(false);
-                    }
-                }).start();
+        if(!txt_dues.getText().equals("0")){
+            
+            JOptionPane pane = new JOptionPane("You have a Over Due of  "+txt_dues.getText(), JOptionPane.INFORMATION_MESSAGE);
+            JDialog dialog = pane.createDialog(null, "");
+            dialog.setModal(false);
+            dialog.setVisible(true);
+            new Timer(TIME_VISIBLE, new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    dialog.setVisible(false);
+                }
+            }).start();
+            
+        } else {
+            
+        }
         txt_barcode.setText(null);
         txt_barcode.requestFocus();
+        
     
     
     }
     private void nothingentered(){
     
                 JOptionPane pane = new JOptionPane("Nothing has entered to search.", JOptionPane.INFORMATION_MESSAGE);
-                JDialog dialog = pane.createDialog(null, "Title");
+                JDialog dialog = pane.createDialog(null,"");
                 dialog.setModal(false);
                 dialog.setVisible(true);
                 new Timer(TIME_VISIBLE, new ActionListener() {
@@ -66,7 +72,7 @@ public class BarcodeScan extends javax.swing.JFrame {
     private void notexist(){
     
                 JOptionPane pane = new JOptionPane("Barcode Does Not Exist", JOptionPane.INFORMATION_MESSAGE);
-                JDialog dialog = pane.createDialog(null, "Title");
+                JDialog dialog = pane.createDialog(null, "");
                 dialog.setModal(false);
                 dialog.setVisible(true);
                 new Timer(TIME_VISIBLE, new ActionListener() {
@@ -82,7 +88,7 @@ public class BarcodeScan extends javax.swing.JFrame {
       private void alreadyin(){
     
                 JOptionPane pane = new JOptionPane("You have already checked in!", JOptionPane.INFORMATION_MESSAGE);
-                JDialog dialog = pane.createDialog(null, "Title");
+                JDialog dialog = pane.createDialog(null, "");
                 dialog.setModal(false);
                 dialog.setVisible(true);
                 new Timer(TIME_VISIBLE, new ActionListener() {
@@ -370,7 +376,7 @@ public class BarcodeScan extends javax.swing.JFrame {
 
        
             String timeStamp = new SimpleDateFormat("HH.mm").format(new Timestamp(System.currentTimeMillis()));
-            String dateStamp = new SimpleDateFormat("yyyy.MM.dd").format(new Timestamp(System.currentTimeMillis()));
+            String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(new Timestamp(System.currentTimeMillis()));
             txt_name.setText(rs.getString("Name"));
             txt_course.setText(rs.getString("Course"));
             txt_regno.setText(rs.getString("Registration No"));
@@ -388,9 +394,10 @@ public class BarcodeScan extends javax.swing.JFrame {
                             + " from attendance where `Registration No` in ('"+Reg+"')");
                     ResultSet results=ps0.executeQuery();
                     if(results.next()){
-                        String dateall=results.getString("Datein");
-                        System.out.print(dateall);
-                        if(dateall.equals(dateStamp)){
+                        Date dateall=results.getDate("Datein");
+                        String d=dateall.toString();
+                        
+                        if(d.equals(dateStamp)){
                            alreadyin();  
                            clearrows();
                             }
@@ -406,7 +413,7 @@ public class BarcodeScan extends javax.swing.JFrame {
                     ps1.setString(3, dateStamp);
                     ps1.setString(4, timeStamp);
                     ps1.execute();
-                    clearrows();
+                    txt_barcode.setText(null);
 
                         }
                             
@@ -422,6 +429,7 @@ public class BarcodeScan extends javax.swing.JFrame {
                     ps1.setString(3, dateStamp);
                     ps1.setString(4, timeStamp);
                     ps1.execute();
+                    txt_barcode.setText(null);
                
                     }
                 }

@@ -32,10 +32,10 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     private void DisplayTableDailyAtt(){
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("select * from attendance where date(Date) = CURDATE()"); //student table doesn't contain any datetime col so i took the attendance table  
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM `attendance` WHERE DATE(`Datein`) = CURDATE()"); //student table doesn't contain any datetime col so i took the attendance table  
             ResultSet rs = ps.executeQuery();
             
-            while(rs.next()){
+            if(rs.next()){
                String Reg = rs.getString(2); //test values to run the attendance table
                String Name = rs.getString(3);
                String Date = rs.getString(4);
@@ -44,6 +44,9 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                Object [] content = {Reg,Name,Date,InTime};
                DefaultTableModel model = (DefaultTableModel) table_all.getModel();
                model.addRow(content);
+            }
+            else{
+                    JOptionPane.showMessageDialog(null,"No Records Found!");
             }
             con.close();
         } 

@@ -27,7 +27,8 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
     private void DisplayTableMonthlyAtt(){
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM attendance");   
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM attendance WHERE YEAR(Datein) = YEAR(CURRENT_DATE()) AND" +
+" MONTH(Datein) = MONTH(CURRENT_DATE());");   
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){

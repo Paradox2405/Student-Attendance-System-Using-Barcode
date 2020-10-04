@@ -56,6 +56,10 @@ public class AddNewAdmin extends javax.swing.JFrame {
         txt_fullNameNewAdmin = new javax.swing.JTextField();
         txt_unameNewAdmin = new javax.swing.JTextField();
         txt_passwordNewAdmin = new javax.swing.JPasswordField();
+        lbl_passwordNewAdmin1 = new javax.swing.JLabel();
+        lbl_passwordNewAdmin2 = new javax.swing.JLabel();
+        btn_removeadmin = new javax.swing.JButton();
+        txt_uname = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -175,30 +179,68 @@ public class AddNewAdmin extends javax.swing.JFrame {
             }
         });
 
+        lbl_passwordNewAdmin1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_passwordNewAdmin1.setForeground(new java.awt.Color(51, 51, 51));
+        lbl_passwordNewAdmin1.setText("Remove Admin");
+
+        lbl_passwordNewAdmin2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_passwordNewAdmin2.setForeground(new java.awt.Color(51, 51, 51));
+        lbl_passwordNewAdmin2.setText("Enter Username:");
+
+        btn_removeadmin.setBackground(new java.awt.Color(0, 204, 0));
+        btn_removeadmin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_removeadmin.setForeground(new java.awt.Color(255, 255, 255));
+        btn_removeadmin.setText("Remove");
+        btn_removeadmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_removeadminMouseClicked(evt);
+            }
+        });
+        btn_removeadmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_removeadminActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lbl_unameNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbl_passwordNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbl_fullnameNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_unameNewAdmin)
-                            .addComponent(txt_passwordNewAdmin)
-                            .addComponent(txt_fullNameNewAdmin)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(613, 613, 613)
                         .addComponent(btn_cancelNewAdminForm)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_saveNewAdminForm)))
+                        .addComponent(btn_saveNewAdminForm))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(lbl_fullnameNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(147, 147, 147)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbl_unameNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_passwordNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lbl_passwordNewAdmin2)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lbl_passwordNewAdmin1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txt_unameNewAdmin)
+                            .addComponent(txt_passwordNewAdmin)
+                            .addComponent(txt_fullNameNewAdmin)
+                            .addComponent(txt_uname))))
                 .addGap(167, 167, 167))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_removeadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(157, 157, 157))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,7 +261,15 @@ public class AddNewAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_saveNewAdminForm, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_cancelNewAdminForm, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(lbl_passwordNewAdmin1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_passwordNewAdmin2)
+                    .addComponent(txt_uname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btn_removeadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -293,7 +343,8 @@ public class AddNewAdmin extends javax.swing.JFrame {
             ps.setString(2, uname);
             ps.setString(3, pass);
             
-            int saveNew = JOptionPane.showConfirmDialog(this, "New Admin Added. Do you want to continue?", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int saveNew = JOptionPane.showConfirmDialog(this,
+                    "New Admin Added. Do you want to continue?", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
             
             if(saveNew == JOptionPane.YES_OPTION)
             {
@@ -342,6 +393,37 @@ public class AddNewAdmin extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_saveNewAdminFormActionPerformed
 
+    private void btn_removeadminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_removeadminMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_removeadminMouseClicked
+
+    private void btn_removeadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removeadminActionPerformed
+        // TODO add your handling code here:
+        int deleteAdmin = JOptionPane.showConfirmDialog(this,
+                    "Do you want to Delete Admin?", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
+            
+            if(deleteAdmin == JOptionPane.YES_OPTION)
+            {
+        
+        try{
+            String uname=txt_uname.getText();
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+             PreparedStatement ps1 = con.prepareStatement("DELETE FROM admin WHERE (`username` = '"+uname+"')");   
+             ps1.execute();
+             JOptionPane.showMessageDialog(null,"Admin Removed Sucessfully!");
+             txt_uname.setText(null);
+             NewAdminSave();
+             
+            
+        
+        }
+        catch(SQLException e){
+        JOptionPane.showMessageDialog(null,e);
+        }
+            }
+        
+    }//GEN-LAST:event_btn_removeadminActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -381,6 +463,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel TopPanel;
     private javax.swing.JButton btn_cancelNewAdminForm;
     private javax.swing.JLabel btn_home;
+    private javax.swing.JButton btn_removeadmin;
     private javax.swing.JButton btn_saveNewAdminForm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelClose;
@@ -388,9 +471,12 @@ public class AddNewAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_fullnameNewAdmin;
     private javax.swing.JLabel lbl_passwordNewAdmin;
+    private javax.swing.JLabel lbl_passwordNewAdmin1;
+    private javax.swing.JLabel lbl_passwordNewAdmin2;
     private javax.swing.JLabel lbl_unameNewAdmin;
     private javax.swing.JTextField txt_fullNameNewAdmin;
     private javax.swing.JPasswordField txt_passwordNewAdmin;
+    private javax.swing.JTextField txt_uname;
     private javax.swing.JTextField txt_unameNewAdmin;
     // End of variables declaration//GEN-END:variables
 }

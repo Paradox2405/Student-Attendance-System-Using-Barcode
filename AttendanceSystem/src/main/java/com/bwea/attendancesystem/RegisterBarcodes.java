@@ -292,6 +292,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
               lbl_name.setText(rs.getString("Name")); //Name
               lbl_contactNo.setText(rs.getString("Contact No")); //Contact No 
               lbl_refNumber.setText(rs.getString("Refference No")); //Registration No
+              txt_barcodereg.requestFocus();
             }
             
             else{
@@ -299,6 +300,8 @@ public class RegisterBarcodes extends javax.swing.JFrame {
                 lbl_name.setText(null);
                 lbl_contactNo.setText(null);
                 lbl_refNumber.setText(null);
+                 txt_regnumber.setText(null);
+                txt_regnumber.requestFocus();
             }
         }
         
