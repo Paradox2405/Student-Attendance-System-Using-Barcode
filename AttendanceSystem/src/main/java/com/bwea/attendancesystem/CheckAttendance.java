@@ -13,10 +13,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
-import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -37,66 +41,65 @@ public class CheckAttendance extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
+     
+    
      private void writeHeaderLine(XSSFSheet sheet) {
  
-//        XSSFRow headerRow = sheet.createRow(0);
-// 
-//        Cell headerCell = headerRow.createCell(0);
-//        headerCell.setCellValue("Full Name");
-// 
-//        headerCell = headerRow.createCell(1);
-//        headerCell.setCellValue("Address");
-// 
-//        headerCell = headerRow.createCell(2);
-//        headerCell.setCellValue("Email");
-// 
-//        headerCell = headerRow.createCell(3);
-//        headerCell.setCellValue("Course Name");
-// 
-//        headerCell = headerRow.createCell(4);
-//        headerCell.setCellValue("Payment");
-     }
-     
-      private void writeDataLines(ResultSet result, XSSFWorkbook workbook,
+        Row headerRow = sheet.createRow(0);
+ 
+        Cell headerCell = headerRow.createCell(0);
+        headerCell.setCellValue("Registration Number");
+ 
+        headerCell = headerRow.createCell(1);
+        headerCell.setCellValue("Name");
+ 
+        headerCell = headerRow.createCell(2);
+        headerCell.setCellValue("Date Checked In");
+ 
+        headerCell = headerRow.createCell(3);
+        headerCell.setCellValue("Time Checked In");
+ 
+       
+    }
+ 
+    private void writeDataLines(ResultSet result, XSSFWorkbook workbook,
             XSSFSheet sheet) throws SQLException {
         int rowCount = 1;
  
         while (result.next()) {
-            String fullname = result.getString("fullname");
-            String address = result.getString("address");
-            String email = result.getString("email");
-            String coursename = result.getString("coursename");
-            String admission = result.getString("admission");
+            String Regnumber = result.getString("Registration No");
+            String Name = result.getString("Name");
+            Date d = result.getDate("Datein");
+            String datein=d.toString();
+            String Intime = result.getString("Intime");
+           
  
-            XSSFRow row = sheet.createRow(rowCount++);
+            Row row = sheet.createRow(rowCount++);
  
-//            int columnCount = 0;
-//            Cell cell = row.createCell(columnCount++);
-//            cell.setCellValue(fullname);
-// 
-//            cell = row.createCell(columnCount++);
-//            cell.setCellValue(address);
-//            
-//            cell = row.createCell(columnCount++);
-//            cell.setCellValue(email);
-// 
-//            cell = row.createCell(columnCount++);
-// 
-//            CellStyle cellStyle = workbook.createCellStyle();
-//            CreationHelper creationHelper = workbook.getCreationHelper();
-//            cellStyle.setDataFormat(creationHelper.createDataFormat().getFormat("yyyy-MM-dd HH:mm:ss"));
-//            cell.setCellStyle(cellStyle);
-// 
-//            cell.setCellValue(timestamp);
+            int columnCount = 0;
+            Cell cell = row.createCell(columnCount++);
+            cell.setCellValue(Regnumber);
  
-//            cell = row.createCell(columnCount++);
-//            cell.setCellValue(coursename);
-// 
-//            cell = row.createCell(columnCount);
-//            cell.setCellValue(admission);
-// 
+            cell = row.createCell(columnCount++);
+            cell.setCellValue(Name);
+ 
+            cell = row.createCell(columnCount++);
+
+            cell.setCellValue(datein);
+ 
+            cell = row.createCell(columnCount++);
+            
+            cell.setCellValue(Intime);
+ 
+        
+ 
         }
     }
+ 
+
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -109,17 +112,13 @@ public class CheckAttendance extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         txt_name = new java.awt.Label();
-        txt_course = new java.awt.Label();
-        txt_admission = new java.awt.Label();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        cal_fromdate = new com.toedter.calendar.JDateChooser();
+        cal_todate = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btn_generateexcel = new javax.swing.JButton();
-        txt_barcodeatt = new javax.swing.JTextField();
+        txt_regnum = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         TopPanel = new javax.swing.JPanel();
         jLabelClose = new javax.swing.JLabel();
@@ -133,17 +132,7 @@ public class CheckAttendance extends javax.swing.JFrame {
         txt_name.setBackground(new java.awt.Color(204, 204, 204));
         txt_name.setName("searchNameDisplay"); // NOI18N
 
-        txt_course.setBackground(new java.awt.Color(204, 204, 204));
-        txt_course.setName("searchNameDisplay"); // NOI18N
-
-        txt_admission.setBackground(new java.awt.Color(204, 204, 204));
-        txt_admission.setName("searchNameDisplay"); // NOI18N
-
         jLabel2.setText("Name");
-
-        jLabel3.setText("Admission");
-
-        jLabel4.setText("Batch");
 
         jLabel5.setText("From (Date)");
 
@@ -156,36 +145,34 @@ public class CheckAttendance extends javax.swing.JFrame {
             }
         });
 
-        txt_barcodeatt.setBackground(new java.awt.Color(204, 204, 204));
+        txt_regnum.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel7.setText("Enter or Scan Admission Number To Search");
+        jLabel7.setText("Enter Registration Number To Search");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txt_barcodeatt)
-                    .addComponent(btn_generateexcel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(81, 81, 81)
+                        .addGap(101, 101, 101)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_course, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_admission, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(34, 34, 34)))
+                            .addComponent(txt_regnum)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6))
+                                .addGap(74, 74, 74)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txt_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cal_fromdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cal_todate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(btn_generateexcel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(jLabel7)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -194,33 +181,22 @@ public class CheckAttendance extends javax.swing.JFrame {
                 .addGap(51, 51, 51)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_barcodeatt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_regnum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel2))
-                                        .addGap(41, 41, 41)
-                                        .addComponent(txt_admission, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel3))
-                                .addGap(35, 35, 35)
-                                .addComponent(txt_course, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4))
-                        .addGap(30, 30, 30)
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cal_fromdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(cal_todate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(35, 35, 35)
                 .addComponent(btn_generateexcel)
-                .addGap(19, 19, 19))
+                .addGap(146, 146, 146))
         );
 
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
@@ -322,22 +298,25 @@ public class CheckAttendance extends javax.swing.JFrame {
 
     private void btn_generateexcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generateexcelMouseClicked
         String excelFilePath = "Attendance-export.xlsx";
-        String admission= txt_barcodeatt.getText();
+        String regnum= txt_regnum.getText();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date fromdate = (Date) cal_fromdate.getDate();
+        Date todate = (Date) cal_todate.getDate();
+        System.out.println(dateFormat.format(fromdate));
+        System.out.println(dateFormat.format(todate));
+
              
         try  {
-            int adm =Integer.parseInt(admission);
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","row");
-            PreparedStatement ps = con.prepareStatement("SELECT fullname,address,coursename FROM student WHERE admission="+adm);                          
+            
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM attendance WHERE `Registration No` IN ('"+regnum+"','Datein' BETWEEN '"+fromdate+"' AND '"+todate+"')");                          
             ResultSet rs=ps.executeQuery();
             
              if (rs.next() == false) {
-                JOptionPane.showMessageDialog(null,"Admission Number Does Not Exist");
+                JOptionPane.showMessageDialog(null,"Registration Number Does Not Exist");
                }
             else{        
-            txt_name.setText(rs.getString("fullname"));
-            txt_admission.setText(rs.getString("address"));
-            txt_course.setText(rs.getString("coursename"));
- 
+            txt_name.setText(rs.getString("Name"));
             XSSFWorkbook workbook = new XSSFWorkbook();
             XSSFSheet sheet = workbook.createSheet("Reviews");
  
@@ -350,19 +329,20 @@ public class CheckAttendance extends javax.swing.JFrame {
             workbook.close();
  
             con.close();
+             
             }
- 
-        } 
+        
+        }
+    
         catch (SQLException e) {
             System.out.println("Datababse error:");
             e.printStackTrace();
+        
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CheckAttendance.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(CheckAttendance.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-      
         
     }//GEN-LAST:event_btn_generateexcelMouseClicked
 
@@ -405,21 +385,17 @@ public class CheckAttendance extends javax.swing.JFrame {
     private javax.swing.JPanel TopPanel;
     private javax.swing.JButton btn_generateexcel;
     private javax.swing.JLabel btn_home;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser cal_fromdate;
+    private com.toedter.calendar.JDateChooser cal_todate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JPanel jPanel1;
-    private java.awt.Label txt_admission;
-    private javax.swing.JTextField txt_barcodeatt;
-    private java.awt.Label txt_course;
     private java.awt.Label txt_name;
+    private javax.swing.JTextField txt_regnum;
     // End of variables declaration//GEN-END:variables
 }
