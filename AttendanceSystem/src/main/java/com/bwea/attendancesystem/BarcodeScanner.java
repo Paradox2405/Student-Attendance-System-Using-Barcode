@@ -160,7 +160,7 @@ public class BarcodeScanner extends javax.swing.JFrame {
         jPanel1_topbarLayout.setHorizontalGroup(
             jPanel1_topbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1_topbarLayout.createSequentialGroup()
-                .addGap(417, 417, 417)
+                .addGap(355, 355, 355)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,9 +171,9 @@ public class BarcodeScanner extends javax.swing.JFrame {
             .addGroup(jPanel1_topbarLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1_topbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_home)
-                    .addComponent(jLabel1))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addComponent(btn_home))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -254,7 +254,12 @@ public class BarcodeScanner extends javax.swing.JFrame {
         txt_dues.setForeground(new java.awt.Color(0, 0, 0));
         txt_dues.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(204, 204, 204)));
 
+        txt_barcode.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txt_barcode.setForeground(new java.awt.Color(0, 0, 0));
+
+        btn_enter.setBackground(new java.awt.Color(0, 49, 121));
         btn_enter.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_enter.setForeground(new java.awt.Color(255, 255, 255));
         btn_enter.setText("Scan");
         btn_enter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -322,19 +327,6 @@ public class BarcodeScanner extends javax.swing.JFrame {
                     .addGroup(jPanel1_bgLayout.createSequentialGroup()
                         .addGroup(jPanel1_bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1_bgLayout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel5)
-                                .addGap(91, 91, 91)
-                                .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btn_enter, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1_bgLayout.createSequentialGroup()
                                 .addGap(107, 107, 107)
                                 .addGroup(jPanel1_bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
@@ -360,10 +352,25 @@ public class BarcodeScanner extends javax.swing.JFrame {
                                     .addComponent(jLabel11)
                                     .addComponent(txt_dues, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(42, 42, 42)
-                                .addComponent(btn_registerbarcodes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 131, Short.MAX_VALUE)))
+                                .addComponent(btn_registerbarcodes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1_bgLayout.createSequentialGroup()
+                                .addGap(58, 58, 58)
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel5)
+                                .addGap(91, 91, 91)
+                                .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_enter, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 126, Short.MAX_VALUE)))
                 .addContainerGap())
         );
+
+        txt_barcode.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
