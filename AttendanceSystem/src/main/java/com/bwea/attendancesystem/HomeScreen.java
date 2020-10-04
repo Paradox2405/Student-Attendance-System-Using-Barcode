@@ -577,7 +577,7 @@ public class HomeScreen extends javax.swing.JFrame {
 
     private void btn_scanbarcodesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_scanbarcodesMouseClicked
         // TODO add your handling code here:
-        BarcodeScan bars = new BarcodeScan();
+        BarcodeScanner bars = new BarcodeScanner();
         bars.setVisible(true);
         bars.setExtendedState(MAXIMIZED_BOTH);
         //bars.pack();
