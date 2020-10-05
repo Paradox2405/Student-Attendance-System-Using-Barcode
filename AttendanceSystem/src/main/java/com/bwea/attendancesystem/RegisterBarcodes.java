@@ -40,16 +40,22 @@ public class RegisterBarcodes extends javax.swing.JFrame {
                         dialog.setVisible(false);
                     }
                 }).start();
+                lbl_name.setText(null);
+                lbl_contactNo.setText(null);
+                lbl_refNumber.setText(null);
+                 txt_regnumber.setText(null);
+                txt_regnumber.requestFocus();
+                
     
     }
     
-    public void RegisterBarcodeSave(){
-        HomeScreen hs = new HomeScreen();
-        hs.setVisible(true);
-        //hs.pack();
-        hs.setLocationRelativeTo(null);
-        hs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
+//    public void RegisterBarcodeSave(){
+//        HomeScreen hs = new HomeScreen();
+//        hs.setVisible(true);
+//        //hs.pack();
+//        hs.setLocationRelativeTo(null);
+//        hs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -291,9 +297,25 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         
         try{       
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE `Registration No`=? "); //SELECT * FROM LMS WHERE Refference No=? or Registration No=?
-
-            ps.setString(1, regnumber);
+            PreparedStatement ps = con.prepareStatement("SELECT `Refference No`,`Name`,`Contact No` FROM `student` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Two Month Diploma in English` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Two Month Advance Certificate - English` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Two Month Certificate - English` WHERE `Registration No`='"+regnumber+"'" 
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Three Month Diploma - English` WHERE `Registration No`='"+regnumber+"'" 
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `English + IT` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `TOIC` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `IELTS` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Weekend English` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Night - English` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `KIDS` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Foundation in ICT` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Diploma in Information Technology` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Diploma in Software Engineering` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Diploma in Web Designing` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Diploma in Graphic Designing` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Foundation in Arduino Programming` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Diploma in Android Application Development` WHERE `Registration No`='"+regnumber+"'"); //SELECT * FROM LMS WHERE Refference No=? or Registration No=?
+            
             ResultSet rs = ps.executeQuery();
                               
             if(rs.next()){
@@ -329,19 +351,36 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         if(lbl_refNumber.getText()!=null){
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `Barcode`=? where `Registration No` in ('"+regnumber+"')");          
-            ps.setString(1, barcodereg);
+            PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `Two Month Diploma in English` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `Two Month Advance Certificate - English` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `Two Month Certificate - English` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `Three Month Diploma - English` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `English + IT` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `TOIC` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `IELTS` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `Weekend English` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `Night - English` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `KIDS` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `Foundation in ICT` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `Diploma in Information Technology` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `Diploma in Software Engineering` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `Diploma in Web Designing` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `Diploma in Graphic Designing` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `Foundation in Arduino Programming` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
+            +"UNION ALL UPDATE `Diploma in Android Application Development` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')");          
+            
             ps.executeUpdate();
             barcodeSaved();
 
-                RegisterBarcodeSave();
-                this.dispose();
+               
 
         } 
         
         catch (SQLException e) {
             
-            JOptionPane.showMessageDialog(null, "Saving failed."+e);
+            JOptionPane.showMessageDialog(null, "Saving failed.");
+            e.printStackTrace();
         }
         }
         else{

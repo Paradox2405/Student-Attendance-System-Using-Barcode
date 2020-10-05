@@ -168,12 +168,13 @@
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="selectStudentsDb" min="-2" pref="334" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="txt_name" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="txt_regno" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="txt_refno" alignment="1" min="-2" pref="511" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txt_name" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="txt_regno" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="txt_refno" alignment="1" min="-2" pref="511" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                                                  <Component id="selectStudentsDb" min="-2" pref="334" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>

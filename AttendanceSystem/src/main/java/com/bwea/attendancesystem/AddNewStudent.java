@@ -26,25 +26,35 @@ public class AddNewStudent extends javax.swing.JFrame {
      */
     public AddNewStudent() {
         initComponents();
-            selectStudentsDb.addItem("Student");
-            selectStudentsDb.addItem("`Two Month Diploma in English`");
-            selectStudentsDb.addItem("`Two Month Advance Certificate - English`");
-            selectStudentsDb.addItem("`Two Month Certificate - English`");
-            selectStudentsDb.addItem("`Three Month Diploma - English`");
-            selectStudentsDb.addItem("`English + IT`");
-            selectStudentsDb.addItem("`TOIC`");
-            selectStudentsDb.addItem("`IELTS`");
-            selectStudentsDb.addItem("`Weekend English`");
-            selectStudentsDb.addItem("`Night - English`");
-            selectStudentsDb.addItem("`KIDS`");
-            selectStudentsDb.addItem("`Foundation in ICT`");
-            selectStudentsDb.addItem("`Diploma in Information Technology`");
-            selectStudentsDb.addItem("`Diploma in Software Engineering`");
-            selectStudentsDb.addItem("`Diploma in Web Designing`");
-            selectStudentsDb.addItem("`Diploma in Graphic Designing`");
-            selectStudentsDb.addItem("`Foundation in Arduino Programming`");
-            selectStudentsDb.addItem("`Diploma in Android Application Development`");
+        dropdown();
+            
         this.setLocationRelativeTo(null);
+    }
+    
+    private void dropdown(){
+    
+    
+             selectStudentsDb.addItem("Student");
+             selectStudentsDb.addItem("Two Month Diploma in English");
+             selectStudentsDb.addItem("Two Month Advance Certificate - English");
+             selectStudentsDb.addItem("Two Month Certificate - English");
+             selectStudentsDb.addItem("Three Month Diploma - English");
+             selectStudentsDb.addItem("English + IT");
+             selectStudentsDb.addItem("TOIC");
+             selectStudentsDb.addItem("IELTS");
+             selectStudentsDb.addItem("Weekend English");
+             selectStudentsDb.addItem("Night - English");
+             selectStudentsDb.addItem("KIDS");
+             selectStudentsDb.addItem("Foundation in ICT");
+             selectStudentsDb.addItem("Diploma in Information Technology");
+             selectStudentsDb.addItem("Diploma in Software Engineering");
+             selectStudentsDb.addItem("Diploma in Web Designing");
+             selectStudentsDb.addItem("Diploma in Graphic Designing");
+             selectStudentsDb.addItem("Foundation in Arduino Programming");
+             selectStudentsDb.addItem("Diploma in Android Application Development");
+             
+    
+    
     }
     
     private void NewStudentSave(){
@@ -301,12 +311,13 @@ public class AddNewStudent extends javax.swing.JFrame {
                                         .addComponent(txt_contactno, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(MainPanelLayout.createSequentialGroup()
                                         .addGap(17, 17, 17)
-                                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(selectStudentsDb, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(txt_name, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(txt_regno, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(txt_refno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txt_name, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txt_regno, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txt_refno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(MainPanelLayout.createSequentialGroup()
+                                                .addGap(86, 86, 86)
+                                                .addComponent(selectStudentsDb, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(MainPanelLayout.createSequentialGroup()
                                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel16)

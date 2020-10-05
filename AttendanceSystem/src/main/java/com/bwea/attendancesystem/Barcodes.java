@@ -32,7 +32,7 @@ public class Barcodes {
         Document doc = new Document(pdfDoc);
         Table table = new Table(UnitValue.createPercentArray(4)).useAllAvailableWidth();
 
-        for (int i = 0; i < 9999; i++) {
+        for (int i = 0; i <= 9999; i++) {
             table.addCell(createBarcode(String.format("%013d", i), pdfDoc));
         }
 
