@@ -161,6 +161,7 @@
                       <Component id="btn_courseov" alignment="0" max="32767" attributes="0"/>
                       <Component id="btn_updateStudent" alignment="0" max="32767" attributes="0"/>
                       <Component id="btn_registerbarcodes" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btn_genbarcodes" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -184,6 +185,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btn_registerbarcodes" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btn_genbarcodes" min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -556,6 +559,15 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="btn_genbarcodes">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Generate Barcode List"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_genbarcodesMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_genbarcodesActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

@@ -6,9 +6,12 @@
  */
 package com.bwea.attendancesystem;
 
+import java.net.MalformedURLException;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -48,6 +51,8 @@ public class HomeScreen extends javax.swing.JFrame {
      
         
     }
+    
+   
     
     private void DisplayTableAllStu(){
         String dbtbl = (String)selectStudentsDb.getSelectedItem();
@@ -128,6 +133,7 @@ public class HomeScreen extends javax.swing.JFrame {
         btn_registerbarcodes = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        btn_genbarcodes = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_all = new javax.swing.JTable();
         MidPanel = new javax.swing.JPanel();
@@ -422,6 +428,18 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        btn_genbarcodes.setText("Generate Barcode List");
+        btn_genbarcodes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_genbarcodesMouseClicked(evt);
+            }
+        });
+        btn_genbarcodes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_genbarcodesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
         SidePanel.setLayout(SidePanelLayout);
         SidePanelLayout.setHorizontalGroup(
@@ -435,7 +453,8 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(btn_checkattendance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_courseov, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_updateStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_registerbarcodes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_registerbarcodes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_genbarcodes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         SidePanelLayout.setVerticalGroup(
@@ -455,7 +474,9 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(btn_addadmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_registerbarcodes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_genbarcodes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
 
         jScrollPane1.setBorder(null);
@@ -688,6 +709,21 @@ public class HomeScreen extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jLabel13MouseClicked
 
+    private void btn_genbarcodesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_genbarcodesActionPerformed
+        // TODO add your handling code here:
+        
+      
+    }//GEN-LAST:event_btn_genbarcodesActionPerformed
+
+    private void btn_genbarcodesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_genbarcodesMouseClicked
+        try {
+            // TODO add your handling code here:
+            Barcodes.main(new String[0]);
+        } catch (Exception ex) {
+            Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_genbarcodesMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -734,6 +770,7 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JPanel btn_checkattendance;
     private javax.swing.JPanel btn_courseov;
     private javax.swing.JButton btn_dailyRefresh;
+    private javax.swing.JButton btn_genbarcodes;
     private javax.swing.JLabel btn_logout;
     private javax.swing.JPanel btn_registerbarcodes;
     private javax.swing.JPanel btn_scanbarcodes;
