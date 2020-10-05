@@ -149,11 +149,6 @@ public class RegisterBarcodes extends javax.swing.JFrame {
                 btn_saveMouseClicked(evt);
             }
         });
-        btn_save.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_saveActionPerformed(evt);
-            }
-        });
 
         lbl_name.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -267,10 +262,6 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         hs.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_homeMouseClicked
-
-    private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_saveActionPerformed
 
     private void btn_searchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_searchMouseClicked
         String regnumber = txt_regnumber.getText();

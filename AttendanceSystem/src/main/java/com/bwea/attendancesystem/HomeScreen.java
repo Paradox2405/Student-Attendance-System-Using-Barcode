@@ -264,12 +264,6 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
-            }
-        });
-
         jLabel6.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Course Attendance");
@@ -494,11 +488,6 @@ public class HomeScreen extends javax.swing.JFrame {
         jScrollPane1.setViewportView(table_all);
 
         btn_dailyRefresh.setText("Refresh ");
-        btn_dailyRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_dailyRefreshMouseClicked(evt);
-            }
-        });
         btn_dailyRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_dailyRefreshActionPerformed(evt);
@@ -577,7 +566,7 @@ public class HomeScreen extends javax.swing.JFrame {
 
     private void btn_scanbarcodesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_scanbarcodesMouseClicked
         // TODO add your handling code here:
-        BarcodeScan bars = new BarcodeScan();
+        BarcodeScanner bars = new BarcodeScanner();
         bars.setVisible(true);
         bars.setExtendedState(MAXIMIZED_BOTH);
         //bars.pack();
@@ -616,10 +605,6 @@ public class HomeScreen extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_addadminMouseClicked
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel5MouseClicked
-
     private void btn_courseovMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_courseovMouseClicked
         // TODO add your handling code here:
         CourseAttendanceDaily coa = new CourseAttendanceDaily();
@@ -635,10 +620,6 @@ public class HomeScreen extends javax.swing.JFrame {
         log.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_logoutMouseClicked
-
-    private void btn_dailyRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dailyRefreshMouseClicked
-
-    }//GEN-LAST:event_btn_dailyRefreshMouseClicked
 
     private void btn_dailyRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dailyRefreshActionPerformed
         //Refresh button will show the current data & time attendance. Need to write the code

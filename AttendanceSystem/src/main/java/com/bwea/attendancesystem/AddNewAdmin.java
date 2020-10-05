@@ -161,23 +161,6 @@ public class AddNewAdmin extends javax.swing.JFrame {
                 btn_saveNewAdminFormMouseClicked(evt);
             }
         });
-        btn_saveNewAdminForm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_saveNewAdminFormActionPerformed(evt);
-            }
-        });
-
-        txt_fullNameNewAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_fullNameNewAdminActionPerformed(evt);
-            }
-        });
-
-        txt_passwordNewAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_passwordNewAdminActionPerformed(evt);
-            }
-        });
 
         lbl_passwordNewAdmin1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_passwordNewAdmin1.setForeground(new java.awt.Color(51, 51, 51));
@@ -308,14 +291,6 @@ public class AddNewAdmin extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_homeMouseClicked
 
-    private void txt_fullNameNewAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fullNameNewAdminActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_fullNameNewAdminActionPerformed
-
-    private void txt_passwordNewAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordNewAdminActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_passwordNewAdminActionPerformed
-
     private void btn_saveNewAdminFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_saveNewAdminFormMouseClicked
         String fullname = txt_fullNameNewAdmin.getText();
         String uname = txt_unameNewAdmin.getText();
@@ -389,10 +364,6 @@ public class AddNewAdmin extends javax.swing.JFrame {
         return checkUser;
     }
     
-    private void btn_saveNewAdminFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveNewAdminFormActionPerformed
-        
-    }//GEN-LAST:event_btn_saveNewAdminFormActionPerformed
-
     private void btn_removeadminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_removeadminMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_removeadminMouseClicked

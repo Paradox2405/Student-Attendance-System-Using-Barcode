@@ -178,21 +178,11 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                 daily_attendanceMouseClicked(evt);
             }
         });
-        daily_attendance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                daily_attendanceActionPerformed(evt);
-            }
-        });
 
         btn_Refresh.setText("Refresh");
         btn_Refresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_RefreshMouseClicked(evt);
-            }
-        });
-        btn_Refresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_RefreshActionPerformed(evt);
             }
         });
 
@@ -275,14 +265,6 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         coa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_daily_attendanceMouseClicked
-
-    private void daily_attendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daily_attendanceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_daily_attendanceActionPerformed
-
-    private void btn_RefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RefreshActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_RefreshActionPerformed
 
     private void btn_RefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_RefreshMouseClicked
         DefaultTableModel model=(DefaultTableModel) table_all.getModel();

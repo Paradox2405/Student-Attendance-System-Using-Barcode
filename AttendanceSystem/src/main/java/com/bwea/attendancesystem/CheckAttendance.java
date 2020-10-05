@@ -95,12 +95,6 @@ public class CheckAttendance extends javax.swing.JFrame {
  
         }
     }
- 
-
-    
-    
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -278,16 +272,11 @@ public class CheckAttendance extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseMouseClicked
-        // TODO add your handling code here:
-
         System.exit(0);
     }//GEN-LAST:event_jLabelCloseMouseClicked
 
     private void jLabelMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinMouseClicked
-
-        // TODO add your handling code here:
         this.setState(JFrame.ICONIFIED);
-  
     }//GEN-LAST:event_jLabelMinMouseClicked
 
     private void btn_homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMouseClicked
@@ -297,12 +286,12 @@ public class CheckAttendance extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_homeMouseClicked
 
     private void btn_generateexcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generateexcelMouseClicked
-          
+   
         try  {
             String excelFilePath = "Attendance-export.xlsx";
             String regnum= txt_regnum.getText();
             
-             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date fromdate = (Date) cal_fromdate.getDate();
             Date todate = (Date) cal_todate.getDate();
             System.out.println(dateFormat.format(fromdate));
@@ -312,33 +301,38 @@ public class CheckAttendance extends javax.swing.JFrame {
             
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM attendance"
-                    + " WHERE `Registration No` IN ('"+regnum+"') AND (Datein => '"+d1+"' AND '"+d2+"')");                          
+                    + " WHERE `Registration No` IN ('"+regnum+"') AND (Datein BETWEEN '"+d1+"' AND '"+d2+"')");                          
             ResultSet rs=ps.executeQuery();
             
              if (rs.next() == false) {
                 JOptionPane.showMessageDialog(null,"Registration Number Does Not Exist");
                }
-            else{        
-            txt_name.setText(rs.getString("Name"));
-            XSSFWorkbook workbook = new XSSFWorkbook();
-            XSSFSheet sheet = workbook.createSheet("Reviews");
+            else{
+                 
+                 
+                 
+                 
+                txt_name.setText(rs.getString("Name"));
+                XSSFWorkbook workbook = new XSSFWorkbook();
+                XSSFSheet sheet = workbook.createSheet("Reviews");
  
-            writeHeaderLine(sheet);
+                writeHeaderLine(sheet);
  
-            writeDataLines(rs, workbook, sheet);
+                writeDataLines(rs, workbook, sheet);
+                
  
-            FileOutputStream outputStream = new FileOutputStream(excelFilePath);
-            workbook.write(outputStream);
-            workbook.close();
+                FileOutputStream outputStream = new FileOutputStream(excelFilePath);
+                workbook.write(outputStream);
+                workbook.close();
  
-            con.close();
+                con.close();
              
             }
         
         }
     
         catch (SQLException e) {
-            System.out.println("Datababse error:");
+            System.out.println(e);
             e.printStackTrace();
         
         } catch (FileNotFoundException ex) {
