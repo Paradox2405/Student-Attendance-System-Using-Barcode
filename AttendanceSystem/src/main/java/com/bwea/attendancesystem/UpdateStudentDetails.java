@@ -19,6 +19,25 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
      */
     public UpdateStudentDetails() {
         initComponents();
+          selectStudentsDb.addItem("Student");
+             selectStudentsDb.addItem("`Two Month Diploma in English`");
+             selectStudentsDb.addItem("`Two Month Advance Certificate - English`");
+             selectStudentsDb.addItem("`Two Month Certificate - English`");
+             selectStudentsDb.addItem("`Three Month Diploma - English`");
+             selectStudentsDb.addItem("`English + IT`");
+             selectStudentsDb.addItem("`TOIC`");
+             selectStudentsDb.addItem("`IELTS`");
+             selectStudentsDb.addItem("`Weekend English`");
+             selectStudentsDb.addItem("`Night - English`");
+             selectStudentsDb.addItem("`KIDS`");
+             selectStudentsDb.addItem("`Foundation in ICT`");
+             selectStudentsDb.addItem("`Diploma in Information Technology`");
+             selectStudentsDb.addItem("`Diploma in Software Engineering`");
+             selectStudentsDb.addItem("`Diploma in Web Designing`");
+             selectStudentsDb.addItem("`Diploma in Graphic Designing`");
+             selectStudentsDb.addItem("`Foundation in Arduino Programming`");
+             selectStudentsDb.addItem("`Diploma in Android Application Development`");
+             
         
           
         this.setLocationRelativeTo(null);
@@ -71,6 +90,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         txt_actions = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
+        selectStudentsDb = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -243,71 +263,80 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(51, 51, 51));
         jLabel16.setText("Actions");
 
+        selectStudentsDb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Course" }));
+
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
-                .addGap(242, 242, 242)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_branch, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addGap(239, 239, 239)
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel15))
-                        .addGap(23, 23, 23)
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txt_dues, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_actions, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(MainPanelLayout.createSequentialGroup()
-                                .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel8)
                                 .addGap(18, 18, 18)
-                                .addComponent(btn_editstu1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13))
-                        .addGap(18, 18, 18)
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_refunds, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txt_course)
-                                .addComponent(txt_total)
-                                .addComponent(txt_disc)
-                                .addComponent(txt_pay)
-                                .addComponent(txt_recieved, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txt_branch, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(MainPanelLayout.createSequentialGroup()
+                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel15))
+                                .addGap(23, 23, 23)
+                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txt_dues, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_actions, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(MainPanelLayout.createSequentialGroup()
+                                        .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btn_editstu1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(MainPanelLayout.createSequentialGroup()
+                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel13))
                                 .addGap(18, 18, 18)
-                                .addComponent(txt_contactno, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_refunds, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txt_course)
+                                        .addComponent(txt_total)
+                                        .addComponent(txt_disc)
+                                        .addComponent(txt_pay)
+                                        .addComponent(txt_recieved, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(MainPanelLayout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txt_name, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txt_regno, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txt_refno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btn_enter, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(315, Short.MAX_VALUE))
+                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(MainPanelLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txt_contactno, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(MainPanelLayout.createSequentialGroup()
+                                        .addGap(17, 17, 17)
+                                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txt_name, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txt_regno, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txt_refno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_enter, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addGap(507, 507, 507)
+                        .addComponent(selectStudentsDb, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(318, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MainPanelLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addComponent(selectStudentsDb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txt_barcode)
                     .addComponent(btn_enter, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -370,7 +399,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_editstu1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -406,11 +435,12 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
       //  String barcode = txt_barcode.getText();
 
         try{
+            String table = (String)selectStudentsDb.getSelectedItem();
             rs = f.find(txt_refno.getText());
            // int bar = Integer.parseInt(barcode);
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
            // PreparedStatement ps = con.prepareStatement("SELECT fullname,admission,coursename,dues FROM student WHERE admission="+bar);
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE `Barcode` =  " +txt_barcode.getText());
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM "+table+" WHERE `Barcode` =  " +txt_barcode.getText());
             rs = ps.executeQuery();
             
             if(rs.next()){
@@ -442,8 +472,9 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         ResultSet rs = null;
         public ResultSet find(String s) throws SQLException {
             try{
+                String table = (String)selectStudentsDb.getSelectedItem();
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM student WHERE `fullname` = " +txt_barcode.getText());
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM "+table+" WHERE `fullname` = " +txt_barcode.getText());
             rs = ps.executeQuery();
             }
             catch(SQLException e)
@@ -470,9 +501,10 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         int bar = Integer.parseInt(barcode);
         
         try {
+            String table = (String)selectStudentsDb.getSelectedItem();
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             //PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `fullname`=?,`coursename`=?,`admission`=?, `payment`=? WHERE admission="+bar);
-            PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `fullname`=?,`coursename`=?,`admission`=?, `payment`=? WHERE `coursename` = 'SE'");
+            PreparedStatement ps = con.prepareStatement("UPDATE "+table+" SET `fullname`=?,`coursename`=?,`admission`=?, `payment`=? WHERE `coursename` = 'SE'");
             
             ps.setString(1, fullname);
             ps.setString(2, coursename);
@@ -552,6 +584,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
+    private javax.swing.JComboBox<String> selectStudentsDb;
     private javax.swing.JTextField txt_actions;
     private javax.swing.JTextField txt_barcode;
     private javax.swing.JTextField txt_branch;
