@@ -324,6 +324,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
             if(saveNew == JOptionPane.YES_OPTION)
             {
                 ps.executeUpdate();
+                JOptionPane.showMessageDialog(null,"New Admin Saved Sucessfully!");
                 NewAdminSave();
             }
             }
@@ -369,30 +370,26 @@ public class AddNewAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_removeadminMouseClicked
 
     private void btn_removeadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removeadminActionPerformed
-        // TODO add your handling code here:
         int deleteAdmin = JOptionPane.showConfirmDialog(this,
                     "Do you want to Delete Admin?", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
             
             if(deleteAdmin == JOptionPane.YES_OPTION)
             {
         
-        try{
-            String uname=txt_uname.getText();
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-             PreparedStatement ps1 = con.prepareStatement("DELETE FROM admin WHERE (`username` = '"+uname+"')");   
-             ps1.execute();
-             JOptionPane.showMessageDialog(null,"Admin Removed Sucessfully!");
-             txt_uname.setText(null);
-             NewAdminSave();
-             
-            
-        
-        }
-        catch(SQLException e){
-        JOptionPane.showMessageDialog(null,e);
-        }
+            try{
+                String uname=txt_uname.getText();
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+                PreparedStatement ps1 = con.prepareStatement("DELETE FROM admin WHERE (`username` = '"+uname+"')");   
+                ps1.execute();
+                JOptionPane.showMessageDialog(null,"Admin Removed Sucessfully!");
+                txt_uname.setText(null);
+                NewAdminSave();
+
             }
-        
+            catch(SQLException e){
+                JOptionPane.showMessageDialog(null,e);
+            }
+            }
     }//GEN-LAST:event_btn_removeadminActionPerformed
 
     /**
