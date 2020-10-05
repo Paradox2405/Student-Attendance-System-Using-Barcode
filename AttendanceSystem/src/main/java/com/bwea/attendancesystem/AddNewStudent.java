@@ -26,7 +26,7 @@ public class AddNewStudent extends javax.swing.JFrame {
      */
     public AddNewStudent() {
         initComponents();
-         selectStudentsDb.addItem("Student");
+             selectStudentsDb.addItem("Student");
              selectStudentsDb.addItem("`Two Month Diploma in English`");
              selectStudentsDb.addItem("`Two Month Advance Certificate - English`");
              selectStudentsDb.addItem("`Two Month Certificate - English`");
@@ -53,6 +53,12 @@ public class AddNewStudent extends javax.swing.JFrame {
         ads.pack();
         ads.setLocationRelativeTo(null);
         ads.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+    }
+    
+    private void GoHomeScreen(){
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);
         this.dispose();
     }
 
@@ -436,15 +442,17 @@ public class AddNewStudent extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelMinMouseClicked
 
     private void btn_homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMouseClicked
-        HomeScreen hs = new HomeScreen();
-        hs.setVisible(true);
-        this.dispose();
+        GoHomeScreen();
     }//GEN-LAST:event_btn_homeMouseClicked
 
     private void btn_cancelNewStuFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelNewStuFormMouseClicked
-        HomeScreen hs = new HomeScreen();
-        hs.setVisible(true);
-        this.dispose();
+        int cancelbtn = JOptionPane.showConfirmDialog(this,
+                    "Do you want to cancel adding a new student?", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if(cancelbtn == JOptionPane.YES_OPTION)
+            {
+                GoHomeScreen();
+            }
     }//GEN-LAST:event_btn_cancelNewStuFormMouseClicked
 
     private void btn_saveNewStuFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_saveNewStuFormMouseClicked
@@ -478,7 +486,7 @@ public class AddNewStudent extends javax.swing.JFrame {
         
         try{       
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("INSERT INTO "+table+"(`Reference No`,`Registration No`,`Name`,`Contact No`,`Branch`,`Course`,`Total Fee`,`Discounts`,`Payable`,`Recieved Payments`,`Refunds`,`Dues`,`Action`,`Barcode`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");   
+            PreparedStatement ps = con.prepareStatement("INSERT INTO "+table+"(`Refference No`,`Registration No`,`Name`,`Contact No`,`Branch`,`Course`,`Total Fee`,`Discounts`,`Payable`,`Received Payment`,`Refunds`,`Due`,`Action`,`Barcode`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");   
             ps.setInt(1, Integer.parseInt(stu_refno));
             ps.setInt(2, Integer.parseInt(stu_regno));
             ps.setString(3, stu_name);
@@ -494,7 +502,7 @@ public class AddNewStudent extends javax.swing.JFrame {
             ps.setInt(13, Integer.parseInt(stu_actions));
             ps.setInt(14, Integer.parseInt(stu_barcode));
 
-            int saveNew = JOptionPane.showConfirmDialog(this, "Save new student?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int saveNew = JOptionPane.showConfirmDialog(this, "Do you want to save the new student?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             
             if(saveNew == JOptionPane.YES_OPTION)
             {

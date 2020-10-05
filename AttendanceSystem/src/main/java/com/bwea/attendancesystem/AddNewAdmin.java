@@ -32,6 +32,12 @@ public class AddNewAdmin extends javax.swing.JFrame {
         this.dispose();
     }
     
+    private void GoHomeScreen(){
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);
+        this.dispose();
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -286,9 +292,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelMinMouseClicked
 
     private void btn_homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMouseClicked
-        HomeScreen hs = new HomeScreen();
-        hs.setVisible(true);
-        this.dispose();
+        GoHomeScreen();
     }//GEN-LAST:event_btn_homeMouseClicked
 
     private void btn_saveNewAdminFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_saveNewAdminFormMouseClicked
@@ -344,9 +348,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
         
         if(cancelbtn == JOptionPane.YES_OPTION)
             {
-                HomeScreen hs = new HomeScreen();
-                hs.setVisible(true);
-                this.dispose();
+                GoHomeScreen();
             }
         
         
