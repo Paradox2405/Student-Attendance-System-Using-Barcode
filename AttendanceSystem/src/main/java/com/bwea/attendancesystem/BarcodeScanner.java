@@ -450,8 +450,8 @@ public class BarcodeScanner extends javax.swing.JFrame {
                 try{
                     String Reg = txt_regno.getText();
                     String Name = txt_name.getText();
-                    PreparedStatement ps0 = con.prepareStatement("select *"
-                            + " from attendance where `Registration No` in ('"+Reg+"') and DATE(Datein) = CURDATE()");
+                    PreparedStatement ps0 = con.prepareStatement("SELECT *"
+                            + " FROM attendance WHERE `Registration No` in ('"+Reg+"') and DATE(Datein) = CURDATE()");
                     ResultSet results=ps0.executeQuery();
                     if(results.next()){
 
