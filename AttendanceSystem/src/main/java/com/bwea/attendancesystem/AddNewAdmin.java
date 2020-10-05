@@ -339,9 +339,17 @@ public class AddNewAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_saveNewAdminFormMouseClicked
 
     private void btn_cancelNewAdminFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelNewAdminFormMouseClicked
-        HomeScreen hs = new HomeScreen();
-        hs.setVisible(true);
-        this.dispose();
+        int cancelbtn = JOptionPane.showConfirmDialog(this,
+                    "Do you want to cancel adding a new admin?", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if(cancelbtn == JOptionPane.YES_OPTION)
+            {
+                HomeScreen hs = new HomeScreen();
+                hs.setVisible(true);
+                this.dispose();
+            }
+        
+        
     }//GEN-LAST:event_btn_cancelNewAdminFormMouseClicked
 
     public boolean checkUsername(String uname){
