@@ -22,11 +22,15 @@ public class BarcodeScanner extends javax.swing.JFrame {
      */
     public BarcodeScanner() {
         initComponents();
+        
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         txt_barcode.requestFocus();
     }
     
     private static final int TIME_VISIBLE = 3000;
+    
+    
+    
     
     private void overdue(){
         if(!txt_dues.getText().equals("0")){
@@ -74,6 +78,7 @@ public class BarcodeScanner extends javax.swing.JFrame {
                         dialog.setVisible(false);
                     }
                 }).start();
+               
                 txt_barcode.requestFocus();
     }
     
@@ -161,7 +166,7 @@ public class BarcodeScanner extends javax.swing.JFrame {
         jPanel1_topbarLayout.setHorizontalGroup(
             jPanel1_topbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1_topbarLayout.createSequentialGroup()
-                .addGap(355, 355, 355)
+                .addGap(366, 366, 366)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,11 +175,11 @@ public class BarcodeScanner extends javax.swing.JFrame {
         jPanel1_topbarLayout.setVerticalGroup(
             jPanel1_topbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1_topbarLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel1_topbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(btn_home))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1_topbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_home)
+                    .addComponent(jLabel1))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -367,7 +372,7 @@ public class BarcodeScanner extends javax.swing.JFrame {
                                 .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btn_enter, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 126, Short.MAX_VALUE)))
+                        .addGap(0, 142, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -409,6 +414,7 @@ public class BarcodeScanner extends javax.swing.JFrame {
             ResultSet rs=ps.executeQuery();
 
             if (rs.next() == false) {
+                txt_barcode.setText(null);
                 notexist();
             }
             else{

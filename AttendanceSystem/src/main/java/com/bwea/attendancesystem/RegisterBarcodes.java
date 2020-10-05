@@ -5,6 +5,8 @@
  */
 package com.bwea.attendancesystem;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -24,6 +26,21 @@ public class RegisterBarcodes extends javax.swing.JFrame {
     public RegisterBarcodes() {
         initComponents();
         
+    }
+    private static final int TIME_VISIBLE = 1500;
+    
+    private void barcodeSaved(){
+    
+     JOptionPane pane = new JOptionPane("Barcode Saved", JOptionPane.INFORMATION_MESSAGE);
+                JDialog dialog = pane.createDialog(null,"");
+                dialog.setModal(false);
+                dialog.setVisible(true);
+                new Timer(TIME_VISIBLE, new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        dialog.setVisible(false);
+                    }
+                }).start();
+    
     }
     
     public void RegisterBarcodeSave(){
@@ -315,19 +332,16 @@ public class RegisterBarcodes extends javax.swing.JFrame {
             PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `Barcode`=? where `Registration No` in ('"+regnumber+"')");          
             ps.setString(1, barcodereg);
             ps.executeUpdate();
-            ResultSet rs = ps.executeQuery();
-            
-            if(rs.next()){
+            barcodeSaved();
+
                 RegisterBarcodeSave();
                 this.dispose();
-            }
-            else{
-                   JOptionPane.showMessageDialog(null,"Saving failed.");
-                }
+
         } 
         
         catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
+            
+            JOptionPane.showMessageDialog(null, "Saving failed."+e);
         }
         }
         else{
