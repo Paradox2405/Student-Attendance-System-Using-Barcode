@@ -43,6 +43,12 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
+    public void GoHomeScreen(){
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);
+        this.dispose();
+    }
+    
    
 
     /**
@@ -422,9 +428,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMouseClicked
-        HomeScreen hs = new HomeScreen();
-        hs.setVisible(true);    
-        this.dispose();
+        GoHomeScreen();
     }//GEN-LAST:event_btn_homeMouseClicked
 
     private void btn_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enterActionPerformed
@@ -444,7 +448,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
             rs = ps.executeQuery();
             
             if(rs.next()){
-                txt_refno.setText(rs.getString("Refference No")); //add names of the field in the real table
+                txt_refno.setText(rs.getString("Refference No")); 
                 txt_regno.setText(rs.getString("Registration No"));
                 txt_name.setText(rs.getString("Name"));
                 txt_contactno.setText(rs.getString("Contact No"));
@@ -474,7 +478,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
             try{
                 String table = (String)selectStudentsDb.getSelectedItem();
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-                PreparedStatement ps = con.prepareStatement("SELECT * FROM "+table+" WHERE Barcode="+txt_barcode.getText());
+                PreparedStatement ps = con.prepareStatement("SELECT * FROM "+table+" WHERE Barcode=?"+txt_barcode.getText());
                 rs = ps.executeQuery();
                 }
             catch(SQLException e)
@@ -487,9 +491,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
     }
     
     private void btn_cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelMouseClicked
-        HomeScreen hs = new HomeScreen();
-        hs.setVisible(true);    
-        this.dispose();
+        GoHomeScreen();
     }//GEN-LAST:event_btn_cancelMouseClicked
 
     private void btn_editstu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editstu1MouseClicked
@@ -513,12 +515,10 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         try {
             
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            //PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `fullname`=?,`coursename`=?,`admission`=?, `payment`=? WHERE admission="+bar);
-            //PreparedStatement ps = con.prepareStatement("UPDATE "+table+" SET `Refference No`,`Registration No`,`Name`,`Contact No`,`Branch`,`Course`,`Total Fee`,`Discounts`,`Payable`,`Received Payment`,`Refunds`,`Due`,`Action`) WHERE Barcode="+stu_barcode);
-            PreparedStatement ps = con.prepareStatement("UPDATE "+table+" SET `Refference No=`"+stu_refno+ "WHERE `Barcode=`"+stu_barcode);
-            
+            PreparedStatement ps = con.prepareStatement("UPDATE "+table+" SET `Refference No`=?,`Registration No`=?,`Name`=?,`Contact No`=?,`Branch`=?,`Course`=?,`Total Fee`=?,`Discounts`=?,`Payable`=?,`Received Payment`=?,`Refunds`=?,`Due`=?,`Action`=? WHERE Barcode="+stu_barcode);
+
             ps.setInt(1, Integer.parseInt(stu_refno));
-           /* ps.setInt(2, Integer.parseInt(stu_regno));
+            ps.setInt(2, Integer.parseInt(stu_regno));
             ps.setString(3, stu_name);
             ps.setInt(4, Integer.parseInt(stu_contact));
             ps.setString(5, stu_branch);
@@ -529,11 +529,17 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
             ps.setInt(10, Integer.parseInt(stu_recieve));
             ps.setInt(11, Integer.parseInt(stu_refunds));
             ps.setInt(12, Integer.parseInt(stu_dues));
-            ps.setInt(13, Integer.parseInt(stu_actions));*/
+            ps.setInt(13, Integer.parseInt(stu_actions));
+         
+            int saveNew = JOptionPane.showConfirmDialog(this,
+                    "Do you want to save new data?", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
             
-            ps.executeUpdate();
-            
-            
+            if(saveNew == JOptionPane.YES_OPTION)
+            {
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(null,"Records Updated!");
+                GoHomeScreen();
+            }
         } 
         catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
