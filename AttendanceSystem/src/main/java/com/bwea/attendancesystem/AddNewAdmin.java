@@ -350,8 +350,6 @@ public class AddNewAdmin extends javax.swing.JFrame {
             {
                 GoHomeScreen();
             }
-        
-        
     }//GEN-LAST:event_btn_cancelNewAdminFormMouseClicked
 
     public boolean checkUsername(String uname){

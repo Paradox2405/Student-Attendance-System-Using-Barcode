@@ -19,27 +19,24 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
      */
     public UpdateStudentDetails() {
         initComponents();
-          selectStudentsDb.addItem("Student");
-             selectStudentsDb.addItem("`Two Month Diploma in English`");
-             selectStudentsDb.addItem("`Two Month Advance Certificate - English`");
-             selectStudentsDb.addItem("`Two Month Certificate - English`");
-             selectStudentsDb.addItem("`Three Month Diploma - English`");
-             selectStudentsDb.addItem("`English + IT`");
-             selectStudentsDb.addItem("`TOIC`");
-             selectStudentsDb.addItem("`IELTS`");
-             selectStudentsDb.addItem("`Weekend English`");
-             selectStudentsDb.addItem("`Night - English`");
-             selectStudentsDb.addItem("`KIDS`");
-             selectStudentsDb.addItem("`Foundation in ICT`");
-             selectStudentsDb.addItem("`Diploma in Information Technology`");
-             selectStudentsDb.addItem("`Diploma in Software Engineering`");
-             selectStudentsDb.addItem("`Diploma in Web Designing`");
-             selectStudentsDb.addItem("`Diploma in Graphic Designing`");
-             selectStudentsDb.addItem("`Foundation in Arduino Programming`");
-             selectStudentsDb.addItem("`Diploma in Android Application Development`");
-             
-        
-          
+            selectStudentsDb.addItem("Student");
+            selectStudentsDb.addItem("`Two Month Diploma in English`");
+            selectStudentsDb.addItem("`Two Month Advance Certificate - English`");
+            selectStudentsDb.addItem("`Two Month Certificate - English`");
+            selectStudentsDb.addItem("`Three Month Diploma - English`");
+            selectStudentsDb.addItem("`English + IT`");
+            selectStudentsDb.addItem("`TOIC`");
+            selectStudentsDb.addItem("`IELTS`");
+            selectStudentsDb.addItem("`Weekend English`");
+            selectStudentsDb.addItem("`Night - English`");
+            selectStudentsDb.addItem("`KIDS`");
+            selectStudentsDb.addItem("`Foundation in ICT`");
+            selectStudentsDb.addItem("`Diploma in Information Technology`");
+            selectStudentsDb.addItem("`Diploma in Software Engineering`");
+            selectStudentsDb.addItem("`Diploma in Web Designing`");
+            selectStudentsDb.addItem("`Diploma in Graphic Designing`");
+            selectStudentsDb.addItem("`Foundation in Arduino Programming`");
+            selectStudentsDb.addItem("`Diploma in Android Application Development`");
         this.setLocationRelativeTo(null);
     }
     
@@ -48,9 +45,6 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         hs.setVisible(true);
         this.dispose();
     }
-    
-   
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -434,8 +428,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
     private void btn_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enterActionPerformed
         Function f = new Function();
         ResultSet rs;
-        
-        
+   
       //  String barcode = txt_barcode.getText();
 
         try{
@@ -443,7 +436,6 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
             rs = f.find(txt_refno.getText());
            // int bar = Integer.parseInt(barcode);
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-           // PreparedStatement ps = con.prepareStatement("SELECT fullname,admission,coursename,dues FROM student WHERE admission="+bar);
             PreparedStatement ps = con.prepareStatement("SELECT * FROM "+table+" WHERE `Barcode` =  " +txt_barcode.getText());
             rs = ps.executeQuery();
             
@@ -483,7 +475,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
                 }
             catch(SQLException e)
             {
-               // JOptionPane.showMessageDialog(null,"Admission Number Does Not Exist");
+                JOptionPane.showMessageDialog(null,"Admission Number Does Not Exist");
                 System.out.println(e);
             }
             return rs;
@@ -513,7 +505,6 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         
         
         try {
-            
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             PreparedStatement ps = con.prepareStatement("UPDATE "+table+" SET `Refference No`=?,`Registration No`=?,`Name`=?,`Contact No`=?,`Branch`=?,`Course`=?,`Total Fee`=?,`Discounts`=?,`Payable`=?,`Received Payment`=?,`Refunds`=?,`Due`=?,`Action`=? WHERE Barcode="+stu_barcode);
 
