@@ -32,7 +32,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     private void DisplayTableDailyAtt(){
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM `attendance` WHERE DATE(`Datein`) = CURDATE()"); //student table doesn't contain any datetime col so i took the attendance table  
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM `attendance` WHERE DATE(Datein) = CURDATE()"); //student table doesn't contain any datetime col so i took the attendance table  
             ResultSet rs = ps.executeQuery();
             
             if(rs.next()){

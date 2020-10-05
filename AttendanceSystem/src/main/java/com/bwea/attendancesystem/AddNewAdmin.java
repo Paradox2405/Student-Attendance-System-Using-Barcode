@@ -187,7 +187,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
         lbl_passwordNewAdmin2.setForeground(new java.awt.Color(51, 51, 51));
         lbl_passwordNewAdmin2.setText("Enter Username:");
 
-        btn_removeadmin.setBackground(new java.awt.Color(0, 204, 0));
+        btn_removeadmin.setBackground(new java.awt.Color(194, 6, 6));
         btn_removeadmin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_removeadmin.setForeground(new java.awt.Color(255, 255, 255));
         btn_removeadmin.setText("Remove");
