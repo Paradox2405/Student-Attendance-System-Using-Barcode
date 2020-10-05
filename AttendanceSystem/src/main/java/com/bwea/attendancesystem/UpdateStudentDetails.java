@@ -444,19 +444,19 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
             rs = ps.executeQuery();
             
             if(rs.next()){
-                txt_refno.setText(rs.getString("fullname")); //add names of the field in the real table
-                txt_regno.setText(rs.getString("admission"));
-                txt_name.setText(rs.getString("coursename"));
-                txt_contactno.setText(rs.getString("dues"));
-                txt_branch.setText(rs.getString("fullname"));
-                txt_course.setText(rs.getString("fullname"));
-                txt_total.setText(rs.getString("fullname"));
-                txt_disc.setText(rs.getString("fullname"));
-                txt_pay.setText(rs.getString("fullname"));
-                txt_recieved.setText(rs.getString("fullname"));
-                txt_refunds.setText(rs.getString("fullname"));
-                txt_dues.setText(rs.getString("fullname"));
-                txt_actions.setText(rs.getString("fullname"));
+                txt_refno.setText(rs.getString("Refference No")); //add names of the field in the real table
+                txt_regno.setText(rs.getString("Registration No"));
+                txt_name.setText(rs.getString("Name"));
+                txt_contactno.setText(rs.getString("Contact No"));
+                txt_branch.setText(rs.getString("Branch"));
+                txt_course.setText(rs.getString("Course"));
+                txt_total.setText(rs.getString("Total Fee"));
+                txt_disc.setText(rs.getString("Discounts"));
+                txt_pay.setText(rs.getString("Payable"));
+                txt_recieved.setText(rs.getString("Received Payment"));
+                txt_refunds.setText(rs.getString("Refunds"));
+                txt_dues.setText(rs.getString("Due"));
+                txt_actions.setText(rs.getString("Action"));
             }
         }
         catch(SQLException e)
@@ -473,14 +473,14 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         public ResultSet find(String s) throws SQLException {
             try{
                 String table = (String)selectStudentsDb.getSelectedItem();
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM "+table+" WHERE `fullname` = " +txt_barcode.getText());
-            rs = ps.executeQuery();
-            }
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+                PreparedStatement ps = con.prepareStatement("SELECT * FROM "+table+" WHERE Barcode="+txt_barcode.getText());
+                rs = ps.executeQuery();
+                }
             catch(SQLException e)
             {
-            JOptionPane.showMessageDialog(null,"Admission Number Does Not Exist");
-            System.out.println(e);
+               // JOptionPane.showMessageDialog(null,"Admission Number Does Not Exist");
+                System.out.println(e);
             }
             return rs;
         }
@@ -493,25 +493,47 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cancelMouseClicked
 
     private void btn_editstu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editstu1MouseClicked
-        String fullname = txt_refno.getText();
-        String coursename = txt_name.getText();
-        String admission = txt_regno.getText();
-        String dues = txt_contactno.getText();
-        String barcode = txt_barcode.getText();
-        int bar = Integer.parseInt(barcode);
+        String table = (String)selectStudentsDb.getSelectedItem();
+        String stu_refno = txt_refno.getText();
+        String stu_regno = txt_regno.getText();
+        String stu_name = txt_name.getText();
+        String stu_contact = txt_contactno.getText();
+        String stu_branch = txt_branch.getText();
+        String stu_course = txt_course.getText();
+        String stu_fee = txt_total.getText();
+        String stu_disc = txt_disc.getText();
+        String stu_payment = txt_pay.getText();
+        String stu_recieve = txt_recieved.getText();
+        String stu_refunds = txt_refunds.getText();
+        String stu_dues = txt_dues.getText();
+        String stu_actions = txt_actions.getText();
+        String stu_barcode = txt_barcode.getText();
+        
         
         try {
-            String table = (String)selectStudentsDb.getSelectedItem();
+            
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             //PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `fullname`=?,`coursename`=?,`admission`=?, `payment`=? WHERE admission="+bar);
-            PreparedStatement ps = con.prepareStatement("UPDATE "+table+" SET `fullname`=?,`coursename`=?,`admission`=?, `payment`=? WHERE `coursename` = 'SE'");
+            //PreparedStatement ps = con.prepareStatement("UPDATE "+table+" SET `Refference No`,`Registration No`,`Name`,`Contact No`,`Branch`,`Course`,`Total Fee`,`Discounts`,`Payable`,`Received Payment`,`Refunds`,`Due`,`Action`) WHERE Barcode="+stu_barcode);
+            PreparedStatement ps = con.prepareStatement("UPDATE "+table+" SET `Refference No=`"+stu_refno+ "WHERE `Barcode=`"+stu_barcode);
             
-            ps.setString(1, fullname);
-            ps.setString(2, coursename);
-            ps.setString(3, admission);
-            ps.setInt(4, Integer.parseInt(dues));
+            ps.setInt(1, Integer.parseInt(stu_refno));
+           /* ps.setInt(2, Integer.parseInt(stu_regno));
+            ps.setString(3, stu_name);
+            ps.setInt(4, Integer.parseInt(stu_contact));
+            ps.setString(5, stu_branch);
+            ps.setString(6, stu_course);
+            ps.setInt(7, Integer.parseInt(stu_fee));
+            ps.setInt(8, Integer.parseInt(stu_disc));
+            ps.setInt(9, Integer.parseInt(stu_payment));
+            ps.setInt(10, Integer.parseInt(stu_recieve));
+            ps.setInt(11, Integer.parseInt(stu_refunds));
+            ps.setInt(12, Integer.parseInt(stu_dues));
+            ps.setInt(13, Integer.parseInt(stu_actions));*/
             
             ps.executeUpdate();
+            
+            
         } 
         catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
