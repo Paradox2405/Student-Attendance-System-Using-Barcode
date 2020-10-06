@@ -28,7 +28,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM attendance WHERE YEAR(Datein) = YEAR(CURRENT_DATE()) AND" +
-" MONTH(Datein) = MONTH(CURRENT_DATE());");   
+" MONTH(Datein) = MONTH(CURRENT_DATE())");   
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
@@ -47,6 +47,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         catch(SQLException e)
             {
                 JOptionPane.showMessageDialog(null,"Table Does Not Exist In Database");
+                e.printStackTrace();
             }
     }
 
@@ -161,9 +162,16 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane2.setViewportView(table_all);

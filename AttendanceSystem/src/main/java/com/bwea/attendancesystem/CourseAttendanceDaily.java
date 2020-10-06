@@ -31,27 +31,28 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     private void DisplayTableDailyAtt(){
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM `attendance` WHERE DATE(Datein) = CURDATE()"); //student table doesn't contain any datetime col so i took the attendance table  
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM `attendance` WHERE YEAR(Datein) = YEAR(CURRENT_DATE()) AND MONTH(Datein) = MONTH(CURRENT_DATE()) AND DATE(Datein) = CURDATE()"); //student table doesn't contain any datetime col so i took the attendance table  
             ResultSet rs = ps.executeQuery();
             
-            if(rs.next()){
+            while(rs.next()){
                String Reg = rs.getString(2); //test values to run the attendance table
                String Name = rs.getString(3);
                String Date = rs.getString(4);
                String InTime = rs.getString(5);
-           
-               Object [] content = {Reg,Name,Date,InTime};
+               
+               
+           Object [] content = {Reg,Name,Date,InTime};
                DefaultTableModel model = (DefaultTableModel) table_all.getModel();
                model.addRow(content);
             }
-            else{
-                    JOptionPane.showMessageDialog(null,"No Records Found!");
-            }
             con.close();
+            
+         
         } 
         catch(SQLException e)
             {
-                JOptionPane.showMessageDialog(null,e);
+                    JOptionPane.showMessageDialog(null,"Table Does Not Exist In Database");
+                    e.printStackTrace();
             }
     }
     /**
@@ -72,9 +73,9 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         btn_monthly_attendance = new javax.swing.JButton();
         btn_dailyReport = new javax.swing.JButton();
         btn_generateGraphDaily = new javax.swing.JButton();
+        btn_Refresh = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         table_all = new javax.swing.JTable();
-        btn_Refresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -156,24 +157,6 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
 
         btn_generateGraphDaily.setText("Generate Graph");
 
-        table_all.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Registration No", "Name", "Date", "Intime"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(table_all);
-
         btn_Refresh.setText("Refresh ");
         btn_Refresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -186,6 +169,31 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
             }
         });
 
+        table_all.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Registration No", "Name", "Date", "InTime"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(table_all);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -195,7 +203,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                 .addComponent(TopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -205,13 +213,12 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                                 .addComponent(btn_generateGraphDaily)
                                 .addGap(18, 18, 18)))
                         .addComponent(btn_dailyReport))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(737, 737, 737)
-                            .addComponent(btn_Refresh)
-                            .addGap(18, 18, 18)
-                            .addComponent(btn_monthly_attendance))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(737, 737, 737)
+                        .addComponent(btn_Refresh)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_monthly_attendance))
+                    .addComponent(jScrollPane2))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -224,9 +231,9 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btn_monthly_attendance)
                         .addComponent(btn_Refresh)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_generateGraphDaily)
                     .addComponent(btn_dailyReport))

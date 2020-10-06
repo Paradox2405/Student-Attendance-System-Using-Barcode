@@ -144,6 +144,9 @@ public class HomeScreen extends javax.swing.JFrame {
         btn_uploadexcel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        btn_endIntake = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_all = new javax.swing.JTable();
         MidPanel = new javax.swing.JPanel();
@@ -482,6 +485,38 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        btn_endIntake.setBackground(new java.awt.Color(226, 156, 14));
+        btn_endIntake.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_endIntakeMouseClicked(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("End Intake");
+
+        javax.swing.GroupLayout btn_endIntakeLayout = new javax.swing.GroupLayout(btn_endIntake);
+        btn_endIntake.setLayout(btn_endIntakeLayout);
+        btn_endIntakeLayout.setHorizontalGroup(
+            btn_endIntakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_endIntakeLayout.createSequentialGroup()
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel16)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btn_endIntakeLayout.setVerticalGroup(
+            btn_endIntakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_endIntakeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(btn_endIntakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(btn_endIntakeLayout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(0, 7, Short.MAX_VALUE))
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
         javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
         SidePanel.setLayout(SidePanelLayout);
         SidePanelLayout.setHorizontalGroup(
@@ -497,7 +532,8 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(btn_updateStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_registerbarcodes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_genbarcodes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_uploadexcel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_uploadexcel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_endIntake, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         SidePanelLayout.setVerticalGroup(
@@ -519,6 +555,8 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(btn_registerbarcodes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_uploadexcel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_endIntake, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_genbarcodes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
@@ -532,14 +570,14 @@ public class HomeScreen extends javax.swing.JFrame {
 
             },
             new String [] {
-                "No", "Refference No", "Registration No", "Name", "Contact No", "Branch", "Course", "Total Fee", "Discounts", "Payable", "Recieved Payment", "Refunds", "Dues", "Actions"
+                "No", "Refference No", "Registration No", "Name", "Contact No", "Branch", "Course", "Total Fee", "Discounts", "Payable", "Recieved Payment", "Refunds", "Dues", "Actions", "Barcode #"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -780,6 +818,17 @@ public class HomeScreen extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_uploadexcelMouseClicked
 
+    private void btn_endIntakeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_endIntakeMouseClicked
+        // TODO add your handling code here:
+        EndIntake ei=new EndIntake();
+        ei.setVisible(true);
+        ei.pack();
+        ei.setLocationRelativeTo(null);
+        ei.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+        
+    }//GEN-LAST:event_btn_endIntakeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -826,6 +875,7 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JPanel btn_checkattendance;
     private javax.swing.JPanel btn_courseov;
     private javax.swing.JButton btn_dailyRefresh;
+    private javax.swing.JPanel btn_endIntake;
     private javax.swing.JButton btn_genbarcodes;
     private javax.swing.JLabel btn_logout;
     private javax.swing.JPanel btn_registerbarcodes;
@@ -838,6 +888,8 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
