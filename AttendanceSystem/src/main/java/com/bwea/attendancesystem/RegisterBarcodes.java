@@ -85,6 +85,8 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        lbl_coursename = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -185,6 +187,10 @@ public class RegisterBarcodes extends javax.swing.JFrame {
 
         jLabel7.setText("Refference No");
 
+        lbl_coursename.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel8.setText("Course");
+
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
@@ -192,32 +198,43 @@ public class RegisterBarcodes extends javax.swing.JFrame {
             .addGroup(MainPanelLayout.createSequentialGroup()
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(MainPanelLayout.createSequentialGroup()
+                                .addGap(35, 35, 35)
                                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE))
-                            .addGroup(MainPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(21, 21, 21)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(MainPanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE))
+                                    .addGroup(MainPanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(21, 21, 21)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGap(18, 18, 18)
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(18, 18, 18)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txt_regnumber, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
-                        .addComponent(txt_barcodereg)
-                        .addComponent(btn_search, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbl_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(btn_save, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_contactNo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_refNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txt_regnumber, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+                                .addComponent(btn_search, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lbl_contactNo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_refNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addContainerGap(427, Short.MAX_VALUE)
+                        .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_barcodereg))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbl_coursename, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         MainPanelLayout.setVerticalGroup(
@@ -245,13 +262,17 @@ public class RegisterBarcodes extends javax.swing.JFrame {
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_refNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(45, 45, 45)
+                .addGap(18, 18, 18)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_coursename, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(23, 23, 23)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txt_barcodereg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addComponent(btn_save)
-                .addGap(135, 135, 135))
+                .addGap(117, 117, 117))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -297,24 +318,24 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         
         try{       
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT `Refference No`,`Name`,`Contact No` FROM `student` WHERE `Registration No`='"+regnumber+"'"
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Two Month Diploma in English` WHERE `Registration No`='"+regnumber+"'"
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Two Month Advance Certificate - English` WHERE `Registration No`='"+regnumber+"'"
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Two Month Certificate - English` WHERE `Registration No`='"+regnumber+"'" 
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Three Month Diploma - English` WHERE `Registration No`='"+regnumber+"'" 
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `English + IT` WHERE `Registration No`='"+regnumber+"'"
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `TOIC` WHERE `Registration No`='"+regnumber+"'"
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `IELTS` WHERE `Registration No`='"+regnumber+"'"
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Weekend English` WHERE `Registration No`='"+regnumber+"'"
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Night - English` WHERE `Registration No`='"+regnumber+"'"
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `KIDS` WHERE `Registration No`='"+regnumber+"'"
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Foundation in ICT` WHERE `Registration No`='"+regnumber+"'"
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Diploma in Information Technology` WHERE `Registration No`='"+regnumber+"'"
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Diploma in Software Engineering` WHERE `Registration No`='"+regnumber+"'"
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Diploma in Web Designing` WHERE `Registration No`='"+regnumber+"'"
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Diploma in Graphic Designing` WHERE `Registration No`='"+regnumber+"'"
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Foundation in Arduino Programming` WHERE `Registration No`='"+regnumber+"'"
-                    + "UNION ALL SELECT `Refference No`,`Name`,`Contact No` FROM `Diploma in Android Application Development` WHERE `Registration No`='"+regnumber+"'"); //SELECT * FROM LMS WHERE Refference No=? or Registration No=?
+            PreparedStatement ps = con.prepareStatement("SELECT 'student' AS `tablename`,`Refference No`,`Name`,`Contact No`  FROM `student` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'Two Month Diploma in English' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Two Month Diploma in English` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'Two Month Advance Certificate - English' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Two Month Advance Certificate - English` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'Two Month Certificate - English' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Two Month Certificate - English` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'Three Month Diploma - English' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Three Month Diploma - English` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'English + IT' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `English + IT` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'TOIC' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `TOIC` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'IELTS' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `IELTS` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'Weekend English' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Weekend English` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'Night - English' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Night - English` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'KIDS' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `KIDS` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'Foundation in ICT' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Foundation in ICT` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'Diploma in Information Technology' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Diploma in Information Technology` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'Diploma in Software Engineering' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Diploma in Software Engineering` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'Diploma in Web Designing' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Diploma in Web Designing` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'Diploma in Graphic Designing' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Diploma in Graphic Designing` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'Foundation in Arduino Programming' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Foundation in Arduino Programming` WHERE `Registration No`='"+regnumber+"'"
+                    + "UNION ALL SELECT 'Diploma in Android Application Development' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Diploma in Android Application Development` WHERE `Registration No`='"+regnumber+"'"); //SELECT * FROM LMS WHERE Refference No=? or Registration No=?
             
             ResultSet rs = ps.executeQuery();
                               
@@ -322,6 +343,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
               lbl_name.setText(rs.getString("Name")); //Name
               lbl_contactNo.setText(rs.getString("Contact No")); //Contact No 
               lbl_refNumber.setText(rs.getString("Refference No")); //Registration No
+              lbl_coursename.setText(rs.getString("tablename"));
               txt_barcodereg.requestFocus();
             }
             
@@ -330,6 +352,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
                 lbl_name.setText(null);
                 lbl_contactNo.setText(null);
                 lbl_refNumber.setText(null);
+                lbl_coursename.setText(null);
                  txt_regnumber.setText(null);
                 txt_regnumber.requestFocus();
             }
@@ -337,6 +360,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         
         catch(SQLException e)
             {
+                e.printStackTrace();
                 JOptionPane.showMessageDialog(null,e);
                 JOptionPane.showMessageDialog(null,"No Connection.");
         }
@@ -346,39 +370,23 @@ public class RegisterBarcodes extends javax.swing.JFrame {
     private void btn_saveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_saveMouseClicked
         String barcodereg = txt_barcodereg.getText();
         String regnumber = txt_regnumber.getText();
+        String table=lbl_coursename.getText();
         
       //int bar = Integer.parseInt(barcodereg);
         if(lbl_refNumber.getText()!=null){
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("UPDATE `student` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `Two Month Diploma in English` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `Two Month Advance Certificate - English` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `Two Month Certificate - English` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `Three Month Diploma - English` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `English + IT` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `TOIC` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `IELTS` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `Weekend English` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `Night - English` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `KIDS` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `Foundation in ICT` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `Diploma in Information Technology` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `Diploma in Software Engineering` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `Diploma in Web Designing` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `Diploma in Graphic Designing` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `Foundation in Arduino Programming` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')"
-            +"UNION ALL UPDATE `Diploma in Android Application Development` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')");          
-            
+            PreparedStatement ps = con.prepareStatement("UPDATE `"+table+"` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')");          
+
             ps.executeUpdate();
             barcodeSaved();
 
-               
+
 
         } 
-        
+
         catch (SQLException e) {
-            
+
             JOptionPane.showMessageDialog(null, "Saving failed.");
             e.printStackTrace();
         }
@@ -436,9 +444,11 @@ public class RegisterBarcodes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JLabel lbl_contactNo;
+    private javax.swing.JLabel lbl_coursename;
     private javax.swing.JLabel lbl_name;
     private javax.swing.JLabel lbl_refNumber;
     private javax.swing.JTextField txt_barcodereg;

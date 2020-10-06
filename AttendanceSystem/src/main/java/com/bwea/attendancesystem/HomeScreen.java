@@ -141,6 +141,9 @@ public class HomeScreen extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         btn_genbarcodes = new javax.swing.JButton();
+        btn_scanbarcodes1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_all = new javax.swing.JTable();
         MidPanel = new javax.swing.JPanel();
@@ -447,6 +450,38 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
+        btn_scanbarcodes1.setBackground(new java.awt.Color(226, 156, 14));
+        btn_scanbarcodes1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_scanbarcodes1MouseClicked(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Update Course");
+
+        javax.swing.GroupLayout btn_scanbarcodes1Layout = new javax.swing.GroupLayout(btn_scanbarcodes1);
+        btn_scanbarcodes1.setLayout(btn_scanbarcodes1Layout);
+        btn_scanbarcodes1Layout.setHorizontalGroup(
+            btn_scanbarcodes1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_scanbarcodes1Layout.createSequentialGroup()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btn_scanbarcodes1Layout.setVerticalGroup(
+            btn_scanbarcodes1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_scanbarcodes1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(btn_scanbarcodes1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(btn_scanbarcodes1Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(0, 7, Short.MAX_VALUE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
         javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
         SidePanel.setLayout(SidePanelLayout);
         SidePanelLayout.setHorizontalGroup(
@@ -461,7 +496,8 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(btn_courseov, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_updateStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_registerbarcodes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_genbarcodes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_genbarcodes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_scanbarcodes1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         SidePanelLayout.setVerticalGroup(
@@ -481,6 +517,8 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(btn_addadmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_registerbarcodes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_scanbarcodes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_genbarcodes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
@@ -731,6 +769,10 @@ public class HomeScreen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_genbarcodesMouseClicked
 
+    private void btn_scanbarcodes1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_scanbarcodes1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_scanbarcodes1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -781,6 +823,7 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JLabel btn_logout;
     private javax.swing.JPanel btn_registerbarcodes;
     private javax.swing.JPanel btn_scanbarcodes;
+    private javax.swing.JPanel btn_scanbarcodes1;
     private javax.swing.JPanel btn_updateStudent;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -795,6 +838,8 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
