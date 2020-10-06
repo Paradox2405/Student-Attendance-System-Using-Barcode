@@ -141,7 +141,7 @@ public class HomeScreen extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         btn_genbarcodes = new javax.swing.JButton();
-        btn_scanbarcodes1 = new javax.swing.JPanel();
+        btn_uploadexcel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -450,33 +450,33 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        btn_scanbarcodes1.setBackground(new java.awt.Color(226, 156, 14));
-        btn_scanbarcodes1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_uploadexcel.setBackground(new java.awt.Color(226, 156, 14));
+        btn_uploadexcel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_scanbarcodes1MouseClicked(evt);
+                btn_uploadexcelMouseClicked(evt);
             }
         });
 
         jLabel8.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Update Course");
+        jLabel8.setText("Upload Excel");
 
-        javax.swing.GroupLayout btn_scanbarcodes1Layout = new javax.swing.GroupLayout(btn_scanbarcodes1);
-        btn_scanbarcodes1.setLayout(btn_scanbarcodes1Layout);
-        btn_scanbarcodes1Layout.setHorizontalGroup(
-            btn_scanbarcodes1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_scanbarcodes1Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_uploadexcelLayout = new javax.swing.GroupLayout(btn_uploadexcel);
+        btn_uploadexcel.setLayout(btn_uploadexcelLayout);
+        btn_uploadexcelLayout.setHorizontalGroup(
+            btn_uploadexcelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_uploadexcelLayout.createSequentialGroup()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel8)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        btn_scanbarcodes1Layout.setVerticalGroup(
-            btn_scanbarcodes1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_scanbarcodes1Layout.createSequentialGroup()
+        btn_uploadexcelLayout.setVerticalGroup(
+            btn_uploadexcelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_uploadexcelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(btn_scanbarcodes1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(btn_scanbarcodes1Layout.createSequentialGroup()
+                .addGroup(btn_uploadexcelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(btn_uploadexcelLayout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(0, 7, Short.MAX_VALUE))
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -497,7 +497,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(btn_updateStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_registerbarcodes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_genbarcodes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_scanbarcodes1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_uploadexcel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         SidePanelLayout.setVerticalGroup(
@@ -518,7 +518,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_registerbarcodes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_scanbarcodes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_uploadexcel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_genbarcodes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
@@ -769,9 +769,16 @@ public class HomeScreen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_genbarcodesMouseClicked
 
-    private void btn_scanbarcodes1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_scanbarcodes1MouseClicked
+    private void btn_uploadexcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_uploadexcelMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_scanbarcodes1MouseClicked
+        UploadExcel ex=new UploadExcel();
+        ex.setVisible(true);
+        ex.pack();
+        ex.setLocationRelativeTo(null);
+        ex.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+        
+    }//GEN-LAST:event_btn_uploadexcelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -823,8 +830,8 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JLabel btn_logout;
     private javax.swing.JPanel btn_registerbarcodes;
     private javax.swing.JPanel btn_scanbarcodes;
-    private javax.swing.JPanel btn_scanbarcodes1;
     private javax.swing.JPanel btn_updateStudent;
+    private javax.swing.JPanel btn_uploadexcel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
