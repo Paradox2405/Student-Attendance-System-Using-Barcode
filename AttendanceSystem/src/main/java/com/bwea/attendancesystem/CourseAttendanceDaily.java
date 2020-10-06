@@ -45,7 +45,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                DefaultTableModel model = (DefaultTableModel) table_all.getModel();
                model.addRow(content);
             }
-            con.close();
+           
             
          
         } 
@@ -76,6 +76,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         btn_Refresh = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         table_all = new javax.swing.JTable();
+        GraphPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -156,6 +157,11 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         btn_dailyReport.setText("Report");
 
         btn_generateGraphDaily.setText("Generate Graph");
+        btn_generateGraphDaily.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_generateGraphDailyMouseClicked(evt);
+            }
+        });
 
         btn_Refresh.setText("Refresh ");
         btn_Refresh.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -194,6 +200,17 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(table_all);
 
+        javax.swing.GroupLayout GraphPanelLayout = new javax.swing.GroupLayout(GraphPanel);
+        GraphPanel.setLayout(GraphPanelLayout);
+        GraphPanelLayout.setHorizontalGroup(
+            GraphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        GraphPanelLayout.setVerticalGroup(
+            GraphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 456, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -204,21 +221,22 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(GraphPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btn_generateGraphDaily)
+                            .addGap(18, 18, 18)
+                            .addComponent(btn_dailyReport))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(672, 672, 672))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btn_generateGraphDaily)
-                                .addGap(18, 18, 18)))
-                        .addComponent(btn_dailyReport))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(737, 737, 737)
-                        .addComponent(btn_Refresh)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_monthly_attendance))
-                    .addComponent(jScrollPane2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(737, 737, 737)
+                                .addComponent(btn_Refresh)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_monthly_attendance))
+                            .addComponent(jScrollPane2))))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -232,12 +250,14 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                         .addComponent(btn_monthly_attendance)
                         .addComponent(btn_Refresh)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(GraphPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_generateGraphDaily)
-                    .addComponent(btn_dailyReport))
-                .addGap(0, 39, Short.MAX_VALUE))
+                    .addComponent(btn_dailyReport)
+                    .addComponent(btn_generateGraphDaily))
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -276,36 +296,16 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
          DisplayTableDailyAtt();
         
         
-        /*try{ 
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bwea","root","");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM student");   
-            ResultSet rs = ps.executeQuery();
-            
-            while(rs.next()){
-               String fullname = rs.getString(1);
-               String address = rs.getString(2);
-               String email = rs.getString(3);
-               String coursename = rs.getString(4);
-               String payment = rs.getString(5);
-            
-               Object [] content = {fullname, address, email, coursename, payment};
-               DefaultTableModel model = (DefaultTableModel) table_DailyAtt.getModel();
-               model.addRow(content);
-                       
-               //comment //DefaultTableModel model = new DefaultTableModel(new String[]{"fullname", "address", "email", "coursename", "payment"}, 0);
-               //comment //model.addRow(new Object[]{fullname, address, email, coursename, payment});
-               //comment //table_DailyAtt.setModel(model);
-            }
-        } 
-        catch(SQLException e)
-            {
-                JOptionPane.showMessageDialog(null,e);
-            } */
+       
     }//GEN-LAST:event_btn_RefreshActionPerformed
 
     private void btn_RefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_RefreshMouseClicked
-        DisplayTableDailyAtt();        
+             
     }//GEN-LAST:event_btn_RefreshMouseClicked
+
+    private void btn_generateGraphDailyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generateGraphDailyMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_generateGraphDailyMouseClicked
 
     /**
      * @param args the command line arguments
@@ -347,6 +347,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel GraphPanel;
     private javax.swing.JPanel TopPanel;
     private javax.swing.JButton btn_Refresh;
     private javax.swing.JButton btn_dailyReport;

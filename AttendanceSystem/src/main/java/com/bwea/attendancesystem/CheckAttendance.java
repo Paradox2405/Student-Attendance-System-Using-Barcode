@@ -290,26 +290,22 @@ public class CheckAttendance extends javax.swing.JFrame {
         try  {
             String excelFilePath = "Attendance-export.xlsx";
             String regnum= txt_regnum.getText();
+            if(regnum!=""){
             
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date fromdate = (Date) cal_fromdate.getDate();
             Date todate = (Date) cal_todate.getDate();
-            System.out.println(dateFormat.format(fromdate));
-            System.out.println(dateFormat.format(todate));
             String d1=dateFormat.format(fromdate);
             String d2=dateFormat.format(todate);
+            System.out.println(d1);
+            System.out.println(d2);
             
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM attendance"
                     + " WHERE `Registration No` IN ('"+regnum+"') AND (Datein BETWEEN '"+d1+"' AND '"+d2+"')");                          
             ResultSet rs=ps.executeQuery();
             
-             if (rs.next() == false) {
-                JOptionPane.showMessageDialog(null,"Registration Number Does Not Exist");
-               }
-            else{
-                 
-                 
+             while (rs.next() != false) {
                  
                  
                 txt_name.setText(rs.getString("Name"));
@@ -325,14 +321,18 @@ public class CheckAttendance extends javax.swing.JFrame {
                 workbook.write(outputStream);
                 workbook.close();
  
-                con.close();
-             
+                 
+
+               }
+         
+        }
+            else{
+            JOptionPane.showMessageDialog(null,"Enter a Registration Number!");
             }
-        
         }
     
         catch (SQLException e) {
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null,"Registration Number Does Not Exist");
             e.printStackTrace();
         
         } catch (FileNotFoundException ex) {

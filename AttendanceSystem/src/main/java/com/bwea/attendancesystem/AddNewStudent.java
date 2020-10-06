@@ -206,6 +206,8 @@ public class AddNewStudent extends javax.swing.JFrame {
             }
         });
 
+        txt_regno.setEditable(false);
+
         txt_contactno.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
         jLabel2.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
@@ -497,9 +499,9 @@ public class AddNewStudent extends javax.swing.JFrame {
         
         try{       
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("INSERT INTO "+table+"(`Refference No`,`Registration No`,`Name`,`Contact No`,`Branch`,`Course`,`Total Fee`,`Discounts`,`Payable`,`Received Payment`,`Refunds`,`Due`,`Action`,`Barcode`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");   
+            PreparedStatement ps = con.prepareStatement("INSERT INTO `"+table+"` (`Refference No`,`Registration No`,`Name`,`Contact No`,`Branch`,`Course`,`Total Fee`,`Discounts`,`Payable`,`Received Payment`,`Refunds`,`Due`,`Action`,`Barcode`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");   
             ps.setInt(1, Integer.parseInt(stu_refno));
-            ps.setInt(2, Integer.parseInt(stu_regno));
+            ps.setString(2, stu_regno);
             ps.setString(3, stu_name);
             ps.setInt(4, Integer.parseInt(stu_contact));
             ps.setString(5, stu_branch);

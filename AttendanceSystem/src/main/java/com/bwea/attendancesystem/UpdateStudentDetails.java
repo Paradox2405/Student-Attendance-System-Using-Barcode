@@ -168,12 +168,14 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
 
         txt_barcode.setBackground(new java.awt.Color(204, 204, 204));
 
-        btn_enter.setText("Search");
+        btn_enter.setText("Search Barcode");
         btn_enter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_enterActionPerformed(evt);
             }
         });
+
+        txt_regno.setEditable(false);
 
         txt_contactno.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
@@ -330,11 +332,11 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
                                             .addComponent(txt_refno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(btn_enter, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_enter))
                     .addGroup(MainPanelLayout.createSequentialGroup()
                         .addGap(507, 507, 507)
                         .addComponent(selectStudentsDb, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(318, Short.MAX_VALUE))
+                .addContainerGap(328, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -431,18 +433,18 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_homeMouseClicked
 
     private void btn_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enterActionPerformed
-        Function f = new Function();
-        ResultSet rs;
-   
+//        Function f = new Function();
+//        ResultSet rs;
+//   
       //  String barcode = txt_barcode.getText();
 
         try{
             String table = (String)selectStudentsDb.getSelectedItem();
-            rs = f.find(txt_refno.getText());
+           
            // int bar = Integer.parseInt(barcode);
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM "+table+" WHERE `Barcode` =  " +txt_barcode.getText());
-            rs = ps.executeQuery();
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM "+table+" WHERE `Barcode` = '" +txt_barcode.getText()+"'");
+            ResultSet rs = ps.executeQuery();
             
             if(rs.next()){
                 txt_refno.setText(rs.getString("Refference No")); 
@@ -462,30 +464,30 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         }
         catch(SQLException e)
         {
-            JOptionPane.showMessageDialog(null,"Admission Number Does Not Exist");
+            JOptionPane.showMessageDialog(null,"Barcode Does Not Exist");
             System.out.println(e);
         }
 
     }//GEN-LAST:event_btn_enterActionPerformed
 
-    public class Function{
-        
-        ResultSet rs = null;
-        public ResultSet find(String s) throws SQLException {
-            try{
-                String table = (String)selectStudentsDb.getSelectedItem();
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-                PreparedStatement ps = con.prepareStatement("SELECT * FROM "+table+" WHERE Barcode=?"+txt_barcode.getText());
-                rs = ps.executeQuery();
-                }
-            catch(SQLException e)
-            {
-                JOptionPane.showMessageDialog(null,"Admission Number Does Not Exist");
-                System.out.println(e);
-            }
-            return rs;
-        }
-    }
+//    public class Function{
+//        
+//        ResultSet rs = null;
+//        public ResultSet find(String s) throws SQLException {
+//            try{
+//                String table = (String)selectStudentsDb.getSelectedItem();
+//                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+//                PreparedStatement ps = con.prepareStatement("SELECT * FROM "+table+" WHERE Barcode=?"+txt_barcode.getText());
+//                rs = ps.executeQuery();
+//                }
+//            catch(Exception e)
+//            {
+//                JOptionPane.showMessageDialog(null,"Admission Number Does Not Exist");
+//                System.out.println(e);
+//            }
+//            return rs;
+//        }
+//    }
     
     private void btn_cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelMouseClicked
         GoHomeScreen();
@@ -511,10 +513,10 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("UPDATE "+table+" SET `Refference No`=?,`Registration No`=?,`Name`=?,`Contact No`=?,`Branch`=?,`Course`=?,`Total Fee`=?,`Discounts`=?,`Payable`=?,`Received Payment`=?,`Refunds`=?,`Due`=?,`Action`=? WHERE Barcode="+stu_barcode);
+            PreparedStatement ps = con.prepareStatement("UPDATE `"+table+"` SET `Refference No`=?,`Registration No`=?,`Name`=?,`Contact No`=?,`Branch`=?,`Course`=?,`Total Fee`=?,`Discounts`=?,`Payable`=?,`Received Payment`=?,`Refunds`=?,`Due`=?,`Action`=? WHERE Barcode="+stu_barcode);
 
             ps.setInt(1, Integer.parseInt(stu_refno));
-            ps.setInt(2, Integer.parseInt(stu_regno));
+            ps.setString(2, stu_regno);
             ps.setString(3, stu_name);
             ps.setInt(4, Integer.parseInt(stu_contact));
             ps.setString(5, stu_branch);
