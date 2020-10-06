@@ -206,8 +206,6 @@ public class AddNewStudent extends javax.swing.JFrame {
             }
         });
 
-        txt_regno.setEditable(false);
-
         txt_contactno.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
         jLabel2.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N

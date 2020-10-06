@@ -356,9 +356,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_regno">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_name">
         </Component>

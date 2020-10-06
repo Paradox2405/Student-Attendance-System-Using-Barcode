@@ -175,8 +175,6 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
             }
         });
 
-        txt_regno.setEditable(false);
-
         txt_contactno.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
@@ -341,7 +339,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
                 .addComponent(selectStudentsDb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -399,10 +397,12 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
                             .addComponent(txt_dues, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15))))
                 .addGap(18, 18, 18)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_actions, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addGap(18, 18, 18)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16)
+                    .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(txt_actions, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_editstu1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -466,28 +466,24 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null,"Barcode Does Not Exist");
             System.out.println(e);
+                txt_refno.setText(null); 
+                txt_regno.setText(null);
+                txt_name.setText(null);
+                txt_contactno.setText(null);
+                txt_branch.setText(null);
+                txt_course.setText(null);
+                txt_total.setText(null);
+                txt_disc.setText(null);
+                txt_pay.setText(null);
+                txt_recieved.setText(null);
+                txt_refunds.setText(null);
+                txt_dues.setText(null);
+                txt_actions.setText(null);
+            
         }
 
     }//GEN-LAST:event_btn_enterActionPerformed
 
-//    public class Function{
-//        
-//        ResultSet rs = null;
-//        public ResultSet find(String s) throws SQLException {
-//            try{
-//                String table = (String)selectStudentsDb.getSelectedItem();
-//                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-//                PreparedStatement ps = con.prepareStatement("SELECT * FROM "+table+" WHERE Barcode=?"+txt_barcode.getText());
-//                rs = ps.executeQuery();
-//                }
-//            catch(Exception e)
-//            {
-//                JOptionPane.showMessageDialog(null,"Admission Number Does Not Exist");
-//                System.out.println(e);
-//            }
-//            return rs;
-//        }
-//    }
     
     private void btn_cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelMouseClicked
         GoHomeScreen();
