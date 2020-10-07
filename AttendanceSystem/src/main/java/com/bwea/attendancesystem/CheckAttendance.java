@@ -62,39 +62,7 @@ public class CheckAttendance extends javax.swing.JFrame {
        
     }
  
-    private void writeDataLines(ResultSet result, XSSFWorkbook workbook,
-            XSSFSheet sheet) throws SQLException {
-        int rowCount = 1;
- 
-        while (result.next()) {
-            String Regnumber = result.getString("Registration No");
-            String Name = result.getString("Name");
-            Date d = result.getDate("Datein");
-            String datein=d.toString();
-            String Intime = result.getString("Intime");
-           
- 
-            Row row = sheet.createRow(rowCount++);
- 
-            int columnCount = 0;
-            Cell cell = row.createCell(columnCount++);
-            cell.setCellValue(Regnumber);
- 
-            cell = row.createCell(columnCount++);
-            cell.setCellValue(Name);
- 
-            cell = row.createCell(columnCount++);
-
-            cell.setCellValue(datein);
- 
-            cell = row.createCell(columnCount++);
-            
-            cell.setCellValue(Intime);
- 
-        
- 
-        }
-    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -286,35 +254,57 @@ public class CheckAttendance extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_homeMouseClicked
 
     private void btn_generateexcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generateexcelMouseClicked
-   
-        try  {
-            String excelFilePath = "Attendance-export.xlsx";
-            String regnum= txt_regnum.getText();
-            if(regnum!=""){
-            
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            Date fromdate = (Date) cal_fromdate.getDate();
-            Date todate = (Date) cal_todate.getDate();
-            String d1=dateFormat.format(fromdate);
-            String d2=dateFormat.format(todate);
-            System.out.println(d1);
-            System.out.println(d2);
-            
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM attendance"
-                    + " WHERE `Registration No` IN ('"+regnum+"') AND (Datein BETWEEN '"+d1+"' AND '"+d2+"')");                          
-            ResultSet rs=ps.executeQuery();
-            
-             while (rs.next() != false) {
-                 
-                 
-                txt_name.setText(rs.getString("Name"));
-                XSSFWorkbook workbook = new XSSFWorkbook();
-                XSSFSheet sheet = workbook.createSheet("Reviews");
+    int rowCount = 1;
+    try  {
+        String excelFilePath = "Attendance-export.xlsx";
+        String regnum= txt_regnum.getText();
+        if(regnum!=""){
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date fromdate = (Date) cal_fromdate.getDate();
+        Date todate = (Date) cal_todate.getDate();
+        String d1=dateFormat.format(fromdate);
+        String d2=dateFormat.format(todate);
+        System.out.println(d1);
+        System.out.println(d2);
+
+        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM attendance"
+                + " WHERE `Registration No` IN ('"+regnum+"') AND (Datein BETWEEN '"+d1+"' AND '"+d2+"')");                          
+        ResultSet rs=ps.executeQuery();
+
+    XSSFWorkbook workbook = new XSSFWorkbook();
+    XSSFSheet sheet = workbook.createSheet("Reviews");
+   while (rs.next()) {
+    txt_name.setText(rs.getString("Name"));
+            writeHeaderLine(sheet);
+            String Regnumber = rs.getString("Registration No");
+            String Name = rs.getString("Name");
+            Date d = rs.getDate("Datein");
+            String datein=d.toString();
+            String Intime = rs.getString("Intime");
+           
  
-                writeHeaderLine(sheet);
+            Row row = sheet.createRow(rowCount++);
  
-                writeDataLines(rs, workbook, sheet);
+            int columnCount = 0;
+            Cell cell = row.createCell(columnCount++);
+            cell.setCellValue(Regnumber);
+ 
+            cell = row.createCell(columnCount++);
+            cell.setCellValue(Name);
+ 
+            cell = row.createCell(columnCount++);
+
+            cell.setCellValue(datein);
+ 
+            cell = row.createCell(columnCount++);
+            
+            cell.setCellValue(Intime);
+ 
+        
+ 
+        }
                 
  
                 FileOutputStream outputStream = new FileOutputStream(excelFilePath);
@@ -323,7 +313,7 @@ public class CheckAttendance extends javax.swing.JFrame {
  
                  
 
-               }
+               
          
         }
             else{

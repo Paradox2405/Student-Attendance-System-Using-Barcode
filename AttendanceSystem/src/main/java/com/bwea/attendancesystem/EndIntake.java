@@ -8,6 +8,7 @@ package com.bwea.attendancesystem;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -172,13 +173,13 @@ public class EndIntake extends javax.swing.JFrame {
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(65, 65, 65)
                 .addComponent(selectStudentsDb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_intake, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(btn_dropintake)
                 .addGap(30, 30, 30))
         );
@@ -220,17 +221,30 @@ public class EndIntake extends javax.swing.JFrame {
         // TODO add your handling code here:
         String course=(String)selectStudentsDb.getSelectedItem();
         String intake = txt_intake.getText();
+          int saveNew = JOptionPane.showConfirmDialog(this,
+                    "Are you sure?", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
+            
+            if(saveNew == JOptionPane.YES_OPTION)
+            {
+           
         try{
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
          PreparedStatement ps = con.prepareStatement("DELETE FROM `"+course+"` WHERE Action='"+intake+"'");
          ps.execute();
+         ResultSet rs=ps.getResultSet();
+        if(rs!=null){ 
           JOptionPane.showMessageDialog(null,"Intake has been removed!");
         }
+        else{
+        JOptionPane.showMessageDialog(null,"Invalid Intake Number!");
+        }
+        
+        }
         catch(SQLException e){
-            JOptionPane.showMessageDialog(null,"Intake Number or Course"
-                    + " doesn't exist! Please Check Again! ");
+             JOptionPane.showMessageDialog(null,"Please select a course!");
         e.printStackTrace();
         }
+            }
     }//GEN-LAST:event_btn_dropintakeMouseClicked
 
     /**

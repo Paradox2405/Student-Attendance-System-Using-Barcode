@@ -33,6 +33,8 @@ public class UploadExcel extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         dropdown();
+        g.add(btn1);
+        g.add(btn2);
     }
     
      private void dropdown(){
@@ -60,6 +62,18 @@ public class UploadExcel extends javax.swing.JFrame {
     
     
     }
+     
+     private void openselector() throws IOException{
+     
+      JFileChooser fileChooser = new JFileChooser();
+        int returnValue = fileChooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+          File selectedFile = fileChooser.getSelectedFile();
+          Desktop.getDesktop().open(selectedFile);
+        }
+        
+     
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,6 +84,7 @@ public class UploadExcel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        g = new javax.swing.ButtonGroup();
         TopPanel = new javax.swing.JPanel();
         jLabelClose = new javax.swing.JLabel();
         jLabelMin = new javax.swing.JLabel();
@@ -78,6 +93,9 @@ public class UploadExcel extends javax.swing.JFrame {
         MainPanel = new javax.swing.JPanel();
         btn_selectexcel = new javax.swing.JButton();
         selectStudentsDb = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        btn1 = new javax.swing.JRadioButton();
+        btn2 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -121,7 +139,7 @@ public class UploadExcel extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(78, 78, 78)
+                .addGap(123, 123, 123)
                 .addComponent(btn_home)
                 .addGap(30, 30, 30)
                 .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -154,27 +172,51 @@ public class UploadExcel extends javax.swing.JFrame {
 
         selectStudentsDb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a Course" }));
 
+        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel2.setText("Select all columns when updating or adding new courses");
+
+        btn1.setText("Add new students to course");
+
+        btn2.setText("Update course payment details");
+
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(selectStudentsDb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(selectStudentsDb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
+                            .addComponent(btn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
-            .addGroup(MainPanelLayout.createSequentialGroup()
-                .addGap(175, 175, 175)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btn_selectexcel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addGap(248, 248, 248))
+            .addGroup(MainPanelLayout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(jLabel2)
+                .addContainerGap(180, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(42, 42, 42)
                 .addComponent(selectStudentsDb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(btn1)
+                .addGap(18, 18, 18)
+                .addComponent(btn2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_selectexcel)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -189,8 +231,8 @@ public class UploadExcel extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -212,33 +254,55 @@ public class UploadExcel extends javax.swing.JFrame {
 
     private void btn_selectexcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_selectexcelMouseClicked
         // TODO add your handling code here:
+        
+       if(btn1.isSelected()){
+           try {
+               openselector();
+           } catch (IOException ex) {
+               Logger.getLogger(UploadExcel.class.getName()).log(Level.SEVERE, null, ex);
+           }
+       
+       }
+       else if (btn2.isSelected()){
+        
+        
+        
          String course=(String)selectStudentsDb.getSelectedItem();
          try{
              Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("TRUNCATE `"+course+"`");
+            PreparedStatement ps = con.prepareStatement("UPDATE `"+course+"` SET `Discounts`=NULL,"
+                    + "`Payable`=NULL,`Received Payment` = NULL,`Refunds`=NULL,`Due`=NULL");
+            
+            
+              int saveNew = JOptionPane.showConfirmDialog(this,
+          "Do you want to change values?", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
+            
+            if(saveNew == JOptionPane.YES_OPTION)
+            {
+          
             ps.execute();
             ResultSet rs=ps.getResultSet();
             
         if(rs==null){
-        JFileChooser fileChooser = new JFileChooser();
-        int returnValue = fileChooser.showOpenDialog(null);
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-          File selectedFile = fileChooser.getSelectedFile();
-          Desktop.getDesktop().open(selectedFile);
-        }
-        
+        openselector();
          }
+           
         else{
         JOptionPane.showMessageDialog(null,"Please select course!");
         }
+            }
          }
          catch(SQLException e){
               JOptionPane.showMessageDialog(null,"Please select course!");
              e.printStackTrace();
          
-         } catch (IOException ex) {
-            Logger.getLogger(UploadExcel.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         } catch (IOException ex) { 
+               Logger.getLogger(UploadExcel.class.getName()).log(Level.SEVERE, null, ex);
+           } 
+       }
+       else{
+       JOptionPane.showMessageDialog(null,"Please select a button!");
+       }
     }//GEN-LAST:event_btn_selectexcelMouseClicked
 
     /**
@@ -279,9 +343,13 @@ public class UploadExcel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel TopPanel;
+    private javax.swing.JRadioButton btn1;
+    private javax.swing.JRadioButton btn2;
     private javax.swing.JLabel btn_home;
     private javax.swing.JButton btn_selectexcel;
+    private javax.swing.ButtonGroup g;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JComboBox<String> selectStudentsDb;
