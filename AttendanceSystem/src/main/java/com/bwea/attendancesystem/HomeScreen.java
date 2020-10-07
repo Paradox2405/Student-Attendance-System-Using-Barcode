@@ -6,7 +6,6 @@
  */
 package com.bwea.attendancesystem;
 
-import java.net.MalformedURLException;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
@@ -35,8 +34,6 @@ public class HomeScreen extends javax.swing.JFrame {
     
     private void dropdown(){
     
-    
-             selectStudentsDb.addItem("Student");
              selectStudentsDb.addItem("Two Month Diploma in English");
              selectStudentsDb.addItem("Two Month Advance Certificate - English");
              selectStudentsDb.addItem("Two Month Certificate - English");

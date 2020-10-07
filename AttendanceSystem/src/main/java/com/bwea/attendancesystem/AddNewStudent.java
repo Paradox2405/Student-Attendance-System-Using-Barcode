@@ -33,8 +33,6 @@ public class AddNewStudent extends javax.swing.JFrame {
     
     private void dropdown(){
     
-    
-             selectStudentsDb.addItem("Student");
              selectStudentsDb.addItem("Two Month Diploma in English");
              selectStudentsDb.addItem("Two Month Advance Certificate - English");
              selectStudentsDb.addItem("Two Month Certificate - English");

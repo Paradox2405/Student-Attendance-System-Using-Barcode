@@ -319,8 +319,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         
         try{       
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT 'student' AS `tablename`,`Refference No`,`Name`,`Contact No`  FROM `student` WHERE `Registration No`='"+regnumber+"'"
-                    + "UNION ALL SELECT 'Two Month Diploma in English' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Two Month Diploma in English` WHERE `Registration No`='"+regnumber+"'"
+            PreparedStatement ps = con.prepareStatement("SELECT 'Two Month Diploma in English' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Two Month Diploma in English` WHERE `Registration No`='"+regnumber+"'"
                     + "UNION ALL SELECT 'Two Month Advance Certificate - English' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Two Month Advance Certificate - English` WHERE `Registration No`='"+regnumber+"'"
                     + "UNION ALL SELECT 'Two Month Certificate - English' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Two Month Certificate - English` WHERE `Registration No`='"+regnumber+"'"
                     + "UNION ALL SELECT 'Three Month Diploma - English' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Three Month Diploma - English` WHERE `Registration No`='"+regnumber+"'"

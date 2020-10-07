@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `bwea` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `bwea`;
 -- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
 -- Host: localhost    Database: bwea
@@ -32,18 +30,27 @@ CREATE TABLE `two month diploma in english` (
   `Contact No` int NOT NULL,
   `Branch` text NOT NULL,
   `Course` varchar(80) NOT NULL,
-  `Total Fee` int NOT NULL,
-  `Discounts` int NOT NULL,
-  `Payable` int NOT NULL,
-  `Received Payment` int NOT NULL,
-  `Refunds` int NOT NULL,
-  `Due` int NOT NULL,
+  `Total Fee` int DEFAULT NULL,
+  `Discounts` int DEFAULT NULL,
+  `Payable` int DEFAULT NULL,
+  `Received Payment` int DEFAULT NULL,
+  `Refunds` int DEFAULT NULL,
+  `Due` int DEFAULT NULL,
   `Action` varchar(20) DEFAULT NULL,
   `Barcode` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`Registration No`),
   UNIQUE KEY `Barcode_UNIQUE` (`Barcode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `two month diploma in english`
+--
+
+LOCK TABLES `two month diploma in english` WRITE;
+/*!40000 ALTER TABLE `two month diploma in english` DISABLE KEYS */;
+/*!40000 ALTER TABLE `two month diploma in english` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -54,4 +61,4 @@ CREATE TABLE `two month diploma in english` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-01 18:58:05
+-- Dump completed on 2020-10-07 10:59:07

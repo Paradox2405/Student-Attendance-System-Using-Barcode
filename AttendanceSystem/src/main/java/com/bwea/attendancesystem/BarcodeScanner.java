@@ -408,8 +408,7 @@ public class BarcodeScanner extends javax.swing.JFrame {
         try{       
             int bar = Integer.parseInt(barcode);
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT `Name`,`Registration No`,`Course`,`Due` FROM `student` WHERE Barcode='"+bar+"'"
-                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Two Month Diploma in English` WHERE Barcode='"+bar+"'"
+            PreparedStatement ps = con.prepareStatement("SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Two Month Diploma in English` WHERE Barcode='"+bar+"'"
                     + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Two Month Advance Certificate - English` WHERE Barcode='"+bar+"'"
                     + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Two Month Certificate - English` WHERE Barcode='"+bar+"'" 
                     + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Three Month Diploma - English` WHERE Barcode='"+bar+"'" 

@@ -334,7 +334,4 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
     private javax.swing.JTable table_all;
     // End of variables declaration//GEN-END:variables
 
-    private void DisplayTableDailyAtt() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
