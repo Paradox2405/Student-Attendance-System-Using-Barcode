@@ -186,11 +186,6 @@ public class AddNewAdmin extends javax.swing.JFrame {
         btn_removeadmin.setForeground(new java.awt.Color(255, 255, 255));
         btn_removeadmin.setText("Remove");
         btn_removeadmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_removeadmin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_removeadminMouseClicked(evt);
-            }
-        });
         btn_removeadmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_removeadminActionPerformed(evt);
@@ -378,10 +373,6 @@ public class AddNewAdmin extends javax.swing.JFrame {
         return checkUser;
     }
     
-    private void btn_removeadminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_removeadminMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_removeadminMouseClicked
-
     private void btn_removeadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removeadminActionPerformed
         int deleteAdmin = JOptionPane.showConfirmDialog(this,
                     "Do you want to Delete Admin?", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);

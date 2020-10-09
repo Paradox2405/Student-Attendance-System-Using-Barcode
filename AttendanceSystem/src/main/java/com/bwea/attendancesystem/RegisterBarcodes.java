@@ -336,7 +336,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         String regnumber = txt_regnumber.getText();
         
         if(regnumber.equals("")){
-            JOptionPane.showMessageDialog(null,"Please enter the reference number.");
+            JOptionPane.showMessageDialog(null,"Please enter the registration number."); 
         }
  
         else{
@@ -404,7 +404,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
             } 
 
             catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Saving failed.");
+            JOptionPane.showMessageDialog(null, "Saving failed. Nothing has entered.");
             e.printStackTrace();
             }
         }
