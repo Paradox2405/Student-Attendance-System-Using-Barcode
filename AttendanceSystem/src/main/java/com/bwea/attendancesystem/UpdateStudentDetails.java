@@ -441,39 +441,37 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_homeMouseClicked
 
     private void btn_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enterActionPerformed
-//        Function f = new Function();
-//        ResultSet rs;
-//   
-      //  String barcode = txt_barcode.getText();
-
-        try{
-            String table = (String)selectStudentsDb.getSelectedItem();
+      //Function f = new Function();
+      //ResultSet rs;
+      //String barcode = txt_barcode.getText();
+        if(txt_barcode.getText()!=null){
+            try{
+                String table = (String)selectStudentsDb.getSelectedItem();
            
-           // int bar = Integer.parseInt(barcode);
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM "+table+" WHERE `Barcode` = '" +txt_barcode.getText()+"'");
-            ResultSet rs = ps.executeQuery();
+              //int bar = Integer.parseInt(barcode);
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+                PreparedStatement ps = con.prepareStatement("SELECT * FROM "+table+" WHERE `Barcode` = '" +txt_barcode.getText()+"'");
+                ResultSet rs = ps.executeQuery();
             
-            if(rs.next()){
-                txt_refno.setText(rs.getString("Refference No")); 
-                txt_regno.setText(rs.getString("Registration No"));
-                txt_name.setText(rs.getString("Name"));
-                txt_contactno.setText(rs.getString("Contact No"));
-                txt_branch.setText(rs.getString("Branch"));
-                txt_course.setText(rs.getString("Course"));
-                txt_total.setText(rs.getString("Total Fee"));
-                txt_disc.setText(rs.getString("Discounts"));
-                txt_pay.setText(rs.getString("Payable"));
-                txt_recieved.setText(rs.getString("Received Payment"));
-                txt_refunds.setText(rs.getString("Refunds"));
-                txt_dues.setText(rs.getString("Due"));
-                txt_actions.setText(rs.getString("Action"));
+                if(rs.next()){
+                    txt_refno.setText(rs.getString("Refference No")); 
+                    txt_regno.setText(rs.getString("Registration No"));
+                    txt_name.setText(rs.getString("Name"));
+                    txt_contactno.setText(rs.getString("Contact No"));
+                    txt_branch.setText(rs.getString("Branch"));
+                    txt_course.setText(rs.getString("Course"));
+                    txt_total.setText(rs.getString("Total Fee"));
+                    txt_disc.setText(rs.getString("Discounts"));
+                    txt_pay.setText(rs.getString("Payable"));
+                    txt_recieved.setText(rs.getString("Received Payment"));
+                    txt_refunds.setText(rs.getString("Refunds"));
+                    txt_dues.setText(rs.getString("Due"));
+                    txt_actions.setText(rs.getString("Action"));
+                }
             }
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null,"Barcode Does Not Exist");
-            System.out.println(e);
+            catch(SQLException e){
+                JOptionPane.showMessageDialog(null,"Barcode Does Not Exist");
+                System.out.println(e);
                 txt_refno.setText(null); 
                 txt_regno.setText(null);
                 txt_name.setText(null);
@@ -487,6 +485,10 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
                 txt_refunds.setText(null);
                 txt_dues.setText(null);
                 txt_actions.setText(null);
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Incorrect Details");
         }
     }//GEN-LAST:event_btn_enterActionPerformed
 
@@ -495,52 +497,56 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cancelMouseClicked
 
     private void btn_editstu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editstu1MouseClicked
-        String table = (String)selectStudentsDb.getSelectedItem();
-        String stu_refno = txt_refno.getText();
-        String stu_regno = txt_regno.getText();
-        String stu_name = txt_name.getText();
-        String stu_contact = txt_contactno.getText();
-        String stu_branch = txt_branch.getText();
-        String stu_course = txt_course.getText();
-        String stu_fee = txt_total.getText();
-        String stu_disc = txt_disc.getText();
-        String stu_payment = txt_pay.getText();
-        String stu_recieve = txt_recieved.getText();
-        String stu_refunds = txt_refunds.getText();
-        String stu_dues = txt_dues.getText();
-        String stu_actions = txt_actions.getText();
-        String stu_barcode = txt_barcode.getText();
+        if(txt_barcode.getText()==null){
+            JOptionPane.showMessageDialog(null,"Nothing has updated to save."); //TRY WHETHER THIS CODE IS WORKING
+        }
+        else{
+            String table = (String)selectStudentsDb.getSelectedItem();
+            String stu_refno = txt_refno.getText();
+            String stu_regno = txt_regno.getText();
+            String stu_name = txt_name.getText();
+            String stu_contact = txt_contactno.getText();
+            String stu_branch = txt_branch.getText();
+            String stu_course = txt_course.getText();
+            String stu_fee = txt_total.getText();
+            String stu_disc = txt_disc.getText();
+            String stu_payment = txt_pay.getText();
+            String stu_recieve = txt_recieved.getText();
+            String stu_refunds = txt_refunds.getText();
+            String stu_dues = txt_dues.getText();
+            String stu_actions = txt_actions.getText();
+            String stu_barcode = txt_barcode.getText();
         
-        try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("UPDATE `"+table+"` SET `Refference No`=?,`Registration No`=?,`Name`=?,`Contact No`=?,`Branch`=?,`Course`=?,`Total Fee`=?,`Discounts`=?,`Payable`=?,`Received Payment`=?,`Refunds`=?,`Due`=?,`Action`=? WHERE Barcode="+stu_barcode);
+            try{
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+                PreparedStatement ps = con.prepareStatement("UPDATE `"+table+"` SET `Refference No`=?,`Registration No`=?,`Name`=?,`Contact No`=?,`Branch`=?,`Course`=?,`Total Fee`=?,`Discounts`=?,`Payable`=?,`Received Payment`=?,`Refunds`=?,`Due`=?,`Action`=? WHERE Barcode="+stu_barcode);
 
-            ps.setInt(1, Integer.parseInt(stu_refno));
-            ps.setString(2, stu_regno);
-            ps.setString(3, stu_name);
-            ps.setInt(4, Integer.parseInt(stu_contact));
-            ps.setString(5, stu_branch);
-            ps.setString(6, stu_course);
-            ps.setInt(7, Integer.parseInt(stu_fee));
-            ps.setInt(8, Integer.parseInt(stu_disc));
-            ps.setInt(9, Integer.parseInt(stu_payment));
-            ps.setInt(10, Integer.parseInt(stu_recieve));
-            ps.setInt(11, Integer.parseInt(stu_refunds));
-            ps.setInt(12, Integer.parseInt(stu_dues));
-            ps.setInt(13, Integer.parseInt(stu_actions));
+                ps.setInt(1, Integer.parseInt(stu_refno));
+                ps.setString(2, stu_regno);
+                ps.setString(3, stu_name);
+                ps.setInt(4, Integer.parseInt(stu_contact));
+                ps.setString(5, stu_branch);
+                ps.setString(6, stu_course);
+                ps.setInt(7, Integer.parseInt(stu_fee));
+                ps.setInt(8, Integer.parseInt(stu_disc));
+                ps.setInt(9, Integer.parseInt(stu_payment));
+                ps.setInt(10, Integer.parseInt(stu_recieve));
+                ps.setInt(11, Integer.parseInt(stu_refunds));
+                ps.setInt(12, Integer.parseInt(stu_dues));
+                ps.setInt(13, Integer.parseInt(stu_actions));
          
-            int saveNew = JOptionPane.showConfirmDialog(this,
+                int saveNew = JOptionPane.showConfirmDialog(this,
                     "Do you want to save new data?", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
             
-            if(saveNew == JOptionPane.YES_OPTION)
-            {
-                ps.executeUpdate();
-                JOptionPane.showMessageDialog(null,"Records Updated!");
-                GoHomeScreen();
+                if(saveNew == JOptionPane.YES_OPTION){
+                    ps.executeUpdate();
+                    JOptionPane.showMessageDialog(null,"Records Updated!");
+                    GoHomeScreen();
+                }
+            } 
+            catch (SQLException e){
+                JOptionPane.showMessageDialog(null, e);
             }
-        } 
-        catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btn_editstu1MouseClicked
 
