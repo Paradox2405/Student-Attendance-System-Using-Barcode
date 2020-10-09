@@ -80,6 +80,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
 
         jLabelClose.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabelClose.setForeground(new java.awt.Color(255, 255, 255));
         jLabelClose.setText("X");
         jLabelClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -88,6 +89,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         });
 
         jLabelMin.setFont(new java.awt.Font("Product Sans", 1, 24)); // NOI18N
+        jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMin.setText("-");
         jLabelMin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -96,7 +98,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         });
 
         btn_home.setBackground(new java.awt.Color(153, 153, 153));
-        btn_home.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        btn_home.setFont(new java.awt.Font("Product Sans", 1, 16)); // NOI18N
         btn_home.setForeground(new java.awt.Color(255, 255, 255));
         btn_home.setText("Home");
         btn_home.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -105,7 +107,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Course Attendance");
 
@@ -140,14 +142,20 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
+        btn_MonthlyReport.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_MonthlyReport.setText("Report");
+        btn_MonthlyReport.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        btn_generateGraphMonthly.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_generateGraphMonthly.setText("Generate Graph");
+        btn_generateGraphMonthly.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        btn_endBatch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_endBatch.setText("End Batch");
-        btn_endBatch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_endBatchActionPerformed(evt);
+        btn_endBatch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_endBatch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_endBatchMouseClicked(evt);
             }
         });
 
@@ -180,14 +188,18 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         display_batch_name.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         display_batch_name.setText("Monthly Attendance");
 
+        daily_attendance.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         daily_attendance.setText("Daily");
+        daily_attendance.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         daily_attendance.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 daily_attendanceMouseClicked(evt);
             }
         });
 
+        btn_Refresh.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_Refresh.setText("Refresh");
+        btn_Refresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Refresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_RefreshMouseClicked(evt);
@@ -236,7 +248,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                         .addComponent(btn_Refresh)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_MonthlyReport)
                     .addComponent(btn_generateGraphMonthly)
@@ -261,10 +273,6 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_homeMouseClicked
 
-    private void btn_endBatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_endBatchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_endBatchActionPerformed
-
     private void daily_attendanceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_daily_attendanceMouseClicked
         CourseAttendanceDaily coa = new CourseAttendanceDaily();
         coa.setVisible(true);
@@ -278,10 +286,16 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         DefaultTableModel model=(DefaultTableModel) table_all.getModel();
         while(model.getRowCount()>0){
             model.setRowCount(0);
-            }
+        }
 
-         DisplayTableMonthlyAtt();
+        DisplayTableMonthlyAtt();
     }//GEN-LAST:event_btn_RefreshMouseClicked
+
+    private void btn_endBatchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_endBatchMouseClicked
+        EndIntake endin = new EndIntake();
+        endin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_endBatchMouseClicked
 
     /**
      * @param args the command line arguments

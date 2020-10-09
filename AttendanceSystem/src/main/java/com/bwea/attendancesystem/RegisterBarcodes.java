@@ -25,28 +25,29 @@ public class RegisterBarcodes extends javax.swing.JFrame {
      */
     public RegisterBarcodes() {
         initComponents();
-        
+        this.setLocationRelativeTo(null);  
     }
+    
     private static final int TIME_VISIBLE = 1500;
     
     private void barcodeSaved(){
     
-     JOptionPane pane = new JOptionPane("Barcode Saved", JOptionPane.INFORMATION_MESSAGE);
-                JDialog dialog = pane.createDialog(null,"");
-                dialog.setModal(false);
-                dialog.setVisible(true);
-                new Timer(TIME_VISIBLE, new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        dialog.setVisible(false);
-                    }
-                }).start();
-                lbl_name.setText(null);
-                lbl_contactNo.setText(null);
-                lbl_refNumber.setText(null);
-                 txt_regnumber.setText(null);
-                txt_regnumber.requestFocus();
-                
-    
+        JOptionPane pane = new JOptionPane("Barcode Saved", JOptionPane.INFORMATION_MESSAGE);
+        JDialog dialog = pane.createDialog(null,"");
+        dialog.setModal(false);
+        dialog.setVisible(true);
+        
+        new Timer(TIME_VISIBLE, new ActionListener(){
+        
+            public void actionPerformed(ActionEvent e) {
+                dialog.setVisible(false);
+            }
+        }).start();
+            lbl_name.setText(null);
+            lbl_contactNo.setText(null);
+            lbl_refNumber.setText(null);
+            txt_regnumber.setText(null);
+            txt_regnumber.requestFocus();
     }
     
 //    public void RegisterBarcodeSave(){
@@ -95,6 +96,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
 
         jLabelClose.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabelClose.setForeground(new java.awt.Color(255, 255, 255));
         jLabelClose.setText("X");
         jLabelClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -103,6 +105,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         });
 
         jLabelMin.setFont(new java.awt.Font("Product Sans", 1, 24)); // NOI18N
+        jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMin.setText("-");
         jLabelMin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -114,6 +117,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         btn_home.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         btn_home.setForeground(new java.awt.Color(255, 255, 255));
         btn_home.setText("Home");
+        btn_home.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_homeMouseClicked(evt);
@@ -131,11 +135,11 @@ public class RegisterBarcodes extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
                 .addContainerGap(163, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(54, 54, 54)
+                .addGap(72, 72, 72)
                 .addComponent(btn_home)
-                .addGap(30, 30, 30)
-                .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelClose, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -155,20 +159,34 @@ public class RegisterBarcodes extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
+        txt_regnumber.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Registration Number");
 
+        btn_search.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_search.setForeground(new java.awt.Color(0, 0, 0));
         btn_search.setText("Search");
+        btn_search.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_search.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_searchMouseClicked(evt);
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Details:");
 
+        txt_barcodereg.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Scan and Enter Barcode");
 
+        btn_save.setBackground(new java.awt.Color(0, 204, 0));
+        btn_save.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_save.setForeground(new java.awt.Color(255, 255, 255));
         btn_save.setText("Save");
+        btn_save.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_save.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_saveMouseClicked(evt);
@@ -181,14 +199,18 @@ public class RegisterBarcodes extends javax.swing.JFrame {
 
         lbl_refNumber.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Name");
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Contact No");
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Refference No");
 
         lbl_coursename.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("Course");
 
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
@@ -207,34 +229,36 @@ public class RegisterBarcodes extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE))
                                     .addGroup(MainPanelLayout.createSequentialGroup()
                                         .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(21, 21, 21)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addGap(18, 18, 18)
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txt_regnumber, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
-                                .addComponent(btn_search, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbl_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(lbl_contactNo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_refNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_regnumber, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+                            .addComponent(btn_search, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_refNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+                            .addComponent(lbl_contactNo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(MainPanelLayout.createSequentialGroup()
                         .addContainerGap(427, Short.MAX_VALUE)
                         .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_barcodereg))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(lbl_coursename, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MainPanelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18))
+                            .addGroup(MainPanelLayout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(jLabel5)
+                                .addGap(25, 25, 25)))
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_barcodereg)
+                            .addComponent(lbl_coursename, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         MainPanelLayout.setVerticalGroup(
@@ -254,7 +278,7 @@ public class RegisterBarcodes extends javax.swing.JFrame {
                         .addComponent(lbl_name, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_contactNo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_contactNo, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                     .addGroup(MainPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel6)))
@@ -316,10 +340,9 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         }
  
         else{
-        
-        try{       
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT 'Two Month Diploma in English' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Two Month Diploma in English` WHERE `Registration No`='"+regnumber+"'"
+            try{       
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+                PreparedStatement ps = con.prepareStatement("SELECT 'Two Month Diploma in English' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Two Month Diploma in English` WHERE `Registration No`='"+regnumber+"'"
                     + "UNION ALL SELECT 'Two Month Advance Certificate - English' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Two Month Advance Certificate - English` WHERE `Registration No`='"+regnumber+"'"
                     + "UNION ALL SELECT 'Two Month Certificate - English' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Two Month Certificate - English` WHERE `Registration No`='"+regnumber+"'"
                     + "UNION ALL SELECT 'Three Month Diploma - English' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Three Month Diploma - English` WHERE `Registration No`='"+regnumber+"'"
@@ -337,33 +360,32 @@ public class RegisterBarcodes extends javax.swing.JFrame {
                     + "UNION ALL SELECT 'Foundation in Arduino Programming' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Foundation in Arduino Programming` WHERE `Registration No`='"+regnumber+"'"
                     + "UNION ALL SELECT 'Diploma in Android Application Development' AS `tablename`,`Refference No`,`Name`,`Contact No` FROM `Diploma in Android Application Development` WHERE `Registration No`='"+regnumber+"'"); //SELECT * FROM LMS WHERE Refference No=? or Registration No=?
             
-            ResultSet rs = ps.executeQuery();
+                ResultSet rs = ps.executeQuery();
                               
-            if(rs.next()){
-              lbl_name.setText(rs.getString("Name")); //Name
-              lbl_contactNo.setText(rs.getString("Contact No")); //Contact No 
-              lbl_refNumber.setText(rs.getString("Refference No")); //Registration No
-              lbl_coursename.setText(rs.getString("tablename"));
-              txt_barcodereg.requestFocus();
-            }
+                if(rs.next()){
+                    lbl_name.setText(rs.getString("Name")); //Name
+                    lbl_contactNo.setText(rs.getString("Contact No")); //Contact No 
+                    lbl_refNumber.setText(rs.getString("Refference No")); //Registration No
+                    lbl_coursename.setText(rs.getString("tablename"));
+                    txt_barcodereg.requestFocus();
+                }
             
-            else{
-                JOptionPane.showMessageDialog(null,"Invalid Reference or Registration Number. Please try again.");
-                lbl_name.setText(null);
-                lbl_contactNo.setText(null);
-                lbl_refNumber.setText(null);
-                lbl_coursename.setText(null);
-                 txt_regnumber.setText(null);
-                txt_regnumber.requestFocus();
+                else{
+                    JOptionPane.showMessageDialog(null,"Invalid Reference or Registration Number. Please try again.");
+                    lbl_name.setText(null);
+                    lbl_contactNo.setText(null);
+                    lbl_refNumber.setText(null);
+                    lbl_coursename.setText(null);
+                    txt_regnumber.setText(null);
+                    txt_regnumber.requestFocus();
+                }
             }
-        }
         
-        catch(SQLException e)
-            {
+            catch(SQLException e){
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null,e);
                 JOptionPane.showMessageDialog(null,"No Connection.");
-        }
+            }
         }
     }//GEN-LAST:event_btn_searchMouseClicked
 
@@ -374,26 +396,21 @@ public class RegisterBarcodes extends javax.swing.JFrame {
         
       //int bar = Integer.parseInt(barcodereg);
         if(lbl_refNumber.getText()!=null){
-        try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("UPDATE `"+table+"` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')");          
+            try {
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+                PreparedStatement ps = con.prepareStatement("UPDATE `"+table+"` SET `Barcode`='"+barcodereg+"' where `Registration No` in ('"+regnumber+"')");          
+                ps.executeUpdate();
+                barcodeSaved();
+            } 
 
-            ps.executeUpdate();
-            barcodeSaved();
-
-
-
-        } 
-
-        catch (SQLException e) {
-
+            catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Saving failed.");
             e.printStackTrace();
-        }
+            }
         }
         else{
             JOptionPane.showMessageDialog(null,"Incorrect Details");
-                }
+        }
     }//GEN-LAST:event_btn_saveMouseClicked
 
     /**

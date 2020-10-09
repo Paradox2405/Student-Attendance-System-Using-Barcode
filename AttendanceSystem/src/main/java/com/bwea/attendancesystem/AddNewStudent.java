@@ -26,33 +26,28 @@ public class AddNewStudent extends javax.swing.JFrame {
      */
     public AddNewStudent() {
         initComponents();
-        dropdown();
-            
+        dropdown();   
         this.setLocationRelativeTo(null);
     }
     
     private void dropdown(){
-    
-             selectStudentsDb.addItem("Two Month Diploma in English");
-             selectStudentsDb.addItem("Two Month Advance Certificate - English");
-             selectStudentsDb.addItem("Two Month Certificate - English");
-             selectStudentsDb.addItem("Three Month Diploma - English");
-             selectStudentsDb.addItem("English + IT");
-             selectStudentsDb.addItem("TOIC");
-             selectStudentsDb.addItem("IELTS");
-             selectStudentsDb.addItem("Weekend English");
-             selectStudentsDb.addItem("Night - English");
-             selectStudentsDb.addItem("KIDS");
-             selectStudentsDb.addItem("Foundation in ICT");
-             selectStudentsDb.addItem("Diploma in Information Technology");
-             selectStudentsDb.addItem("Diploma in Software Engineering");
-             selectStudentsDb.addItem("Diploma in Web Designing");
-             selectStudentsDb.addItem("Diploma in Graphic Designing");
-             selectStudentsDb.addItem("Foundation in Arduino Programming");
-             selectStudentsDb.addItem("Diploma in Android Application Development");
-             
-    
-    
+            selectStudentsDb.addItem("Two Month Diploma in English");
+            selectStudentsDb.addItem("Two Month Advance Certificate - English");
+            selectStudentsDb.addItem("Two Month Certificate - English");
+            selectStudentsDb.addItem("Three Month Diploma - English");
+            selectStudentsDb.addItem("English + IT");
+            selectStudentsDb.addItem("TOIC");
+            selectStudentsDb.addItem("IELTS");
+            selectStudentsDb.addItem("Weekend English");
+            selectStudentsDb.addItem("Night - English");
+            selectStudentsDb.addItem("KIDS");
+            selectStudentsDb.addItem("Foundation in ICT");
+            selectStudentsDb.addItem("Diploma in Information Technology");
+            selectStudentsDb.addItem("Diploma in Software Engineering");
+            selectStudentsDb.addItem("Diploma in Web Designing");
+            selectStudentsDb.addItem("Diploma in Graphic Designing");
+            selectStudentsDb.addItem("Foundation in Arduino Programming");
+            selectStudentsDb.addItem("Diploma in Android Application Development");
     }
     
     private void NewStudentSave(){
@@ -123,6 +118,7 @@ public class AddNewStudent extends javax.swing.JFrame {
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
 
         jLabelClose.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabelClose.setForeground(new java.awt.Color(255, 255, 255));
         jLabelClose.setText("X");
         jLabelClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -131,6 +127,7 @@ public class AddNewStudent extends javax.swing.JFrame {
         });
 
         jLabelMin.setFont(new java.awt.Font("Product Sans", 1, 24)); // NOI18N
+        jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMin.setText("-");
         jLabelMin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -142,6 +139,7 @@ public class AddNewStudent extends javax.swing.JFrame {
         btn_home.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         btn_home.setForeground(new java.awt.Color(255, 255, 255));
         btn_home.setText("Home");
+        btn_home.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_homeMouseClicked(evt);
@@ -188,6 +186,7 @@ public class AddNewStudent extends javax.swing.JFrame {
         btn_cancelNewStuForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_cancelNewStuForm.setForeground(new java.awt.Color(255, 255, 255));
         btn_cancelNewStuForm.setText("Cancel");
+        btn_cancelNewStuForm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cancelNewStuForm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_cancelNewStuFormMouseClicked(evt);
@@ -198,6 +197,7 @@ public class AddNewStudent extends javax.swing.JFrame {
         btn_saveNewStuForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_saveNewStuForm.setForeground(new java.awt.Color(255, 255, 255));
         btn_saveNewStuForm.setText("Save");
+        btn_saveNewStuForm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_saveNewStuForm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_saveNewStuFormMouseClicked(evt);
@@ -276,7 +276,9 @@ public class AddNewStudent extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(51, 51, 51));
         jLabel16.setText("Actions");
 
+        selectStudentsDb.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         selectStudentsDb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Course" }));
+        selectStudentsDb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel17.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(51, 51, 51));
@@ -298,11 +300,11 @@ public class AddNewStudent extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(txt_branch, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(MainPanelLayout.createSequentialGroup()
-                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2))
                                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(MainPanelLayout.createSequentialGroup()
                                         .addGap(18, 18, 18)
@@ -416,7 +418,7 @@ public class AddNewStudent extends javax.swing.JFrame {
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cancelNewStuForm)
                     .addComponent(btn_saveNewStuForm))
@@ -458,14 +460,12 @@ public class AddNewStudent extends javax.swing.JFrame {
         int cancelbtn = JOptionPane.showConfirmDialog(this,
                     "Do you want to cancel adding a new student?", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
         
-        if(cancelbtn == JOptionPane.YES_OPTION)
-            {
-                GoHomeScreen();
-            }
+        if(cancelbtn == JOptionPane.YES_OPTION){
+            GoHomeScreen();
+        }
     }//GEN-LAST:event_btn_cancelNewStuFormMouseClicked
 
     private void btn_saveNewStuFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_saveNewStuFormMouseClicked
-        
         String table = (String)selectStudentsDb.getSelectedItem();
         String stu_refno = txt_refno.getText();
         String stu_regno = txt_regno.getText();
@@ -491,41 +491,36 @@ public class AddNewStudent extends javax.swing.JFrame {
         else if(stu_payment.equals("")){
             JOptionPane.showMessageDialog(null,"Please enter the amount to be paid.");
         }
-        else {
-        
-        try{       
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("INSERT INTO `"+table+"` (`Refference No`,`Registration No`,`Name`,`Contact No`,`Branch`,`Course`,`Total Fee`,`Discounts`,`Payable`,`Received Payment`,`Refunds`,`Due`,`Action`,`Barcode`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");   
-            ps.setInt(1, Integer.parseInt(stu_refno));
-            ps.setString(2, stu_regno);
-            ps.setString(3, stu_name);
-            ps.setInt(4, Integer.parseInt(stu_contact));
-            ps.setString(5, stu_branch);
-            ps.setString(6, stu_course);
-            ps.setInt(7, Integer.parseInt(stu_fee));
-            ps.setInt(8, Integer.parseInt(stu_disc));
-            ps.setInt(9, Integer.parseInt(stu_payment));
-            ps.setInt(10, Integer.parseInt(stu_recieve));
-            ps.setInt(11, Integer.parseInt(stu_refunds));
-            ps.setInt(12, Integer.parseInt(stu_dues));
-            ps.setInt(13, Integer.parseInt(stu_actions));
-            ps.setInt(14, Integer.parseInt(stu_barcode));
+        else{
+            try{       
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+                PreparedStatement ps = con.prepareStatement("INSERT INTO `"+table+"` (`Refference No`,`Registration No`,`Name`,`Contact No`,`Branch`,`Course`,`Total Fee`,`Discounts`,`Payable`,`Received Payment`,`Refunds`,`Due`,`Action`,`Barcode`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");   
+                ps.setInt(1, Integer.parseInt(stu_refno));
+                ps.setString(2, stu_regno);
+                ps.setString(3, stu_name);
+                ps.setInt(4, Integer.parseInt(stu_contact));
+                ps.setString(5, stu_branch);
+                ps.setString(6, stu_course);
+                ps.setInt(7, Integer.parseInt(stu_fee));
+                ps.setInt(8, Integer.parseInt(stu_disc));
+                ps.setInt(9, Integer.parseInt(stu_payment));
+                ps.setInt(10, Integer.parseInt(stu_recieve));
+                ps.setInt(11, Integer.parseInt(stu_refunds));
+                ps.setInt(12, Integer.parseInt(stu_dues));
+                ps.setInt(13, Integer.parseInt(stu_actions));
+                ps.setInt(14, Integer.parseInt(stu_barcode));
 
-            int saveNew = JOptionPane.showConfirmDialog(this, "Do you want to save the new student?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                int saveNew = JOptionPane.showConfirmDialog(this, "Do you want to save the new student?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             
-            if(saveNew == JOptionPane.YES_OPTION)
-            {
-                ps.executeUpdate();
-                NewStudentSave();
+                if(saveNew == JOptionPane.YES_OPTION)
+                {
+                    ps.executeUpdate();
+                    NewStudentSave();
+                }                  
             }
-                    
-            }
-        
-        catch(SQLException e)
-            {
+            catch(SQLException e){
                 JOptionPane.showMessageDialog(null,e);
                 JOptionPane.showMessageDialog(null,"Connection failed");
-            
             }
         }
     }//GEN-LAST:event_btn_saveNewStuFormMouseClicked

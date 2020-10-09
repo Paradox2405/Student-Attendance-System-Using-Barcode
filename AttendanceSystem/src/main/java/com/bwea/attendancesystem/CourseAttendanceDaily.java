@@ -84,6 +84,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
 
         jLabelClose.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabelClose.setForeground(new java.awt.Color(255, 255, 255));
         jLabelClose.setText("X");
         jLabelClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -92,6 +93,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         });
 
         jLabelMin.setFont(new java.awt.Font("Product Sans", 1, 24)); // NOI18N
+        jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMin.setText("-");
         jLabelMin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -100,16 +102,17 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         });
 
         btn_home.setBackground(new java.awt.Color(153, 153, 153));
-        btn_home.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        btn_home.setFont(new java.awt.Font("Product Sans", 1, 16)); // NOI18N
         btn_home.setForeground(new java.awt.Color(255, 255, 255));
         btn_home.setText("Home");
+        btn_home.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_homeMouseClicked(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Course Attendance");
 
@@ -118,7 +121,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         TopPanelLayout.setHorizontalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(400, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(270, 270, 270)
                 .addComponent(btn_home)
@@ -147,23 +150,31 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         display_batch_name.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         display_batch_name.setText("Daily Attendance");
 
+        btn_monthly_attendance.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_monthly_attendance.setText("Monthly");
+        btn_monthly_attendance.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_monthly_attendance.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_monthly_attendanceMouseClicked(evt);
             }
         });
 
+        btn_dailyReport.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_dailyReport.setText("Report");
+        btn_dailyReport.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        btn_generateGraphDaily.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_generateGraphDaily.setText("Generate Graph");
+        btn_generateGraphDaily.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_generateGraphDaily.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_generateGraphDailyMouseClicked(evt);
             }
         });
 
+        btn_Refresh.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_Refresh.setText("Refresh ");
+        btn_Refresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Refresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_RefreshMouseClicked(evt);
@@ -208,16 +219,13 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         );
         GraphPanelLayout.setVerticalGroup(
             GraphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 456, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(1, 1, 1)
-                .addComponent(TopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -228,16 +236,17 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addComponent(btn_dailyReport))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(672, 672, 672))
+                            .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(737, 737, 737)
                                 .addComponent(btn_Refresh)
                                 .addGap(18, 18, 18)
                                 .addComponent(btn_monthly_attendance))
                             .addComponent(jScrollPane2))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +259,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                         .addComponent(btn_monthly_attendance)
                         .addComponent(btn_Refresh)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(GraphPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)

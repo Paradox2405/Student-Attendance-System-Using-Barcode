@@ -38,40 +38,33 @@ public class UploadExcel extends javax.swing.JFrame {
     }
     
      private void dropdown(){
-    
-             selectStudentsDb.addItem("Two Month Diploma in English");
-             selectStudentsDb.addItem("Two Month Advance Certificate - English");
-             selectStudentsDb.addItem("Two Month Certificate - English");
-             selectStudentsDb.addItem("Three Month Diploma - English");
-             selectStudentsDb.addItem("English + IT");
-             selectStudentsDb.addItem("TOIC");
-             selectStudentsDb.addItem("IELTS");
-             selectStudentsDb.addItem("Weekend English");
-             selectStudentsDb.addItem("Night - English");
-             selectStudentsDb.addItem("KIDS");
-             selectStudentsDb.addItem("Foundation in ICT");
-             selectStudentsDb.addItem("Diploma in Information Technology");
-             selectStudentsDb.addItem("Diploma in Software Engineering");
-             selectStudentsDb.addItem("Diploma in Web Designing");
-             selectStudentsDb.addItem("Diploma in Graphic Designing");
-             selectStudentsDb.addItem("Foundation in Arduino Programming");
-             selectStudentsDb.addItem("Diploma in Android Application Development");
-             
-    
-    
+        selectStudentsDb.addItem("Two Month Diploma in English");
+        selectStudentsDb.addItem("Two Month Advance Certificate - English");
+        selectStudentsDb.addItem("Two Month Certificate - English");
+        selectStudentsDb.addItem("Three Month Diploma - English");
+        selectStudentsDb.addItem("English + IT");
+        selectStudentsDb.addItem("TOIC");
+        selectStudentsDb.addItem("IELTS");
+        selectStudentsDb.addItem("Weekend English");
+        selectStudentsDb.addItem("Night - English");
+        selectStudentsDb.addItem("KIDS");
+        selectStudentsDb.addItem("Foundation in ICT");
+        selectStudentsDb.addItem("Diploma in Information Technology");
+        selectStudentsDb.addItem("Diploma in Software Engineering");
+        selectStudentsDb.addItem("Diploma in Web Designing");
+        selectStudentsDb.addItem("Diploma in Graphic Designing");
+        selectStudentsDb.addItem("Foundation in Arduino Programming");
+        selectStudentsDb.addItem("Diploma in Android Application Development");    
     }
      
-     private void openselector() throws IOException{
-     
-      JFileChooser fileChooser = new JFileChooser();
+    private void openselector() throws IOException{
+        JFileChooser fileChooser = new JFileChooser();
         int returnValue = fileChooser.showOpenDialog(null);
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-          File selectedFile = fileChooser.getSelectedFile();
-          Desktop.getDesktop().open(selectedFile);
+        if (returnValue == JFileChooser.APPROVE_OPTION){
+            File selectedFile = fileChooser.getSelectedFile();
+            Desktop.getDesktop().open(selectedFile);
         }
-        
-     
-     }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -101,6 +94,7 @@ public class UploadExcel extends javax.swing.JFrame {
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
 
         jLabelClose.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabelClose.setForeground(new java.awt.Color(255, 255, 255));
         jLabelClose.setText("X");
         jLabelClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -109,6 +103,7 @@ public class UploadExcel extends javax.swing.JFrame {
         });
 
         jLabelMin.setFont(new java.awt.Font("Product Sans", 1, 24)); // NOI18N
+        jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMin.setText("-");
         jLabelMin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -137,45 +132,52 @@ public class UploadExcel extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(123, 123, 123)
+                .addGap(145, 145, 145)
                 .addComponent(btn_home)
-                .addGap(30, 30, 30)
-                .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelClose, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         TopPanelLayout.setVerticalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TopPanelLayout.createSequentialGroup()
-                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TopPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelClose, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_home)))
-                    .addGroup(TopPanelLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel1)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelClose, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_home))
+                .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(14, 14, 14))
         );
 
+        btn_selectexcel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_selectexcel.setText("Select Excel");
+        btn_selectexcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_selectexcel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_selectexcelMouseClicked(evt);
             }
         });
 
+        selectStudentsDb.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         selectStudentsDb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a Course" }));
+        selectStudentsDb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setText("Select all columns when updating or adding new courses");
 
+        btn1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btn1.setText("Add new students to course");
+        btn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        btn2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btn2.setText("Update course payment details");
+        btn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
@@ -193,13 +195,14 @@ public class UploadExcel extends javax.swing.JFrame {
                             .addComponent(btn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btn_selectexcel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(248, 248, 248))
-            .addGroup(MainPanelLayout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(jLabel2)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(180, Short.MAX_VALUE)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
+                        .addComponent(btn_selectexcel, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(248, 248, 248))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(170, 170, 170))))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,11 +213,10 @@ public class UploadExcel extends javax.swing.JFrame {
                 .addComponent(btn1)
                 .addGap(18, 18, 18)
                 .addComponent(btn2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_selectexcel)
-                .addContainerGap())
+                .addComponent(btn_selectexcel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -251,56 +253,48 @@ public class UploadExcel extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_homeMouseClicked
 
     private void btn_selectexcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_selectexcelMouseClicked
-        // TODO add your handling code here:
-        
-       if(btn1.isSelected()){
-           try {
+        if(btn1.isSelected()){
+            try {
                openselector();
-           } catch (IOException ex) {
-               Logger.getLogger(UploadExcel.class.getName()).log(Level.SEVERE, null, ex);
-           }
-       
-       }
-       else if (btn2.isSelected()){
-        
-        
-        
-         String course=(String)selectStudentsDb.getSelectedItem();
-         try{
-             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("UPDATE `"+course+"` SET `Discounts`=NULL,"
-                    + "`Payable`=NULL,`Received Payment` = NULL,`Refunds`=NULL,`Due`=NULL");
-            
-            
-              int saveNew = JOptionPane.showConfirmDialog(this,
-          "Do you want to change values?", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
-            
-            if(saveNew == JOptionPane.YES_OPTION)
-            {
-          
-            ps.execute();
-            ResultSet rs=ps.getResultSet();
-            
-        if(rs==null){
-        openselector();
-         }
-           
-        else{
-        JOptionPane.showMessageDialog(null,"Please select course!");
-        }
+            } 
+            catch (IOException ex) {
+                Logger.getLogger(UploadExcel.class.getName()).log(Level.SEVERE, null, ex);
             }
-         }
-         catch(SQLException e){
-              JOptionPane.showMessageDialog(null,"Please select course!");
-             e.printStackTrace();
-         
-         } catch (IOException ex) { 
-               Logger.getLogger(UploadExcel.class.getName()).log(Level.SEVERE, null, ex);
-           } 
        }
-       else{
-       JOptionPane.showMessageDialog(null,"Please select a button!");
-       }
+        else if (btn2.isSelected()){
+            String course=(String)selectStudentsDb.getSelectedItem();
+            try{
+                Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+                PreparedStatement ps = con.prepareStatement("UPDATE `"+course+"` SET `Discounts`=NULL,"
+                    + "`Payable`=NULL,`Received Payment` = NULL,`Refunds`=NULL,`Due`=NULL");
+ 
+                int saveNew = JOptionPane.showConfirmDialog(this,
+                    "Do you want to change values?", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
+            
+                if(saveNew == JOptionPane.YES_OPTION){
+                    ps.execute();
+                    ResultSet rs=ps.getResultSet();
+            
+                if(rs==null){
+                    openselector();
+                }
+           
+                else{
+                    JOptionPane.showMessageDialog(null,"Please select course!");
+                }
+                }
+            }
+            catch(SQLException e){
+                JOptionPane.showMessageDialog(null,"Please select course!");
+                e.printStackTrace();
+            } 
+            catch (IOException ex){ 
+                Logger.getLogger(UploadExcel.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Please select a button!");
+        }
     }//GEN-LAST:event_btn_selectexcelMouseClicked
 
     /**

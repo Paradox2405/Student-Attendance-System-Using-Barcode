@@ -64,6 +64,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setText("Login");
 
         jLabelClose.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabelClose.setForeground(new java.awt.Color(255, 255, 255));
         jLabelClose.setText("X");
         jLabelClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -72,6 +73,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         jLabelMin.setFont(new java.awt.Font("Product Sans", 1, 24)); // NOI18N
+        jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMin.setText("-");
         jLabelMin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -105,17 +107,19 @@ public class Login extends javax.swing.JFrame {
 
         MainPanel.setBackground(new java.awt.Color(204, 153, 0));
 
-        lbl_pass.setFont(new java.awt.Font("Product Sans", 0, 24)); // NOI18N
+        lbl_pass.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        lbl_pass.setForeground(new java.awt.Color(0, 0, 0));
         lbl_pass.setText("Password:");
 
-        lbl_uname.setFont(new java.awt.Font("Product Sans", 0, 24)); // NOI18N
+        lbl_uname.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        lbl_uname.setForeground(new java.awt.Color(0, 0, 0));
         lbl_uname.setText("Username:");
 
-        txt_uname.setBackground(new java.awt.Color(0, 0, 153));
+        txt_uname.setBackground(new java.awt.Color(255, 255, 204));
         txt_uname.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
         txt_uname.setForeground(new java.awt.Color(255, 255, 255));
 
-        txt_password.setBackground(new java.awt.Color(0, 0, 153));
+        txt_password.setBackground(new java.awt.Color(255, 255, 204));
         txt_password.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
         txt_password.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -123,6 +127,7 @@ public class Login extends javax.swing.JFrame {
         btn_cancel.setFont(new java.awt.Font("Product Sans", 1, 12)); // NOI18N
         btn_cancel.setForeground(new java.awt.Color(255, 255, 255));
         btn_cancel.setText("Clear");
+        btn_cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_cancelMouseClicked(evt);
@@ -133,6 +138,7 @@ public class Login extends javax.swing.JFrame {
         btn_login.setFont(new java.awt.Font("Product Sans", 1, 12)); // NOI18N
         btn_login.setForeground(new java.awt.Color(255, 255, 255));
         btn_login.setText("Login");
+        btn_login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_loginMouseClicked(evt);
@@ -177,7 +183,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cancel)
                     .addComponent(btn_login))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -19,31 +19,29 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
      */
     public UpdateStudentDetails() {
         initComponents();
-           dropdown();
+        dropdown();
         this.setLocationRelativeTo(null);
     }
     
     private void dropdown(){
-             
-             selectStudentsDb.addItem("Two Month Diploma in English");
-             selectStudentsDb.addItem("Two Month Advance Certificate - English");
-             selectStudentsDb.addItem("Two Month Certificate - English");
-             selectStudentsDb.addItem("Three Month Diploma - English");
-             selectStudentsDb.addItem("English + IT");
-             selectStudentsDb.addItem("TOIC");
-             selectStudentsDb.addItem("IELTS");
-             selectStudentsDb.addItem("Weekend English");
-             selectStudentsDb.addItem("Night - English");
-             selectStudentsDb.addItem("KIDS");
-             selectStudentsDb.addItem("Foundation in ICT");
-             selectStudentsDb.addItem("Diploma in Information Technology");
-             selectStudentsDb.addItem("Diploma in Software Engineering");
-             selectStudentsDb.addItem("Diploma in Web Designing");
-             selectStudentsDb.addItem("Diploma in Graphic Designing");
-             selectStudentsDb.addItem("Foundation in Arduino Programming");
-             selectStudentsDb.addItem("Diploma in Android Application Development");
+        selectStudentsDb.addItem("Two Month Diploma in English");
+        selectStudentsDb.addItem("Two Month Advance Certificate - English");
+        selectStudentsDb.addItem("Two Month Certificate - English");
+        selectStudentsDb.addItem("Three Month Diploma - English");
+        selectStudentsDb.addItem("English + IT");
+        selectStudentsDb.addItem("TOIC");
+        selectStudentsDb.addItem("IELTS");
+        selectStudentsDb.addItem("Weekend English");
+        selectStudentsDb.addItem("Night - English");
+        selectStudentsDb.addItem("KIDS");
+        selectStudentsDb.addItem("Foundation in ICT");
+        selectStudentsDb.addItem("Diploma in Information Technology");
+        selectStudentsDb.addItem("Diploma in Software Engineering");
+        selectStudentsDb.addItem("Diploma in Web Designing");
+        selectStudentsDb.addItem("Diploma in Graphic Designing");
+        selectStudentsDb.addItem("Foundation in Arduino Programming");
+        selectStudentsDb.addItem("Diploma in Android Application Development");
     }
-    
     
     public void GoHomeScreen(){
         HomeScreen hs = new HomeScreen();
@@ -106,7 +104,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         btn_home.setBackground(new java.awt.Color(153, 153, 153));
         btn_home.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         btn_home.setForeground(new java.awt.Color(255, 255, 255));
-        btn_home.setText("Back");
+        btn_home.setText("Home");
         btn_home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_homeMouseClicked(evt);
@@ -114,6 +112,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         });
 
         jLabelClose.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabelClose.setForeground(new java.awt.Color(255, 255, 255));
         jLabelClose.setText("X");
         jLabelClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -122,6 +121,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         });
 
         jLabelMin.setFont(new java.awt.Font("Product Sans", 1, 24)); // NOI18N
+        jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMin.setText("-");
         jLabelMin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -167,8 +167,12 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         MainPanel.setBackground(new java.awt.Color(226, 156, 14));
 
         txt_barcode.setBackground(new java.awt.Color(204, 204, 204));
+        txt_barcode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txt_barcode.setName(""); // NOI18N
 
+        btn_enter.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_enter.setText("Search Barcode");
+        btn_enter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_enter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_enterActionPerformed(evt);
@@ -197,6 +201,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         btn_cancel.setFont(new java.awt.Font("Product Sans", 1, 12)); // NOI18N
         btn_cancel.setForeground(new java.awt.Color(255, 255, 255));
         btn_cancel.setText("Cancel");
+        btn_cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_cancelMouseClicked(evt);
@@ -208,6 +213,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         btn_editstu1.setForeground(new java.awt.Color(255, 255, 255));
         btn_editstu1.setText("Update");
         btn_editstu1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 153, 0), java.awt.Color.green, null, null));
+        btn_editstu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_editstu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_editstu1MouseClicked(evt);
@@ -268,7 +274,9 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(51, 51, 51));
         jLabel16.setText("Actions");
 
+        selectStudentsDb.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         selectStudentsDb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Course" }));
+        selectStudentsDb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
@@ -313,11 +321,11 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
                                         .addComponent(txt_pay)
                                         .addComponent(txt_recieved, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(MainPanelLayout.createSequentialGroup()
-                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1))
                                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(MainPanelLayout.createSequentialGroup()
                                         .addGap(18, 18, 18)
@@ -334,7 +342,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
                     .addGroup(MainPanelLayout.createSequentialGroup()
                         .addGap(507, 507, 507)
                         .addComponent(selectStudentsDb, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addContainerGap(324, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -420,7 +428,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -479,12 +487,9 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
                 txt_refunds.setText(null);
                 txt_dues.setText(null);
                 txt_actions.setText(null);
-            
         }
-
     }//GEN-LAST:event_btn_enterActionPerformed
 
-    
     private void btn_cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelMouseClicked
         GoHomeScreen();
     }//GEN-LAST:event_btn_cancelMouseClicked
@@ -505,7 +510,6 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         String stu_dues = txt_dues.getText();
         String stu_actions = txt_actions.getText();
         String stu_barcode = txt_barcode.getText();
-        
         
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");

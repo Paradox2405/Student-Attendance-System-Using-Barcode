@@ -24,32 +24,29 @@ public class EndIntake extends javax.swing.JFrame {
      */
     public EndIntake() {
         initComponents();
-         dropdown();
+        this.setLocationRelativeTo(null);
+        dropdown();
     }
 
     
      private void dropdown(){
-    
-             selectStudentsDb.addItem("Two Month Diploma in English");
-             selectStudentsDb.addItem("Two Month Advance Certificate - English");
-             selectStudentsDb.addItem("Two Month Certificate - English");
-             selectStudentsDb.addItem("Three Month Diploma - English");
-             selectStudentsDb.addItem("English + IT");
-             selectStudentsDb.addItem("TOIC");
-             selectStudentsDb.addItem("IELTS");
-             selectStudentsDb.addItem("Weekend English");
-             selectStudentsDb.addItem("Night - English");
-             selectStudentsDb.addItem("KIDS");
-             selectStudentsDb.addItem("Foundation in ICT");
-             selectStudentsDb.addItem("Diploma in Information Technology");
-             selectStudentsDb.addItem("Diploma in Software Engineering");
-             selectStudentsDb.addItem("Diploma in Web Designing");
-             selectStudentsDb.addItem("Diploma in Graphic Designing");
-             selectStudentsDb.addItem("Foundation in Arduino Programming");
-             selectStudentsDb.addItem("Diploma in Android Application Development");
-             
-    
-    
+            selectStudentsDb.addItem("Two Month Diploma in English");
+            selectStudentsDb.addItem("Two Month Advance Certificate - English");
+            selectStudentsDb.addItem("Two Month Certificate - English");
+            selectStudentsDb.addItem("Three Month Diploma - English");
+            selectStudentsDb.addItem("English + IT");
+            selectStudentsDb.addItem("TOIC");
+            selectStudentsDb.addItem("IELTS");
+            selectStudentsDb.addItem("Weekend English");
+            selectStudentsDb.addItem("Night - English");
+            selectStudentsDb.addItem("KIDS");
+            selectStudentsDb.addItem("Foundation in ICT");
+            selectStudentsDb.addItem("Diploma in Information Technology");
+            selectStudentsDb.addItem("Diploma in Software Engineering");
+            selectStudentsDb.addItem("Diploma in Web Designing");
+            selectStudentsDb.addItem("Diploma in Graphic Designing");
+            selectStudentsDb.addItem("Foundation in Arduino Programming");
+            selectStudentsDb.addItem("Diploma in Android Application Development");
     }
     
     /**
@@ -78,6 +75,7 @@ public class EndIntake extends javax.swing.JFrame {
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
 
         jLabelClose.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
+        jLabelClose.setForeground(new java.awt.Color(255, 255, 255));
         jLabelClose.setText("X");
         jLabelClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -86,6 +84,7 @@ public class EndIntake extends javax.swing.JFrame {
         });
 
         jLabelMin.setFont(new java.awt.Font("Product Sans", 1, 24)); // NOI18N
+        jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMin.setText("-");
         jLabelMin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -97,6 +96,7 @@ public class EndIntake extends javax.swing.JFrame {
         btn_home.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         btn_home.setForeground(new java.awt.Color(255, 255, 255));
         btn_home.setText("Home");
+        btn_home.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_homeMouseClicked(evt);
@@ -114,11 +114,11 @@ public class EndIntake extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(78, 78, 78)
+                .addGap(98, 98, 98)
                 .addComponent(btn_home)
-                .addGap(30, 30, 30)
-                .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelClose, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -138,14 +138,21 @@ public class EndIntake extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
+        selectStudentsDb.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         selectStudentsDb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a Course" }));
+        selectStudentsDb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        txt_intake.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Enter Intake Number");
 
         btn_dropintake.setBackground(new java.awt.Color(194, 6, 6));
         btn_dropintake.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_dropintake.setForeground(new java.awt.Color(255, 255, 255));
         btn_dropintake.setText("End Intake");
+        btn_dropintake.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_dropintake.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_dropintakeMouseClicked(evt);
@@ -163,23 +170,24 @@ public class EndIntake extends javax.swing.JFrame {
                     .addGroup(MainPanelLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_dropintake, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_intake))))
+                        .addComponent(txt_intake))
+                    .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_dropintake, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(40, 40, 40)
                 .addComponent(selectStudentsDb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(43, 43, 43)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_intake, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addComponent(btn_dropintake)
-                .addGap(30, 30, 30))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(btn_dropintake, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -216,33 +224,29 @@ public class EndIntake extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_homeMouseClicked
 
     private void btn_dropintakeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dropintakeMouseClicked
-        // TODO add your handling code here:
         String course=(String)selectStudentsDb.getSelectedItem();
         String intake = txt_intake.getText();
-          int saveNew = JOptionPane.showConfirmDialog(this,
+        int saveNew = JOptionPane.showConfirmDialog(this,
                     "Are you sure?", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
             
-            if(saveNew == JOptionPane.YES_OPTION)
-            {
-           
-        try{
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-         PreparedStatement ps = con.prepareStatement("DELETE FROM `"+course+"` WHERE Action='"+intake+"'");
-         ps.execute();
-         ResultSet rs=ps.getResultSet();
-        if(rs!=null){ 
-          JOptionPane.showMessageDialog(null,"Intake has been removed!");
-        }
-        else{
-        JOptionPane.showMessageDialog(null,"Invalid Intake Number!");
-        }
-        
-        }
-        catch(SQLException e){
-             JOptionPane.showMessageDialog(null,"Please select a course!");
-        e.printStackTrace();
-        }
+        if(saveNew == JOptionPane.YES_OPTION){   
+            try{
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+                PreparedStatement ps = con.prepareStatement("DELETE FROM `"+course+"` WHERE Action='"+intake+"'");
+                ps.execute();
+                ResultSet rs=ps.getResultSet();
+                    if(rs!=null){ 
+                        JOptionPane.showMessageDialog(null,"Intake has been removed!");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null,"Invalid Intake Number!");
+                    }
             }
+            catch(SQLException e){
+                JOptionPane.showMessageDialog(null,"Please select a course!");
+                e.printStackTrace();
+            }
+        }
     }//GEN-LAST:event_btn_dropintakeMouseClicked
 
     /**
