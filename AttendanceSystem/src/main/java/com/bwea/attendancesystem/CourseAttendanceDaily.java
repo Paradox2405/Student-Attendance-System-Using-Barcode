@@ -34,7 +34,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM `attendance` WHERE YEAR(Datein) = YEAR(CURRENT_DATE()) AND MONTH(Datein) = MONTH(CURRENT_DATE()) AND DATE(Datein) = CURDATE()"); //student table doesn't contain any datetime col so i took the attendance table  
             ResultSet rs = ps.executeQuery();
             
-            while(rs.next()){
+            if(rs.next()){
                String Reg = rs.getString(2); //test values to run the attendance table
                String Name = rs.getString(3);
                String Date = rs.getString(4);
@@ -44,6 +44,9 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
            Object [] content = {Reg,Name,Date,InTime};
                DefaultTableModel model = (DefaultTableModel) table_all.getModel();
                model.addRow(content);
+            }
+            else{
+            JOptionPane.showMessageDialog(null,"No Students have checked in yet!");
             }
            
             
@@ -314,6 +317,13 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
 
     private void btn_generateGraphDailyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generateGraphDailyMouseClicked
         // TODO add your handling code here:
+       ChartAttendanceDaily cad = new ChartAttendanceDaily();
+        cad.setVisible(true);
+        cad.pack();
+        cad.setLocationRelativeTo(null);
+        cad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+        
     }//GEN-LAST:event_btn_generateGraphDailyMouseClicked
 
     /**

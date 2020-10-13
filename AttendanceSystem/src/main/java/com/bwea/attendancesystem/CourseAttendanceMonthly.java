@@ -31,7 +31,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
 " MONTH(Datein) = MONTH(CURRENT_DATE())");   
             ResultSet rs = ps.executeQuery();
             
-            while(rs.next()){
+            if(rs.next()){
                 
                String Reg = rs.getString(2); //test values to run the attendance table
                String Name = rs.getString(3);
@@ -41,6 +41,10 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                Object [] content = {Reg,Name,Date,InTime};
                DefaultTableModel model = (DefaultTableModel) table_all.getModel();
                model.addRow(content);
+            }
+            
+            else{
+            JOptionPane.showMessageDialog(null,"No Students have attended this month!");
             }
             con.close();
         } 
@@ -67,7 +71,6 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btn_MonthlyReport = new javax.swing.JButton();
         btn_generateGraphMonthly = new javax.swing.JButton();
-        btn_endBatch = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         table_all = new javax.swing.JTable();
         display_batch_name = new java.awt.Label();
@@ -149,13 +152,9 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         btn_generateGraphMonthly.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_generateGraphMonthly.setText("Generate Graph");
         btn_generateGraphMonthly.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        btn_endBatch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btn_endBatch.setText("End Batch");
-        btn_endBatch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_endBatch.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_generateGraphMonthly.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_endBatchMouseClicked(evt);
+                btn_generateGraphMonthlyMouseClicked(evt);
             }
         });
 
@@ -212,15 +211,9 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_endBatch))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
+                .addGap(50, 50, 50)
+                .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 504, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btn_generateGraphMonthly)
@@ -251,8 +244,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_MonthlyReport)
-                    .addComponent(btn_generateGraphMonthly)
-                    .addComponent(btn_endBatch))
+                    .addComponent(btn_generateGraphMonthly))
                 .addGap(40, 40, 40))
         );
 
@@ -291,11 +283,16 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         DisplayTableMonthlyAtt();
     }//GEN-LAST:event_btn_RefreshMouseClicked
 
-    private void btn_endBatchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_endBatchMouseClicked
-        EndIntake endin = new EndIntake();
-        endin.setVisible(true);
+    private void btn_generateGraphMonthlyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generateGraphMonthlyMouseClicked
+        // TODO add your handling code here:
+        
+         ChartAttendanceMonthly cam = new ChartAttendanceMonthly();
+        cam.setVisible(true);
+        cam.pack();
+        cam.setLocationRelativeTo(null);
+        cam.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
-    }//GEN-LAST:event_btn_endBatchMouseClicked
+    }//GEN-LAST:event_btn_generateGraphMonthlyMouseClicked
 
     /**
      * @param args the command line arguments
@@ -336,7 +333,6 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
     private javax.swing.JPanel TopPanel;
     private javax.swing.JButton btn_MonthlyReport;
     private javax.swing.JButton btn_Refresh;
-    private javax.swing.JButton btn_endBatch;
     private javax.swing.JButton btn_generateGraphMonthly;
     private javax.swing.JLabel btn_home;
     private javax.swing.JButton daily_attendance;

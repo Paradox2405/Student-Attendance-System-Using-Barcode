@@ -117,11 +117,11 @@ public class Login extends javax.swing.JFrame {
 
         txt_uname.setBackground(new java.awt.Color(255, 255, 204));
         txt_uname.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
-        txt_uname.setForeground(new java.awt.Color(255, 255, 255));
+        txt_uname.setForeground(new java.awt.Color(0, 0, 0));
 
         txt_password.setBackground(new java.awt.Color(255, 255, 204));
         txt_password.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
-        txt_password.setForeground(new java.awt.Color(255, 255, 255));
+        txt_password.setForeground(new java.awt.Color(0, 0, 0));
 
         btn_cancel.setBackground(new java.awt.Color(204, 0, 0));
         btn_cancel.setFont(new java.awt.Font("Product Sans", 1, 12)); // NOI18N
