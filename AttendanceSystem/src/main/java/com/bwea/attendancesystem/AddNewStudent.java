@@ -180,7 +180,7 @@ public class AddNewStudent extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
-        MainPanel.setBackground(new java.awt.Color(226, 156, 14));
+        MainPanel.setBackground(new java.awt.Color(204, 204, 255));
 
         btn_cancelNewStuForm.setBackground(new java.awt.Color(255, 255, 255));
         btn_cancelNewStuForm.setForeground(new java.awt.Color(0, 0, 0));
@@ -192,7 +192,7 @@ public class AddNewStudent extends javax.swing.JFrame {
             }
         });
 
-        btn_saveNewStuForm.setBackground(new java.awt.Color(0, 204, 0));
+        btn_saveNewStuForm.setBackground(new java.awt.Color(0, 0, 102));
         btn_saveNewStuForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_saveNewStuForm.setForeground(new java.awt.Color(255, 255, 255));
         btn_saveNewStuForm.setText("Save");
@@ -203,76 +203,105 @@ public class AddNewStudent extends javax.swing.JFrame {
             }
         });
 
+        txt_regno.setBackground(new java.awt.Color(255, 255, 255));
+        txt_regno.setForeground(new java.awt.Color(0, 0, 0));
+
+        txt_name.setBackground(new java.awt.Color(255, 255, 255));
+        txt_name.setForeground(new java.awt.Color(0, 0, 0));
+
+        txt_contactno.setBackground(new java.awt.Color(255, 255, 255));
+        txt_contactno.setForeground(new java.awt.Color(0, 0, 0));
         txt_contactno.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
+        txt_refno.setBackground(new java.awt.Color(255, 255, 255));
+        txt_refno.setForeground(new java.awt.Color(0, 0, 0));
+
         jLabel2.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Refference No");
 
         jLabel3.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Registration No");
 
         jLabel6.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Contact No");
 
         jLabel7.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Name");
 
+        txt_branch.setBackground(new java.awt.Color(255, 255, 255));
+        txt_branch.setForeground(new java.awt.Color(0, 0, 0));
         txt_branch.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
         jLabel8.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Branch");
 
+        txt_course.setBackground(new java.awt.Color(255, 255, 255));
+        txt_course.setForeground(new java.awt.Color(0, 0, 0));
         txt_course.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
         jLabel9.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Course");
 
+        txt_total.setBackground(new java.awt.Color(255, 255, 255));
+        txt_total.setForeground(new java.awt.Color(0, 0, 0));
         txt_total.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
         jLabel10.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Total Fee");
 
+        txt_disc.setBackground(new java.awt.Color(255, 255, 255));
+        txt_disc.setForeground(new java.awt.Color(0, 0, 0));
         txt_disc.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
         jLabel11.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Discounts");
 
+        txt_pay.setBackground(new java.awt.Color(255, 255, 255));
+        txt_pay.setForeground(new java.awt.Color(0, 0, 0));
         txt_pay.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
         jLabel12.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Payable");
 
+        txt_recieved.setBackground(new java.awt.Color(255, 255, 255));
+        txt_recieved.setForeground(new java.awt.Color(0, 0, 0));
         txt_recieved.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
         jLabel13.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Received Payment");
 
+        txt_refunds.setBackground(new java.awt.Color(255, 255, 255));
+        txt_refunds.setForeground(new java.awt.Color(0, 0, 0));
         txt_refunds.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
         jLabel14.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Refunds");
 
+        txt_dues.setBackground(new java.awt.Color(255, 255, 255));
+        txt_dues.setForeground(new java.awt.Color(0, 0, 0));
         txt_dues.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
         jLabel15.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Due");
 
+        txt_actions.setBackground(new java.awt.Color(255, 255, 255));
+        txt_actions.setForeground(new java.awt.Color(0, 0, 0));
         txt_actions.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
         jLabel16.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Actions");
 
         selectStudentsDb.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -280,9 +309,11 @@ public class AddNewStudent extends javax.swing.JFrame {
         selectStudentsDb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel17.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Barcode");
 
+        txt_barcode.setBackground(new java.awt.Color(255, 255, 255));
+        txt_barcode.setForeground(new java.awt.Color(0, 0, 0));
         txt_barcode.setSelectedTextColor(new java.awt.Color(204, 0, 0));
 
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
@@ -348,9 +379,9 @@ public class AddNewStudent extends javax.swing.JFrame {
                                 .addComponent(txt_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(158, 158, 158))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
-                        .addComponent(btn_cancelNewStuForm)
+                        .addComponent(btn_cancelNewStuForm, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_saveNewStuForm)
+                        .addComponent(btn_saveNewStuForm, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(160, 160, 160))))
         );
         MainPanelLayout.setVerticalGroup(
@@ -419,8 +450,8 @@ public class AddNewStudent extends javax.swing.JFrame {
                     .addComponent(jLabel17))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_cancelNewStuForm)
-                    .addComponent(btn_saveNewStuForm))
+                    .addComponent(btn_cancelNewStuForm, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_saveNewStuForm, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 

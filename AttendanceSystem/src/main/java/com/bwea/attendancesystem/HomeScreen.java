@@ -217,7 +217,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addContainerGap(13, Short.MAX_VALUE)))
         );
 
-        SidePanel.setBackground(new java.awt.Color(181, 139, 12));
+        SidePanel.setBackground(new java.awt.Color(204, 204, 255));
 
         btn_scanbarcodes.setBackground(new java.awt.Color(226, 156, 14));
         btn_scanbarcodes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -457,7 +457,9 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        btn_genbarcodes.setBackground(new java.awt.Color(0, 0, 102));
         btn_genbarcodes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_genbarcodes.setForeground(new java.awt.Color(255, 255, 255));
         btn_genbarcodes.setText("Generate Barcode List");
         btn_genbarcodes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_genbarcodes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -605,7 +607,9 @@ public class HomeScreen extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(table_all);
 
+        btn_dailyRefresh.setBackground(new java.awt.Color(255, 255, 255));
         btn_dailyRefresh.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_dailyRefresh.setForeground(new java.awt.Color(0, 0, 0));
         btn_dailyRefresh.setText("Refresh ");
         btn_dailyRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_dailyRefresh.addActionListener(new java.awt.event.ActionListener() {

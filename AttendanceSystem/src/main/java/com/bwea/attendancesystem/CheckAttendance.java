@@ -91,18 +91,25 @@ public class CheckAttendance extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        txt_name.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+
+        txt_name.setBackground(new java.awt.Color(255, 255, 255));
         txt_name.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
         txt_name.setName("searchNameDisplay"); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Name");
 
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("From (Date)");
 
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("To (Date)");
 
+        btn_generateexcel.setBackground(new java.awt.Color(0, 0, 102));
         btn_generateexcel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_generateexcel.setForeground(new java.awt.Color(255, 255, 255));
         btn_generateexcel.setText("Generate Excel");
         btn_generateexcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_generateexcel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -111,10 +118,12 @@ public class CheckAttendance extends javax.swing.JFrame {
             }
         });
 
-        txt_regnum.setBackground(new java.awt.Color(204, 204, 204));
+        txt_regnum.setBackground(new java.awt.Color(255, 255, 255));
         txt_regnum.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txt_regnum.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Enter Registration Number To Search");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -153,7 +162,7 @@ public class CheckAttendance extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_regnum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(36, 36, 36)

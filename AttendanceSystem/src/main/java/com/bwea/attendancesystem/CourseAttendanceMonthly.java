@@ -187,7 +187,9 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         display_batch_name.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         display_batch_name.setText("Monthly Attendance");
 
+        daily_attendance.setBackground(new java.awt.Color(0, 0, 102));
         daily_attendance.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        daily_attendance.setForeground(new java.awt.Color(255, 255, 255));
         daily_attendance.setText("Daily");
         daily_attendance.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         daily_attendance.addMouseListener(new java.awt.event.MouseAdapter() {
