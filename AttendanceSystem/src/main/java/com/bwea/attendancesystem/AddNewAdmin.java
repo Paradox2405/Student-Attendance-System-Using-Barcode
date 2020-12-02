@@ -151,9 +151,8 @@ public class AddNewAdmin extends javax.swing.JFrame {
         lbl_passwordNewAdmin.setForeground(new java.awt.Color(51, 51, 51));
         lbl_passwordNewAdmin.setText("Password:");
 
-        btn_cancelNewAdminForm.setBackground(new java.awt.Color(204, 0, 0));
-        btn_cancelNewAdminForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btn_cancelNewAdminForm.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cancelNewAdminForm.setBackground(new java.awt.Color(255, 255, 255));
+        btn_cancelNewAdminForm.setForeground(new java.awt.Color(0, 0, 0));
         btn_cancelNewAdminForm.setText("Cancel");
         btn_cancelNewAdminForm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cancelNewAdminForm.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -161,12 +160,18 @@ public class AddNewAdmin extends javax.swing.JFrame {
                 btn_cancelNewAdminFormMouseClicked(evt);
             }
         });
+        btn_cancelNewAdminForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelNewAdminFormActionPerformed(evt);
+            }
+        });
 
         btn_saveNewAdminForm.setBackground(new java.awt.Color(0, 204, 0));
         btn_saveNewAdminForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_saveNewAdminForm.setForeground(new java.awt.Color(255, 255, 255));
-        btn_saveNewAdminForm.setText("Save");
+        btn_saveNewAdminForm.setText("Save Admin");
         btn_saveNewAdminForm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_saveNewAdminForm.setMaximumSize(new java.awt.Dimension(116, 22));
         btn_saveNewAdminForm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_saveNewAdminFormMouseClicked(evt);
@@ -184,7 +189,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
         btn_removeadmin.setBackground(new java.awt.Color(194, 6, 6));
         btn_removeadmin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_removeadmin.setForeground(new java.awt.Color(255, 255, 255));
-        btn_removeadmin.setText("Remove");
+        btn_removeadmin.setText("Remove Admin");
         btn_removeadmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_removeadmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,13 +204,10 @@ public class AddNewAdmin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btn_removeadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(613, 622, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_cancelNewAdminForm, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_saveNewAdminForm, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_saveNewAdminForm, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(147, 147, 147)
                         .addComponent(lbl_fullnameNewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,11 +226,14 @@ public class AddNewAdmin extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lbl_passwordNewAdmin1)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 387, Short.MAX_VALUE))
                             .addComponent(txt_unameNewAdmin)
                             .addComponent(txt_passwordNewAdmin)
                             .addComponent(txt_fullNameNewAdmin)
-                            .addComponent(txt_uname))))
+                            .addComponent(txt_uname)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_removeadmin)))
                 .addGap(167, 167, 167))
         );
         jPanel1Layout.setVerticalGroup(
@@ -395,6 +400,10 @@ public class AddNewAdmin extends javax.swing.JFrame {
             }
             }
     }//GEN-LAST:event_btn_removeadminActionPerformed
+
+    private void btn_cancelNewAdminFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelNewAdminFormActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelNewAdminFormActionPerformed
 
     /**
      * @param args the command line arguments

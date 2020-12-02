@@ -155,7 +155,9 @@ public class UploadExcel extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
+        btn_selectexcel.setBackground(new java.awt.Color(0, 0, 102));
         btn_selectexcel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_selectexcel.setForeground(new java.awt.Color(255, 255, 255));
         btn_selectexcel.setText("Select Excel");
         btn_selectexcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_selectexcel.addMouseListener(new java.awt.event.MouseAdapter() {

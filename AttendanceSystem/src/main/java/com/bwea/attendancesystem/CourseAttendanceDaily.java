@@ -163,7 +163,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         });
 
         btn_dailyReport.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btn_dailyReport.setText("Report");
+        btn_dailyReport.setText("Print Report");
         btn_dailyReport.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btn_generateGraphDaily.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N

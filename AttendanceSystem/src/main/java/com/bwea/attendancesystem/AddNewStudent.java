@@ -182,9 +182,8 @@ public class AddNewStudent extends javax.swing.JFrame {
 
         MainPanel.setBackground(new java.awt.Color(226, 156, 14));
 
-        btn_cancelNewStuForm.setBackground(new java.awt.Color(204, 0, 0));
-        btn_cancelNewStuForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btn_cancelNewStuForm.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cancelNewStuForm.setBackground(new java.awt.Color(255, 255, 255));
+        btn_cancelNewStuForm.setForeground(new java.awt.Color(0, 0, 0));
         btn_cancelNewStuForm.setText("Cancel");
         btn_cancelNewStuForm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cancelNewStuForm.addMouseListener(new java.awt.event.MouseAdapter() {

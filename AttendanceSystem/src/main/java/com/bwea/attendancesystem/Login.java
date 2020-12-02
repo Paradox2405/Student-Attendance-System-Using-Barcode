@@ -88,7 +88,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(TopPanelLayout.createSequentialGroup()
                 .addGap(178, 178, 178)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                 .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelClose, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -105,7 +105,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
-        MainPanel.setBackground(new java.awt.Color(204, 153, 0));
+        MainPanel.setBackground(java.awt.SystemColor.inactiveCaption);
 
         lbl_pass.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         lbl_pass.setForeground(new java.awt.Color(0, 0, 0));
@@ -115,17 +115,17 @@ public class Login extends javax.swing.JFrame {
         lbl_uname.setForeground(new java.awt.Color(0, 0, 0));
         lbl_uname.setText("Username:");
 
-        txt_uname.setBackground(new java.awt.Color(255, 255, 204));
+        txt_uname.setBackground(new java.awt.Color(255, 255, 255));
         txt_uname.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
         txt_uname.setForeground(new java.awt.Color(0, 0, 0));
 
-        txt_password.setBackground(new java.awt.Color(255, 255, 204));
+        txt_password.setBackground(new java.awt.Color(255, 255, 255));
         txt_password.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
         txt_password.setForeground(new java.awt.Color(0, 0, 0));
 
-        btn_cancel.setBackground(new java.awt.Color(204, 0, 0));
-        btn_cancel.setFont(new java.awt.Font("Product Sans", 1, 12)); // NOI18N
-        btn_cancel.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cancel.setBackground(new java.awt.Color(255, 255, 255));
+        btn_cancel.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        btn_cancel.setForeground(new java.awt.Color(0, 0, 0));
         btn_cancel.setText("Clear");
         btn_cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cancel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -134,7 +134,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        btn_login.setBackground(new java.awt.Color(51, 204, 0));
+        btn_login.setBackground(new java.awt.Color(0, 0, 102));
         btn_login.setFont(new java.awt.Font("Product Sans", 1, 12)); // NOI18N
         btn_login.setForeground(new java.awt.Color(255, 255, 255));
         btn_login.setText("Login");
@@ -155,18 +155,18 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(MainPanelLayout.createSequentialGroup()
                         .addComponent(lbl_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(MainPanelLayout.createSequentialGroup()
-                                .addGap(0, 88, Short.MAX_VALUE)
-                                .addComponent(btn_cancel)
-                                .addGap(28, 28, 28)
-                                .addComponent(btn_login))
-                            .addComponent(txt_password)))
+                        .addComponent(txt_password))
                     .addGroup(MainPanelLayout.createSequentialGroup()
                         .addComponent(lbl_uname, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_uname)))
                 .addContainerGap())
+            .addGroup(MainPanelLayout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,11 +179,11 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_pass)
                     .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_cancel)
-                    .addComponent(btn_login))
-                .addContainerGap(129, Short.MAX_VALUE))
+                    .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

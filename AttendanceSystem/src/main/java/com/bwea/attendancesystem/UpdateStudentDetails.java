@@ -197,9 +197,9 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Name");
 
-        btn_cancel.setBackground(new java.awt.Color(204, 0, 0));
-        btn_cancel.setFont(new java.awt.Font("Product Sans", 1, 12)); // NOI18N
-        btn_cancel.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cancel.setBackground(new java.awt.Color(255, 255, 255));
+        btn_cancel.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        btn_cancel.setForeground(new java.awt.Color(0, 0, 0));
         btn_cancel.setText("Cancel");
         btn_cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cancel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -212,7 +212,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         btn_editstu1.setFont(new java.awt.Font("Product Sans", 1, 12)); // NOI18N
         btn_editstu1.setForeground(new java.awt.Color(255, 255, 255));
         btn_editstu1.setText("Update");
-        btn_editstu1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 153, 0), java.awt.Color.green, null, null));
+        btn_editstu1.setBorder(javax.swing.BorderFactory.createBevelBorder(null, new java.awt.Color(51, 153, 0), java.awt.Color.green, null, null));
         btn_editstu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_editstu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -285,7 +285,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
             .addGroup(MainPanelLayout.createSequentialGroup()
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGap(239, 239, 239)
+                        .addGap(251, 251, 251)
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(MainPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel8)
