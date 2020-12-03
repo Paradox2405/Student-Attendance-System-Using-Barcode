@@ -137,18 +137,18 @@ public class AddNewAdmin extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(226, 156, 14));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         lbl_fullnameNewAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_fullnameNewAdmin.setForeground(new java.awt.Color(51, 51, 51));
+        lbl_fullnameNewAdmin.setForeground(new java.awt.Color(0, 0, 0));
         lbl_fullnameNewAdmin.setText("Full Name:");
 
         lbl_unameNewAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_unameNewAdmin.setForeground(new java.awt.Color(51, 51, 51));
+        lbl_unameNewAdmin.setForeground(new java.awt.Color(0, 0, 0));
         lbl_unameNewAdmin.setText("Username:");
 
         lbl_passwordNewAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_passwordNewAdmin.setForeground(new java.awt.Color(51, 51, 51));
+        lbl_passwordNewAdmin.setForeground(new java.awt.Color(0, 0, 0));
         lbl_passwordNewAdmin.setText("Password:");
 
         btn_cancelNewAdminForm.setBackground(new java.awt.Color(255, 255, 255));
@@ -166,7 +166,7 @@ public class AddNewAdmin extends javax.swing.JFrame {
             }
         });
 
-        btn_saveNewAdminForm.setBackground(new java.awt.Color(0, 204, 0));
+        btn_saveNewAdminForm.setBackground(new java.awt.Color(0, 0, 102));
         btn_saveNewAdminForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_saveNewAdminForm.setForeground(new java.awt.Color(255, 255, 255));
         btn_saveNewAdminForm.setText("Save Admin");
@@ -178,12 +178,21 @@ public class AddNewAdmin extends javax.swing.JFrame {
             }
         });
 
+        txt_fullNameNewAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        txt_fullNameNewAdmin.setForeground(new java.awt.Color(0, 0, 0));
+
+        txt_unameNewAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        txt_unameNewAdmin.setForeground(new java.awt.Color(0, 0, 0));
+
+        txt_passwordNewAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        txt_passwordNewAdmin.setForeground(new java.awt.Color(0, 0, 0));
+
         lbl_passwordNewAdmin1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_passwordNewAdmin1.setForeground(new java.awt.Color(51, 51, 51));
+        lbl_passwordNewAdmin1.setForeground(new java.awt.Color(194, 6, 6));
         lbl_passwordNewAdmin1.setText("Remove Admin");
 
         lbl_passwordNewAdmin2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_passwordNewAdmin2.setForeground(new java.awt.Color(51, 51, 51));
+        lbl_passwordNewAdmin2.setForeground(new java.awt.Color(0, 0, 0));
         lbl_passwordNewAdmin2.setText("Enter Username:");
 
         btn_removeadmin.setBackground(new java.awt.Color(194, 6, 6));
@@ -196,6 +205,9 @@ public class AddNewAdmin extends javax.swing.JFrame {
                 btn_removeadminActionPerformed(evt);
             }
         });
+
+        txt_uname.setBackground(new java.awt.Color(255, 255, 255));
+        txt_uname.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

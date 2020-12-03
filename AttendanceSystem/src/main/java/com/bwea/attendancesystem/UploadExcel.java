@@ -89,6 +89,7 @@ public class UploadExcel extends javax.swing.JFrame {
         btn2 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 204, 255));
         setUndecorated(true);
 
         TopPanel.setBackground(new java.awt.Color(0, 0, 102));
@@ -115,6 +116,7 @@ public class UploadExcel extends javax.swing.JFrame {
         btn_home.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         btn_home.setForeground(new java.awt.Color(255, 255, 255));
         btn_home.setText("Home");
+        btn_home.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_homeMouseClicked(evt);
@@ -154,6 +156,8 @@ public class UploadExcel extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(14, 14, 14))
         );
+
+        MainPanel.setBackground(new java.awt.Color(204, 204, 255));
 
         btn_selectexcel.setBackground(new java.awt.Color(0, 0, 102));
         btn_selectexcel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -197,14 +201,14 @@ public class UploadExcel extends javax.swing.JFrame {
                             .addComponent(btn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
-                .addContainerGap(180, Short.MAX_VALUE)
+                .addContainerGap(179, Short.MAX_VALUE)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
-                        .addComponent(btn_selectexcel, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(248, 248, 248))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(170, 170, 170))))
+                        .addGap(171, 171, 171))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
+                        .addComponent(btn_selectexcel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(249, 249, 249))))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,10 +219,11 @@ public class UploadExcel extends javax.swing.JFrame {
                 .addComponent(btn1)
                 .addGap(18, 18, 18)
                 .addComponent(btn2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_selectexcel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btn_selectexcel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -232,9 +237,9 @@ public class UploadExcel extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         pack();
