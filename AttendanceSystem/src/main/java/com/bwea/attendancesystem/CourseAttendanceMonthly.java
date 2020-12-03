@@ -30,8 +30,10 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM attendance WHERE YEAR(Datein) = YEAR(CURRENT_DATE()) AND" +
 " MONTH(Datein) = MONTH(CURRENT_DATE())");   
             ResultSet rs = ps.executeQuery();
-            
-            if(rs.next()){
+             if(rs==null){
+            JOptionPane.showMessageDialog(null,"No Students have attended this month!");
+            }
+            while(rs.next()){
                 
                String Reg = rs.getString(2); //test values to run the attendance table
                String Name = rs.getString(3);
@@ -43,9 +45,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                model.addRow(content);
             }
             
-            else{
-            JOptionPane.showMessageDialog(null,"No Students have attended this month!");
-            }
+           
             con.close();
         } 
         catch(SQLException e)
@@ -185,7 +185,7 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
 
         display_batch_name.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         display_batch_name.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        display_batch_name.setText("Monthly Attendance");
+        display_batch_name.setText("Student Monthly Attendance");
 
         daily_attendance.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         daily_attendance.setText("Daily");
@@ -216,15 +216,15 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 550, Short.MAX_VALUE)
-                                .addComponent(btn_Refresh)
-                                .addGap(18, 18, 18)
-                                .addComponent(daily_attendance))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(btn_generateGraphMonthly)
-                                .addGap(128, 128, 128)))
+                                .addGap(128, 128, 128))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_Refresh)
+                                .addGap(18, 18, 18)
+                                .addComponent(daily_attendance)))
                         .addGap(50, 50, 50))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -322,6 +322,13 @@ public class CourseAttendanceMonthly extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CourseAttendanceMonthly.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

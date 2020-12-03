@@ -22,7 +22,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     /**
      * Creates new form CourseAttendance
      */
-    public CourseAttendanceDaily() {
+     public CourseAttendanceDaily() {
             initComponents();
             this.setLocationRelativeTo(null);
             
@@ -31,10 +31,12 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     private void DisplayTableDailyAtt(){
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM `attendance` WHERE YEAR(Datein) = YEAR(CURRENT_DATE()) AND MONTH(Datein) = MONTH(CURRENT_DATE()) AND DATE(Datein) = CURDATE()"); //student table doesn't contain any datetime col so i took the attendance table  
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM attendance WHERE YEAR(Datein) = YEAR(CURRENT_DATE()) AND MONTH(Datein) = MONTH(CURRENT_DATE()) AND DATE(Datein) = CURDATE()"); //student table doesn't contain any datetime col so i took the attendance table  
             ResultSet rs = ps.executeQuery();
-            
-            if(rs.next()){
+            if(rs==null){
+            JOptionPane.showMessageDialog(null,"No Students have checked in yet!");
+            }
+            while(rs.next()){
                String Reg = rs.getString(2); //test values to run the attendance table
                String Name = rs.getString(3);
                String Date = rs.getString(4);
@@ -45,9 +47,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                DefaultTableModel model = (DefaultTableModel) table_all.getModel();
                model.addRow(content);
             }
-            else{
-            JOptionPane.showMessageDialog(null,"No Students have checked in yet!");
-            }
+            
            
             
          
@@ -151,7 +151,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         );
 
         display_batch_name.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        display_batch_name.setText("Daily Attendance");
+        display_batch_name.setText("Student Attendance Today");
 
         btn_monthly_attendance.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_monthly_attendance.setText("Monthly");
@@ -239,9 +239,9 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addComponent(btn_dailyReport))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(737, 737, 737)
+                                .addComponent(display_batch_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(496, 496, 496)
                                 .addComponent(btn_Refresh)
                                 .addGap(18, 18, 18)
                                 .addComponent(btn_monthly_attendance))
@@ -329,7 +329,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+   public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -353,6 +353,20 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -364,6 +378,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
             
         });
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel GraphPanel;

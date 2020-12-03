@@ -5,77 +5,86 @@
  */
 package com.bwea.attendancesystem;
 
-import java.awt.FlowLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.xy.DefaultXYDataset;
-import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
-
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
  * @author Acer
  */
 public class ChartAttendanceDaily extends javax.swing.JFrame {
-    
-    
-
+private static final String title = "Attendance of students today!";
 
     /**
      * Creates new form ChartAttendanceDaily
      */
     public ChartAttendanceDaily() {
+        
         initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setLocationRelativeTo(null); 
         
-          XYDataset ds = createDataset();
-                JFreeChart chart = ChartFactory.createXYLineChart("Todays Attendance",
-                        "Day", "Number of students", ds, PlotOrientation.VERTICAL, true, true,
-                        false);
-        
-        ChartPanel cp = new ChartPanel(chart);
-                jPanel2.removeAll();
-                jPanel2.setLayout(new FlowLayout(FlowLayout.LEFT));
-                 jPanel2.add(cp);
-        
+  
+    // Create dataset  
+    DefaultCategoryDataset dataset = createDataset();  
+    // Create chart  
+    JFreeChart chart = ChartFactory.createLineChart(  
+        "Daily Attendance", // Chart title  
+        "Day", // X-Axis Label  
+        "Number of Students", // Y-Axis Label  
+        dataset  
+        );  
+  
+    ChartPanel panel = new ChartPanel(chart);  
+    setContentPane(panel);  
     }
-    
-    
-     private XYDataset createDataset() {
-    XYSeriesCollection ds = new XYSeriesCollection();
-    XYSeries series1 = new XYSeries("Object 1");
-    XYSeries series2 = new XYSeries("Object 2");
+     //SQL statement
+          //SELECT DAYOFWEEK(DATE(Datein)), COUNT(`Registration No`) FROM  attendance  GROUP BY DAYOFWEEK(DATE(Datein));
    
- 
-    series1.add(1.0, 2.0);
-    series1.add(2.0, 3.0);
-    series1.add(3.0, 2.5);
-    series1.add(3.5, 2.8);
-    series1.add(4.2, 6.0);
- 
-    series2.add(2.0, 1.0);
-    series2.add(2.5, 2.4);
-    series2.add(3.2, 1.2);
-    series2.add(3.9, 2.8);
-    series2.add(4.6, 3.0);
- 
+      private DefaultCategoryDataset createDataset() {  
+           String series1 = "Count";  
+          
     
- 
-    ds.addSeries(series1);
-    ds.addSeries(series2);
-   
- 
-    return ds;
-}
+  
+             DefaultCategoryDataset dataset = new DefaultCategoryDataset();  
+  
+          try{
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+            PreparedStatement ps = con.prepareStatement("SELECT DAYOFWEEK(DATE(Datein)), COUNT(`Registration No`) FROM  attendance  GROUP BY DAYOFWEEK(DATE(Datein))");   
+            ResultSet rs = ps.executeQuery();
+            
+              String days[] = { "", "Monday", "Tuesday", "Wednesday", "Thursday",
+                                "Friday", "Saturday", "Sunday" };
+             int i=1;
+            while(rs.next()){
+           
+           int students = rs.getInt(2);
+             dataset.addValue(students, series1, days[i]); 
+             i++;
+            }
+          } catch(SQLException e){
+              System.out.print(e);
+          }
+  
+    
+  
+    return dataset;  
+  }  
 
     
+    
+    
 
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -87,12 +96,10 @@ public class ChartAttendanceDaily extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabelMin = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabelMin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(640, 480));
 
         jPanel2.setPreferredSize(new java.awt.Dimension(640, 480));
 
@@ -100,12 +107,19 @@ public class ChartAttendanceDaily extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 959, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+            .addGap(0, 659, Short.MAX_VALUE)
         );
+
+        jLabel1.setText("Back");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         jLabelMin.setFont(new java.awt.Font("Product Sans", 1, 24)); // NOI18N
         jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
@@ -117,19 +131,12 @@ public class ChartAttendanceDaily extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Back");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(866, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,29 +158,29 @@ public class ChartAttendanceDaily extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 940, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabelMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinMouseClicked
-        this.setState(JFrame.ICONIFIED);
-    }//GEN-LAST:event_jLabelMinMouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         CourseAttendanceDaily cad = new CourseAttendanceDaily();
         cad.setVisible(true);
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabelMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinMouseClicked
+        this.setState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_jLabelMinMouseClicked
 
     /**
      * @param args the command line arguments
@@ -201,16 +208,12 @@ public class ChartAttendanceDaily extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ChartAttendanceDaily.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ChartAttendanceDaily().setVisible(true);
-                
-              
-
-               
-                
             }
         });
     }

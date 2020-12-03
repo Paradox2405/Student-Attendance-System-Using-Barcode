@@ -6,57 +6,94 @@
 package com.bwea.attendancesystem;
 
 import java.awt.FlowLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.xy.DefaultXYDataset;
 import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+
 
 /**
  *
  * @author Acer
  */
 public class ChartAttendanceMonthly extends javax.swing.JFrame {
-private static final String title = "Attendance of students today!";
+    
+    
+
 
     /**
      * Creates new form ChartAttendanceDaily
      */
     public ChartAttendanceMonthly() {
         initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setLocationRelativeTo(null); 
+             initComponents();
         
-        
-          XYDataset ds = createDataset();
-                JFreeChart chart = ChartFactory.createXYLineChart("Todays Attendance",
-                        "x", "y", ds, PlotOrientation.VERTICAL, true, true,
-                        false);
-        
-        ChartPanel cp = new ChartPanel(chart);
-                  jPanel2.removeAll();
-                  jPanel2.setLayout(new FlowLayout(FlowLayout.LEFT));
-                 jPanel2.add(cp);
-        
+  
+    // Create dataset  
+    DefaultCategoryDataset dataset = createDataset();  
+    // Create chart  
+    JFreeChart chart = ChartFactory.createLineChart(  
+        "Monthly Attendance", // Chart title  
+        "Month", // X-Axis Label  
+        "Number of Students", // Y-Axis Label  
+        dataset  
+        );  
+  
+    ChartPanel panel = new ChartPanel(chart);  
+    setContentPane(panel);  
     }
+     //SQL statement
+          //SELECT DAYOFWEEK(DATE(Datein)), COUNT(`Registration No`) FROM  attendance  GROUP BY DAYOFWEEK(DATE(Datein));
+   
+      private DefaultCategoryDataset createDataset() {  
+           String series1 = "Count";  
+          
+    
+  
+             DefaultCategoryDataset dataset = new DefaultCategoryDataset();  
+  
+          try{
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+            PreparedStatement ps = con.prepareStatement("SELECT MONTH(Datein),COUNT(`Registration No`) group by MONTH(Datein)");   
+            ResultSet rs = ps.executeQuery();
+            
+              String months[] = { "", "January", "February", "March", "April",
+                                "May", "June", "July", "August" , "September",
+              "October", "November", "December"};
+            
+            while(rs.next()){
+           int month=rs.getInt(1);
+           int students = rs.getInt(2);
+             dataset.addValue(students, series1, months[month]); 
+             
+            }
+          } 
+          catch(SQLException e){
+              System.out.print(e);
+          }
+  
+    
+  
+    return dataset;  
+  }  
+
     
     
-     private static XYDataset createDataset() {
-
-        DefaultXYDataset ds = new DefaultXYDataset();
-
-        double[][] data = { {0.1, 0.2, 0.3}, {1, 2, 3} };
-
-        ds.addSeries("Student Count", data);
-
-        return ds;
-    }
-     
-
     
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,29 +105,23 @@ private static final String title = "Attendance of students today!";
 
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabelMin = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+
+        jPanel2.setPreferredSize(new java.awt.Dimension(640, 480));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 959, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 659, Short.MAX_VALUE)
+            .addGap(0, 599, Short.MAX_VALUE)
         );
-
-        jLabel1.setText("Back");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
 
         jLabelMin.setFont(new java.awt.Font("Product Sans", 1, 24)); // NOI18N
         jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
@@ -102,12 +133,19 @@ private static final String title = "Attendance of students today!";
             }
         });
 
+        jLabel1.setText("Back");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(866, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,19 +167,26 @@ private static final String title = "Attendance of students today!";
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabelMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinMouseClicked
+        this.setState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_jLabelMinMouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         CourseAttendanceDaily cad = new CourseAttendanceDaily();
@@ -149,14 +194,10 @@ private static final String title = "Attendance of students today!";
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void jLabelMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinMouseClicked
-        this.setState(JFrame.ICONIFIED);
-    }//GEN-LAST:event_jLabelMinMouseClicked
-
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+  public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -170,13 +211,13 @@ private static final String title = "Attendance of students today!";
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChartAttendanceMonthly.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChartAttendanceDaily.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChartAttendanceMonthly.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChartAttendanceDaily.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChartAttendanceMonthly.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChartAttendanceDaily.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ChartAttendanceMonthly.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChartAttendanceDaily.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -187,7 +228,6 @@ private static final String title = "Attendance of students today!";
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelMin;

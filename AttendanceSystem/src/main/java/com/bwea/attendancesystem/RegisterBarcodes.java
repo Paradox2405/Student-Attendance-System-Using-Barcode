@@ -47,6 +47,8 @@ public class RegisterBarcodes extends javax.swing.JFrame {
             lbl_contactNo.setText(null);
             lbl_refNumber.setText(null);
             txt_regnumber.setText(null);
+            lbl_coursename.setText(null);
+            txt_barcodereg.setText(null);
             txt_regnumber.requestFocus();
     }
     

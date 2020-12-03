@@ -212,7 +212,7 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         btn_editstu1.setFont(new java.awt.Font("Product Sans", 1, 12)); // NOI18N
         btn_editstu1.setForeground(new java.awt.Color(255, 255, 255));
         btn_editstu1.setText("Update");
-        btn_editstu1.setBorder(javax.swing.BorderFactory.createBevelBorder(null, new java.awt.Color(51, 153, 0), java.awt.Color.green, null, null));
+        btn_editstu1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 153, 0), java.awt.Color.green, null, null));
         btn_editstu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_editstu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
