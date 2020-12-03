@@ -209,7 +209,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(jLabelClose, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_logout))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(TopPanelLayout.createSequentialGroup()
                     .addGap(12, 12, 12)
@@ -219,7 +219,7 @@ public class HomeScreen extends javax.swing.JFrame {
 
         SidePanel.setBackground(new java.awt.Color(204, 204, 255));
 
-        btn_scanbarcodes.setBackground(new java.awt.Color(226, 156, 14));
+        btn_scanbarcodes.setBackground(new java.awt.Color(0, 102, 153));
         btn_scanbarcodes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_scanbarcodes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -253,7 +253,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        btn_checkattendance.setBackground(new java.awt.Color(226, 156, 14));
+        btn_checkattendance.setBackground(new java.awt.Color(0, 102, 153));
         btn_checkattendance.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_checkattendance.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -261,6 +261,9 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setBackground(new java.awt.Color(0, 102, 153));
+
+        jLabel4.setBackground(new java.awt.Color(0, 102, 153));
         jLabel4.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Check Attendance");
@@ -286,7 +289,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        btn_courseov.setBackground(new java.awt.Color(226, 156, 14));
+        btn_courseov.setBackground(new java.awt.Color(0, 102, 153));
         btn_courseov.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_courseov.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -294,6 +297,9 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setBackground(new java.awt.Color(0, 102, 153));
+
+        jLabel6.setBackground(new java.awt.Color(0, 102, 153));
         jLabel6.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Course Attendance");
@@ -319,13 +325,15 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        btn_addnewst.setBackground(new java.awt.Color(226, 156, 14));
+        btn_addnewst.setBackground(new java.awt.Color(0, 102, 153));
         btn_addnewst.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_addnewst.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_addnewstMouseClicked(evt);
             }
         });
+
+        jLabel9.setBackground(new java.awt.Color(0, 102, 153));
 
         jLabel10.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -352,7 +360,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        btn_addadmin.setBackground(new java.awt.Color(226, 156, 14));
+        btn_addadmin.setBackground(new java.awt.Color(0, 102, 153));
         btn_addadmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_addadmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -385,7 +393,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        btn_updateStudent.setBackground(new java.awt.Color(226, 156, 14));
+        btn_updateStudent.setBackground(new java.awt.Color(0, 102, 153));
         btn_updateStudent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_updateStudent.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -424,7 +432,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        btn_registerbarcodes.setBackground(new java.awt.Color(226, 156, 14));
+        btn_registerbarcodes.setBackground(new java.awt.Color(0, 102, 153));
         btn_registerbarcodes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_registerbarcodes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -468,7 +476,7 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        btn_uploadexcel.setBackground(new java.awt.Color(226, 156, 14));
+        btn_uploadexcel.setBackground(new java.awt.Color(0, 102, 153));
         btn_uploadexcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_uploadexcel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -501,7 +509,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        btn_endIntake.setBackground(new java.awt.Color(226, 156, 14));
+        btn_endIntake.setBackground(new java.awt.Color(0, 102, 153));
         btn_endIntake.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_endIntake.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
