@@ -169,7 +169,7 @@ public class BarcodeScanner extends javax.swing.JFrame {
             .addGroup(jPanel1_topbarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(467, 467, 467)
                 .addComponent(btn_home)
                 .addGap(32, 32, 32))
         );
