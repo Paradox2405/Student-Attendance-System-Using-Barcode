@@ -5,13 +5,12 @@
  */
 package com.bwea.attendancesystem;
 
+import java.awt.BorderLayout;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -23,7 +22,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author Acer
  */
 public class ChartAttendanceDaily extends javax.swing.JFrame {
-private static final String title = "Attendance of students today!";
+
 
     /**
      * Creates new form ChartAttendanceDaily
@@ -31,6 +30,7 @@ private static final String title = "Attendance of students today!";
     public ChartAttendanceDaily() {
         
         initComponents();
+        this.setLocationRelativeTo(null);
         
   
     // Create dataset  
@@ -44,7 +44,10 @@ private static final String title = "Attendance of students today!";
         );  
   
     ChartPanel panel = new ChartPanel(chart);  
-    setContentPane(panel);  
+     panel.setMouseWheelEnabled(true);
+    jPanel2.setLayout(new java.awt.BorderLayout());
+    jPanel2.add(panel,BorderLayout.CENTER);
+    jPanel2.validate();
     }
      //SQL statement
           //SELECT DAYOFWEEK(DATE(Datein)), COUNT(`Registration No`) FROM  attendance  GROUP BY DAYOFWEEK(DATE(Datein));
@@ -97,8 +100,10 @@ private static final String title = "Attendance of students today!";
         jPanel1 = new javax.swing.JPanel();
         jLabelMin = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabelMin.setFont(new java.awt.Font("Product Sans", 1, 24)); // NOI18N
         jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
@@ -140,17 +145,34 @@ private static final String title = "Attendance of students today!";
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 673, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 685, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -206,5 +228,6 @@ private static final String title = "Attendance of students today!";
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

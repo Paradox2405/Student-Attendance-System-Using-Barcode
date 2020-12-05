@@ -281,14 +281,23 @@ public class CheckAttendance extends javax.swing.JFrame {
 
     private void btn_generateexcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generateexcelMouseClicked
     int rowCount = 1;
+   
+    if (txt_regnum.getText().isEmpty()==true){
+    JOptionPane.showMessageDialog(null,"Enter Registration Number");
+    }else{
     try  {
-        String excelFilePath = "Attendance-export.xlsx";
-        String regnum= txt_regnum.getText();
-            if(regnum!=""){
+         String regnum= txt_regnum.getText();
+         String excelFilePath = ""+regnum+"-Attendance-export.xlsx";
+       
+            
 
                 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 Date fromdate = (Date) cal_fromdate.getDate();
                 Date todate = (Date) cal_todate.getDate();
+                if(fromdate==null||todate==null){
+                 JOptionPane.showMessageDialog(null,"Select Date!");
+                }
+                else{
                 String d1=dateFormat.format(fromdate);
                 String d2=dateFormat.format(todate);
                 System.out.println(d1);
@@ -303,6 +312,9 @@ public class CheckAttendance extends javax.swing.JFrame {
                 XSSFSheet sheet = workbook.createSheet("Reviews");
                 while (rs.next()) {
                     txt_name.setText(rs.getString("Name"));
+                    if(txt_name==null){
+                    JOptionPane.showMessageDialog(null,"Registration Number Does Not Exist");
+                    }else{
                     writeHeaderLine(sheet);
                     String Regnumber = rs.getString("Registration No");
                     String Name = rs.getString("Name");
@@ -326,15 +338,17 @@ public class CheckAttendance extends javax.swing.JFrame {
                     cell = row.createCell(columnCount++);
             
                     cell.setCellValue(Intime);
+                   
+                }
                 }
           
             FileOutputStream outputStream = new FileOutputStream(excelFilePath);
             workbook.write(outputStream);
             workbook.close();
+           
+            
             }
-            else{
-            JOptionPane.showMessageDialog(null,"Enter a Registration Number!");
-            }
+            
         }
     
         catch (SQLException e) {
@@ -346,7 +360,8 @@ public class CheckAttendance extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(CheckAttendance.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+  
+    }
     }//GEN-LAST:event_btn_generateexcelMouseClicked
 
     /**

@@ -17,7 +17,7 @@ import com.itextpdf.layout.property.UnitValue;
 import java.io.File;
 
 public class Barcodes {
-    public static final String DEST = "./target/barcodes.pdf";
+    public static final String DEST = "./barcodes.pdf";
 
     public static void main(String[] args) throws Exception {
       
@@ -45,7 +45,8 @@ public class Barcodes {
         BarcodeEAN barcode = new BarcodeEAN(pdfDoc);
         barcode.setCodeType(BarcodeEAN.EAN13);
         barcode.setCode(code);
-        barcode.setFont(null);//remove this to set  the human readable part below the barcode
+       
+        //barcode.setFont(null);//remove this to set  the human readable part below the barcode
 
         // Create barcode object to put it to the cell as image
         PdfFormXObject barcodeObject = barcode.createFormXObject(null, null, pdfDoc);

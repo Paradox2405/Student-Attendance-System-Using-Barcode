@@ -812,6 +812,7 @@ public class HomeScreen extends javax.swing.JFrame {
     private void btn_genbarcodesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_genbarcodesMouseClicked
         try {
             Barcodes.main(new String[0]);
+            JOptionPane.showMessageDialog(null,"Barcodes Generated");
         } catch (Exception ex) {
             Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
