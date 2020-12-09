@@ -300,8 +300,8 @@ public class CheckAttendance extends javax.swing.JFrame {
                 else{
                 String d1=dateFormat.format(fromdate);
                 String d2=dateFormat.format(todate);
-                System.out.println(d1);
-                System.out.println(d2);
+//                System.out.println(d1);
+//                System.out.println(d2);
 
                 Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
                 PreparedStatement ps = con.prepareStatement("SELECT * FROM attendance"

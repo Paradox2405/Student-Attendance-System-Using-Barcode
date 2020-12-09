@@ -68,6 +68,8 @@ public class EndIntake extends javax.swing.JFrame {
         txt_intake = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         btn_dropintake = new javax.swing.JButton();
+        btn_clearatt = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 255));
@@ -162,6 +164,16 @@ public class EndIntake extends javax.swing.JFrame {
             }
         });
 
+        btn_clearatt.setText("Clear All");
+        btn_clearatt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_clearattMouseClicked(evt);
+            }
+        });
+
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Clear all student attendance reccords! ");
+
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
@@ -171,13 +183,22 @@ public class EndIntake extends javax.swing.JFrame {
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(selectStudentsDb, 0, 510, Short.MAX_VALUE)
                     .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_dropintake, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MainPanelLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(txt_intake))
-                    .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btn_dropintake, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_intake)
+                            .addGroup(MainPanelLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(btn_clearatt, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
+            .addGroup(MainPanelLayout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,9 +209,13 @@ public class EndIntake extends javax.swing.JFrame {
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_intake, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btn_dropintake, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_clearatt)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -252,6 +277,25 @@ public class EndIntake extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_dropintakeMouseClicked
 
+    private void btn_clearattMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_clearattMouseClicked
+        // TODO add your handling code here:
+        int clearbtn = JOptionPane.showConfirmDialog(this,
+                    "Warning! This action will remove all attendance records!", "Confirm", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if(clearbtn == JOptionPane.YES_OPTION)
+            {
+               try{
+               Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+                PreparedStatement ps1 = con.prepareStatement("TTRUNCATE TABLE attendance");
+                ps1.execute();
+                JOptionPane.showMessageDialog(null,"All records of attendance cleared!");
+               }
+               catch(SQLException e){
+                   System.out.println(e);
+               }
+            }
+    }//GEN-LAST:event_btn_clearattMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -290,10 +334,12 @@ public class EndIntake extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel TopPanel;
+    private javax.swing.JButton btn_clearatt;
     private javax.swing.JButton btn_dropintake;
     private javax.swing.JLabel btn_home;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JComboBox<String> selectStudentsDb;

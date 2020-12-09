@@ -6,9 +6,20 @@
 package com.bwea.attendancesystem;
 
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 
@@ -31,7 +42,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
     private void DisplayTableDailyAtt(){
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM attendance WHERE YEAR(Datein) = YEAR(CURRENT_DATE()) AND MONTH(Datein) = MONTH(CURRENT_DATE()) AND DATE(Datein) = CURDATE()"); //student table doesn't contain any datetime col so i took the attendance table  
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM attendance WHERE YEAR(Datein) = YEAR(CURRENT_DATE()) AND MONTH(Datein) = MONTH(CURRENT_DATE()) AND DATE(Datein) = CURDATE()"); 
             ResultSet rs = ps.executeQuery();
             if(rs==null){
             JOptionPane.showMessageDialog(null,"No Students have checked in yet!");
@@ -57,6 +68,25 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Table Does Not Exist In Database");
                     e.printStackTrace();
             }
+    }
+    
+    private void writeHeaderLine(XSSFSheet sheet) {
+ 
+        Row headerRow = sheet.createRow(0);
+ 
+        Cell headerCell = headerRow.createCell(0);
+        headerCell.setCellValue("Registration Number");
+ 
+        headerCell = headerRow.createCell(1);
+        headerCell.setCellValue("Name");
+ 
+        headerCell = headerRow.createCell(2);
+        headerCell.setCellValue("Date Checked In");
+ 
+        headerCell = headerRow.createCell(3);
+        headerCell.setCellValue("Time Checked In");
+ 
+       
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -89,6 +119,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         jLabelClose.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabelClose.setForeground(new java.awt.Color(255, 255, 255));
         jLabelClose.setText("X");
+        jLabelClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelCloseMouseClicked(evt);
@@ -98,6 +129,7 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         jLabelMin.setFont(new java.awt.Font("Product Sans", 1, 24)); // NOI18N
         jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMin.setText("-");
+        jLabelMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelMin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelMinMouseClicked(evt);
@@ -167,6 +199,11 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         btn_dailyReport.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_dailyReport.setText("Print Report");
         btn_dailyReport.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_dailyReport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_dailyReportMouseClicked(evt);
+            }
+        });
 
         btn_generateGraphDaily.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_generateGraphDaily.setText("Generate Graph");
@@ -327,6 +364,67 @@ public class CourseAttendanceDaily extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_btn_generateGraphDailyMouseClicked
+
+    private void btn_dailyReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dailyReportMouseClicked
+        // TODO add your handling code here:
+         int rowCount = 1;
+        try{
+             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd");  
+             LocalDateTime now = LocalDateTime.now();  
+             
+            String excelFilePath = ""+dtf.format(now)+"-AttendanceDaily.xlsx";
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+            PreparedStatement ps1 = con.prepareStatement("SELECT * FROM attendance WHERE YEAR(Datein) = YEAR(CURRENT_DATE()) "
+                    + "AND MONTH(Datein) = MONTH(CURRENT_DATE()) AND DATE(Datein) = CURDATE()");  
+            ResultSet rs1 = ps1.executeQuery();
+             XSSFWorkbook workbook = new XSSFWorkbook();
+             XSSFSheet sheet = workbook.createSheet("Att");
+             
+             if(rs1==null){
+            JOptionPane.showMessageDialog(null,"No Students have checked in yet!");
+            }
+            while(rs1.next()){
+                writeHeaderLine(sheet);
+                    String Regnumber = rs1.getString("Registration No");
+                    String Name = rs1.getString("Name");
+                    Date d = rs1.getDate("Datein");
+                    String datein=d.toString();
+                    String Intime = rs1.getString("Intime");
+                    
+                    Row row = sheet.createRow(rowCount++);
+ 
+                    int columnCount = 0;
+                    Cell cell = row.createCell(columnCount++);
+                    cell.setCellValue(Regnumber);
+
+                    cell = row.createCell(columnCount++);
+                    cell.setCellValue(Name);
+ 
+                    cell = row.createCell(columnCount++);
+
+                    cell.setCellValue(datein);
+ 
+                    cell = row.createCell(columnCount++);
+            
+                    cell.setCellValue(Intime);
+            
+            
+            }
+             FileOutputStream outputStream = new FileOutputStream(excelFilePath);
+            workbook.write(outputStream);
+            workbook.close();
+            JOptionPane.showMessageDialog(null,"successfully Exported Daily Attendance Data!");
+           
+        }
+        catch(SQLException e){
+        System.out.println(e);
+        } catch (FileNotFoundException ex) {
+             Logger.getLogger(CourseAttendanceDaily.class.getName()).log(Level.SEVERE, null, ex);
+         } catch (IOException ex) {
+             Logger.getLogger(CourseAttendanceDaily.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        
+    }//GEN-LAST:event_btn_dailyReportMouseClicked
 
     /**
      * @param args the command line arguments

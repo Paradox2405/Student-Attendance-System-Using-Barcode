@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -25,6 +27,119 @@ public class BarcodeScanner extends javax.swing.JFrame {
         
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         txt_barcode.requestFocus();
+        txt_barcode.getDocument().addDocumentListener(new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+              barcode(e);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                barcode(e);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+             barcode(e);
+            }
+            public void barcode(DocumentEvent e){
+                
+                 Runnable doBarcode = new Runnable(){
+                     public void run(){
+              
+                if(e.getDocument().getLength()==13){
+                  String barcode =txt_barcode.getText();
+                    
+                   try{       
+                    int bar = Integer.parseInt(barcode);
+                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:8111/bwea","root","root");
+                    PreparedStatement ps = con.prepareStatement("SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Two Month Diploma in English` WHERE Barcode='"+bar+"'"
+                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Two Month Advance Certificate - English` WHERE Barcode='"+bar+"'"
+                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Two Month Certificate - English` WHERE Barcode='"+bar+"'" 
+                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Three Month Diploma - English` WHERE Barcode='"+bar+"'" 
+                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `English + IT` WHERE Barcode='"+bar+"'"
+                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `TOIC` WHERE Barcode='"+bar+"'"
+                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `IELTS` WHERE Barcode='"+bar+"'"
+                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Weekend English` WHERE Barcode='"+bar+"'"
+                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Night - English` WHERE Barcode='"+bar+"'"
+                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `KIDS` WHERE Barcode='"+bar+"'"
+                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Foundation in ICT` WHERE Barcode='"+bar+"'"
+                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Diploma in Information Technology` WHERE Barcode='"+bar+"'"
+                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Diploma in Software Engineering` WHERE Barcode='"+bar+"'"
+                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Diploma in Web Designing` WHERE Barcode='"+bar+"'"
+                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Diploma in Graphic Designing` WHERE Barcode='"+bar+"'"
+                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Foundation in Arduino Programming` WHERE Barcode='"+bar+"'"
+                    + "UNION ALL SELECT `Name`,`Registration No`,`Course`,`Due` FROM `Diploma in Android Application Development` WHERE Barcode='"+bar+"'");                          
+            ResultSet rs=ps.executeQuery();
+
+            if (rs.next() == false) {
+                txt_barcode.setText(null);
+                notexist();
+            }
+            else{
+                String timeStamp = new SimpleDateFormat("HH.mm").format(new Timestamp(System.currentTimeMillis()));
+                String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(new Timestamp(System.currentTimeMillis()));
+                txt_name.setText(rs.getString("Name"));
+                txt_course.setText(rs.getString("Course"));
+                txt_regno.setText(rs.getString("Registration No"));
+                txt_intime.setText(timeStamp);
+                txt_datein.setText(dateStamp);
+                txt_dues.setText(rs.getString("Due"));
+                
+                 //JOptionPane.showMessageDialog(null,"You have a Over Due of"+txt_dues.getText());  
+            
+
+                try{
+                    String Reg = txt_regno.getText();
+                    String Name = txt_name.getText();
+                    PreparedStatement ps0 = con.prepareStatement("SELECT *"
+                            + " FROM attendance WHERE `Registration No` in ('"+Reg+"') and DATE(Datein) = CURDATE()");
+                    ResultSet results=ps0.executeQuery();
+                    if(results.next()){
+
+                           alreadyin();  
+                           clearrows();
+        
+                    }
+                    else{
+                        overdue();
+                        PreparedStatement ps1 = con.prepareStatement("INSERT INTO attendance (`Registration No`,Name,Datein,Intime)"+" VALUES (?,?,?,?)");
+
+                        ps1.setString(1, Reg);
+                        ps1.setString(2, Name);
+                        ps1.setString(3, dateStamp);
+                        ps1.setString(4, timeStamp);
+                        ps1.execute();
+                        txt_barcode.setText(null);
+                    }
+                }
+                catch(SQLException x){
+                JOptionPane.showMessageDialog(null, x);
+                }
+            }
+           }           
+            catch(SQLException x)
+            {
+            System.out.println(x);
+            } 
+         
+                    
+                    
+                    
+                    
+                    
+                    
+                }
+                 }
+            };
+                 SwingUtilities.invokeLater(doBarcode);
+            
+            }
+        
+        });
+        
+   
+        
     }
     
     private static final int TIME_VISIBLE = 3000;
@@ -116,6 +231,7 @@ public class BarcodeScanner extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
         jPanel1_bg = new javax.swing.JPanel();
         jPanel1_topbar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -140,6 +256,17 @@ public class BarcodeScanner extends javax.swing.JFrame {
         txt_barcode = new javax.swing.JTextField();
         btn_enter = new javax.swing.JButton();
         btn_registerbarcodes = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -383,7 +510,7 @@ public class BarcodeScanner extends javax.swing.JFrame {
                         .addGroup(jPanel1_bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
                             .addComponent(txt_dues, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 244, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1_bgLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -556,6 +683,7 @@ public class BarcodeScanner extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1_bg;
     private javax.swing.JPanel jPanel1_topbar;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txt_barcode;
     private javax.swing.JLabel txt_course;
     private javax.swing.JLabel txt_datein;
