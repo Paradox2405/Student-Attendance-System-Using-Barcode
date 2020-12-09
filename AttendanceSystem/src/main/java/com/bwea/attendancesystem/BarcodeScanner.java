@@ -5,6 +5,7 @@
  */
 package com.bwea.attendancesystem;
 
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -150,6 +151,10 @@ public class BarcodeScanner extends javax.swing.JFrame {
     private void overdue(){
         if(!txt_dues.getText().equals("0")){
             
+            final Runnable runnable =
+         (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
+           if (runnable != null) runnable.run();
+            
             JOptionPane pane = new JOptionPane("You have a Over Due of  "+txt_dues.getText(), JOptionPane.INFORMATION_MESSAGE);
             JDialog dialog = pane.createDialog(null, "");
             dialog.setModal(false);
@@ -198,6 +203,10 @@ public class BarcodeScanner extends javax.swing.JFrame {
     }
     
       private void alreadyin(){
+          
+                  final Runnable runnable =
+                 (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
+                 if (runnable != null) runnable.run();
     
                 JOptionPane pane = new JOptionPane("You have already checked in!", JOptionPane.INFORMATION_MESSAGE);
                 JDialog dialog = pane.createDialog(null, "");
