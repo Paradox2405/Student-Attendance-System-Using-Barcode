@@ -5,7 +5,9 @@
  */
 package com.bwea.attendancesystem;
 
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,6 +17,8 @@ import javax.swing.JFrame;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
@@ -32,6 +36,7 @@ public class ChartAttendanceDaily extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
+        
   
     // Create dataset  
     DefaultCategoryDataset dataset = createDataset();  
@@ -42,6 +47,20 @@ public class ChartAttendanceDaily extends javax.swing.JFrame {
         "Number of Students", // Y-Axis Label  
         dataset  
         );  
+    //chart decoration
+        CategoryPlot plot = chart.getCategoryPlot();
+        LineAndShapeRenderer renderer = new LineAndShapeRenderer();
+        renderer.setSeriesPaint(0, Color.ORANGE);
+        renderer.setSeriesStroke(0, new BasicStroke(3.0f));
+        plot.setBackgroundPaint(Color.DARK_GRAY);
+        plot.setRangeGridlinesVisible(true);
+        plot.setRangeGridlinePaint(Color.white);
+        plot.setDomainGridlinesVisible(true);
+        plot.setDomainGridlinePaint(Color.white);
+        
+        plot.setRenderer(renderer);
+
+        
   
     ChartPanel panel = new ChartPanel(chart);  
      panel.setMouseWheelEnabled(true);
