@@ -6,13 +6,14 @@
 <JVMSearchPath>jdkpath</JVMSearchPath>
 <JVMSearchPath>exepath</JVMSearchPath>
 <JVMSearchPath>jview</JVMSearchPath>
-<classPath>E:\Random\BritishWay\Student-Attendance-System-Using-Barcode\AttendanceSystem\target\AttendanceSystem-1.0.jar</classPath>
+<arguments></arguments>
+<classPath>target\AttendanceSystem-1.0.jar</classPath>
 <currentDirectory>..\Documents</currentDirectory>
 <embeddedJar>true</embeddedJar>
 <executableName>Bwea-Attendance-Application.exe</executableName>
-<iconLocation>E:\Downloads\184.png</iconLocation>
+<iconLocation>..\..\..\..\Downloads\184.png</iconLocation>
 <initialMemoryHeap>134217728</initialMemoryHeap>
-<jarLocation>E:\Random\BritishWay\Student-Attendance-System-Using-Barcode\AttendanceSystem\target\AttendanceSystem-1.0-jar-with-dependencies.jar</jarLocation>
+<jarLocation>target\AttendanceSystem-1.0-jar-with-dependencies.jar</jarLocation>
 <mainClassName>com.bwea.attendancesystem.Login</mainClassName>
 <maximumMemoryHeap>2146435072</maximumMemoryHeap>
 <maximumVersion></maximumVersion>
