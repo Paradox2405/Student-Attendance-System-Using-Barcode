@@ -233,7 +233,7 @@ public class Login extends javax.swing.JFrame {
             }           
         catch(SQLException e)
             {
-            JOptionPane.showMessageDialog(null,e);
+            JOptionPane.showMessageDialog(null,"MYSQL Server Not Running");
             }
     }//GEN-LAST:event_btn_loginMouseClicked
 

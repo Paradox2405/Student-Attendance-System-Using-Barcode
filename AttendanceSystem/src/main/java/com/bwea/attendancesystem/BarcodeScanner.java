@@ -547,6 +547,9 @@ public class BarcodeScanner extends javax.swing.JFrame {
     private void btn_homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMouseClicked
         HomeScreen hs = new HomeScreen();
         hs.setVisible(true);
+        hs.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        hs.setLocationRelativeTo(null);
+        hs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_btn_homeMouseClicked
 

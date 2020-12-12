@@ -46,6 +46,9 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
     public void GoHomeScreen(){
         HomeScreen hs = new HomeScreen();
         hs.setVisible(true);
+        hs.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        hs.setLocationRelativeTo(null);
+        hs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }
     /**
