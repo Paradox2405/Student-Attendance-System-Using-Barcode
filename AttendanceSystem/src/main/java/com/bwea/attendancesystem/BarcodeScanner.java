@@ -189,6 +189,10 @@ public class BarcodeScanner extends javax.swing.JFrame {
     
     private void notexist(){
     
+              final Runnable runnable =
+                 (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
+                 if (runnable != null) runnable.run();
+    
                 JOptionPane pane = new JOptionPane("Barcode Does Not Exist", JOptionPane.INFORMATION_MESSAGE);
                 JDialog dialog = pane.createDialog(null, "");
                 dialog.setModal(false);
