@@ -5,8 +5,6 @@
  */
 package com.bwea.attendancesystem;
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 import java.sql.*;
 
@@ -66,6 +64,7 @@ public class Login extends javax.swing.JFrame {
         jLabelClose.setFont(new java.awt.Font("Product Sans", 1, 18)); // NOI18N
         jLabelClose.setForeground(new java.awt.Color(255, 255, 255));
         jLabelClose.setText("X");
+        jLabelClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelCloseMouseClicked(evt);
@@ -75,6 +74,7 @@ public class Login extends javax.swing.JFrame {
         jLabelMin.setFont(new java.awt.Font("Product Sans", 1, 24)); // NOI18N
         jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMin.setText("-");
+        jLabelMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelMin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelMinMouseClicked(evt);
@@ -233,6 +233,7 @@ public class Login extends javax.swing.JFrame {
             }           
         catch(SQLException e)
             {
+                System.out.println(e);
             JOptionPane.showMessageDialog(null,"MYSQL Server Not Running");
             }
     }//GEN-LAST:event_btn_loginMouseClicked
